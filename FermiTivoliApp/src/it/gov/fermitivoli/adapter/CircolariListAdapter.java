@@ -138,7 +138,7 @@ public class CircolariListAdapter extends BaseAdapter {
             tvTitle.setText(c.getNumero() + " - " + c.getTitolo());
         } else {
             tvTitle.setTypeface(Typeface.DEFAULT_BOLD);
-            tvTitle.setText(c.getNumero() + " - " + c.getTitolo()+" (da leggere)");
+            tvTitle.setText("(*) "+c.getNumero() + " - " + c.getTitolo()+"");
         }
 
         return listItem;
