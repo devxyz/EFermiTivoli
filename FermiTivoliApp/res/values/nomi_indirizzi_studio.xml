@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="indirizzi_studio_SIA_nome">
+        Sistemi informativi aziendali
+    </string>
+    <string name="indirizzi_studio_GEOM_nome">
+        Costruzioni, Ambiente e Territorio
+    </string>
+    <string name="indirizzi_studio_AFM_nome">
+        Amministrazione finanza e marketing
+    </string>
+
+    <string name="indirizzi_studio_GRAFICA_nome">
+        Grafica e Comunicazione
+    </string>
+
+
+
+</resources>

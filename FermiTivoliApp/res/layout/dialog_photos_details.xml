@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/dialog_backgroud_content" >
+
+    <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Title"
+            android:id="@+id/textViewTitle"
+            android:textStyle="bold" android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:layout_alignParentTop="true"
+            android:background="@color/color_blue_scurissimo"
+            android:gravity="center_vertical|center_horizontal"
+            android:layout_alignParentLeft="true" android:layout_alignParentStart="true" android:height="50dp"
+            android:layout_toLeftOf="@+id/buttonChiud" android:layout_toStartOf="@+id/buttonChiud"
+            android:textColor="@color/color_white" android:layout_alignBottom="@+id/buttonChiud"/>
+    <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="Descrizione"
+            android:textColor="@color/dialog_foreground_content"
+            android:id="@+id/textViewDescrizione" android:paddingTop="5dp" android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:layout_below="@+id/scrollView" android:layout_alignRight="@+id/buttonChiud"
+            android:layout_alignEnd="@+id/buttonChiud"/>
+    <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/scrollView"
+            android:paddingBottom="10dp" android:layout_below="@+id/buttonChiud"
+            android:fillViewport="false">
+        <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent">
+            <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/image"
+                    android:src="@drawable/stub" android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:layout_below="@+id/scrollView" android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"/>
+        </LinearLayout>
+    </ScrollView>
+    <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="X"
+            android:id="@+id/buttonChiud"
+            android:layout_gravity="right"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" android:src="@drawable/close_48x48_white"
+            android:background="@color/color_blue_scurissimo" android:layout_alignParentTop="true"
+            android:padding="5dp"/>
+</RelativeLayout>

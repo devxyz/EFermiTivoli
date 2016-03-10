@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" android:background="#6bc4c4c4" >
+
+
+    <AutoCompleteTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:inputType="textFilter|textNoSuggestions"
+            android:id="@+id/autoCompleteTextView"
+            android:layout_below="@+id/textView4" android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" android:layout_marginLeft="5dp" android:layout_marginRight="5dp"
+            android:layout_marginTop="10dp"/>
+    <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Localita&apos; di residenza"
+            android:id="@+id/textView4" android:layout_alignParentTop="false" android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="5dp" android:gravity="center_horizontal"/>
+
+        <Button android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Autobus verso scuola"
+            android:id="@+id/buttonOrariScuola"
+            android:height="60dp"
+            android:layout_toRightOf="@+id/imgbuttonOrariCasa"
+            android:layout_alignParentRight="true" android:layout_alignParentEnd="true"
+            android:layout_alignBottom="@+id/imgbuttonOrariScuola" android:layout_alignTop="@+id/imgbuttonOrariScuola"
+            android:layout_marginLeft="20dp" android:layout_marginRight="10dp"
+                android:background="@color/color_blue_scuro" android:textColor="@color/color_white"/>
+    <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Autobus verso casa"
+            android:id="@+id/buttonOrariCasa"
+
+            android:height="60dp"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_toRightOf="@+id/imgbuttonOrariCasa" android:layout_toEndOf="@+id/imgbuttonOrariCasa"
+            android:layout_alignBottom="@+id/imgbuttonOrariCasa" android:layout_marginLeft="20dp"
+            android:layout_marginRight="10dp" android:layout_alignTop="@+id/imgbuttonOrariCasa"
+            android:background="@color/color_blue_scuro" android:textColor="@color/color_white"/>
+    <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cerca percorso"
+            android:id="@+id/buttonPercorso"
+            android:width="300dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="44dp"
+            android:background="@color/color_blue_scuro" android:textColor="@color/color_white"
+            android:layout_alignLeft="@+id/buttonOrariScuola" android:layout_alignStart="@+id/buttonOrariScuola"
+            android:layout_alignRight="@+id/buttonOrariScuola" android:layout_alignEnd="@+id/buttonOrariScuola"/>
+    <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/imgbuttonOrariCasa" android:layout_below="@+id/autoCompleteTextView"
+            android:layout_alignParentLeft="true" android:layout_alignParentStart="true"
+            android:src="@drawable/ic_home" android:background="@color/color_transparent"
+            android:layout_marginLeft="10dp" android:layout_marginTop="60dp"/>
+    <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/imgbuttonOrariScuola" android:layout_below="@+id/buttonOrariCasa"
+            android:layout_alignParentLeft="true" android:layout_alignParentStart="true"
+            android:src="@drawable/student_boy_icon" android:layout_marginTop="40dp"
+            android:background="@color/color_transparent" android:layout_marginLeft="10dp"/>
+    <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/imgbuttonPercorso"
+            android:src="@drawable/ico_small_bus_48x48"
+            android:background="@color/color_transparent"
+            android:layout_alignTop="@+id/buttonPercorso" android:layout_alignLeft="@+id/imgbuttonOrariScuola"
+            android:layout_alignStart="@+id/imgbuttonOrariScuola"/>
+</RelativeLayout>

@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <group android:id="@+id/group">
+
+        <item
+                android:id="@+id/action_help"
+                android:orderInCategory="100"
+                android:showAsAction="never"
+                android:icon="@drawable/arrow_next"
+                android:title="Help"/>
+
+
+
+        <item
+                android:id="@+id/action_usertype"
+                android:orderInCategory="100"
+                android:showAsAction="never"
+                android:icon="@drawable/arrow_next"
+                android:title="Cambia tipo di profilo"/>
+
+        <item
+                android:id="@+id/action_menu"
+                android:orderInCategory="100"
+                android:showAsAction="never"
+                android:icon="@drawable/arrow_next"
+                android:title="Visualizza il menu"/>
+
+        <item
+                android:id="@+id/action_informazioni"
+                android:orderInCategory="100"
+                android:showAsAction="never"
+                android:icon="@drawable/arrow_next"
+                android:title="Informazioni"/>
+
+        <item
+                android:visible="false"
+                  android:id="@+id/action_test_speech"
+                android:orderInCategory="100"
+                android:showAsAction="never"
+                android:icon="@drawable/arrow_next"
+                android:title="Test Speech"/>
+
+        <item android:id="@+id/sub_menu_cache"
+              android:orderInCategory="100"
+              android:showAsAction="never"
+              android:icon="@drawable/arrow_next"
+
+              android:visible="false"
+              android:title="Opzioni avanzate>">
+
+            <menu>
+                <item
+                        android:id="@+id/action_reset"
+                        android:orderInCategory="100"
+                        android:showAsAction="never"
+
+                        android:title="Reset applicazione"/>
+
+                <item
+                        android:id="@+id/action_utilizzo_cache"
+                        android:orderInCategory="100"
+                        android:showAsAction="never"
+                        android:title="Statistiche file temporanei"/>
+
+                <item
+                        android:id="@+id/action_elenco_cache"
+                        android:orderInCategory="100"
+                        android:showAsAction="never"
+                        android:title="Elenco file temporanei"/>
+
+                <item
+                        android:id="@+id/action_cancella_cache"
+                        android:orderInCategory="100"
+                        android:showAsAction="never"
+                        android:title="Cancella file temporanei"/>
+
+            </menu>
+            <item
+                    android:id="@+id/action_esci"
+                    android:orderInCategory="100"
+                    android:showAsAction="never"
+                    android:icon="@drawable/arrow_next"
+                    android:title="Chiudi"/>
+
+
+        </item>
+    </group>
+
+
+</menu>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- per ogni menu, l'icona -->
+    <array name="menu_home_docente">
+        <item>2</item>
+        <item>News</item>
+        <item>Ultime Notizie dalla scuola</item>
+        <item>it.gov.fermitivoli.fragment.NewsFragmentRss</item>
+        <item>@drawable/id_tab_news</item>
+        <item></item>
+        <item>END-ITEM</item>
+
+        <item>3</item>
+        <item>Circolari</item>
+        <item>Circolari scolastiche</item>
+        <item>it.gov.fermitivoli.fragment.CircolariSearchFragment</item>
+        <item>@drawable/file_search</item>
+        <item></item>
+        <item>END-ITEM</item>
+
+        <item>4</item>
+        <item>Circolari di Oggi</item>
+        <item>Circolari del Giorno</item>
+        <item>it.gov.fermitivoli.fragment.CircolariGiornaliereFragment</item>
+        <item>@drawable/calendar_preferences_50x50</item>
+        <item></item>
+        <item>END-ITEM</item>
+
+
+        <item>532</item>
+        <item>Orario Scolastico</item>
+        <item>Orario Scolastico</item>
+        <item>it.gov.fermitivoli.action.OrarioScolasticoAction</item>
+        <item>@drawable/orario_scolastico</item>
+        <item></item>
+        <item>END-ITEM</item>
+
+
+        <!--  xxxxxxxxxxxxxxxxxxxxxxxxx     xxxxxxxxxxxxxxxxxxxxxxxxx -->
+        <!--  xxxxxxxxxxxxxxxxxxxxxxxxx     xxxxxxxxxxxxxxxxxxxxxxxxx -->
+        <item>201</item>
+        <item>Registro Docenti</item>
+        <item>Registro elettronico docenti</item>
+        <item>it.gov.fermitivoli.action.ReDocentiAction</item>
+        <item>@drawable/logo_re_docente</item>
+        <item></item>
+        <item>END-ITEM</item>
+
+        <item>102</item>
+        <item>Libri di testo</item>
+        <item>Libri di testo</item>
+        <item>it.gov.fermitivoli.action.LibriTestoAction</item>
+        <item>@drawable/library_icon</item>
+        <item></item>
+        <item>END-ITEM</item>
+
+    </array>
+
+</resources>

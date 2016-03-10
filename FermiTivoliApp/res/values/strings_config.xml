@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+    <string name="email_scuola">rmtd07000g@istruzione.it</string>
+    <string name="tel_scuola">06121126985</string>
+    <string name="nome_scuola">ITCG "Enrico Fermi" Tivoli (RM)</string>
+    <string name="sito_web_scuola">http://www.fermitivoli.gov.it</string>
+    <string name="contatto_scuola">
+        #I#Via Acquaregna, 112 - 00019 Tivoli (RM).#I#\n
+        \n
+        Distretto scolastico 34\n
+        Tel. #T#06121126985#T# - #T#06121126986#T#\n
+        Fax. #T#0774334373#T#\n
+        email: #E#rmtd07000g@istruzione.it#E#\n
+        CF. 86000020585</string>
+
+    <string name="contatto_scuola_plain">
+        Via Acquaregna, 112 - 00019 Tivoli (RM).\n
+        \n
+        Distretto scolastico 34\n
+        Tel. 06121126985 - 06121126986\n
+        Fax. 0774334373\n
+        email: rmtd07000g@istruzione.it\n
+        CF. 86000020585</string>
+
+    <string name="intent_maps">geo:41.956178,12.806626?q=41.956178,12.806626(I.T.C.G. E.Fermi)</string>
+
+    <!--<string name="url_rss_notizie">http://xml.corriereobjects.it/rss/sport.xml</string>-->
+    <string name="url_libri_testo">http://consultazione.adozioniaie.it/MappaClassi.cgi?ID0=RMTD07000G</string>
+    <string name="url_iscrizioni">http://www.istruzione.it/iscrizionionline/</string>
+    <string name="url_orario_scolastico">http://www.zonabit.it/orario/default.asp?sc=RS96</string>
+
+    <string name="url_trenitalia_mobile">https://www.lefrecce.it/msite/</string>
+    <string name="url_cotral_homepage">http://www.cotralspa.it/</string>
+    <string name="url_cotral_form_ricerca_orari">http://www.cotralspa.it/Orari.aspx</string>
+    <string name="url_cotral_orari_per_tratta">http://www.cotralspa.it/Orari_risultati.aspx?partenza=XXXX&amp;arrivo=YYYY&amp;start=AAAAMMGG&amp;end=AAAAMMGG</string>
+    <string name="url_cotral_fermate_comune">http://www.cotralspa.it/TrovaFermata.aspx?palinaKey=XXXX&amp;cmd=6</string>
+
+
+    <string name="url_rss_notizie">http://www.fermitivoli.gov.it/joomla/index.php?format=feed&amp;type=rss</string>
+    <string name="url_circolari">http://www.fermitivoli.gov.it/joomla/Circolari_2015.php</string>
+    <string name="url_circolari_joomla">http://www.fermitivoli.gov.it/joomla/index.php?option=com_content&amp;view=article&amp;id=73&amp;Itemid=215</string>
+
+    <string name="url_circolari_json">http://efermi-tivoli.appspot.com//JSonCircolariServlet</string>
+    <!--<string name="url_circolari_json">http://stefanomillozzi.altervista.org/circolari.dto.zip</string>-->
+
+
+    <string name="prefix_url_circolari">http://www.fermitivoli.gov.it</string>
+    <string name="url_re_docenti">https://www.sissiweb.it/Secret/REStart.aspx?Customer_ID=86000020585</string>
+    <string name="url_re_studenti">https://www.sissiweb.it/Secret/REStart.aspx?Customer_ID=86000020585</string>
+
+
+    <!--Tempo in secondi di scadenza della cache-->
+    <integer name="cache_seconds">300</integer>
+
+
+
+</resources>

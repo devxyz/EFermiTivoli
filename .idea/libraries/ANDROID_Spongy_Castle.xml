@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="ANDROID-Spongy Castle">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/FermiTivoliApp/libs/pg-1.51.0.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/FermiTivoliApp/libs/pkix-1.51.0.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/FermiTivoliApp/libs/prov-1.51.0.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/FermiTivoliApp/libs/core-1.51.0.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

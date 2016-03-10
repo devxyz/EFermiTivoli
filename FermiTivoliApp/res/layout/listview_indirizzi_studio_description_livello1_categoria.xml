@@ -1,0 +1,17 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+        >
+
+    <TextView
+            android:id="@+id/title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:text="Indirizzo di studio"
+            android:textStyle="bold" android:layout_alignParentTop="true" android:layout_alignParentBottom="false"
+            android:padding="5dp" android:textAppearance="?android:attr/textAppearanceLarge"/>
+
+</RelativeLayout>

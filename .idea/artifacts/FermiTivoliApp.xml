@@ -1,0 +1,22 @@
+<component name="ArtifactManager">
+  <artifact type="apk" name="FermiTivoliApp">
+    <output-path>$PROJECT_DIR$/out/artifacts/FermiTivoliApp</output-path>
+    <properties id="android-properties">
+      <options>
+        <option name="keyAlias" value="fermi-tivoli" />
+        <option name="keyPassword" value="c3RlZmFubzEyMw==" />
+        <option name="keyStorePassword" value="c3RlZmFubzEyMw==" />
+        <option name="keyStoreUrl" value="file://$USER_HOME$/fermi-tivoli.jks" />
+        <option name="proGuardCfgFiles">
+          <list>
+            <option value="file:///Library/Java/JavaVirtualMachines/jdk1.8.0_40.jdk/Contents/Home/tools/proguard/proguard-android.txt" />
+          </list>
+        </option>
+        <option name="signingMode" value="RELEASE_SIGNED" />
+      </options>
+    </properties>
+    <root id="archive" name="FermiTivoliApp.apk">
+      <element id="android-final-package" facet="FermiTivoliApp/android/Android" />
+    </root>
+  </artifact>
+</component>

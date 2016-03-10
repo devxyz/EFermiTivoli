@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+    <!--Categoria, leggenda, url-->
+    <string-array name="gallery_imageurl">
+        <item>Auditorium</item>
+        <item>Auditorium vista dall\'alto</item>
+        <item>http://www.fermitivoli.gov.it/joomla/images/strutture/Auditorium_1.jpg</item>
+
+        <item>Auditorium</item>
+        <item>Auditorium vista dal basso</item>
+        <item>http://www.fermitivoli.gov.it/joomla/images/strutture/Auditorium_2.jpg</item>
+
+        <item>Biblioteca</item>
+        <item>Biblioteca</item>
+        <item>http://www.fermitivoli.gov.it/joomla/images/strutture/Biblioteca_1.jpg</item>
+
+        <item>Biblioteca</item>
+        <item>Biblioteca</item>
+        <item>http://www.fermitivoli.gov.it/joomla/images/strutture/Biblioteca_2.jpg</item>
+
+        <item>Palestre</item>
+        <item>Campo Aperto</item>
+        <item>http://www.fermitivoli.gov.it/joomla/images/strutture/CampoAperto_1.jpg</item>
+
+        <item>Palestre</item>
+        <item>Campo Aperto</item>
+        <item>http://www.fermitivoli.gov.it/joomla/images/strutture/CampoAperto_2.jpg</item>
+
+        <item>Palestre</item>
+        <item>Palestra Ricci</item>
+        <item>http://www.fermitivoli.gov.it/joomla/images/strutture/PalestraRicci_1.jpg</item>
+
+        <item>Palestre</item>
+        <item>Palestra Ricci</item>
+        <item>http://www.fermitivoli.gov.it/joomla/images/strutture/PalestraRicci_2.jpg</item>
+
+        <item>Palestre</item>
+        <item>Palestra Ricci</item>
+        <item>http://www.fermitivoli.gov.it/joomla/images/strutture/PalestraRicci_3.jpg</item>
+
+        <item>Laboratorio Chimica</item>
+        <item>Laboratorio Chimica</item>
+        <item>http://www.fermitivoli.gov.it/joomla/images/strutture/LabChimica_1.jpg</item>
+
+        <item>Laboratorio Chimica</item>
+        <item>Laboratorio Chimica</item>
+        <item>http://www.fermitivoli.gov.it/joomla/images/strutture/LabChimica_2.jpg</item>
+
+        <item>Laboratorio Geometri</item>
+        <item>Laboratorio Geometri</item>
+        <item>http://www.fermitivoli.gov.it/joomla/images/strutture/Lab_Geometri2_1.jpg</item>
+
+        <item>Laboratorio Geometri</item>
+        <item>Laboratorio Geometri</item>
+        <item>http://www.fermitivoli.gov.it/joomla/images/strutture/Lab_Geometri_1.jpg</item>
+
+        <item>Laboratorio Geometri</item>
+        <item>Laboratorio Geometri</item>
+        <item>http://www.fermitivoli.gov.it/joomla/images/strutture/Lab_Geometri_2.jpg</item>
+
+
+        <item>Laboratori Informatica</item>
+        <item>Laboratorio Informatica - Babbage</item>
+        <item>http://www.fermitivoli.gov.it/joomla/images/strutture/Lab_Babbage_1.jpg</item>
+
+
+        <item>Laboratori Informatica</item>
+        <item>Laboratorio Informatica - Babbage</item>
+        <item>http://www.fermitivoli.gov.it/joomla/images/strutture/Lab_Babbage_2.jpg</item>
+
+
+        <item>Laboratori Informatica</item>
+        <item>Laboratorio Informatica - Babbage</item>
+        <item>http://www.fermitivoli.gov.it/joomla/images/strutture/Lab_Babbage_3.jpg</item>
+
+
+        <item>Laboratori Trattamento Testi</item>
+        <item>Laboratorio Trattamento Testi - Curtis</item>
+        <item>http://www.fermitivoli.gov.it/joomla/images/strutture/Lab_Curtius_2.jpg</item>
+
+        <item>Laboratori Informatica</item>
+        <item>Laboratorio Informatica - Pascal</item>
+        <item>http://www.fermitivoli.gov.it/joomla/images/strutture/Lab_Pascal_1.jpg</item>
+
+        <item>Laboratori Informatica</item>
+        <item>Laboratorio Informatica - Pascal</item>
+        <item>http://www.fermitivoli.gov.it/joomla/images/strutture/Lab_Pascal_2.jpg</item>
+
+        <item>Laboratori Informatica</item>
+        <item>Laboratorio Informatica - Pascal</item>
+        <item>http://www.fermitivoli.gov.it/joomla/images/strutture/Lab_Pascal_3.jpg</item>
+
+        <item>Laboratorio Lingue</item>
+        <item>Laboratorio Lingue - Praz</item>
+        <item>http://www.fermitivoli.gov.it/joomla/images/strutture/Lab_Praz_2.jpg</item>
+
+        <item>Laboratori Informatica</item>
+        <item>Laboratorio Informatica - Turing</item>
+        <item>http://www.fermitivoli.gov.it/joomla/images/strutture/Lab_Turing_1.jpg</item>
+
+        <item>Laboratori Informatica</item>
+        <item>Laboratorio Informatica - Turing</item>
+        <item>http://www.fermitivoli.gov.it/joomla/images/strutture/Lab_Turing_2.jpg</item>
+
+        <item>Laboratori Informatica</item>
+        <item>Laboratorio Informatica - Von Neumann</item>
+        <item>http://www.fermitivoli.gov.it/joomla/images/strutture/Lab_VonNeumann_1.jpg</item>
+
+        <item>Laboratori Informatica</item>
+        <item>Laboratorio Informatica - Von Neumann</item>
+        <item>http://www.fermitivoli.gov.it/joomla/images/strutture/Lab_VonNeumann_2.jpg</item>
+
+        <item>Laboratori Informatica</item>
+        <item>Laboratorio Informatica - Von Neumann</item>
+        <item>http://www.fermitivoli.gov.it/joomla/images/strutture/Lab_VonNeumann_3.jpg</item>
+
+        <item>Museo delle Scienze</item>
+        <item>Museo delle Scienze</item>
+        <item>http://www.fermitivoli.gov.it/joomla/images/strutture/MuseoScienze_1.jpg</item>
+
+        <item>Museo delle Scienze</item>
+        <item>Museo delle Scienze</item>
+        <item>http://www.fermitivoli.gov.it/joomla/images/strutture/MuseoScienze_2.jpg</item>
+
+        <item>Museo delle Scienze</item>
+        <item>Museo delle Scienze</item>
+        <item>http://www.fermitivoli.gov.it/joomla/images/strutture/MuseoScienze_3.jpg</item>
+
+    </string-array>
+
+
+</resources>

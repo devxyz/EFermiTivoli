@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- per ogni menu, l'icona -->
+    <array name="menu_home_studente">
+        <item>2</item>
+        <item>News</item>
+        <item>Ultime Notizie dalla scuola</item>
+        <item>it.gov.fermitivoli.fragment.NewsFragmentRss</item>
+        <item>@drawable/id_tab_news</item>
+        <item></item>
+        <item>END-ITEM</item>
+
+        <item>6</item>
+        <item>Circolari</item>
+        <item>Circolari scolastiche</item>
+        <item>it.gov.fermitivoli.fragment.CircolariSearchFragment</item>
+        <item>@drawable/file_search</item>
+        <item></item>
+        <item>END-ITEM</item>
+
+        <!--  xxxxxxxxxxxxxxxxxxxxxxxxx     xxxxxxxxxxxxxxxxxxxxxxxxx -->
+        <!--  xxxxxxxxxxxxxxxxxxxxxxxxx     xxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+        <item>4</item>
+        <item>Orario Scolastico</item>
+        <item>Orario Scolastico</item>
+        <item>it.gov.fermitivoli.action.OrarioScolasticoAction</item>
+        <item>@drawable/orario_scolastico</item>
+        <item></item>
+        <item>END-ITEM</item>
+
+        <item>102</item>
+        <item>Libri di testo</item>
+        <item>Libri di testo</item>
+        <item>it.gov.fermitivoli.action.LibriTestoAction</item>
+        <item>@drawable/library_icon</item>
+        <item></item>
+        <item>END-ITEM</item>
+
+        <!--  xxxxxxxxxxxxxxxxxxxxxxxxx     xxxxxxxxxxxxxxxxxxxxxxxxx -->
+        <!--  xxxxxxxxxxxxxxxxxxxxxxxxx     xxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+        <item>103</item>
+        <item>Fermate e tragitti Autobus</item>
+        <item>Informazioni autobus Cotral</item>
+        <item>it.gov.fermitivoli.fragment.CotralFragment</item>
+        <item>@drawable/bus</item>
+        <item></item>
+        <item>END-ITEM</item>
+
+        <item>201</item>
+        <item>Orari Trenitalia</item>
+        <item>Orari Trenitalia</item>
+        <item>it.gov.fermitivoli.action.TrenitaliaAction</item>
+        <item>@drawable/train</item>
+        <item></item>
+        <item>END-ITEM</item>
+
+        <item>202</item>
+        <item>Orari Cotral</item>
+        <item>Orari Cotral</item>
+        <item>it.gov.fermitivoli.action.CotralAction</item>
+        <item>@drawable/bus</item>
+        <item></item>
+        <item>END-ITEM</item>
+
+    </array>
+
+</resources>

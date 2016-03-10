@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="menu_list_item_title">#fff</color>
+    <color name="menu_list_background">#303030</color>
+    <color name="menu_list_background_soft">#606060</color>
+    <color name="menu_list_background_pressed">#992416</color>
+    <!--<color name="list_background_pressed">#ff157fff</color>-->
+    <color name="menu_list_divider">#272727</color>
+    <color name="menu_counter_text_bg">#626262</color>
+    <color name="menu_counter_text_color">#c5c4c4</color>
+    <color name="home_fragment_bkcolor">#fffff370</color>
+
+    <color name="color_blue_scurissimo">#FF184680</color>
+    <color name="color_blue_scuro">#ff157fff</color>
+    <color name="color_blue">#ff157fff</color>
+    <color name="color_red">#ffff0000</color>
+    <color name="color_blue_chiaro">#ff72a7ff</color>
+    <color name="color_red_scuro">#992416</color>
+
+    <color name="color_action_bar">#ff157fff</color>
+    <color name="color_white">#ffffffff</color>
+    <color name="color_white_transparent">#D0ffffff</color>
+    <color name="color_transparent">#00000000</color>
+
+    <color name="dialog_backgroud_titlebar">#272727</color>
+    <color name="dialog_foreground_titlebar">#ffffffff</color>
+    <color name="dialog_backgroud_content">#ffffff</color>
+    <color name="dialog_foreground_content">#303030</color>
+
+    <color name="dark_background">#303030</color>
+    <color name="light_foreground">#f0f0f0</color>
+
+    <color name="default_activity_background">#ffffff</color>
+    <color name="colore_cerca_circolari">#ffe4cb81</color>
+
+
+</resources>

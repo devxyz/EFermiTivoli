@@ -1,0 +1,31 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingLeft="30dp">
+
+    <ImageView
+            android:id="@+id/thumb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/app_name" android:src="@drawable/icon_instagram"
+            android:layout_alignParentTop="true" android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:padding="5dp"/>
+
+    <TextView
+            android:id="@+id/title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:text="titolo"
+            android:layout_toRightOf="@+id/thumb"
+            android:layout_toEndOf="@+id/thumb"
+            android:layout_alignBottom="@+id/thumb"
+            android:gravity="center_vertical"
+            android:layout_alignParentTop="true"
+            android:paddingLeft="10dp"
+            android:textAppearance="?android:attr/textAppearanceMedium"/>
+
+</RelativeLayout>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Title"
+            android:id="@+id/textViewTitle"
+            android:textStyle="bold" android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:layout_alignParentTop="true" android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" android:layout_toLeftOf="@+id/buttonClose"
+            android:layout_toStartOf="@+id/buttonClose" android:layout_alignBottom="@+id/buttonClose"
+            android:gravity="center_vertical|center_horizontal"/>
+        <WebView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="Descrizione"
+                android:id="@+id/textViewDescrizione" android:paddingTop="10dp" android:paddingLeft="10dp"
+                android:paddingRight="10dp" android:layout_below="@+id/textViewTitle"
+                android:layout_alignParentLeft="true" android:layout_alignParentStart="true"
+                android:background="@color/dialog_backgroud_content" android:layout_above="@+id/linearLayout2"/>
+    <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/buttonClose"
+            android:src="@drawable/external_link_48x48"
+            android:background="@color/color_transparent"
+
+            android:layout_alignParentTop="true" android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"/>
+        <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:layout_alignParentBottom="true"
+                android:layout_alignParentLeft="true" android:layout_alignParentStart="true"
+                android:id="@+id/linearLayout2" android:gravity="center_vertical|center_horizontal"
+                >
+                <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="OK"
+                        android:id="@+id/buttonOK" android:textColor="@color/color_white" android:textStyle="bold"
+                        android:width="100dp"/>
+        </LinearLayout>
+        <ProgressBar
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/progressBar7"
+                android:layout_above="@+id/textViewDescrizione" android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true" android:layout_toLeftOf="@+id/buttonClose"
+                android:layout_toStartOf="@+id/buttonClose"/>
+</RelativeLayout>

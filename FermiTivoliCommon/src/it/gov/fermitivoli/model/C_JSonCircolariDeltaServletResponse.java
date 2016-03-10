@@ -1,0 +1,14 @@
+package it.gov.fermitivoli.model;
+
+import java.util.ArrayList;
+import java.util.TreeSet;
+
+/**
+ * Sdo delle circolari con informazioni su quelle nuove e vecchie in base a quanto risulta nel client
+ */
+public class C_JSonCircolariDeltaServletResponse {
+    public ArrayList<C_CircolareDto> circolariDaAggiungereAggiornare = new ArrayList<>();
+    public TreeSet<String> circolariDaRimuovere = new TreeSet<>();
+
+
+}

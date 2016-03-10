@@ -1,0 +1,1493 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- NOME#ID-->
+    <array name="cotral_map_comuni_id">
+        <item>Abbadia San Salvatore#22081002</item>
+        <item>Acquafondata#22035001</item>
+        <item>Acquapendente#22102001</item>
+        <item>Acuto#22035002</item>
+        <item>Affile#22079002</item>
+        <item>Agosta#22079003</item>
+        <item>Alatri#22035003</item>
+        <item>Albano Laziale#22079004</item>
+        <item>Allumiere#22079005</item>
+        <item>Alvito#22035004</item>
+        <item>Amaseno#22035005</item>
+        <item>Amatrice#22076003</item>
+        <item>Anagni#22035006</item>
+        <item>Anguillara Sabazia#22079007</item>
+        <item>Anticoli Corrado#22079008</item>
+        <item>Antrodoco#22076004</item>
+        <item>Anzio#22079009</item>
+        <item>Aprilia#22046003</item>
+        <item>Aquino#22035008</item>
+        <item>Arce#22035009</item>
+        <item>Arcinazzo Romano#22079011</item>
+        <item>Ardea#22079012</item>
+        <item>Ariccia#22079013</item>
+        <item>Arlena di Castro#22102002</item>
+        <item>Arnara#22035010</item>
+        <item>Arpino#22035011</item>
+        <item>Arsoli#22079015</item>
+        <item>Artena#22079016</item>
+        <item>Ascrea#22076006</item>
+        <item>Atina#22035012</item>
+        <item>Ausonia#22035013</item>
+        <item>Avezzano#22006017</item>
+        <item>Bagnoregio#22102004</item>
+        <item>Barbarano Romano#22102005</item>
+        <item>Bassano Romano#22102007</item>
+        <item>Bassano in Teverina#22102006</item>
+        <item>Bassiano#22046006</item>
+        <item>Bellegra#22079019</item>
+        <item>Belmonte Castello#22035014</item>
+        <item>Belmonte in Sabina#22076007</item>
+        <item>Blera#22102008</item>
+        <item>Bolsena#22102009</item>
+        <item>Bomarzo#22102010</item>
+        <item>Borbona#22076009</item>
+        <item>Borgo Velino#22076013</item>
+        <item>Borgorose#22076014</item>
+        <item>Boville Ernica#22035015</item>
+        <item>Bracciano#22079021</item>
+        <item>Broccostella#22035017</item>
+        <item>Calcata#22102012</item>
+        <item>Calvi dell\'Umbria#22092013</item>
+        <item>Camerata Nuova#22079022</item>
+        <item>Campagnano di Roma#22079023</item>
+        <item>Campodimele#22046025</item>
+        <item>Campoli Appennino#22035020</item>
+        <item>Canale Monterano#22079025</item>
+        <item>Canepina#22102013</item>
+        <item>Canino#22102014</item>
+        <item>Cantalice#22076018</item>
+        <item>Cantalupo in Sabina#22076019</item>
+        <item>Canterano#22079026</item>
+        <item>Capena#22079027</item>
+        <item>Capodimonte#22102015</item>
+        <item>Capranica#22102016</item>
+        <item>Capranica Prenestina#22079028</item>
+        <item>Caprarola#22102017</item>
+        <item>Carbognano#22102018</item>
+        <item>Carpineto Romano#22079029</item>
+        <item>Carsoli#22006047</item>
+        <item>Casalattico#22035024</item>
+        <item>Casalvieri#22035026</item>
+        <item>Casape#22079032</item>
+        <item>Casaprota#22076021</item>
+        <item>Cascia#22063041</item>
+        <item>Casperia#22076023</item>
+        <item>Cassino#22035029</item>
+        <item>Castel Gandolfo#22079034</item>
+        <item>Castel Giorgio#22092019</item>
+        <item>Castel Madama#22079036</item>
+        <item>Castel San Pietro Romano#22079037</item>
+        <item>Castel Sant\'Angelo#22076025</item>
+        <item>Castel Sant\'Elia#22102021</item>
+        <item>Castel Viscardo#22092020</item>
+        <item>Castel di Tora#22076024</item>
+        <item>Castelforte#22046030</item>
+        <item>Castelliri#22035030</item>
+        <item>Castelnuovo Parano#22035033</item>
+        <item>Castelnuovo di Farfa#22076028</item>
+        <item>Castelnuovo di Porto#22079040</item>
+        <item>Castiglione in Teverina#22102022</item>
+        <item>Castro dei Volsci#22035034</item>
+        <item>Castrocielo#22035035</item>
+        <item>Cave#22079042</item>
+        <item>Ceccano#22035036</item>
+        <item>Celleno#22102023</item>
+        <item>Cellere#22102024</item>
+        <item>Ceprano#22035037</item>
+        <item>Cerreto Laziale#22079046</item>
+        <item>Cervara di Roma#22079047</item>
+        <item>Cervaro#22035040</item>
+        <item>Cerveteri#22079048</item>
+        <item>Ciampino#22079051</item>
+        <item>Ciciliano#22079053</item>
+        <item>Cineto Romano#22079054</item>
+        <item>Cisterna di Latina#22046032</item>
+        <item>Cittaducale#22076030</item>
+        <item>Cittareale#22076031</item>
+        <item>Civita Castellana#22102027</item>
+        <item>Civitavecchia#22079055</item>
+        <item>Civitella San Paolo#22079057</item>
+        <item>Civitella d\'Agliano#22102030</item>
+        <item>Colfelice#22035042</item>
+        <item>Collalto Sabino#22076032</item>
+        <item>Colle San Magno#22035043</item>
+        <item>Colle di Tora#22076033</item>
+        <item>Colleferro#22079059</item>
+        <item>Collegiove#22076034</item>
+        <item>Collepardo#22035046</item>
+        <item>Collevecchio#22076038</item>
+        <item>Colli sul Velino#22076039</item>
+        <item>Colonna#22079062</item>
+        <item>Concerviano#22076041</item>
+        <item>Configni#22076042</item>
+        <item>Contigliano#22076043</item>
+        <item>Corchiano#22102031</item>
+        <item>Coreno Ausonio#22035048</item>
+        <item>Cori#22046034</item>
+        <item>Cottanello#22076046</item>
+        <item>Esperia#22035049</item>
+        <item>Fabrica di Roma#22102033</item>
+        <item>Faleria#22102034</item>
+        <item>Falvaterra#22035051</item>
+        <item>Fara in Sabina#22076047</item>
+        <item>Farnese#22102035</item>
+        <item>Ferentino#22035052</item>
+        <item>Fiamignano#22076051</item>
+        <item>Fiano Romano#22079067</item>
+        <item>Filacciano#22079068</item>
+        <item>Filettino#22035053</item>
+        <item>Fiuggi#22035054</item>
+        <item>Fiumicino#22079070</item>
+        <item>Fondi#22046038</item>
+        <item>Fontana Liri#22035056</item>
+        <item>Fonte Nuova#22079203</item>
+        <item>Fontechiari#22035058</item>
+        <item>Forano#22076055</item>
+        <item>Formello#22079073</item>
+        <item>Formia#22046039</item>
+        <item>Frascati#22079074</item>
+        <item>Frasso Sabino#22076056</item>
+        <item>Frosinone#22035059</item>
+        <item>Fumone#22035060</item>
+        <item>Gaeta#22046041</item>
+        <item>Gallese#22102037</item>
+        <item>Gallicano nel Lazio#22079078</item>
+        <item>Gallinaro#22035061</item>
+        <item>Gavignano#22079080</item>
+        <item>Genazzano#22079081</item>
+        <item>Genzano di Roma#22079082</item>
+        <item>Gerano#22079083</item>
+        <item>Giuliano di Roma#22035063</item>
+        <item>Gorga#22079084</item>
+        <item>Gradoli#22102040</item>
+        <item>Graffignano#22102041</item>
+        <item>Greccio#22076059</item>
+        <item>Grottaferrata#22079085</item>
+        <item>Grotte di Castro#22102042</item>
+        <item>Guarcino#22035064</item>
+        <item>Guidonia Montecelio#22079087</item>
+        <item>Ischia di Castro#22102044</item>
+        <item>Isola del Liri#22035065</item>
+        <item>Itri#22046044</item>
+        <item>Jenne#22079089</item>
+        <item>L\'Aquila#22006092</item>
+        <item>Labico#22079090</item>
+        <item>Labro#22076063</item>
+        <item>Ladispoli#22079091</item>
+        <item>Lanuvio#22079094</item>
+        <item>Lariano#22079095</item>
+        <item>Latera#22102048</item>
+        <item>Latina#22046047</item>
+        <item>Lenola#22046052</item>
+        <item>Leonessa#22076065</item>
+        <item>Licenza#22079097</item>
+        <item>Longone Sabino#22076067</item>
+        <item>Lubriano#22102051</item>
+        <item>Maenza#22046053</item>
+        <item>Magliano Romano#22079104</item>
+        <item>Magliano Sabina#22076068</item>
+        <item>Magliano de\' Marsi#22006096</item>
+        <item>Manciano#22038054</item>
+        <item>Mandela#22079106</item>
+        <item>Manziana#22079107</item>
+        <item>Marano Equo#22079108</item>
+        <item>Marcellina#22079109</item>
+        <item>Marcetelli#22076069</item>
+        <item>Marino#22079110</item>
+        <item>Marta#22102053</item>
+        <item>Mazzano Romano#22079111</item>
+        <item>Mentana#22079112</item>
+        <item>Micigliano#22076070</item>
+        <item>Minturno#22046056</item>
+        <item>Mompeo#22076071</item>
+        <item>Montalto di Castro#22102054</item>
+        <item>Montasola#22076072</item>
+        <item>Monte Compatri#22079115</item>
+        <item>Monte Porzio Catone#22079113</item>
+        <item>Monte Romano#22102055</item>
+        <item>Monte S.Biagio#22046057</item>
+        <item>Monte San Giovanni Campano#22035069</item>
+        <item>Monte San Giovanni in Sabina#22076073</item>
+        <item>Montebuono#22076076</item>
+        <item>Montefiascone#22102056</item>
+        <item>Monteflavio#22079116</item>
+        <item>Montelanico#22079117</item>
+        <item>Monteleone Sabino#22076077</item>
+        <item>Montelibretti#22079118</item>
+        <item>Montenero Sabino#22076078</item>
+        <item>Monterosi#22102057</item>
+        <item>Monterotondo#22079119</item>
+        <item>Montopoli di Sabina#22076080</item>
+        <item>Montorio Romano#22079122</item>
+        <item>Moricone#22079124</item>
+        <item>Morlupo#22079125</item>
+        <item>Morolo#22035072</item>
+        <item>Morro Reatino#22076081</item>
+        <item>Narni#22092056</item>
+        <item>Nazzano#22079126</item>
+        <item>Nemi#22079127</item>
+        <item>Nepi#22102060</item>
+        <item>Nerola#22079128</item>
+        <item>Nespolo#22076082</item>
+        <item>Nettuno#22079129</item>
+        <item>Norma#22046059</item>
+        <item>Olevano Romano#22079130</item>
+        <item>Onano#22102061</item>
+        <item>Oricola#22006114</item>
+        <item>Oriolo Romano#22102062</item>
+        <item>Orte#22102063</item>
+        <item>Orvieto#22092059</item>
+        <item>Orvinio#22076083</item>
+        <item>Otricoli#22092062</item>
+        <item>Paganico Sabino#22076086</item>
+        <item>Palestrina#22079131</item>
+        <item>Paliano#22035074</item>
+        <item>Palombara Sabina#22079133</item>
+        <item>Pastena#22035075</item>
+        <item>Patrica#22035077</item>
+        <item>Percile#22079137</item>
+        <item>Pescorocchiano#22076089</item>
+        <item>Pescosolido#22035078</item>
+        <item>Petrella Salto#22076090</item>
+        <item>Piancastagnaio#22081072</item>
+        <item>Piansano#22102066</item>
+        <item>Picinisco#22035079</item>
+        <item>Pico#22035080</item>
+        <item>Piedimonte San Germano#22035081</item>
+        <item>Piglio#22035083</item>
+        <item>Pignataro Interamna#22035084</item>
+        <item>Pisoniano#22079138</item>
+        <item>Pofi#22035086</item>
+        <item>Poggio Bustone#22076094</item>
+        <item>Poggio Catino#22076095</item>
+        <item>Poggio Mirteto#22076097</item>
+        <item>Poggio Moiano#22076099</item>
+        <item>Poggio Nativo#22076100</item>
+        <item>Poggio San Lorenzo#22076102</item>
+        <item>Poli#22079140</item>
+        <item>Pomezia#22079141</item>
+        <item>Pontecorvo#22035087</item>
+        <item>Pontinia#22046062</item>
+        <item>Ponzano Romano#22079145</item>
+        <item>Porano#22092071</item>
+        <item>Posta#22076105</item>
+        <item>Posta Fibreno#22035090</item>
+        <item>Pozzaglia Sabina#22076107</item>
+        <item>Priverno#22046064</item>
+        <item>Proceno#22102067</item>
+        <item>Prossedi#22046065</item>
+        <item>Riano#22079148</item>
+        <item>Rieti#22076110</item>
+        <item>Rignano Flaminio#22079149</item>
+        <item>Riofreddo#22079150</item>
+        <item>Ripi#22035092</item>
+        <item>Rivodutri#22076111</item>
+        <item>Rocca Canterano#22079151</item>
+        <item>Rocca Massima#22046067</item>
+        <item>Rocca Priora#22079154</item>
+        <item>Rocca Santo Stefano#22079155</item>
+        <item>Rocca Sinibalda#22076112</item>
+        <item>Rocca d\'Arce#22035093</item>
+        <item>Rocca d\'Evandro#22021137</item>
+        <item>Rocca di Botte#22006150</item>
+        <item>Rocca di Cave#22079152</item>
+        <item>Rocca di Mezzo#22006152</item>
+        <item>Rocca di Papa#22079153</item>
+        <item>Roccagiovine#22079156</item>
+        <item>Roccagorga#22046068</item>
+        <item>Roccantica#22076113</item>
+        <item>Roccasecca#22035094</item>
+        <item>Roccasecca dei Volsci#22046069</item>
+        <item>Roiate#22079157</item>
+        <item>Roma#22079158</item>
+        <item>Ronciglione#22102069</item>
+        <item>Roviano#22079159</item>
+        <item>Sabaudia#22046071</item>
+        <item>Sacrofano#22079160</item>
+        <item>Salisano#22076115</item>
+        <item>Sambuci#22079162</item>
+        <item>San Biagio Saracinisco#22035100</item>
+        <item>San Casciano dei Bagni#22081092</item>
+        <item>San Cesareo#22079163</item>
+        <item>San Donato Val di Comino#22035101</item>
+        <item>San Felice Circeo#22046070</item>
+        <item>San Giorgio a Liri#22035102</item>
+        <item>San Giovanni Incarico#22035103</item>
+        <item>San Gregorio da Sassola#22079164</item>
+        <item>San Lorenzo Nuovo#22102070</item>
+        <item>San Pietro Infine#22102095</item>
+        <item>San Polo dei Cavalieri#22079165</item>
+        <item>San Vito Romano#22079166</item>
+        <item>San Vittore del Lazio#22035104</item>
+        <item>Sant\'Ambrogio sul Garigliano#22035098</item>
+        <item>Sant\'Andrea del Garigliano#22035099</item>
+        <item>Sant\'Angelo Romano#22079167</item>
+        <item>Sant\'Apollinare#22035107</item>
+        <item>Sant\'Elia Fiumerapido#22035108</item>
+        <item>Sant\'Oreste#22079168</item>
+        <item>Santa Marinella#22079171</item>
+        <item>Santi Cosma e Damiano#22046076</item>
+        <item>Santopadre#22035112</item>
+        <item>Saracinesco#22079174</item>
+        <item>Scandriglia#22076129</item>
+        <item>Scurcola Marsicana#22006192</item>
+        <item>Segni#22079175</item>
+        <item>Selci#22076130</item>
+        <item>Sermoneta#22046079</item>
+        <item>Serrone#22035118</item>
+        <item>Settefrati#22035119</item>
+        <item>Sezze#22046080</item>
+        <item>Sgurgola#22035120</item>
+        <item>Sigillo#22063235</item>
+        <item>Sonnino#22046082</item>
+        <item>Sora#22035121</item>
+        <item>Soriano nel Cimino#22102075</item>
+        <item>Sperlonga#22046083</item>
+        <item>Spigno Saturnia#22046084</item>
+        <item>Stimigliano#22076133</item>
+        <item>Strangolagalli#22035122</item>
+        <item>Subiaco#22079177</item>
+        <item>Supino#22035123</item>
+        <item>Sutri#22102076</item>
+        <item>Tarano#22076137</item>
+        <item>Tarquinia#22102077</item>
+        <item>Terelle#22035125</item>
+        <item>Terni#22092095</item>
+        <item>Terracina#22046086</item>
+        <item>Tessennano#22102078</item>
+        <item>Tivoli#22079180</item>
+        <item>Toffia#22076139</item>
+        <item>Tolfa#22079181</item>
+        <item>Torre Cajetani#22035126</item>
+        <item>Torri in Sabina#22076141</item>
+        <item>Torrice#22035127</item>
+        <item>Torricella in Sabina#22076142</item>
+        <item>Torrita Tiberina#22079186</item>
+        <item>Trevi nel Lazio#22035128</item>
+        <item>Trevignano Romano#22079187</item>
+        <item>Trivigliano#22035129</item>
+        <item>Turania#22076144</item>
+        <item>Tuscania#22102083</item>
+        <item>Vacone#22076146</item>
+        <item>Valentano#22102084</item>
+        <item>Vallecorsa#22035130</item>
+        <item>Vallemaio#22035132</item>
+        <item>Vallepietra#22079189</item>
+        <item>Vallerano#22102085</item>
+        <item>Vallerotonda#22035133</item>
+        <item>Vallinfreda#22079190</item>
+        <item>Valmontone#22079191</item>
+        <item>Varco Sabino#22076148</item>
+        <item>Vasanello#22102086</item>
+        <item>Vejano#22102087</item>
+        <item>Velletri#22079192</item>
+        <item>Veroli#22035135</item>
+        <item>Vetralla#22102088</item>
+        <item>Vicalvi#22035136</item>
+        <item>Vico nel Lazio#22035137</item>
+        <item>Vicovaro#22079195</item>
+        <item>Vignanello#22102091</item>
+        <item>Villa Latina#22035138</item>
+        <item>Villa San Giovanni in Tuscia#22102092</item>
+        <item>Villa Santa Lucia#22035139</item>
+        <item>Villa Santo Stefano#22035140</item>
+        <item>Viterbo#22102093</item>
+        <item>Viticuso#22035141</item>
+        <item>Vitorchiano#22102094</item>
+        <item>Vivaro Romano#22079201</item>
+        <item>Zagarolo#22079202</item>
+    </array>
+
+    <!-- nome frazione/fermata#nome comune-->
+    <array name="cotral_map_fermata_comune">
+        <item>Ariccia#Ariccia</item>
+        <item>Castelforte#Castelforte</item>
+        <item>Castro dei Volsci#Castro dei Volsci</item>
+        <item>Cittareale#Cittareale</item>
+        <item>Colfelice#Colfelice</item>
+        <item>Configni#Configni</item>
+        <item>L\'Aquila#L\'Aquila</item>
+        <item>Longone Sabino#Longone Sabino</item>
+        <item>Narni#Narni</item>
+        <item>Oricola#Oricola</item>
+        <item>Otricoli#Otricoli</item>
+        <item>Roma#Roma</item>
+        <item>San Casciano dei Bagni#San Casciano dei Bagni</item>
+        <item>Santi Cosma e Damiano#Santi Cosma e Damiano</item>
+        <item>Scurcola Marsicana#Scurcola Marsicana</item>
+        <item>Settefrati#Settefrati</item>
+        <item>Vico nel Lazio#Vico nel Lazio</item>
+
+        <item>Abbadia San Salvatore#Abbadia San Salvatore</item>
+        <item>Acquafondata#Acquafondata</item>
+        <item>Acquaforte (VT) (Celleno)#Celleno</item>
+        <item>Acquapendente#Acquapendente</item>
+        <item>Acuto#Acuto</item>
+        <item>Aeroporto di Fiumicino#Fiumicino</item>
+        <item>Affile#Affile</item>
+        <item>Agosta#Agosta</item>
+        <item>Alatri#Alatri</item>
+        <item>Albano Laziale#Albano Laziale</item>
+        <item>Allumiere#Allumiere</item>
+        <item>Altip. Arcinazzo (FR) (Trevi nel Lazio)#Trevi nel Lazio</item>
+        <item>Alvito#Alvito</item>
+        <item>Amaseno#Amaseno</item>
+        <item>Amatrice#Amatrice</item>
+        <item>Anagni#Anagni</item>
+        <item>Anagni (Comune)#Anagni</item>
+        <item>Anguillara Sabazia#Anguillara Sabazia</item>
+        <item>Anticoli - Roviano bv#Roviano</item>
+        <item>Anticoli Corrado#Anticoli Corrado</item>
+        <item>Antrodoco#Antrodoco</item>
+        <item>Anzio#Anzio</item>
+        <item>Aprilia#Aprilia</item>
+        <item>Aquapiper (Guidonia Montecelio)#Guidonia Montecelio</item>
+        <item>Aquino#Aquino</item>
+        <item>Arce#Arce</item>
+        <item>Arcinazzo Romano#Arcinazzo Romano</item>
+        <item>Ardea#Ardea</item>
+        <item>Ariccia (Comune)#Ariccia</item>
+        <item>Arlena di Castro#Arlena di Castro</item>
+        <item>Arnara#Arnara</item>
+        <item>Arpino#Arpino</item>
+        <item>Arsoli#Arsoli</item>
+        <item>Artena#Artena</item>
+        <item>Artena (Comune)#Artena</item>
+        <item>Ascrea#Ascrea</item>
+        <item>Atina#Atina</item>
+        <item>Ausonia#Ausonia</item>
+        <item>Ausonia (Comune)#Ausonia</item>
+        <item>Avezzano#Avezzano</item>
+        <item>Bagnoregio#Bagnoregio</item>
+        <item>Barbarano Romano#Barbarano Romano</item>
+        <item>Bassano Romano#Bassano Romano</item>
+        <item>Bassano in Teverina#Bassano in Teverina</item>
+        <item>Bassiano#Bassiano</item>
+        <item>Bellegra#Bellegra</item>
+        <item>Belmonte Castello#Belmonte Castello</item>
+        <item>Belmonte in Sabina#Belmonte in Sabina</item>
+        <item>Blera#Blera</item>
+        <item>Bolsena#Bolsena</item>
+        <item>Bomarzo#Bomarzo</item>
+        <item>Borbona#Borbona</item>
+        <item>Borghesiana (Roma)#Roma</item>
+        <item>Borgo Hermada (Terracina)#Terracina</item>
+        <item>Borgo Montenero (San Felice Circeo)#San Felice Circeo</item>
+        <item>Borgo Velino#Borgo Velino</item>
+        <item>Borgo Vodice (Sabaudia)#Sabaudia</item>
+        <item>Borgorose#Borgorose</item>
+        <item>Boville Ernica#Boville Ernica</item>
+        <item>Bracciano#Bracciano</item>
+        <item>Broccostella#Broccostella</item>
+        <item>Calcata#Calcata</item>
+        <item>Calvi dell\'Umbria#Calvi dell\'Umbria</item>
+        <item>Camerata Nuova#Camerata Nuova</item>
+        <item>Campagnano di Roma#Campagnano di Roma</item>
+        <item>Campo Ascolano (Pomezia)#Pomezia</item>
+        <item>Campo dell\'Osso (Subiaco)#Subiaco</item>
+        <item>Campodimele#Campodimele</item>
+        <item>Campoli Appennino#Campoli Appennino</item>
+        <item>Canale Monterano#Canale Monterano</item>
+        <item>Canepina#Canepina</item>
+        <item>Canino#Canino</item>
+        <item>Cantalice#Cantalice</item>
+        <item>Cantalupo in Sabina#Cantalupo in Sabina</item>
+        <item>Cantalupo in Sabina (Comune)#Cantalupo in Sabina</item>
+        <item>Canterano#Canterano</item>
+        <item>Capacqua (Poggio Mirteto)#Poggio Mirteto</item>
+        <item>Capena#Capena</item>
+        <item>Capodimonte#Capodimonte</item>
+        <item>Cappelle (Scurcola Marsicana)#Scurcola Marsicana</item>
+        <item>Capranica#Capranica</item>
+        <item>Capranica Prenestina#Capranica</item>
+        <item>Capranica-Scalo#Capranica</item>
+        <item>Caprarola#Caprarola</item>
+        <item>Carbognano#Carbognano</item>
+        <item>Carchitti (Palestrina)#Palestrina</item>
+        <item>Caronti (Ardea)#Ardea</item>
+        <item>Carpineto Romano#Carpineto Romano</item>
+        <item>Carsoli#Carsoli</item>
+        <item>Casalattico#Casalattico</item>
+        <item>Casalvieri#Casalvieri</item>
+        <item>Casamari (Veroli)#Veroli</item>
+        <item>Casape#Casape</item>
+        <item>Casaprota#Casaprota</item>
+        <item>Cascia#Cascia</item>
+        <item>Casperia#Casperia</item>
+        <item>Casperia (Comune)#Casperia</item>
+        <item>Cassino#Cassino</item>
+        <item>Castel Cellesi (Bagnoregio)#Bagnoregio</item>
+        <item>Castel Gandolfo#Castel Gandolfo</item>
+        <item>Castel Giorgio#Castel Giorgio</item>
+        <item>Castel Madama#Castel Madama</item>
+        <item>Castel San Pietro Romano#Castel San Pietro Romano</item>
+        <item>Castel Sant\'Angelo#Castel Sant\'Angelo</item>
+        <item>Castel Sant\'Angelo Stazione FS#Castel Sant\'Angelo</item>
+        <item>Castel Sant\'Elia#Castel Sant\'Elia</item>
+        <item>Castel Viscardo#Castel Viscardo</item>
+        <item>Castel di Tora#Castel di Tora</item>
+        <item>Castelforte (Comune)#Castelforte</item>
+        <item>Castelliri#Castelliri</item>
+        <item>Castelnuovo Parano#Castelnuovo Parano</item>
+        <item>Castelnuovo di Farfa#Castelnuovo di Farfa</item>
+        <item>Castelnuovo di Porto#Castelnuovo di Porto</item>
+        <item>Castiglione in Teverina#Castiglione in Teverina</item>
+        <item>Castro dei Volsci Stazione FS#Castro dei Volsci</item>
+        <item>Castrocielo#Castrocielo</item>
+        <item>Cave#Cave</item>
+        <item>Ceccano#Ceccano</item>
+        <item>Cecchina (Albano Laziale)#Albano Laziale</item>
+        <item>Celleno#Celleno</item>
+        <item>Cellere#Cellere</item>
+        <item>Ceprano#Ceprano</item>
+        <item>Ceprano FS#Ceprano</item>
+        <item>Cerquotti-Madonna del Piano (Morolo)#Morolo</item>
+        <item>Cerreto Laziale#Cerreto Laziale</item>
+        <item>Cervara di Roma#Cervara di Roma</item>
+        <item>Cervaro#Cervaro</item>
+        <item>Cerveteri#Cerveteri</item>
+        <item>Chia (Soriano nel Cimino)#Soriano nel Cimino</item>
+        <item>Chiesa Nuova (Sora)#Sora</item>
+        <item>Ciampino#Ciampino</item>
+        <item>Ciciliano#Ciciliano</item>
+        <item>Cineto Romano#Cineto Romano</item>
+        <item>Cisterna di Latina#Cisterna di Latina</item>
+        <item>Cittaducale#Cittaducale</item>
+        <item>Civita Castellana#Civita Castellana</item>
+        <item>Civita Prima (Oricola)#Oricola</item>
+        <item>Civitavecchia#Civitavecchia</item>
+        <item>Civitella San Paolo#Civitella San Paolo</item>
+        <item>Civitella d\'Agliano#Civitella d\'Agliano</item>
+        <item>Collalto Sabino#Collalto Sabino</item>
+        <item>Colle San Magno#Colle San Magno</item>
+        <item>Colle di Tora#Colle di Tora</item>
+        <item>Colleferro#Colleferro</item>
+        <item>Colleferro IPIA#Colleferro</item>
+        <item>Colleferro Scalo#Colleferro</item>
+        <item>Collegiove#Collegiove</item>
+        <item>Collepardo#Collepardo</item>
+        <item>Collevecchio#Collevecchio</item>
+        <item>Collevecchio Scalo#Collevecchio</item>
+        <item>Colli sul Velino#Colli sul Velino</item>
+        <item>Colonna#Colonna</item>
+        <item>Colonna Bivio (San Cesareo)#Colonna</item>
+        <item>Commenda (Montefiascone)#Montefiascone</item>
+        <item>Concerviano#Concerviano</item>
+        <item>Contigliano#Contigliano</item>
+        <item>Corchiano#Corchiano</item>
+        <item>Coreno Ausonio#Coreno Ausonio</item>
+        <item>Cori#Cori</item>
+        <item>Correano (Ausonia)#Ausonia</item>
+        <item>Cotilia (Castel Sant\'Angelo)#Castel Sant\'Angelo</item>
+        <item>Cottanello#Cottanello</item>
+        <item>Esperia#Esperia</item>
+        <item>Fabrica di Roma#Fabrica di Roma</item>
+        <item>Faleria#Faleria</item>
+        <item>Falvaterra#Falvaterra</item>
+        <item>Fara in Sabina#Fara in Sabina</item>
+        <item>Farnese#Farnese</item>
+        <item>Ferentino#Ferentino</item>
+        <item>Fiamignano#Fiamignano</item>
+        <item>Fiano Romano#Fiano Romano</item>
+        <item>Fiano Romano (Comune)#Fiano Romano</item>
+        <item>Filacciano#Filacciano</item>
+        <item>Filettino#Filettino</item>
+        <item>Finocchio (Roma)#Roma</item>
+        <item>Fiuggi#Fiuggi</item>
+        <item>Fiumata (Petrella Salto)#Petrella Salto</item>
+        <item>Fiumicino#Fiumicino</item>
+        <item>Fondi#Fondi</item>
+        <item>Fontana Liri#Fontana Liri</item>
+        <item>Fonte Nuova#Fonte Nuova</item>
+        <item>Fontechiari#Fontechiari</item>
+        <item>Forano#Forano</item>
+        <item>Formello#Formello</item>
+        <item>Formello (Comune)#Formello</item>
+        <item>Formia#Formia</item>
+        <item>Frascati#Frascati</item>
+        <item>Frasso Sabino#Frasso Sabino</item>
+        <item>Fregene (Fiumicino)#Fiumicino</item>
+        <item>Frosinone#Frosinone</item>
+        <item>Fumone#Fumone</item>
+        <item>Gaeta#Gaeta</item>
+        <item>Gallese#Gallese</item>
+        <item>Gallese Teverina FS#Gallese</item>
+        <item>Gallicano nel Lazio#Gallicano nel Lazio</item>
+        <item>Gallinaro#Gallinaro</item>
+        <item>Gavignano#Gavignano</item>
+        <item>Gavignano Sabino (Forano)#Forano</item>
+        <item>Genazzano#Genazzano</item>
+        <item>Genzano di Roma#Genzano di Roma</item>
+        <item>Gerano#Gerano</item>
+        <item>Gignano (L\'Aquila)#L\'Aquila</item>
+        <item>Giuliano di Roma#Giuliano di Roma</item>
+        <item>Gorga#Gorga</item>
+        <item>Gradoli#Gradoli</item>
+        <item>Graffignano#Graffignano</item>
+        <item>Greccio#Greccio</item>
+        <item>Grottaferrata#Grottaferrata</item>
+        <item>Grotte Celoni (Roma)#Roma</item>
+        <item>Grotte Santo Stefano (Viterbo)#Viterbo</item>
+        <item>Grotte di Castro#Grotte di Castro</item>
+        <item>Guadagnolo (Capranica Prenestina)#Capranica</item>
+        <item>Guarcino#Guarcino</item>
+        <item>Guidonia Montecelio#Guidonia Montecelio</item>
+        <item>I Terzi (Cerveteri)#Cerveteri</item>
+        <item>Ischia di Castro#Ischia di Castro</item>
+        <item>Isola Sacra (Fiumicino)#Fiumicino</item>
+        <item>Isola del Liri#Isola del Liri</item>
+        <item>Itri#Itri</item>
+        <item>Jenne#Jenne</item>
+        <item>La Macchia (Vico nel Lazio)#Vico nel Lazio</item>
+        <item>Labico#Labico</item>
+        <item>Labro#Labro</item>
+        <item>Ladispoli#Ladispoli</item>
+        <item>Lanuvio#Lanuvio</item>
+        <item>Lariano#Lariano</item>
+        <item>Latera#Latera</item>
+        <item>Latina#Latina</item>
+        <item>Latina Scalo FS#Latina</item>
+        <item>Lenola#Lenola</item>
+        <item>Lenola (Comune)#Lenola</item>
+        <item>Leonessa#Leonessa</item>
+        <item>Licenza#Licenza</item>
+        <item>Lido di Ostia (Roma)#Roma</item>
+        <item>Livata (Subiaco)#Subiaco</item>
+        <item>Longone Sabino (Comune)#Longone Sabino</item>
+        <item>Lubriano#Lubriano</item>
+        <item>Maccarese (Fiumicino)#Fiumicino</item>
+        <item>Madonna del Piano (Castro dei Volsci)#Castro dei Volsci</item>
+        <item>Maenza#Maenza</item>
+        <item>Magliano Romano#Magliano Romano</item>
+        <item>Magliano Sabina#Magliano Sabina</item>
+        <item>Magliano de\' Marsi#Magliano de\' Marsi</item>
+        <item>Manciano#Manciano</item>
+        <item>Mandela#Mandela</item>
+        <item>Mandela Scalo Stazione (Vicovaro)#Mandela</item>
+        <item>Manziana#Manziana</item>
+        <item>Marano Equo#Marano Equo</item>
+        <item>Marcellina#Marcellina</item>
+        <item>Marcetelli#Marcetelli</item>
+        <item>Marco Simone (Guidonia Montecelio)#Guidonia Montecelio</item>
+        <item>Marina di Palidoro (Fiumicino)#Fiumicino</item>
+        <item>Marino#Marino</item>
+        <item>Marta#Marta</item>
+        <item>Mazzano Romano#Mazzano Romano</item>
+        <item>Mentana#Mentana</item>
+        <item>Micigliano#Micigliano</item>
+        <item>Minturno#Minturno</item>
+        <item>Minturno FS#Minturno</item>
+        <item>Mompeo#Mompeo</item>
+        <item>Montalto Marina (Montalto di Castro)#Montalto di Castro</item>
+        <item>Montalto di Castro#Montalto di Castro</item>
+        <item>Montasola#Montasola</item>
+        <item>Monte Compatri#Monte Compatri</item>
+        <item>Monte Porzio Catone#Monte Porzio Catone</item>
+        <item>Monte Romano#Monte Romano</item>
+        <item>Monte S.Biagio#Monte S.Biagio</item>
+        <item>Monte San Giovanni Campano#Monte San Giovanni Campano</item>
+        <item>Monte San Giovanni in Sabina#Monte San Giovanni in Sabina</item>
+        <item>Montebello (RM) (Roma)#Roma</item>
+        <item>Montebuono#Montebuono</item>
+        <item>Montecelio (Guidonia Montecelio)#Guidonia Montecelio</item>
+        <item>Montefiascone#Montefiascone</item>
+        <item>Monteflavio#Monteflavio</item>
+        <item>Montelanico#Montelanico</item>
+        <item>Monteleone Sabino#Monteleone Sabino</item>
+        <item>Montelibretti#Montelibretti</item>
+        <item>Montenero Sabino#Montenero Sabino</item>
+        <item>Monterosi#Monterosi</item>
+        <item>Monterotondo#Monterotondo</item>
+        <item>Montopoli di Sabina#Montopoli di Sabina</item>
+        <item>Montorio Romano#Montorio Romano</item>
+        <item>Morena (Roma)#Roma</item>
+        <item>Moricone#Moricone</item>
+        <item>Morlupo#Morlupo</item>
+        <item>Morlupo (Comune)#Morlupo</item>
+        <item>Morolo#Morolo</item>
+        <item>Morro Reatino#Morro Reatino</item>
+        <item>Mugnano (VT) (Bomarzo)#Bomarzo</item>
+        <item>Nazzano#Nazzano</item>
+        <item>Nemi#Nemi</item>
+        <item>Nepi#Nepi</item>
+        <item>Nerola#Nerola</item>
+        <item>Nespolo#Nespolo</item>
+        <item>Nettuno#Nettuno</item>
+        <item>Ninfa (Norma)#Norma</item>
+        <item>Norma#Norma</item>
+        <item>Olevano Romano#Olevano Romano</item>
+        <item>Onano#Onano</item>
+        <item>Oriolo Romano#Oriolo Romano</item>
+        <item>Orte#Orte</item>
+        <item>Orte Scalo#Orte</item>
+        <item>Orvieto#Orvieto</item>
+        <item>Orvieto Scalo#Orvieto</item>
+        <item>Orvinio#Orvinio</item>
+        <item>Osteria Configni#Configni</item>
+        <item>Paganico Sabino#Paganico Sabino</item>
+        <item>Palestrina#Palestrina</item>
+        <item>Paliano#Paliano</item>
+        <item>Pallottini (Cittareale)#Cittareale</item>
+        <item>Palombara Sabina#Palombara Sabina</item>
+        <item>Passo Corese (Fara in Sabina)#Fara in Sabina</item>
+        <item>Passo Oscuro (Fiumicino)#Fiumicino</item>
+        <item>Pastena#Pastena</item>
+        <item>Patrica#Patrica</item>
+        <item>Percile#Percile</item>
+        <item>Pescia Romana (Montalto di Castro)#Montalto di Castro</item>
+        <item>Pescorocchiano#Pescorocchiano</item>
+        <item>Pescosolido#Pescosolido</item>
+        <item>Petrella Salto#Petrella Salto</item>
+        <item>Piancastagnaio#Piancastagnaio</item>
+        <item>Piansano#Piansano</item>
+        <item>Picinisco#Picinisco</item>
+        <item>Pico#Pico</item>
+        <item>Piedimonte San Germano#Piedimonte San Germano</item>
+        <item>Piedimonte San Germano FS#Piedimonte San Germano</item>
+        <item>Piglio#Piglio</item>
+        <item>Pignataro Interamna#Pignataro Interamna</item>
+        <item>Pisoniano#Pisoniano</item>
+        <item>Pofi#Pofi</item>
+        <item>Poggio Bustone#Poggio Bustone</item>
+        <item>Poggio Catino#Poggio Catino</item>
+        <item>Poggio Mirteto#Poggio Mirteto</item>
+        <item>Poggio Mirteto (Comune)#Poggio Mirteto</item>
+        <item>Poggio Mirteto Scalo#Poggio Mirteto</item>
+        <item>Poggio Moiano#Poggio Moiano</item>
+        <item>Poggio Nativo#Poggio Nativo</item>
+        <item>Poggio San Lorenzo#Poggio San Lorenzo</item>
+        <item>Poli#Poli</item>
+        <item>Pomezia#Pomezia</item>
+        <item>Pontecorvo#Pontecorvo</item>
+        <item>Pontinia#Pontinia</item>
+        <item>Ponzano Primare (Ponzano Romano)#Ponzano Romano</item>
+        <item>Ponzano Romano#Ponzano Romano</item>
+        <item>Porano#Porano</item>
+        <item>Posta#Posta</item>
+        <item>Posta Fibreno#Posta</item>
+        <item>Pozzaglia Sabina#Pozzaglia Sabina</item>
+        <item>Pratica di Mare (Pomezia)#Pomezia</item>
+        <item>Priverno#Priverno</item>
+        <item>Proceno#Proceno</item>
+        <item>Prossedi#Prossedi</item>
+        <item>Riano#Riano</item>
+        <item>Rieti#Rieti</item>
+        <item>Rignano Flaminio#Rignano Flaminio</item>
+        <item>Riofreddo#Riofreddo</item>
+        <item>Riofreddo Bivio#Riofreddo</item>
+        <item>Ripi#Ripi</item>
+        <item>Rivodutri#Rivodutri</item>
+        <item>Rocca Canterano#Canterano</item>
+        <item>Rocca Massima#Rocca Massima</item>
+        <item>Rocca Priora#Rocca Priora</item>
+        <item>Rocca Santo Stefano#Rocca Santo Stefano</item>
+        <item>Rocca Sinibalda#Rocca Sinibalda</item>
+        <item>Rocca d\'Arce#Arce</item>
+        <item>Rocca d\'Evandro#Rocca d\'Evandro</item>
+        <item>Rocca di Botte#Rocca di Botte</item>
+        <item>Rocca di Cave#Cave</item>
+        <item>Rocca di Mezzo#Rocca di Mezzo</item>
+        <item>Rocca di Papa#Rocca di Papa</item>
+        <item>Rocca di Papa (Comune)#Rocca di Papa</item>
+        <item>Roccagiovine#Roccagiovine</item>
+        <item>Roccagorga#Roccagorga</item>
+        <item>Roccantica#Roccantica</item>
+        <item>Roccasecca#Roccasecca</item>
+        <item>Roccasecca Stazione FS#Roccasecca</item>
+        <item>Roccasecca dei Volsci#Roccasecca</item>
+        <item>Roiate#Roiate</item>
+        <item>Roma (Comune)#Roma</item>
+        <item>Roma Anagnina [Metro A]#Anagni</item>
+        <item>Roma Cipro Musei Vaticani [Metro A]#Roma</item>
+        <item>Roma Cornelia [Metro A]#Roma</item>
+        <item>Roma Eur Magliana [Metro B]#Roma</item>
+        <item>Roma Laurentina [Metro B]#Roma</item>
+        <item>Roma Ponte Mammolo [Metro B]#Roma</item>
+        <item>Roma Saxa Rubra#Roma</item>
+        <item>Roma Termini [Staz.FS - Metro A-B]#Roma</item>
+        <item>Roma Tiburtina [Staz.FS - Metro B]#Roma</item>
+        <item>Ronciglione#Ronciglione</item>
+        <item>Roviano#Roviano</item>
+        <item>S.Maria delle Mole (Marino)#Marino</item>
+        <item>S.Michele Teverina (Civitella d\'Agliano)#Civitella d\'Agliano</item>
+        <item>Sabaudia#Sabaudia</item>
+        <item>Sacrofano#Sacrofano</item>
+        <item>Sacrofano Stazione (Roma)#Roma</item>
+        <item>Salisano#Salisano</item>
+        <item>Sambuci#Sambuci</item>
+        <item>San Biagio Saracinisco#San Biagio Saracinisco</item>
+        <item>San Cesareo#San Cesareo</item>
+        <item>San Domenico (Sora)#Sora</item>
+        <item>San Donato Val di Comino#San Donato Val di Comino</item>
+        <item>San Felice Circeo#San Felice Circeo</item>
+        <item>San Francesco (Bellegra)#Bellegra</item>
+        <item>San Giorgio a Liri#San Giorgio a Liri</item>
+        <item>San Giovanni Incarico#San Giovanni Incarico</item>
+        <item>San Gregorio da Sassola#San Gregorio da Sassola</item>
+        <item>San Lorenzo Nuovo#San Lorenzo Nuovo</item>
+        <item>San Pietro Infine#San Pietro Infine</item>
+        <item>San Polo dei Cavalieri#San Polo dei Cavalieri</item>
+        <item>San Vito Romano#Roma</item>
+        <item>San Vittore del Lazio#San Vittore del Lazio</item>
+        <item>Sant\'Ambrogio sul Garigliano#Sant\'Ambrogio sul Garigliano</item>
+        <item>Sant\'Andrea del Garigliano#Sant\'Andrea del Garigliano</item>
+        <item>Sant\'Angelo Romano#Roma</item>
+        <item>Sant\'Apollinare#Sant\'Apollinare</item>
+        <item>Sant\'Elia Fiumerapido#Sant\'Elia Fiumerapido</item>
+        <item>Sant\'Oreste#Sant\'Oreste</item>
+        <item>Santa Lucia di Fonte Nuova#Fonte Nuova</item>
+        <item>Santa Marinella#Santa Marinella</item>
+        <item>Santa Severa (Santa Marinella)#Santa Marinella</item>
+        <item>Santi Cosma e Damiano (Comune)#Santi Cosma e Damiano</item>
+        <item>Santopadre#Santopadre</item>
+        <item>Saracinesco#Saracinesco</item>
+        <item>Scandriglia#Scandriglia</item>
+        <item>Scauri (Minturno)#Minturno</item>
+        <item>Segni#Segni</item>
+        <item>Selci#Selci</item>
+        <item>Sermoneta#Sermoneta</item>
+        <item>Serrone#Serrone</item>
+        <item>Setteville (Guidonia Montecelio)#Guidonia Montecelio</item>
+        <item>Sezze#Sezze</item>
+        <item>Sezze Scalo#Sezze</item>
+        <item>Sgurgola#Sgurgola</item>
+        <item>Sigillo#Sigillo</item>
+        <item>Simonelli (Minturno)#Minturno</item>
+        <item>Sonnino#Sonnino</item>
+        <item>Sora#Sora</item>
+        <item>Soriano nel Cimino#Soriano nel Cimino</item>
+        <item>Sperlonga#Sperlonga</item>
+        <item>Spigno Saturnia#Spigno Saturnia</item>
+        <item>Spigno Saturnia Sup.#Spigno Saturnia</item>
+        <item>Staz.Magliano Romano (Morlupo)#Magliano Romano</item>
+        <item>Stazione Fossanova (Priverno)#Priverno</item>
+        <item>Stazione Sant\'Oreste#Sant\'Oreste</item>
+        <item>Stazione di Anagni#Anagni</item>
+        <item>Stazione di Cesano (Roma)#Roma</item>
+        <item>Stimigliano#Stimigliano</item>
+        <item>Stimigliano Scalo#Stimigliano</item>
+        <item>Strangolagalli#Strangolagalli</item>
+        <item>Subiaco#Subiaco</item>
+        <item>Suio Terme (Castelforte)#Castelforte</item>
+        <item>Supino#Supino</item>
+        <item>Sutri#Sutri</item>
+        <item>Tarano#Tarano</item>
+        <item>Tarquinia#Tarquinia</item>
+        <item>Terelle#Terelle</item>
+        <item>Terme di Viterbo#Viterbo</item>
+        <item>Terni#Terni</item>
+        <item>Terracina#Terracina</item>
+        <item>Tessennano#Tessennano</item>
+        <item>Testa di Lepre (Fiumicino)#Fiumicino</item>
+        <item>Tivoli#Tivoli</item>
+        <item>Toffia#Toffia</item>
+        <item>Tolfa#Tolfa</item>
+        <item>Tor S.Lorenzo (Ardea)#Ardea</item>
+        <item>Tor Vergata FS (Frascati)#Frascati</item>
+        <item>Torre Alfina (Acquapendente)#Acquapendente</item>
+        <item>Torre Cajetani#Torre Cajetani</item>
+        <item>Torre Mancina (Monterotondo)#Monterotondo</item>
+        <item>Torri in Sabina#Torri in Sabina</item>
+        <item>Torrice#Torrice</item>
+        <item>Torricella in Sabina#Torrice</item>
+        <item>Torrita Tiberina#Torrita Tiberina</item>
+        <item>Torvaianica (Pomezia)#Pomezia</item>
+        <item>Trevi nel Lazio#Trevi nel Lazio</item>
+        <item>Trevignano Romano#Roma</item>
+        <item>Trevinano (Acquapendente)#Acquapendente</item>
+        <item>Trivigliano#Trivigliano</item>
+        <item>Turania#Turania</item>
+        <item>Tuscania#Tuscania</item>
+        <item>Vacone#Vacone</item>
+        <item>Valentano#Valentano</item>
+        <item>Valle Martella (Zagarolo)#Zagarolo</item>
+        <item>Vallecorsa#Vallecorsa</item>
+        <item>Vallemaio#Vallemaio</item>
+        <item>Vallepietra#Vallepietra</item>
+        <item>Vallerano#Vallerano</item>
+        <item>Vallerotonda#Vallerotonda</item>
+        <item>Vallinfreda#Vallinfreda</item>
+        <item>Valmontone#Valmontone</item>
+        <item>Valvori (Vallerotonda)#Vallerotonda</item>
+        <item>Varco Sabino#Varco Sabino</item>
+        <item>Vasanello#Vasanello</item>
+        <item>Vejano#Vejano</item>
+        <item>Velletri#Velletri</item>
+        <item>Velletri (Comune)#Velletri</item>
+        <item>Veroli#Veroli</item>
+        <item>Vetralla#Vetralla</item>
+        <item>Vicalvi#Vicalvi</item>
+        <item>Vicovaro#Vicovaro</item>
+        <item>Vignanello#Vignanello</item>
+        <item>Vignola (Anagni)#Anagni</item>
+        <item>Villa Adriana (Tivoli)#Tivoli</item>
+        <item>Villa Felice (Colfelice)#Colfelice</item>
+        <item>Villa Latina#Latina</item>
+        <item>Villa San Giovanni in Tuscia#Villa San Giovanni in Tuscia</item>
+        <item>Villa Santa Lucia#Villa Santa Lucia</item>
+        <item>Villa Santo Stefano#Villa Santo Stefano</item>
+        <item>Villalba (Guidonia Montecelio)#Guidonia Montecelio</item>
+        <item>Viterbo#Viterbo</item>
+        <item>Viticuso#Viticuso</item>
+        <item>Vitorchiano#Vitorchiano</item>
+        <item>Vitorchiano Stazione#Vitorchiano</item>
+        <item>Vivaro Romano#Roma</item>
+        <item>XII Apostoli (Fonte Nuova)#Fonte Nuova</item>
+        <item>Zagarolo#Zagarolo</item>
+        <item>Zagarolo FS#Zagarolo</item>
+        <item>Zepponami FS (Montefiascone)#Montefiascone</item>
+        <item>Zona Industriale (Anagni)#Anagni</item>
+        <item>Zona Industriale (Ferentino)#Ferentino</item>
+        <item>Zona Industriale (Piedimonte San Germano)#Piedimonte San Germano</item>
+        <item>staz.Ferentino-Supino#Ferentino</item>
+    </array>
+
+
+    <array name="cotral_list_fermate">
+        <item>Ariccia</item>
+        <item>Castelforte</item>
+        <item>Castro dei Volsci</item>
+        <item>Cittareale</item>
+        <item>Colfelice</item>
+        <item>Configni</item>
+        <item>L\'Aquila</item>
+        <item>Longone Sabino</item>
+        <item>Narni</item>
+        <item>Oricola</item>
+        <item>Otricoli</item>
+        <item>Roma</item>
+        <item>San Casciano dei Bagni</item>
+        <item>Santi Cosma e Damiano</item>
+        <item>Scurcola Marsicana</item>
+        <item>Settefrati</item>
+        <item>Vico nel Lazio</item>
+
+        <item>Abbadia San Salvatore</item>
+        <item>Acquafondata</item>
+        <item>Acquaforte (VT) (Celleno)</item>
+        <item>Acquapendente</item>
+        <item>Acuto</item>
+        <item>Aeroporto di Fiumicino</item>
+        <item>Affile</item>
+        <item>Agosta</item>
+        <item>Alatri</item>
+        <item>Albano Laziale</item>
+        <item>Allumiere</item>
+        <item>Altip. Arcinazzo (FR) (Trevi nel Lazio)</item>
+        <item>Alvito</item>
+        <item>Amaseno</item>
+        <item>Amatrice</item>
+        <item>Anagni</item>
+        <item>Anagni (Comune)</item>
+        <item>Anguillara Sabazia</item>
+        <item>Anticoli - Roviano bv</item>
+        <item>Anticoli Corrado</item>
+        <item>Antrodoco</item>
+        <item>Anzio</item>
+        <item>Aprilia</item>
+        <item>Aquapiper (Guidonia Montecelio)</item>
+        <item>Aquino</item>
+        <item>Arce</item>
+        <item>Arcinazzo Romano</item>
+        <item>Ardea</item>
+        <item>Ariccia (Comune)</item>
+        <item>Arlena di Castro</item>
+        <item>Arnara</item>
+        <item>Arpino</item>
+        <item>Arsoli</item>
+        <item>Artena</item>
+        <item>Artena (Comune)</item>
+        <item>Ascrea</item>
+        <item>Atina</item>
+        <item>Ausonia</item>
+        <item>Ausonia (Comune)</item>
+        <item>Avezzano</item>
+        <item>Bagnoregio</item>
+        <item>Barbarano Romano</item>
+        <item>Bassano Romano</item>
+        <item>Bassano in Teverina</item>
+        <item>Bassiano</item>
+        <item>Bellegra</item>
+        <item>Belmonte Castello</item>
+        <item>Belmonte in Sabina</item>
+        <item>Blera</item>
+        <item>Bolsena</item>
+        <item>Bomarzo</item>
+        <item>Borbona</item>
+        <item>Borghesiana (Roma)</item>
+        <item>Borgo Hermada (Terracina)</item>
+        <item>Borgo Montenero (San Felice Circeo)</item>
+        <item>Borgo Velino</item>
+        <item>Borgo Vodice (Sabaudia)</item>
+        <item>Borgorose</item>
+        <item>Boville Ernica</item>
+        <item>Bracciano</item>
+        <item>Broccostella</item>
+        <item>Calcata</item>
+        <item>Calvi dell\'Umbria</item>
+        <item>Camerata Nuova</item>
+        <item>Campagnano di Roma</item>
+        <item>Campo Ascolano (Pomezia)</item>
+        <item>Campo dell\'Osso (Subiaco)</item>
+        <item>Campodimele</item>
+        <item>Campoli Appennino</item>
+        <item>Canale Monterano</item>
+        <item>Canepina</item>
+        <item>Canino</item>
+        <item>Cantalice</item>
+        <item>Cantalupo in Sabina</item>
+        <item>Cantalupo in Sabina (Comune)</item>
+        <item>Canterano</item>
+        <item>Capacqua (Poggio Mirteto)</item>
+        <item>Capena</item>
+        <item>Capodimonte</item>
+        <item>Cappelle (Scurcola Marsicana)</item>
+        <item>Capranica</item>
+        <item>Capranica Prenestina</item>
+        <item>Capranica-Scalo</item>
+        <item>Caprarola</item>
+        <item>Carbognano</item>
+        <item>Carchitti (Palestrina)</item>
+        <item>Caronti (Ardea)</item>
+        <item>Carpineto Romano</item>
+        <item>Carsoli</item>
+        <item>Casalattico</item>
+        <item>Casalvieri</item>
+        <item>Casamari (Veroli)</item>
+        <item>Casape</item>
+        <item>Casaprota</item>
+        <item>Cascia</item>
+        <item>Casperia</item>
+        <item>Casperia (Comune)</item>
+        <item>Cassino</item>
+        <item>Castel Cellesi (Bagnoregio)</item>
+        <item>Castel Gandolfo</item>
+        <item>Castel Giorgio</item>
+        <item>Castel Madama</item>
+        <item>Castel San Pietro Romano</item>
+        <item>Castel Sant\'Angelo</item>
+        <item>Castel Sant\'Angelo Stazione FS</item>
+        <item>Castel Sant\'Elia</item>
+        <item>Castel Viscardo</item>
+        <item>Castel di Tora</item>
+        <item>Castelforte (Comune)</item>
+        <item>Castelliri</item>
+        <item>Castelnuovo Parano</item>
+        <item>Castelnuovo di Farfa</item>
+        <item>Castelnuovo di Porto</item>
+        <item>Castiglione in Teverina</item>
+        <item>Castro dei Volsci Stazione FS</item>
+        <item>Castrocielo</item>
+        <item>Cave</item>
+        <item>Ceccano</item>
+        <item>Cecchina (Albano Laziale)</item>
+        <item>Celleno</item>
+        <item>Cellere</item>
+        <item>Ceprano</item>
+        <item>Ceprano FS</item>
+        <item>Cerquotti-Madonna del Piano (Morolo)</item>
+        <item>Cerreto Laziale</item>
+        <item>Cervara di Roma</item>
+        <item>Cervaro</item>
+        <item>Cerveteri</item>
+        <item>Chia (Soriano nel Cimino)</item>
+        <item>Chiesa Nuova (Sora)</item>
+        <item>Ciampino</item>
+        <item>Ciciliano</item>
+        <item>Cineto Romano</item>
+        <item>Cisterna di Latina</item>
+        <item>Cittaducale</item>
+        <item>Civita Castellana</item>
+        <item>Civita Prima (Oricola)</item>
+        <item>Civitavecchia</item>
+        <item>Civitella San Paolo</item>
+        <item>Civitella d\'Agliano</item>
+        <item>Collalto Sabino</item>
+        <item>Colle San Magno</item>
+        <item>Colle di Tora</item>
+        <item>Colleferro</item>
+        <item>Colleferro IPIA</item>
+        <item>Colleferro Scalo</item>
+        <item>Collegiove</item>
+        <item>Collepardo</item>
+        <item>Collevecchio</item>
+        <item>Collevecchio Scalo</item>
+        <item>Colli sul Velino</item>
+        <item>Colonna</item>
+        <item>Colonna Bivio (San Cesareo)</item>
+        <item>Commenda (Montefiascone)</item>
+        <item>Concerviano</item>
+        <item>Contigliano</item>
+        <item>Corchiano</item>
+        <item>Coreno Ausonio</item>
+        <item>Cori</item>
+        <item>Correano (Ausonia)</item>
+        <item>Cotilia (Castel Sant\'Angelo)</item>
+        <item>Cottanello</item>
+        <item>Esperia</item>
+        <item>Fabrica di Roma</item>
+        <item>Faleria</item>
+        <item>Falvaterra</item>
+        <item>Fara in Sabina</item>
+        <item>Farnese</item>
+        <item>Ferentino</item>
+        <item>Fiamignano</item>
+        <item>Fiano Romano</item>
+        <item>Fiano Romano (Comune)</item>
+        <item>Filacciano</item>
+        <item>Filettino</item>
+        <item>Finocchio (Roma)</item>
+        <item>Fiuggi</item>
+        <item>Fiumata (Petrella Salto)</item>
+        <item>Fiumicino</item>
+        <item>Fondi</item>
+        <item>Fontana Liri</item>
+        <item>Fonte Nuova</item>
+        <item>Fontechiari</item>
+        <item>Forano</item>
+        <item>Formello</item>
+        <item>Formello (Comune)</item>
+        <item>Formia</item>
+        <item>Frascati</item>
+        <item>Frasso Sabino</item>
+        <item>Fregene (Fiumicino)</item>
+        <item>Frosinone</item>
+        <item>Fumone</item>
+        <item>Gaeta</item>
+        <item>Gallese</item>
+        <item>Gallese Teverina FS</item>
+        <item>Gallicano nel Lazio</item>
+        <item>Gallinaro</item>
+        <item>Gavignano</item>
+        <item>Gavignano Sabino (Forano)</item>
+        <item>Genazzano</item>
+        <item>Genzano di Roma</item>
+        <item>Gerano</item>
+        <item>Gignano (L\'Aquila)</item>
+        <item>Giuliano di Roma</item>
+        <item>Gorga</item>
+        <item>Gradoli</item>
+        <item>Graffignano</item>
+        <item>Greccio</item>
+        <item>Grottaferrata</item>
+        <item>Grotte Celoni (Roma)</item>
+        <item>Grotte Santo Stefano (Viterbo)</item>
+        <item>Grotte di Castro</item>
+        <item>Guadagnolo (Capranica Prenestina)</item>
+        <item>Guarcino</item>
+        <item>Guidonia Montecelio</item>
+        <item>I Terzi (Cerveteri)</item>
+        <item>Ischia di Castro</item>
+        <item>Isola Sacra (Fiumicino)</item>
+        <item>Isola del Liri</item>
+        <item>Itri</item>
+        <item>Jenne</item>
+        <item>La Macchia (Vico nel Lazio)</item>
+        <item>Labico</item>
+        <item>Labro</item>
+        <item>Ladispoli</item>
+        <item>Lanuvio</item>
+        <item>Lariano</item>
+        <item>Latera</item>
+        <item>Latina</item>
+        <item>Latina Scalo FS</item>
+        <item>Lenola</item>
+        <item>Lenola (Comune)</item>
+        <item>Leonessa</item>
+        <item>Licenza</item>
+        <item>Lido di Ostia (Roma)</item>
+        <item>Livata (Subiaco)</item>
+        <item>Longone Sabino (Comune)</item>
+        <item>Lubriano</item>
+        <item>Maccarese (Fiumicino)</item>
+        <item>Madonna del Piano (Castro dei Volsci)</item>
+        <item>Maenza</item>
+        <item>Magliano Romano</item>
+        <item>Magliano Sabina</item>
+        <item>Magliano de\' Marsi</item>
+        <item>Manciano</item>
+        <item>Mandela</item>
+        <item>Mandela Scalo Stazione (Vicovaro)</item>
+        <item>Manziana</item>
+        <item>Marano Equo</item>
+        <item>Marcellina</item>
+        <item>Marcetelli</item>
+        <item>Marco Simone (Guidonia Montecelio)</item>
+        <item>Marina di Palidoro (Fiumicino)</item>
+        <item>Marino</item>
+        <item>Marta</item>
+        <item>Mazzano Romano</item>
+        <item>Mentana</item>
+        <item>Micigliano</item>
+        <item>Minturno</item>
+        <item>Minturno FS</item>
+        <item>Mompeo</item>
+        <item>Montalto Marina (Montalto di Castro)</item>
+        <item>Montalto di Castro</item>
+        <item>Montasola</item>
+        <item>Monte Compatri</item>
+        <item>Monte Porzio Catone</item>
+        <item>Monte Romano</item>
+        <item>Monte S.Biagio</item>
+        <item>Monte San Giovanni Campano</item>
+        <item>Monte San Giovanni in Sabina</item>
+        <item>Montebello (RM) (Roma)</item>
+        <item>Montebuono</item>
+        <item>Montecelio (Guidonia Montecelio)</item>
+        <item>Montefiascone</item>
+        <item>Monteflavio</item>
+        <item>Montelanico</item>
+        <item>Monteleone Sabino</item>
+        <item>Montelibretti</item>
+        <item>Montenero Sabino</item>
+        <item>Monterosi</item>
+        <item>Monterotondo</item>
+        <item>Montopoli di Sabina</item>
+        <item>Montorio Romano</item>
+        <item>Morena (Roma)</item>
+        <item>Moricone</item>
+        <item>Morlupo</item>
+        <item>Morlupo (Comune)</item>
+        <item>Morolo</item>
+        <item>Morro Reatino</item>
+        <item>Mugnano (VT) (Bomarzo)</item>
+        <item>Nazzano</item>
+        <item>Nemi</item>
+        <item>Nepi</item>
+        <item>Nerola</item>
+        <item>Nespolo</item>
+        <item>Nettuno</item>
+        <item>Ninfa (Norma)</item>
+        <item>Norma</item>
+        <item>Olevano Romano</item>
+        <item>Onano</item>
+        <item>Oriolo Romano</item>
+        <item>Orte</item>
+        <item>Orte Scalo</item>
+        <item>Orvieto</item>
+        <item>Orvieto Scalo</item>
+        <item>Orvinio</item>
+        <item>Osteria Configni</item>
+        <item>Paganico Sabino</item>
+        <item>Palestrina</item>
+        <item>Paliano</item>
+        <item>Pallottini (Cittareale)</item>
+        <item>Palombara Sabina</item>
+        <item>Passo Corese (Fara in Sabina)</item>
+        <item>Passo Oscuro (Fiumicino)</item>
+        <item>Pastena</item>
+        <item>Patrica</item>
+        <item>Percile</item>
+        <item>Pescia Romana (Montalto di Castro)</item>
+        <item>Pescorocchiano</item>
+        <item>Pescosolido</item>
+        <item>Petrella Salto</item>
+        <item>Piancastagnaio</item>
+        <item>Piansano</item>
+        <item>Picinisco</item>
+        <item>Pico</item>
+        <item>Piedimonte San Germano</item>
+        <item>Piedimonte San Germano FS</item>
+        <item>Piglio</item>
+        <item>Pignataro Interamna</item>
+        <item>Pisoniano</item>
+        <item>Pofi</item>
+        <item>Poggio Bustone</item>
+        <item>Poggio Catino</item>
+        <item>Poggio Mirteto</item>
+        <item>Poggio Mirteto (Comune)</item>
+        <item>Poggio Mirteto Scalo</item>
+        <item>Poggio Moiano</item>
+        <item>Poggio Nativo</item>
+        <item>Poggio San Lorenzo</item>
+        <item>Poli</item>
+        <item>Pomezia</item>
+        <item>Pontecorvo</item>
+        <item>Pontinia</item>
+        <item>Ponzano Primare (Ponzano Romano)</item>
+        <item>Ponzano Romano</item>
+        <item>Porano</item>
+        <item>Posta</item>
+        <item>Posta Fibreno</item>
+        <item>Pozzaglia Sabina</item>
+        <item>Pratica di Mare (Pomezia)</item>
+        <item>Priverno</item>
+        <item>Proceno</item>
+        <item>Prossedi</item>
+        <item>Riano</item>
+        <item>Rieti</item>
+        <item>Rignano Flaminio</item>
+        <item>Riofreddo</item>
+        <item>Riofreddo Bivio</item>
+        <item>Ripi</item>
+        <item>Rivodutri</item>
+        <item>Rocca Canterano</item>
+        <item>Rocca Massima</item>
+        <item>Rocca Priora</item>
+        <item>Rocca Santo Stefano</item>
+        <item>Rocca Sinibalda</item>
+        <item>Rocca d\'Arce</item>
+        <item>Rocca d\'Evandro</item>
+        <item>Rocca di Botte</item>
+        <item>Rocca di Cave</item>
+        <item>Rocca di Mezzo</item>
+        <item>Rocca di Papa</item>
+        <item>Rocca di Papa (Comune)</item>
+        <item>Roccagiovine</item>
+        <item>Roccagorga</item>
+        <item>Roccantica</item>
+        <item>Roccasecca</item>
+        <item>Roccasecca Stazione FS</item>
+        <item>Roccasecca dei Volsci</item>
+        <item>Roiate</item>
+        <item>Roma (Comune)</item>
+        <item>Roma Anagnina [Metro A]</item>
+        <item>Roma Cipro Musei Vaticani [Metro A]</item>
+        <item>Roma Cornelia [Metro A]</item>
+        <item>Roma Eur Magliana [Metro B]</item>
+        <item>Roma Laurentina [Metro B]</item>
+        <item>Roma Ponte Mammolo [Metro B]</item>
+        <item>Roma Saxa Rubra</item>
+        <item>Roma Termini [Staz.FS - Metro A-B]</item>
+        <item>Roma Tiburtina [Staz.FS - Metro B]</item>
+        <item>Ronciglione</item>
+        <item>Roviano</item>
+        <item>S.Maria delle Mole (Marino)</item>
+        <item>S.Michele Teverina (Civitella d\'Agliano)</item>
+        <item>Sabaudia</item>
+        <item>Sacrofano</item>
+        <item>Sacrofano Stazione (Roma)</item>
+        <item>Salisano</item>
+        <item>Sambuci</item>
+        <item>San Biagio Saracinisco</item>
+        <item>San Cesareo</item>
+        <item>San Domenico (Sora)</item>
+        <item>San Donato Val di Comino</item>
+        <item>San Felice Circeo</item>
+        <item>San Francesco (Bellegra)</item>
+        <item>San Giorgio a Liri</item>
+        <item>San Giovanni Incarico</item>
+        <item>San Gregorio da Sassola</item>
+        <item>San Lorenzo Nuovo</item>
+        <item>San Pietro Infine</item>
+        <item>San Polo dei Cavalieri</item>
+        <item>San Vito Romano</item>
+        <item>San Vittore del Lazio</item>
+        <item>Sant\'Ambrogio sul Garigliano</item>
+        <item>Sant\'Andrea del Garigliano</item>
+        <item>Sant\'Angelo Romano</item>
+        <item>Sant\'Apollinare</item>
+        <item>Sant\'Elia Fiumerapido</item>
+        <item>Sant\'Oreste</item>
+        <item>Santa Lucia di Fonte Nuova</item>
+        <item>Santa Marinella</item>
+        <item>Santa Severa (Santa Marinella)</item>
+        <item>Santi Cosma e Damiano (Comune)</item>
+        <item>Santopadre</item>
+        <item>Saracinesco</item>
+        <item>Scandriglia</item>
+        <item>Scauri (Minturno)</item>
+        <item>Segni</item>
+        <item>Selci</item>
+        <item>Sermoneta</item>
+        <item>Serrone</item>
+        <item>Setteville (Guidonia Montecelio)</item>
+        <item>Sezze</item>
+        <item>Sezze Scalo</item>
+        <item>Sgurgola</item>
+        <item>Sigillo</item>
+        <item>Simonelli (Minturno)</item>
+        <item>Sonnino</item>
+        <item>Sora</item>
+        <item>Soriano nel Cimino</item>
+        <item>Sperlonga</item>
+        <item>Spigno Saturnia</item>
+        <item>Spigno Saturnia Sup.</item>
+        <item>Staz.Magliano Romano (Morlupo)</item>
+        <item>Stazione Fossanova (Priverno)</item>
+        <item>Stazione Sant\'Oreste</item>
+        <item>Stazione di Anagni</item>
+        <item>Stazione di Cesano (Roma)</item>
+        <item>Stimigliano</item>
+        <item>Stimigliano Scalo</item>
+        <item>Strangolagalli</item>
+        <item>Subiaco</item>
+        <item>Suio Terme (Castelforte)</item>
+        <item>Supino</item>
+        <item>Sutri</item>
+        <item>Tarano</item>
+        <item>Tarquinia</item>
+        <item>Terelle</item>
+        <item>Terme di Viterbo</item>
+        <item>Terni</item>
+        <item>Terracina</item>
+        <item>Tessennano</item>
+        <item>Testa di Lepre (Fiumicino)</item>
+        <item>Tivoli</item>
+        <item>Toffia</item>
+        <item>Tolfa</item>
+        <item>Tor S.Lorenzo (Ardea)</item>
+        <item>Tor Vergata FS (Frascati)</item>
+        <item>Torre Alfina (Acquapendente)</item>
+        <item>Torre Cajetani</item>
+        <item>Torre Mancina (Monterotondo)</item>
+        <item>Torri in Sabina</item>
+        <item>Torrice</item>
+        <item>Torricella in Sabina</item>
+        <item>Torrita Tiberina</item>
+        <item>Torvaianica (Pomezia)</item>
+        <item>Trevi nel Lazio</item>
+        <item>Trevignano Romano</item>
+        <item>Trevinano (Acquapendente)</item>
+        <item>Trivigliano</item>
+        <item>Turania</item>
+        <item>Tuscania</item>
+        <item>Vacone</item>
+        <item>Valentano</item>
+        <item>Valle Martella (Zagarolo)</item>
+        <item>Vallecorsa</item>
+        <item>Vallemaio</item>
+        <item>Vallepietra</item>
+        <item>Vallerano</item>
+        <item>Vallerotonda</item>
+        <item>Vallinfreda</item>
+        <item>Valmontone</item>
+        <item>Valvori (Vallerotonda)</item>
+        <item>Varco Sabino</item>
+        <item>Vasanello</item>
+        <item>Vejano</item>
+        <item>Velletri</item>
+        <item>Velletri (Comune)</item>
+        <item>Veroli</item>
+        <item>Vetralla</item>
+        <item>Vicalvi</item>
+        <item>Vicovaro</item>
+        <item>Vignanello</item>
+        <item>Vignola (Anagni)</item>
+        <item>Villa Adriana (Tivoli)</item>
+        <item>Villa Felice (Colfelice)</item>
+        <item>Villa Latina</item>
+        <item>Villa San Giovanni in Tuscia</item>
+        <item>Villa Santa Lucia</item>
+        <item>Villa Santo Stefano</item>
+        <item>Villalba (Guidonia Montecelio)</item>
+        <item>Viterbo</item>
+        <item>Viticuso</item>
+        <item>Vitorchiano</item>
+        <item>Vitorchiano Stazione</item>
+        <item>Vivaro Romano</item>
+        <item>XII Apostoli (Fonte Nuova)</item>
+        <item>Zagarolo</item>
+        <item>Zagarolo FS</item>
+        <item>Zepponami FS (Montefiascone)</item>
+        <item>Zona Industriale (Anagni)</item>
+        <item>Zona Industriale (Ferentino)</item>
+        <item>Zona Industriale (Piedimonte San Germano)</item>
+        <item>staz.Ferentino-Supino</item>
+    </array>
+</resources>

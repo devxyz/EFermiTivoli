@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- per ogni menu, l'icona -->
+    <array name="menu_home_altro">
+        <item>2</item>
+        <item>News</item>
+        <item>Ultime Notizie dalla scuola</item>
+        <item>it.gov.fermitivoli.fragment.NewsFragmentRss</item>
+        <item>@drawable/id_tab_news</item>
+        <item></item>
+        <item>END-ITEM</item>
+
+
+        <item>5</item>
+        <item>Foto</item>
+        <item>Foto Gallery strutture scolastiche</item>
+        <item>it.gov.fermitivoli.fragment.PhotosExpandibleFragment</item>
+        <item>@drawable/ic_photos</item>
+        <item></item>
+        <item>END-ITEM</item>
+
+        <item>3</item>
+        <item>Indirizzi di studio</item>
+        <item>Indirizzi di studio</item>
+        <item>it.gov.fermitivoli.fragment.IndirizziStudioFragment</item>
+        <item>@drawable/ic_address_48</item>
+        <item></item>
+        <item>END-ITEM</item>
+
+        <item>102</item>
+        <item>Libri di testo</item>
+        <item>Libri di testo</item>
+        <item>it.gov.fermitivoli.action.LibriTestoAction</item>
+        <item>@drawable/library_icon</item>
+        <item></item>
+        <item>END-ITEM</item>
+
+        <item>106</item>
+        <item>Iscrizione Online</item>
+        <item>Iscrizione Online</item>
+        <item>it.gov.fermitivoli.action.IscrizioneOnlineAction</item>
+        <item>@drawable/logo_iscrizioni_online_50x50</item>
+        <item></item>
+        <item>END-ITEM</item>
+        <!--  xxxxxxxxxxxxxxxxxxxxxxxxx     xxxxxxxxxxxxxxxxxxxxxxxxx -->
+        <!--  xxxxxxxxxxxxxxxxxxxxxxxxx     xxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+        <item>103</item>
+        <item>Fermate e tragitti Autobus</item>
+        <item>Informazioni autobus Cotral</item>
+        <item>it.gov.fermitivoli.fragment.CotralFragment</item>
+        <item>@drawable/bus</item>
+        <item></item>
+        <item>END-ITEM</item>
+
+        <item>201</item>
+        <item>Orari Trenitalia</item>
+        <item>Orari Trenitalia</item>
+        <item>it.gov.fermitivoli.action.TrenitaliaAction</item>
+        <item>@drawable/train</item>
+        <item></item>
+        <item>END-ITEM</item>
+
+        <item>202</item>
+        <item>Orari Cotral</item>
+        <item>Orari Cotral</item>
+        <item>it.gov.fermitivoli.action.CotralAction</item>
+        <item>@drawable/bus</item>
+        <item></item>
+        <item>END-ITEM</item>
+
+    </array>
+
+</resources>

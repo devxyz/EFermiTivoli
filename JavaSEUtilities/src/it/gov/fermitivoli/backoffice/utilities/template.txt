@@ -1,0 +1,2 @@
+netsh interface ip set address name="Connessione alla rete locale (LAN)" static 192.168.2.# 255.255.255.0 192.168.2.1
+netsh interface ip set dns name="Connessione alla rete locale (LAN)" static 8.8.8.8

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/FermiTivoliApp/FermiTivoliApp.iml" filepath="$PROJECT_DIR$/FermiTivoliApp/FermiTivoliApp.iml" />
+      <module fileurl="file://$PROJECT_DIR$/FermiTivoliCommon/FermiTivoliCommon.iml" filepath="$PROJECT_DIR$/FermiTivoliCommon/FermiTivoliCommon.iml" />
+      <module fileurl="file://$PROJECT_DIR$/FermiTivoliGoogleAppEngine/FermiTivoliGoogleAppEngine.iml" filepath="$PROJECT_DIR$/FermiTivoliGoogleAppEngine/FermiTivoliGoogleAppEngine.iml" />
+      <module fileurl="file://$PROJECT_DIR$/JavaSEUtilities/JavaSEUtilities.iml" filepath="$PROJECT_DIR$/JavaSEUtilities/JavaSEUtilities.iml" />
+    </modules>
+  </component>
+</project>
