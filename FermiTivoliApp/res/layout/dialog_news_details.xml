@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" android:background="@color/color_white">
+                android:layout_height="match_parent" android:background="@color/color_blue_scurissimo">
 
     <TextView
             android:layout_width="match_parent"
@@ -13,7 +13,8 @@
             android:paddingLeft="10dp" android:paddingRight="10dp"
             android:layout_below="@+id/textView"
             android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" android:gravity="right" android:textStyle="bold"/>
+            android:layout_alignParentStart="true" android:gravity="right" android:textStyle="bold"
+            android:layout_marginLeft="5dp" android:layout_marginRight="5dp" android:background="@color/color_white"/>
 
     <WebView
             android:layout_width="match_parent"
@@ -24,7 +25,8 @@
             android:id="@+id/textViewDescrizione"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
-            android:padding="5dp" android:layout_below="@+id/textDate" android:layout_above="@+id/linearLayout4"/>
+            android:padding="5dp" android:layout_below="@+id/textDate" android:layout_above="@+id/linearLayout4"
+            android:layout_marginLeft="5dp" android:layout_marginRight="5dp" android:background="@color/color_white"/>
     <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -58,6 +60,6 @@
                   android:id="@+id/textView8" android:textColor="@color/color_white"/>
         <ImageButton android:layout_width="wrap_content" android:layout_height="wrap_content"
                      android:id="@+id/imageButtonWWW" android:background="@color/color_transparent"
-                     android:src="@drawable/icon_www2_60x60" android:paddingLeft="5dp"/>
+                     android:src="@drawable/icon_web_60x60" android:paddingLeft="5dp"/>
     </LinearLayout>
 </RelativeLayout>
