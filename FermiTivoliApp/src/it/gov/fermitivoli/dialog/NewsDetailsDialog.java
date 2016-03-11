@@ -71,7 +71,7 @@ public class NewsDetailsDialog extends AbstractDialog {
 
 
             WebView x = LAYOUT_OBJs.textViewDescrizione;
-            final String data = "<h2>" + title + "</h2>" +
+            final String data = "<h2>" + title + "</h2><hr>" +
                     C_TextUtil.normalizeTextFromHtml(pp.getTesto());
             x.loadData(data, "text/html", "utf-8");
             if (DebugUtil.DEBUG__RssDetailsDialog)

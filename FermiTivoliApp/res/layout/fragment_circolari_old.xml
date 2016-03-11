@@ -16,7 +16,7 @@
             android:text="Ricerca nel testo >>"
             android:id="@+id/buttonFulltextCircolari" android:layout_alignParentBottom="true" android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true" android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true" android:background="@color/color_blue_scuro"
+            android:layout_alignParentEnd="true" android:background="@color/color_blue_scurissimo"
             android:textColor="@color/color_white" android:textStyle="bold"/>
 </RelativeLayout>
 

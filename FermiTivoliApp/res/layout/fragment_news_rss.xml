@@ -11,7 +11,7 @@
             android:id="@+id/multiAutoCompleteTextView" android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true" android:layout_toLeftOf="@+id/imageButton3"
             android:layout_toStartOf="@+id/imageButton3" android:layout_alignBottom="@+id/imageButton3"
-            android:textColor="@color/color_blue_scuro"
+            android:textColor="@color/color_blue_scurissimo"
             android:paddingLeft="5dp" android:paddingRight="5dp" android:hint="Inserire i termini da cercare"
             android:layout_marginLeft="5dp"
             android:layout_marginTop="5dp" android:layout_marginRight="5dp"/>

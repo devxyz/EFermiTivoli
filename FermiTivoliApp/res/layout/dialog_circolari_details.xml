@@ -9,7 +9,7 @@
             android:textAppearance="?android:attr/textAppearance"
             android:text="gg/mm/aaaa"
             android:id="@+id/textDate"
-            android:textColor="@color/color_blue_scuro"
+            android:textColor="@color/color_blue_scurissimo"
             android:paddingLeft="10dp" android:paddingRight="10dp"
             android:layout_below="@+id/textView"
             android:layout_alignParentLeft="true"
@@ -21,7 +21,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/buttonClose"
-            android:src="@drawable/close_48x48_white"
+            android:src="@drawable/close_40x40_red"
 
             android:layout_alignParentTop="true" android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true" android:background="@color/color_blue_scurissimo" android:padding="5dp"/>

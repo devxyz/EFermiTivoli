@@ -19,7 +19,7 @@
             android:maxLines="2"
             android:text="titolo"
             android:gravity="center_vertical"
-            android:textColor="@color/color_blue_scuro" android:layout_below="@+id/thumb"
+            android:textColor="@color/color_blue_scurissimo" android:layout_below="@+id/thumb"
             android:layout_alignParentLeft="true" android:layout_alignParentStart="true"
             android:layout_marginLeft="50dp"/>
 
