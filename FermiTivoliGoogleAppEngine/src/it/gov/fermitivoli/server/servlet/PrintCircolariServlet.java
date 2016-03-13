@@ -20,7 +20,7 @@ public class PrintCircolariServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         PrintWriter out = new PrintWriter(new BufferedOutputStream(response.getOutputStream()));
         out.print("<html><body>");
-        out.print("<table>");
+        out.print("<table border=1>");
 
         final IDataStoreOptimizer ds = DataStoreOptimizer.getInstance();
         final List<C_CircolareDto> source = ds.listAllCircolariAttive();

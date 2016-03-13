@@ -29,9 +29,22 @@
         <servlet-name>UpdateCircolariServletV2</servlet-name>
         <servlet-class>it.gov.fermitivoli.server.servlet.UpdateCircolariServletV2</servlet-class>
     </servlet>
+
     <servlet>
         <servlet-name>JSonCircolariServlet</servlet-name>
         <servlet-class>it.gov.fermitivoli.server.servlet.JSonCircolariServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>LoadExternalDataServlet</servlet-name>
+        <servlet-class>it.gov.fermitivoli.server.servlet.v2.LoadExternalDataServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ClearAllServlet</servlet-name>
+        <servlet-class>it.gov.fermitivoli.server.servlet.v2.ClearAllServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>StatServlet</servlet-name>
+        <servlet-class>it.gov.fermitivoli.server.servlet.v2.StatServlet</servlet-class>
     </servlet>
 
 
@@ -63,6 +76,19 @@
     <servlet-mapping>
         <servlet-name>UpdateCircolariServletV2</servlet-name>
         <url-pattern>/UpdateCircolariServletV2</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>LoadExternalDataServlet</servlet-name>
+        <url-pattern>/LoadExternalDataServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ClearAllServlet</servlet-name>
+        <url-pattern>/ClearAllServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>StatServlet</servlet-name>
+        <url-pattern>/StatServlet</url-pattern>
     </servlet-mapping>
 
 

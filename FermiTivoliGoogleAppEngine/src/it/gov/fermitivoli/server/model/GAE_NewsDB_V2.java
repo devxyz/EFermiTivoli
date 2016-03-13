@@ -1,5 +1,6 @@
 package it.gov.fermitivoli.server.model;
 
+import com.googlecode.objectify.annotation.Entity;
 import com.googlecode.objectify.annotation.Id;
 
 import java.io.Serializable;
@@ -8,14 +9,19 @@ import java.util.Date;
 /**
  * Created by stefano on 03/03/16.
  */
+@Entity
 public class GAE_NewsDB_V2 implements Serializable, Cloneable {
     public boolean flagDelete;
     @Id
-    private String titlePubDate;
+    private String keyTitlePubDate;
     /**
      * Not-null value.
      */
     private String titolo;
+    /**
+     * Not-null value.
+     */
+    private long token;
     /**
      * Not-null value.
      */
@@ -31,11 +37,19 @@ public class GAE_NewsDB_V2 implements Serializable, Cloneable {
     private String contenuto;
     private String fullimageLink;
     private String thumbimageLink;
-    private boolean flagContenutoLetto;
+
     /**
      * Not-null value.
      */
     private java.util.Date dataInserimento;
+
+    public long getToken() {
+        return token;
+    }
+
+    public void setToken(long token) {
+        this.token = token;
+    }
 
     public GAE_NewsDB_V2 clone() {
         try {
@@ -45,12 +59,12 @@ public class GAE_NewsDB_V2 implements Serializable, Cloneable {
         }
     }
 
-    public String getTitlePubDate() {
-        return titlePubDate;
+    public String getKeyTitlePubDate() {
+        return keyTitlePubDate;
     }
 
-    public void setTitlePubDate(String titlePubDate) {
-        this.titlePubDate = titlePubDate;
+    public void setKeyTitlePubDate(String keyTitlePubDate) {
+        this.keyTitlePubDate = keyTitlePubDate;
     }
 
     public String getTitolo() {
@@ -107,14 +121,6 @@ public class GAE_NewsDB_V2 implements Serializable, Cloneable {
 
     public void setThumbimageLink(String thumbimageLink) {
         this.thumbimageLink = thumbimageLink;
-    }
-
-    public boolean isFlagContenutoLetto() {
-        return flagContenutoLetto;
-    }
-
-    public void setFlagContenutoLetto(boolean flagContenutoLetto) {
-        this.flagContenutoLetto = flagContenutoLetto;
     }
 
     public Date getDataInserimento() {

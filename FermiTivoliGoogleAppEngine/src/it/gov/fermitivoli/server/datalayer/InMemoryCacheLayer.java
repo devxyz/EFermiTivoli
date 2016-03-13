@@ -1,4 +1,4 @@
-package it.gov.fermitivoli.server.datastore.datalayer;
+package it.gov.fermitivoli.server.datalayer;
 
 import java.util.HashMap;
 import java.util.List;
@@ -13,7 +13,14 @@ public abstract class InMemoryCacheLayer<K, T> extends CacheLayer<K, T> {
         super(next);
     }
 
-    public InMemoryCacheLayer() {
+    @Override
+    protected String _toStatImpl() {
+        return "" + data.size() + " entities in RAM";
+    }
+
+    @Override
+    protected int _sizeImpl() {
+        return data.size();
     }
 
     @Override

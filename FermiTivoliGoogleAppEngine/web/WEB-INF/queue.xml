@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <queue-entries>
+    <!--
     <queue>
         <name>scarica-circolare</name>
         <rate>10/s</rate>
         <max-concurrent-requests>10</max-concurrent-requests>
     </queue>
+    -->
 </queue-entries>

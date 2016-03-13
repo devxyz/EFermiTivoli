@@ -42,7 +42,7 @@
     <string name="url_circolari">http://www.fermitivoli.gov.it/joomla/Circolari_2015.php</string>
     <string name="url_circolari_joomla">http://www.fermitivoli.gov.it/joomla/index.php?option=com_content&amp;view=article&amp;id=73&amp;Itemid=215</string>
 
-    <string name="url_circolari_json">http://efermi-tivoli.appspot.com//JSonCircolariServlet</string>
+    <string name="url_circolari_json">http://efermi-tivoli.appspot.com/JSonCircolariServlet</string>
     <!--<string name="url_circolari_json">http://stefanomillozzi.altervista.org/circolari.dto.zip</string>-->
 
 

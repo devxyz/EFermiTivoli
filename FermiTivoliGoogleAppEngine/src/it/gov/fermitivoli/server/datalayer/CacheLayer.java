@@ -1,7 +1,9 @@
-package it.gov.fermitivoli.server.datastore.datalayer;
+package it.gov.fermitivoli.server.datalayer;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+import java.util.TreeMap;
 
 /**
  * definisce un livello di gestione della cache
@@ -20,19 +22,60 @@ public abstract class CacheLayer<K, T> {
 
     public abstract void invalidateImpl();
 
-    public final void invalidate() {
+    public final synchronized void invalidate() {
         allKeys = null;
         invalidateImpl();
         final CacheLayer<K, T> x = nextLayer();
         if (x != null) x.invalidate();
     }
 
+    public String toStat() {
+        StringBuilder sb = new StringBuilder();
+
+        sb.append("\nCACHE LAYER ").append(getClass().getSimpleName()).append("\n");
+        sb.append("----------------------------\n");
+        sb.append(" Keys in memory: " + ((allKeys == null) ? "No keys (NULL)" : allKeys.size() + " keys"));
+        sb.append(_toStatImpl());
+        if (next != null) {
+            sb.append("\n");
+            sb.append(next.toStat());
+        }
+        return sb.toString();
+    }
+
+    protected abstract String _toStatImpl();
+
+
+    public final List<T> allEntities() {
+        final List<K> ks = allKeys();
+        List<T> ris = new ArrayList<>(ks.size());
+        for (K k : ks) {
+            ris.add(get(k));
+        }
+        return ris;
+    }
+
+    public final Map<K, T> allEntitiesMap() {
+        final List<K> ks = allKeys();
+        Map<K, T> ris = new TreeMap<>();
+        for (K k : ks) {
+            ris.put(k, get(k));
+        }
+        return ris;
+    }
+
+    public final synchronized int size() {
+        return _sizeImpl();
+    }
+
+    protected abstract int _sizeImpl();
+
     /**
      * restituisce il layer successivo o null
      *
      * @return
      */
-    protected final CacheLayer<K, T> nextLayer() {
+    protected final synchronized CacheLayer<K, T> nextLayer() {
         return next;
     }
 
@@ -41,7 +84,7 @@ public abstract class CacheLayer<K, T> {
      *
      * @param value
      */
-    public final void update(T value) {
+    public final synchronized void update(T value) {
         allKeys = null;
         final K key = getKey(value);
         _updateImpl(key, value);
@@ -50,7 +93,7 @@ public abstract class CacheLayer<K, T> {
 
     }
 
-    public final T get(K k) {
+    public final synchronized T get(K k) {
         final T val = _getImpl(k);
         if (val != null)
             return val;
@@ -65,7 +108,7 @@ public abstract class CacheLayer<K, T> {
 
     protected abstract T _getImpl(K key);
 
-    public final void set(T value) {
+    public final synchronized void set(T value) {
         final K key = getKey(value);
         _setImpl(key, value);
         final CacheLayer<K, T> x = nextLayer();
@@ -75,7 +118,7 @@ public abstract class CacheLayer<K, T> {
 
     protected abstract List<K> _allKeys();
 
-    public List<K> allKeys() {
+    public synchronized final List<K> allKeys() {
         if (allKeys == null) {
             allKeys = _allKeys();
             if (allKeys == null) {
@@ -95,7 +138,7 @@ public abstract class CacheLayer<K, T> {
 
     protected abstract void _removeByKeyImpl(K key);
 
-    public final void removeByValue(T value) {
+    public final synchronized void removeByValue(T value) {
 
         _removeByKeyImpl(getKey(value));
         final CacheLayer<K, T> x = nextLayer();
@@ -104,7 +147,7 @@ public abstract class CacheLayer<K, T> {
         allKeys = null;
     }
 
-    public final void removeByKey(K k) {
+    public final synchronized void removeByKey(K k) {
         _removeByKeyImpl(k);
         final CacheLayer<K, T> x = nextLayer();
         if (x != null) x.removeByKey(k);
@@ -112,7 +155,12 @@ public abstract class CacheLayer<K, T> {
 
     }
 
-
+    /**
+     * deve essere univoca tra tutti gli oggetti (perche' memcache e' unica)
+     *
+     * @param value
+     * @return
+     */
     public abstract K getKey(T value);
 
 }

@@ -1,12 +1,14 @@
-package it.gov.fermitivoli.server.datastore.datalayer;
+package it.gov.fermitivoli.server.datalayer;
 
 import com.google.appengine.api.memcache.MemcacheService;
+
+import java.util.List;
 
 /**
  * Created by stefano on 03/03/16.
  */
 public abstract class MemcacheCacheLayer<K, T> extends CacheLayer<K, T> {
-    private final MemcacheService mcservice;
+    protected final MemcacheService mcservice;
 
 
     protected MemcacheCacheLayer(MemcacheService mcservice, CacheLayer<K, T> next) {
@@ -14,11 +16,30 @@ public abstract class MemcacheCacheLayer<K, T> extends CacheLayer<K, T> {
         this.mcservice = mcservice;
     }
 
+    @Override
+    protected int _sizeImpl() {
+        return -1;
+    }
+
+    @Override
+    protected String _toStatImpl() {
+        return "stat: " + mcservice.getStatistics();
+    }
 
     @Override
     protected T _getImpl(K key) {
         final T o = (T) mcservice.get(key);
         return o;
+    }
+
+    @Override
+    protected void _updateImpl(K key, T value) {
+        _setImpl(key, value);
+    }
+
+    @Override
+    protected List<K> _allKeys() {
+        return nextLayer().allKeys();
     }
 
     @Override
