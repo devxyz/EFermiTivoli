@@ -7,7 +7,7 @@ import it.gov.fermitivoli.server.model.GAE_CircolareDB_V2;
 /**
  * Created by stefano on 01/08/15.
  */
-public class GAE_CircolariUtil {
+public class GAE_DtoUtil {
     public static void copy(GAE_CircolareDB_V2 source, C_CircolareDto destination) {
         destination.setTitolo(source.getTitolo());
         destination.setData(source.getData());

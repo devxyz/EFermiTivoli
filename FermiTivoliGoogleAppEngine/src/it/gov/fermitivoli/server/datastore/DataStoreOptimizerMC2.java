@@ -8,7 +8,7 @@ import com.googlecode.objectify.cmd.LoadType;
 import it.gov.fermitivoli.model.C_CircolareDto;
 import it.gov.fermitivoli.server.model.GAE_CircolareDB_V2;
 import it.gov.fermitivoli.server.model.GAE_Token_V2;
-import it.gov.fermitivoli.server.util.GAE_CircolariUtil;
+import it.gov.fermitivoli.server.util.GAE_DtoUtil;
 
 import java.util.*;
 
@@ -368,7 +368,7 @@ public class DataStoreOptimizerMC2 implements IDataStoreOptimizer {
     private C_CircolareDto convert(GAE_CircolareDB_V2 c) {
         if (c == null) return null;
         C_CircolareDto ris = new C_CircolareDto();
-        GAE_CircolariUtil.copy(c, ris);
+        GAE_DtoUtil.copy(c, ris);
         return ris;
     }
 

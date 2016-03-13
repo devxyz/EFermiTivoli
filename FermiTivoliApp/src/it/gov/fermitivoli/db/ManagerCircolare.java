@@ -374,10 +374,10 @@ public class ManagerCircolare {
     public void salva(List<C_CircolareDto> cc) {
         final CircolareDBDao circolareDBDao = session.getCircolareDBDao();
         final List<CircolareDB> list = circolareDBDao.queryBuilder().list();
-        final ArrayList<Pair<CircolareDB, C_CircolareDto>> pairs = raccordaCircolari(cc, list);
+        final ArrayList<C_Pair<CircolareDB, C_CircolareDto>> pairs = raccordaCircolari(cc, list);
 
         //aggiorna le coppie comuni
-        for (Pair<CircolareDB, C_CircolareDto> p : pairs) {
+        for (C_Pair<CircolareDB, C_CircolareDto> p : pairs) {
             CircolareDB cDB = p.a;
             C_CircolareDto cDTO = p.b;
 
@@ -448,7 +448,7 @@ public class ManagerCircolare {
     }
 
 
-    public final ArrayList<Pair<CircolareDB, C_CircolareDto>> raccordaCircolari(List<C_CircolareDto> _circolariWeb, List<CircolareDB> _circolariDB) {
+    public final ArrayList<C_Pair<CircolareDB, C_CircolareDto>> raccordaCircolari(List<C_CircolareDto> _circolariWeb, List<CircolareDB> _circolariDB) {
         //------------------------------------------------------------
         //indicizza
         //------------------------------------------------------------
@@ -456,7 +456,7 @@ public class ManagerCircolare {
 
         final Map<String, C_CircolareDto> circolariDtoByKey = getStringCircolareDtoMap(_circolariWeb);
 
-        final ArrayList<Pair<CircolareDB, C_CircolareDto>> ris = new ArrayList<>();
+        final ArrayList<C_Pair<CircolareDB, C_CircolareDto>> ris = new ArrayList<>();
 
         //------------------------------------------------------------
         //aggiunge le coppie (anche se non comuni)
@@ -464,15 +464,15 @@ public class ManagerCircolare {
         for (C_CircolareDto c : _circolariWeb) {
             final CircolareDB c2 = circolariDbByKey.get(c.getKey());
             if (c2 == null)
-                ris.add(new Pair<CircolareDB, C_CircolareDto>(null, c));
+                ris.add(new C_Pair<CircolareDB, C_CircolareDto>(null, c));
             else
-                ris.add(new Pair<>(c2, c));
+                ris.add(new C_Pair<>(c2, c));
         }
 
         for (CircolareDB c : _circolariDB) {
             final C_CircolareDto c2 = circolariDtoByKey.get(c.getKey());
             if (c2 == null)
-                ris.add(new Pair<CircolareDB, C_CircolareDto>(c, null));
+                ris.add(new C_Pair<CircolareDB, C_CircolareDto>(c, null));
         }
 
         return ris;

@@ -62,7 +62,7 @@ public class OfyPersistanceLayerCircolareDB extends OfyPersistanceLayer<String, 
     }
 
     @Override
-    protected void _setImpl(String key, GAE_CircolareDB_V2 value) {
+    protected void _insertImpl(String key, GAE_CircolareDB_V2 value) {
         ofy.save().entity(value).now();
         cacheList = null;
     }

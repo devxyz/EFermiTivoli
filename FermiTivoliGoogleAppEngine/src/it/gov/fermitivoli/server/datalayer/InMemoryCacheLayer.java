@@ -29,7 +29,7 @@ public abstract class InMemoryCacheLayer<K, T> extends CacheLayer<K, T> {
     }
 
     @Override
-    protected void _setImpl(K key, T value) {
+    protected void _insertImpl(K key, T value) {
         data.put(key, value);
     }
 

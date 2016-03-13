@@ -15,6 +15,7 @@ import java.util.List;
 /**
  * Created by stefano on 31/07/15.
  */
+@Deprecated
 public class GAE_DownloadCircolari {
     private static final GAE_DownloadCircolari instance = new GAE_DownloadCircolari();
     private static final boolean DEBUG = false;

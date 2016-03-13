@@ -24,6 +24,8 @@ public class GAE_CircolareDB_V2 implements Serializable{
     public int numero;
     public boolean flagDelete;
 
+
+
     public GAE_CircolareDB_V2() {
         flagDelete = false;
     }
@@ -127,12 +129,6 @@ public class GAE_CircolareDB_V2 implements Serializable{
         this.numero = numero;
     }
 
-    /**
-     * il metodo calcola la chiave come numero + data (gg, mm , aaaa)
-     */
-    public void calculateKey() {
-        key = C_CircolariUtil.generateKey(numero, data);
-    }
 
     public String getKey() {
         return key;

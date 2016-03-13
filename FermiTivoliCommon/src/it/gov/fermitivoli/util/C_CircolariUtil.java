@@ -68,10 +68,6 @@ public class C_CircolariUtil {
         return ris;
     }
 
-    public static String generateKey(int numero, Date data) {
-        return numero + "#" + C_DateUtil.toDDMMYYY(data);
-
-    }
 
     private static boolean containsAll(String s, String[] values) {
         for (String value : values) {

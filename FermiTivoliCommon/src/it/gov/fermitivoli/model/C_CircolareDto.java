@@ -1,6 +1,6 @@
 package it.gov.fermitivoli.model;
 
-import it.gov.fermitivoli.util.C_CircolariUtil;
+import it.gov.fermitivoli.util.C_DateUtil;
 
 import java.util.Date;
 import java.util.Formatter;
@@ -24,8 +24,9 @@ public class C_CircolareDto implements Comparable<C_CircolareDto> {
     }
 
     public C_CircolareDto(String titolo, String testo, Date data, C_NormalizedURL linkpdf, int numero) {
-        this(C_CircolariUtil.generateKey(numero, data), titolo, testo, data, linkpdf, numero);
+        this(composeKey(numero, data), titolo, testo, data, linkpdf, numero);
     }
+
 
     public C_CircolareDto(String key, String titolo, String testo, Date data, C_NormalizedURL linkpdf, int numero) {
         this.key = key;
@@ -34,6 +35,11 @@ public class C_CircolareDto implements Comparable<C_CircolareDto> {
         this.data = data;
         this.url = linkpdf;
         this.numero = numero;
+    }
+
+    public static String composeKey(int numero, Date data) {
+        return "#C#" + numero + "#" + C_DateUtil.toDDMMYYY(data);
+
     }
 
     public long getToken() {

@@ -102,17 +102,17 @@ public abstract class CacheLayer<K, T> {
 
         //propaga
         if (ris != null)
-            set(ris);
+            insert(ris);
         return ris;
     }
 
     protected abstract T _getImpl(K key);
 
-    public final synchronized void set(T value) {
+    public final synchronized void insert(T value) {
         final K key = getKey(value);
-        _setImpl(key, value);
+        _insertImpl(key, value);
         final CacheLayer<K, T> x = nextLayer();
-        if (x != null) x.set(value);
+        if (x != null) x.insert(value);
 
     }
 
@@ -131,7 +131,7 @@ public abstract class CacheLayer<K, T> {
         return new ArrayList<>(allKeys);
     }
 
-    protected abstract void _setImpl(K key, T value);
+    protected abstract void _insertImpl(K key, T value);
 
 
     protected abstract void _updateImpl(K key, T value);

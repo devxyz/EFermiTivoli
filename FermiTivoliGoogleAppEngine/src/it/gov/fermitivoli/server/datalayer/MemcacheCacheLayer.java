@@ -34,7 +34,7 @@ public abstract class MemcacheCacheLayer<K, T> extends CacheLayer<K, T> {
 
     @Override
     protected void _updateImpl(K key, T value) {
-        _setImpl(key, value);
+        _insertImpl(key, value);
     }
 
     @Override
@@ -43,7 +43,7 @@ public abstract class MemcacheCacheLayer<K, T> extends CacheLayer<K, T> {
     }
 
     @Override
-    protected void _setImpl(K key, T value) {
+    protected void _insertImpl(K key, T value) {
         mcservice.put(key, value);
     }
 
