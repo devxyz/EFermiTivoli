@@ -37,6 +37,7 @@ public class JSonCircolariServlet extends HttpServlet {
         final InMemoryCacheLayerNewsDB loaderNews = DataLayerBuilder.getLoaderNews();
         final InMemoryCacheLayerCircolareDB loaderCircolari = DataLayerBuilder.getLoaderCircolari();
 
+
         try {
             if (DEBUG)
                 System.out.println("RICHIESTA LISTA CIRCOLARI");
