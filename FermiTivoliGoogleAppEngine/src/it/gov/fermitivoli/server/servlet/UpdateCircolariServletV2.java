@@ -22,6 +22,7 @@ import java.util.concurrent.Semaphore;
 /**
  * aggiorna le informazioni delle circolari
  */
+@Deprecated
 public class UpdateCircolariServletV2 extends HttpServlet {
     private static final boolean DEBUG = true;
     private static final Semaphore sem = new Semaphore(1);

@@ -7,6 +7,7 @@ import java.util.concurrent.TimeoutException;
 /**
  * Created by stefano on 06/08/15.
  */
+@Deprecated
 public class MemcacheSemaphore {
     private static final boolean DEBUG = false;
     /**

@@ -22,7 +22,7 @@ import java.util.List;
  */
 public class ClearAllServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+        response.setContentType("text/plain");
         DataLayerBuilder.getLoaderCircolari().invalidate();
         DataLayerBuilder.getLoaderNews().invalidate();
 
@@ -34,18 +34,8 @@ public class ClearAllServlet extends HttpServlet {
         ofy.delete().entities(list).now();
 
         final List<GAE_NewsDB_V2> list2 = ofy.load().type(GAE_NewsDB_V2.class).list();
-        out.println(list2.size() + " new nel datastore cancellate\n");
+        out.println(list2.size() + " news nel datastore cancellate\n");
         ofy.delete().entities(list2).now();
-
-        final List<GAE_Token_V2> ll = ofy.load().type(GAE_Token_V2.class).list();
-        ofy.delete().entities(ll).now();
-        out.println(ll.size() + " token nel datastore cancellate\n");
-
-
-        final IDataStoreOptimizer ds = DataStoreOptimizer.getInstance();
-        ds.invalidate();
-
-
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

@@ -33,7 +33,7 @@ public class GAE_PdfUtil {
             in.close();
             return C_TextUtil.normalize_UTF8__to__ASCII(sb.toString().replaceAll("[ ]+", " "));
         } catch (InvalidPdfException e) {
-            return "....<INVALID FILE>....";//NO DATA
+            return "<contenuto_non_disponibile>";//NO DATA
         }
     }
 }

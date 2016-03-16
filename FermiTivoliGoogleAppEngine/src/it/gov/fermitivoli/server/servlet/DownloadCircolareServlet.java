@@ -18,6 +18,7 @@ import java.util.Date;
 /**
  * Created by stefano on 01/08/15.
  */
+@Deprecated
 public class DownloadCircolareServlet extends HttpServlet {
 
     private static final boolean DEBUG = true;

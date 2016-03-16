@@ -15,7 +15,7 @@ import java.util.*;
 /**
  * caching intermendio
  */
-
+@Deprecated
 public class DataStoreOptimizerMC2 implements IDataStoreOptimizer {
     private static final DataStoreOptimizerMC2 instance = new DataStoreOptimizerMC2();
     private static final int MAX_AWAIT = 15000;

@@ -22,6 +22,7 @@ import java.util.concurrent.Semaphore;
 /**
  * Created by stefano on 01/08/15.
  */
+@Deprecated
 public class UpdateCircolariServlet extends HttpServlet {
     private static final boolean DEBUG = true;
     private static final Semaphore sem = new Semaphore(1);
@@ -143,36 +144,30 @@ public class UpdateCircolariServlet extends HttpServlet {
                 }
 
                 int count = 0;
-                if (false) {
-                    for (final C_CircolareDto c : todoWork) {
-                        // DownloadCircolareServlet.doTask(c.getKey());
+
+                ArrayList<ArrayList<String>> kk = new ArrayList<>();
+                kk.add(new ArrayList<String>());
+                for (C_CircolareDto c : todoWork) {
+                    ArrayList<String> last = kk.get(kk.size() - 1);
+                    if (last.size() >= 5) {
+                        last = new ArrayList<>();
+                        kk.add(last);
                     }
-                } else {
+                    last.add(c.getKey());
 
-                    ArrayList<ArrayList<String>> kk = new ArrayList<>();
-                    kk.add(new ArrayList<String>());
-                    for (C_CircolareDto c : todoWork) {
-                        ArrayList<String> last = kk.get(kk.size() - 1);
-                        if (last.size() >= 5) {
-                            last = new ArrayList<>();
-                            kk.add(last);
-                        }
-                        last.add(c.getKey());
+                   /*
+                    if (count++ > 10)
+                        return;*/
+                }
 
-                       /*
-                        if (count++ > 10)
-                            return;*/
-                    }
-
-                    for (ArrayList<String> z : kk) {
-                        final String s = z.toString();
-                        String query = s.substring(1, s.length() - 1);
-                        System.out.println("QUERY " + query);
-                        q.add(TaskOptions.Builder.withUrl("/DownloadCircolareServlet").param("keys", query).param("secret-key", GAE_Settings.SECRET_KEY));
-
-                    }
+                for (ArrayList<String> z : kk) {
+                    final String s = z.toString();
+                    String query = s.substring(1, s.length() - 1);
+                    System.out.println("QUERY " + query);
+                    q.add(TaskOptions.Builder.withUrl("/DownloadCircolareServlet").param("keys", query).param("secret-key", GAE_Settings.SECRET_KEY));
 
                 }
+
             }
 
             //final ExecutorService es = Executors.newFixedThreadPool(5);

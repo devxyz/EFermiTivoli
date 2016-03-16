@@ -8,7 +8,11 @@ import java.util.TreeSet;
  */
 public class C_JSonCircolariDeltaServletResponse {
     public ArrayList<C_CircolareDto> circolariDaAggiungereAggiornare = new ArrayList<>();
-    public TreeSet<String> circolariDaRimuovere = new TreeSet<>();
+    public ArrayList<C_NewsDto> newsDaAggiungereAggiornare = new ArrayList<>();
+    public TreeSet<String> keyCircolariDaRimuovere = new TreeSet<>();
+    public TreeSet<String> keyNewsDaRimuovere = new TreeSet<>();
+    public long minToken;
+    public long maxToken;
 
 
 }

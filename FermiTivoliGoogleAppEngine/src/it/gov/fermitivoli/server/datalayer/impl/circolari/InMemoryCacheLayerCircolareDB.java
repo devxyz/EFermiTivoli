@@ -12,6 +12,7 @@ public class InMemoryCacheLayerCircolareDB extends InMemoryCacheLayer<String, GA
     }
 
 
+
     @Override
     public String getKey(GAE_CircolareDB_V2 value) {
         return value.getKey();

@@ -124,7 +124,7 @@ public abstract class ExternalDataSync_AsyncTask extends AsyncTask<Void, Integer
                 @Override
                 public List<CircolareDB> call(DaoSession session, Context ctx) throws Throwable {
                     ManagerCircolare m = new ManagerCircolare(session);
-                    for (String key : response.circolariDaRimuovere) {
+                    for (String key : response.keyCircolariDaRimuovere) {
                         m.rimuoveCircolare(key);
                     }
                     m.salva(response.circolariDaAggiungereAggiornare);

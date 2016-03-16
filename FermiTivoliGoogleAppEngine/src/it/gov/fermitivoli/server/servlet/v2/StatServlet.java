@@ -25,6 +25,8 @@ public class StatServlet extends HttpServlet {
         out.print(l1.toStat());
         out.print("\n\n\n======================================================================\n");
         out.print(l2.toStat());
+        out.print("\n\n\n======================================================================\n");
+        out.println("Max token: " + DataLayerBuilder.maxToken());
 
 
     }

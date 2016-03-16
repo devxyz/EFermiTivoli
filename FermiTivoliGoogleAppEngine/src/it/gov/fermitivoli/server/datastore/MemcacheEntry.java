@@ -5,6 +5,7 @@ import com.google.appengine.api.memcache.MemcacheService;
 /**
  * Created by stefano on 09/08/15.
  */
+@Deprecated
 public class MemcacheEntry<T> {
     private final String label;
     private MemcacheService mcservice;

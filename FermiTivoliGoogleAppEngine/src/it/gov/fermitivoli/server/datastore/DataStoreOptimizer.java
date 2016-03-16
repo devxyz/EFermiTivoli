@@ -14,6 +14,7 @@ import java.util.*;
 /**
  * Classe per la gestione del datastore ottimale
  */
+@Deprecated
 public class DataStoreOptimizer implements IDataStoreOptimizer {
     private static final DataStoreOptimizer instance = new DataStoreOptimizer();
     private static final byte[] TOKEN_LABEL_MEMCACHE = "TOKEN".getBytes();

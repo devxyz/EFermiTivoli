@@ -8,6 +8,7 @@ import java.io.Serializable;
 /**
  * contiene l'ultimo token consumato
  */
+@Deprecated
 @Entity
 public class GAE_Token_V2 implements Serializable {
     @Id

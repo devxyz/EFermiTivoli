@@ -9,6 +9,7 @@ import java.util.Set;
 /**
  * Created by stefano on 05/08/15.
  */
+@Deprecated
 public interface IDataStoreOptimizer {
     boolean isActive(String key);
 

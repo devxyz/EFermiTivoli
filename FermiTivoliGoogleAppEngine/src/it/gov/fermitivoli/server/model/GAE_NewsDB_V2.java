@@ -2,6 +2,7 @@ package it.gov.fermitivoli.server.model;
 
 import com.googlecode.objectify.annotation.Entity;
 import com.googlecode.objectify.annotation.Id;
+import it.gov.fermitivoli.server.datalayer.impl.CacheItem;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -10,10 +11,10 @@ import java.util.Date;
  * Created by stefano on 03/03/16.
  */
 @Entity
-public class GAE_NewsDB_V2 implements Serializable, Cloneable {
+public class GAE_NewsDB_V2 implements Serializable, Cloneable, CacheItem<String> {
     public boolean flagDelete;
     @Id
-    private String keyTitlePubDate;
+    private String key;
     /**
      * Not-null value.
      */
@@ -59,12 +60,12 @@ public class GAE_NewsDB_V2 implements Serializable, Cloneable {
         }
     }
 
-    public String getKeyTitlePubDate() {
-        return keyTitlePubDate;
+    public String getKey() {
+        return key;
     }
 
-    public void setKeyTitlePubDate(String keyTitlePubDate) {
-        this.keyTitlePubDate = keyTitlePubDate;
+    public void setKey(String key) {
+        this.key = key;
     }
 
     public String getTitolo() {

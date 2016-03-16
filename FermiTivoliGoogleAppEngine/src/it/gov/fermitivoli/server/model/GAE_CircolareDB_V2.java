@@ -3,6 +3,7 @@ package it.gov.fermitivoli.server.model;
 import com.googlecode.objectify.annotation.Entity;
 import com.googlecode.objectify.annotation.Id;
 import com.googlecode.objectify.annotation.Index;
+import it.gov.fermitivoli.server.datalayer.impl.CacheItem;
 import it.gov.fermitivoli.util.C_CircolariUtil;
 
 import java.io.Serializable;
@@ -12,7 +13,7 @@ import java.util.Date;
  * Created by stefano on 01/08/15.
  */
 @Entity
-public class GAE_CircolareDB_V2 implements Serializable{
+public class GAE_CircolareDB_V2 implements Serializable, CacheItem<String> {
     public long token;
     public String titolo;
     public String testo;

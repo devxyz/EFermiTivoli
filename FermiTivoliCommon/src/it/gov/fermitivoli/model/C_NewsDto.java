@@ -9,6 +9,7 @@ import java.util.Date;
  */
 public class C_NewsDto implements Comparable<C_NewsDto> {
     private Long id;
+    private long token;
     /**
      * Not-null value.
      */
@@ -33,10 +34,27 @@ public class C_NewsDto implements Comparable<C_NewsDto> {
      * Not-null value.
      */
     private java.util.Date dataInserimento;
+    private String key;
 
     public static String composeKey(String titolo, Date pubDate) {
         return "#N#" + titolo.toLowerCase().replaceAll("[ \n]+", "") + "#" + C_DateUtil.toDDMMYYY(pubDate);
 
+    }
+
+    public long getToken() {
+        return token;
+    }
+
+    public void setToken(long token) {
+        this.token = token;
+    }
+
+    public String getKey() {
+        return key;
+    }
+
+    public void setKey(String key) {
+        this.key = key;
     }
 
     public Long getId() {

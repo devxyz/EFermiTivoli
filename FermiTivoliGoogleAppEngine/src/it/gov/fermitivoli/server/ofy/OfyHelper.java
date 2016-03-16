@@ -23,7 +23,7 @@ public class OfyHelper implements ServletContextListener {
         // request if no warmup request was invoked.
         ObjectifyService.register(GAE_CircolareDB_V2.class);
         ObjectifyService.register(GAE_NewsDB_V2.class);
-        ObjectifyService.register(GAE_Token_V2.class);
+
     }
 
     public void contextDestroyed(ServletContextEvent event) {

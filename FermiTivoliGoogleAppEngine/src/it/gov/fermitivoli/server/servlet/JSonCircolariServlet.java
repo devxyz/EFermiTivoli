@@ -1,14 +1,21 @@
 package it.gov.fermitivoli.server.servlet;
 
 import com.google.gson.Gson;
+import it.gov.fermitivoli.model.C_CircolareDto;
 import it.gov.fermitivoli.model.C_JSonCircolariDeltaServletRequest;
 import it.gov.fermitivoli.model.C_JSonCircolariDeltaServletResponse;
-import it.gov.fermitivoli.server.datastore.DataStoreOptimizer;
-import it.gov.fermitivoli.server.datastore.IDataStoreOptimizer;
+import it.gov.fermitivoli.model.C_NewsDto;
+import it.gov.fermitivoli.server.datalayer.DataLayerBuilder;
+import it.gov.fermitivoli.server.datalayer.impl.circolari.InMemoryCacheLayerCircolareDB;
+import it.gov.fermitivoli.server.datalayer.impl.news.InMemoryCacheLayerNewsDB;
+import it.gov.fermitivoli.server.model.GAE_CircolareDB_V2;
+import it.gov.fermitivoli.server.model.GAE_NewsDB_V2;
+import it.gov.fermitivoli.server.util.GAE_DtoUtil;
 
 import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServlet;
 import java.io.IOException;
+import java.util.List;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
 
@@ -26,25 +33,48 @@ public class JSonCircolariServlet extends HttpServlet {
         final C_JSonCircolariDeltaServletRequest req = g.fromJson(param, C_JSonCircolariDeltaServletRequest.class);
         final C_JSonCircolariDeltaServletResponse resp = new C_JSonCircolariDeltaServletResponse();
 
+        //loader
+        final InMemoryCacheLayerNewsDB loaderNews = DataLayerBuilder.getLoaderNews();
+        final InMemoryCacheLayerCircolareDB loaderCircolari = DataLayerBuilder.getLoaderCircolari();
+
         try {
             if (DEBUG)
                 System.out.println("RICHIESTA LISTA CIRCOLARI");
-            final IDataStoreOptimizer ds = DataStoreOptimizer.getInstance();
+
+            final List<GAE_NewsDB_V2> news = loaderNews.allEntities(req.maxToken);
+            final List<GAE_CircolareDB_V2> circolari = loaderCircolari.allEntities(req.maxToken);
 
             //----------------------------------------------------------------------
             //individua le nuove circolari da inviare / aggiornare
             //----------------------------------------------------------------------
-            resp.circolariDaAggiungereAggiornare.addAll(ds.listAllCircolariAttive(req.maxToken));
-            resp.circolariDaRimuovere.addAll(ds.listAllCircolariEliminate(req.maxToken));
+            for (GAE_NewsDB_V2 x : news) {
+                if (x.isFlagDelete()) {
+                    resp.keyNewsDaRimuovere.add(x.getKey());
+                } else {
+                    final C_NewsDto n = new C_NewsDto();
+                    GAE_DtoUtil.copy(x, n);
+                    resp.newsDaAggiungereAggiornare.add(n);
+                }
+            }
+
+            for (GAE_CircolareDB_V2 x : circolari) {
+                if (x.isFlagDelete()) {
+                    resp.keyCircolariDaRimuovere.add(x.getKey());
+                } else {
+                    final C_CircolareDto n = new C_CircolareDto();
+                    GAE_DtoUtil.copy(x, n);
+                    resp.circolariDaAggiungereAggiornare.add(n);
+                }
+            }
 
             final String s = g.toJson(resp);
             if (req.responseInZipFormat) {
                 response.setContentType("application/zip");
-                response.addHeader("Content-Disposition", "inline; filename=circolari.dto.zip");
+                response.addHeader("Content-Disposition", "inline; filename=data.dto.zip");
 
                 final ServletOutputStream outputStream = response.getOutputStream();
                 ZipOutputStream out = new ZipOutputStream(outputStream);
-                out.putNextEntry(new ZipEntry("circolari.json"));
+                out.putNextEntry(new ZipEntry("data.json"));
                 out.write(s.getBytes());
                 out.closeEntry();
 

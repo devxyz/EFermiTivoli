@@ -1,12 +1,14 @@
 package it.gov.fermitivoli.server.datalayer;
 
+import it.gov.fermitivoli.server.datalayer.impl.CacheItem;
+
 import java.util.HashMap;
 import java.util.List;
 
 /**
  * Created by stefano on 03/03/16.
  */
-public abstract class InMemoryCacheLayer<K, T> extends CacheLayer<K, T> {
+public abstract class InMemoryCacheLayer<K, T extends CacheItem<K>> extends CacheLayer<K, T > {
     private final HashMap<K, T> data = new HashMap<>();
 
     public InMemoryCacheLayer(CacheLayer<K, T> next) {

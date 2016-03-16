@@ -14,6 +14,6 @@ public class MemcacheCacheLayerNewsDB extends MemcacheCacheLayer<String, GAE_New
 
     @Override
     public String getKey(GAE_NewsDB_V2 value) {
-        return value.getKeyTitlePubDate();
+        return value.getKey();
     }
 }
