@@ -6,11 +6,11 @@ import de.greenrobot.dao.query.DeleteQuery;
 import de.greenrobot.dao.query.Query;
 import de.greenrobot.dao.query.QueryBuilder;
 import it.gov.fermitivoli.dao.*;
+import it.gov.fermitivoli.model.C_NewsDto;
 import it.gov.fermitivoli.model.TermineInfoWeb;
-import it.gov.fermitivoli.model.rss.RssItem;
 import it.gov.fermitivoli.parser.ItalianWordSplit;
-import it.gov.fermitivoli.util.C_TextUtil;
 import it.gov.fermitivoli.util.DebugUtil;
+import it.gov.fermitivoli.util.DtoUtil;
 import it.gov.fermitivoli.util.QueryCache;
 import org.tartarus.snowball.ext.ItalianStemmer;
 
@@ -69,17 +69,7 @@ public class ManagerNews {
 
     }
 
-    private static void copy(RssItem source, NewsDB dest) {
-        dest.setContenuto(C_TextUtil.normalize_UTF8__to__ASCII(source.getContent()));
-        dest.setTesto(C_TextUtil.normalize_UTF8__to__ASCII(source.getDescription()));
-        dest.setFullimageLink(source.getFullimageLink());
-        dest.setLink(source.getLink());
-        dest.setThumbimageLink(source.getThumbimageLink());
-        dest.setPubDate(source.getPubDate());
-        dest.setTitolo(C_TextUtil.normalize_UTF8__to__ASCII(source.getTitle()));
-    }
-
-    private TermineDB __aggiungiTermine(String termine)  {
+    private TermineDB __aggiungiTermine(String termine) {
         //cerca il termine
         TermineDBDao TermineDBDao = session.getTermineDBDao();
 
@@ -156,16 +146,11 @@ public class ManagerNews {
         return list;
     }
 
-    private RssItem cercaRssItem(Collection<RssItem> cc, String title, Date pubDate) {
-        for (RssItem x : cc) {
-            if (x.getTitle().equalsIgnoreCase(title) && pubDate.equals(x.getPubDate())) return x;
-        }
-        return null;
-    }
 
-    private NewsDB cercaNewsDB(Collection<NewsDB> cc, String title, Date pubDate) {
+    private NewsDB cercaNewsDB(Collection<NewsDB> cc, String key) {
         for (NewsDB x : cc) {
-            if (x.getTitolo().equalsIgnoreCase(title) && pubDate.equals(x.getPubDate())) return x;
+            if (x.getKey().equalsIgnoreCase(key))
+                return x;
         }
         return null;
     }
@@ -254,35 +239,27 @@ public class ManagerNews {
         return (circolariFinali);
     }
 
-    public void sincronizzaLista(List<RssItem> lista) {
+    public void sincronizzaLista(List<C_NewsDto> listaDaAggiungere, Collection<String> listaDaRimuovere) {
         final NewsDBDao dao = session.getNewsDBDao();
         final List<NewsDB> lisdb = dao.queryBuilder().list();
 
-        //lista degli item da aggiungere e non presenti nel db (mano mano si rimuovono i vari item presenti nel db)
-        final List<RssItem> todoList = new LinkedList<RssItem>(lista);
-
         //rimuove le news non presenti
-        for (NewsDB x : lisdb) {
-            final RssItem it = cercaRssItem(lista, x.getTitolo(), x.getPubDate());
-            if (it != null) {
-                todoList.remove(it);
-            } else {
-                dao.delete(x);
-            }
+        for (String x : listaDaRimuovere) {
+            final NewsDB it = cercaNewsDB(lisdb, x);
+            dao.delete(it);
         }
 
         //aggiunge quelli nuovi
-        for (RssItem rssItem : todoList) {
+        for (C_NewsDto x : listaDaAggiungere) {
             NewsDB news = new NewsDB();
             news.setFlagContenutoLetto(false);
             news.setDataInserimento(new Date());
-            copy(rssItem, news);
+            DtoUtil.copy(x, news);
             dao.insert(news);
-
             inserisciTermini(news);
-
+            inserisciTermini(news);
+            inserisciTermini(news);
         }
-
     }
 
 

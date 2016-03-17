@@ -22,7 +22,7 @@ import java.util.zip.ZipOutputStream;
 /**
  * Created by stefano on 01/08/15.
  */
-public class JSonCircolariServlet extends HttpServlet {
+public class JSonDataServlet extends HttpServlet {
     private static final boolean DEBUG = false;
 
     protected void doPost(javax.servlet.http.HttpServletRequest request, javax.servlet.http.HttpServletResponse response) throws javax.servlet.ServletException, IOException {

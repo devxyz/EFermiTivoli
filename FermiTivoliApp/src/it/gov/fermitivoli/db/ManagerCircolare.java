@@ -10,6 +10,7 @@ import it.gov.fermitivoli.dao.*;
 import it.gov.fermitivoli.model.*;
 import it.gov.fermitivoli.parser.ItalianWordSplit;
 import it.gov.fermitivoli.util.DebugUtil;
+import it.gov.fermitivoli.util.DtoUtil;
 import it.gov.fermitivoli.util.QueryCache;
 import org.tartarus.snowball.ext.ItalianStemmer;
 
@@ -88,15 +89,6 @@ public class ManagerCircolare {
 
     public ManagerCircolare(DaoSession session) {
         this.session = session;
-    }
-
-    public static void copy(C_CircolareDto source, CircolareDB destination) {
-        destination.setTitolo(source.getTitolo());
-        destination.setData(source.getData());
-        destination.setUrl(source.getUrl().getUrl());
-        destination.setNumero(source.getNumero());
-        destination.setTesto(source.getTesto());
-        destination.setKey(source.getKey());
     }
 
     public static void sortLastToFirst(List<CircolareDB> cc) {
@@ -384,7 +376,7 @@ public class ManagerCircolare {
             if (cDB != null && cDTO != null) {
                 //solo aggiornamento del testo
                 if (cDB.getTesto() == null && cDTO.getTesto() != null) {
-                    copy(cDTO, cDB);
+                    DtoUtil.copy(cDTO, cDB);
                     circolareDBDao.update(cDB);
 
                     //aggiornamento dei termini
@@ -396,7 +388,7 @@ public class ManagerCircolare {
                     //solo aggiornamento del testo
                     cDB = new CircolareDB();
                     cDB.setDataInserimento(new Date());
-                    copy(cDTO, cDB);
+                    DtoUtil.copy(cDTO, cDB);
                     circolareDBDao.insert(cDB);
 
                     //aggiornamento dei termini

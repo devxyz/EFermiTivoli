@@ -1,4 +1,4 @@
-package it.gov.fermitivoli.server.servlet.v2;
+package it.gov.fermitivoli.server.servlet;
 
 import it.gov.fermitivoli.server.datalayer.DataLayerBuilder;
 import it.gov.fermitivoli.server.datalayer.impl.circolari.InMemoryCacheLayerCircolareDB;

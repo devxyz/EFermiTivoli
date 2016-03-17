@@ -29,7 +29,7 @@ public class CircolareDBDao extends AbstractDao<CircolareDB, Long> {
         public final static Property Numero = new Property(3, int.class, "numero", false, "NUMERO");
         public final static Property Titolo = new Property(4, String.class, "titolo", false, "TITOLO");
         public final static Property Testo = new Property(5, String.class, "testo", false, "TESTO");
-        public final static Property Token = new Property(6, Long.class, "token", false, "TOKEN");
+        public final static Property Token = new Property(6, long.class, "token", false, "TOKEN");
         public final static Property Url = new Property(7, String.class, "url", false, "URL");
         public final static Property FlagContenutoLetto = new Property(8, boolean.class, "flagContenutoLetto", false, "FLAG_CONTENUTO_LETTO");
         public final static Property Key = new Property(9, String.class, "key", false, "KEY");
@@ -54,7 +54,7 @@ public class CircolareDBDao extends AbstractDao<CircolareDB, Long> {
                 "'NUMERO' INTEGER NOT NULL ," + // 3: numero
                 "'TITOLO' TEXT NOT NULL ," + // 4: titolo
                 "'TESTO' TEXT," + // 5: testo
-                "'TOKEN' INTEGER," + // 6: token
+                "'TOKEN' INTEGER NOT NULL ," + // 6: token
                 "'URL' TEXT NOT NULL UNIQUE ," + // 7: url
                 "'FLAG_CONTENUTO_LETTO' INTEGER NOT NULL ," + // 8: flagContenutoLetto
                 "'KEY' TEXT NOT NULL UNIQUE );"); // 9: key
@@ -87,11 +87,7 @@ public class CircolareDBDao extends AbstractDao<CircolareDB, Long> {
         if (testo != null) {
             stmt.bindString(6, testo);
         }
- 
-        Long token = entity.getToken();
-        if (token != null) {
-            stmt.bindLong(7, token);
-        }
+        stmt.bindLong(7, entity.getToken());
         stmt.bindString(8, entity.getUrl());
         stmt.bindLong(9, entity.getFlagContenutoLetto() ? 1l: 0l);
         stmt.bindString(10, entity.getKey());
@@ -113,7 +109,7 @@ public class CircolareDBDao extends AbstractDao<CircolareDB, Long> {
             cursor.getInt(offset + 3), // numero
             cursor.getString(offset + 4), // titolo
             cursor.isNull(offset + 5) ? null : cursor.getString(offset + 5), // testo
-            cursor.isNull(offset + 6) ? null : cursor.getLong(offset + 6), // token
+            cursor.getLong(offset + 6), // token
             cursor.getString(offset + 7), // url
             cursor.getShort(offset + 8) != 0, // flagContenutoLetto
             cursor.getString(offset + 9) // key
@@ -130,7 +126,7 @@ public class CircolareDBDao extends AbstractDao<CircolareDB, Long> {
         entity.setNumero(cursor.getInt(offset + 3));
         entity.setTitolo(cursor.getString(offset + 4));
         entity.setTesto(cursor.isNull(offset + 5) ? null : cursor.getString(offset + 5));
-        entity.setToken(cursor.isNull(offset + 6) ? null : cursor.getLong(offset + 6));
+        entity.setToken(cursor.getLong(offset + 6));
         entity.setUrl(cursor.getString(offset + 7));
         entity.setFlagContenutoLetto(cursor.getShort(offset + 8) != 0);
         entity.setKey(cursor.getString(offset + 9));

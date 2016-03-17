@@ -6,78 +6,35 @@
 
 
     <servlet>
-        <servlet-name>UpdateCircolariServlet</servlet-name>
-        <servlet-class>it.gov.fermitivoli.server.servlet.UpdateCircolariServlet</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>InvalidateServlet</servlet-name>
-        <servlet-class>it.gov.fermitivoli.server.servlet.InvalidateServlet</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>DownloadCircolareServlet</servlet-name>
-        <servlet-class>it.gov.fermitivoli.server.servlet.DownloadCircolareServlet</servlet-class>
-    </servlet>
-    <servlet>
         <servlet-name>PrintCircolariServlet</servlet-name>
         <servlet-class>it.gov.fermitivoli.server.servlet.PrintCircolariServlet</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>ResetServlet</servlet-name>
-        <servlet-class>it.gov.fermitivoli.server.servlet.ResetServlet</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>UpdateCircolariServletV2</servlet-name>
-        <servlet-class>it.gov.fermitivoli.server.servlet.UpdateCircolariServletV2</servlet-class>
-    </servlet>
-
-    <servlet>
-        <servlet-name>JSonCircolariServlet</servlet-name>
-        <servlet-class>it.gov.fermitivoli.server.servlet.JSonCircolariServlet</servlet-class>
+        <servlet-name>JSonDataServlet</servlet-name>
+        <servlet-class>it.gov.fermitivoli.server.servlet.JSonDataServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>LoadExternalDataServlet</servlet-name>
-        <servlet-class>it.gov.fermitivoli.server.servlet.v2.LoadExternalDataServlet</servlet-class>
+        <servlet-class>it.gov.fermitivoli.server.servlet.LoadExternalDataServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>ClearAllServlet</servlet-name>
-        <servlet-class>it.gov.fermitivoli.server.servlet.v2.ClearAllServlet</servlet-class>
+        <servlet-class>it.gov.fermitivoli.server.servlet.ClearAllServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>StatServlet</servlet-name>
-        <servlet-class>it.gov.fermitivoli.server.servlet.v2.StatServlet</servlet-class>
+        <servlet-class>it.gov.fermitivoli.server.servlet.StatServlet</servlet-class>
     </servlet>
 
 
     <servlet-mapping>
-        <servlet-name>InvalidateServlet</servlet-name>
-        <url-pattern>/InvalidateServlet</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>JSonCircolariServlet</servlet-name>
-        <url-pattern>/JSonCircolariServlet</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>ResetServlet</servlet-name>
-        <url-pattern>/ResetServlet</url-pattern>
+        <servlet-name>JSonDataServlet</servlet-name>
+        <url-pattern>/JSonDataServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>PrintCircolariServlet</servlet-name>
         <url-pattern>/PrintCircolariServlet</url-pattern>
     </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>DownloadCircolareServlet</servlet-name>
-        <url-pattern>/DownloadCircolareServlet</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>UpdateCircolariServlet</servlet-name>
-        <url-pattern>/UpdateCircolariServlet</url-pattern>
-    </servlet-mapping>
-
-    <servlet-mapping>
-        <servlet-name>UpdateCircolariServletV2</servlet-name>
-        <url-pattern>/UpdateCircolariServletV2</url-pattern>
-    </servlet-mapping>
-
     <servlet-mapping>
         <servlet-name>LoadExternalDataServlet</servlet-name>
         <url-pattern>/LoadExternalDataServlet</url-pattern>

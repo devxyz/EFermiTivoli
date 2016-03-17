@@ -31,8 +31,10 @@ public class NewsDBDao extends AbstractDao<NewsDB, Long> {
         public final static Property Contenuto = new Property(5, String.class, "contenuto", false, "CONTENUTO");
         public final static Property FullimageLink = new Property(6, String.class, "fullimageLink", false, "FULLIMAGE_LINK");
         public final static Property ThumbimageLink = new Property(7, String.class, "thumbimageLink", false, "THUMBIMAGE_LINK");
-        public final static Property FlagContenutoLetto = new Property(8, boolean.class, "flagContenutoLetto", false, "FLAG_CONTENUTO_LETTO");
-        public final static Property DataInserimento = new Property(9, java.util.Date.class, "dataInserimento", false, "DATA_INSERIMENTO");
+        public final static Property Key = new Property(8, String.class, "key", false, "KEY");
+        public final static Property FlagContenutoLetto = new Property(9, boolean.class, "flagContenutoLetto", false, "FLAG_CONTENUTO_LETTO");
+        public final static Property DataInserimento = new Property(10, java.util.Date.class, "dataInserimento", false, "DATA_INSERIMENTO");
+        public final static Property Token = new Property(11, long.class, "token", false, "TOKEN");
     };
 
 
@@ -56,8 +58,10 @@ public class NewsDBDao extends AbstractDao<NewsDB, Long> {
                 "'CONTENUTO' TEXT," + // 5: contenuto
                 "'FULLIMAGE_LINK' TEXT," + // 6: fullimageLink
                 "'THUMBIMAGE_LINK' TEXT," + // 7: thumbimageLink
-                "'FLAG_CONTENUTO_LETTO' INTEGER NOT NULL ," + // 8: flagContenutoLetto
-                "'DATA_INSERIMENTO' INTEGER NOT NULL );"); // 9: dataInserimento
+                "'KEY' TEXT NOT NULL ," + // 8: key
+                "'FLAG_CONTENUTO_LETTO' INTEGER NOT NULL ," + // 9: flagContenutoLetto
+                "'DATA_INSERIMENTO' INTEGER NOT NULL ," + // 10: dataInserimento
+                "'TOKEN' INTEGER NOT NULL );"); // 11: token
     }
 
     /** Drops the underlying database table. */
@@ -94,8 +98,10 @@ public class NewsDBDao extends AbstractDao<NewsDB, Long> {
         if (thumbimageLink != null) {
             stmt.bindString(8, thumbimageLink);
         }
-        stmt.bindLong(9, entity.getFlagContenutoLetto() ? 1l: 0l);
-        stmt.bindLong(10, entity.getDataInserimento().getTime());
+        stmt.bindString(9, entity.getKey());
+        stmt.bindLong(10, entity.getFlagContenutoLetto() ? 1l: 0l);
+        stmt.bindLong(11, entity.getDataInserimento().getTime());
+        stmt.bindLong(12, entity.getToken());
     }
 
     /** @inheritdoc */
@@ -116,8 +122,10 @@ public class NewsDBDao extends AbstractDao<NewsDB, Long> {
             cursor.isNull(offset + 5) ? null : cursor.getString(offset + 5), // contenuto
             cursor.isNull(offset + 6) ? null : cursor.getString(offset + 6), // fullimageLink
             cursor.isNull(offset + 7) ? null : cursor.getString(offset + 7), // thumbimageLink
-            cursor.getShort(offset + 8) != 0, // flagContenutoLetto
-            new java.util.Date(cursor.getLong(offset + 9)) // dataInserimento
+            cursor.getString(offset + 8), // key
+            cursor.getShort(offset + 9) != 0, // flagContenutoLetto
+            new java.util.Date(cursor.getLong(offset + 10)), // dataInserimento
+            cursor.getLong(offset + 11) // token
         );
         return entity;
     }
@@ -133,8 +141,10 @@ public class NewsDBDao extends AbstractDao<NewsDB, Long> {
         entity.setContenuto(cursor.isNull(offset + 5) ? null : cursor.getString(offset + 5));
         entity.setFullimageLink(cursor.isNull(offset + 6) ? null : cursor.getString(offset + 6));
         entity.setThumbimageLink(cursor.isNull(offset + 7) ? null : cursor.getString(offset + 7));
-        entity.setFlagContenutoLetto(cursor.getShort(offset + 8) != 0);
-        entity.setDataInserimento(new java.util.Date(cursor.getLong(offset + 9)));
+        entity.setKey(cursor.getString(offset + 8));
+        entity.setFlagContenutoLetto(cursor.getShort(offset + 9) != 0);
+        entity.setDataInserimento(new java.util.Date(cursor.getLong(offset + 10)));
+        entity.setToken(cursor.getLong(offset + 11));
      }
     
     /** @inheritdoc */

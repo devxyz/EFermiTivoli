@@ -15,7 +15,7 @@ public class CircolareDB {
     /** Not-null value. */
     private String titolo;
     private String testo;
-    private Long token;
+    private long token;
     /** Not-null value. */
     private String url;
     private boolean flagContenutoLetto;
@@ -29,7 +29,7 @@ public class CircolareDB {
         this.id = id;
     }
 
-    public CircolareDB(Long id, java.util.Date dataInserimento, java.util.Date data, int numero, String titolo, String testo, Long token, String url, boolean flagContenutoLetto, String key) {
+    public CircolareDB(Long id, java.util.Date dataInserimento, java.util.Date data, int numero, String titolo, String testo, long token, String url, boolean flagContenutoLetto, String key) {
         this.id = id;
         this.dataInserimento = dataInserimento;
         this.data = data;
@@ -96,11 +96,11 @@ public class CircolareDB {
         this.testo = testo;
     }
 
-    public Long getToken() {
+    public long getToken() {
         return token;
     }
 
-    public void setToken(Long token) {
+    public void setToken(long token) {
         this.token = token;
     }
 

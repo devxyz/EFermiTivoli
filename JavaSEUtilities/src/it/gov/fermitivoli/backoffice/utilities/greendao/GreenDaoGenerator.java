@@ -7,7 +7,7 @@ import de.greenrobot.daogenerator.*;
  */
 public class GreenDaoGenerator {
     public static void main(String[] args) throws Exception {
-        Schema schema = new Schema(82, "it.gov.fermitivoli.dao");
+        Schema schema = new Schema(20160317, "it.gov.fermitivoli.dao");
 
         //cache file
         final Entity cacheFile = schema.addEntity("CacheFileDB");
@@ -31,7 +31,7 @@ public class GreenDaoGenerator {
             final Property numero = circolare.addIntProperty("numero").notNull().getProperty();
             circolare.addStringProperty("titolo").notNull();
             circolare.addStringProperty("testo");
-            circolare.addLongProperty("token");
+            circolare.addLongProperty("token").notNull();
             circolare.addStringProperty("url").notNull().unique();
             circolare.addBooleanProperty("flagContenutoLetto").notNull();
 
@@ -68,8 +68,10 @@ public class GreenDaoGenerator {
             news.addStringProperty("contenuto");
             news.addStringProperty("fullimageLink");
             news.addStringProperty("thumbimageLink");
+            news.addStringProperty("key").notNull();
             news.addBooleanProperty("flagContenutoLetto").notNull();
             news.addDateProperty("dataInserimento").notNull();
+            news.addLongProperty("token").notNull();
         }
 
 

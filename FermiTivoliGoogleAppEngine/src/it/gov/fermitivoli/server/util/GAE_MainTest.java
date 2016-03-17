@@ -1,7 +1,6 @@
 package it.gov.fermitivoli.server.util;
 
 import it.gov.fermitivoli.model.C_CircolareDto;
-import it.gov.fermitivoli.server.servlet.UpdateCircolariServlet;
 import it.gov.fermitivoli.util.C_TextUtil;
 
 import java.io.BufferedInputStream;
@@ -32,7 +31,7 @@ public class GAE_MainTest {
         final HttpURLConnection con = (HttpURLConnection) u.openConnection();
         con.setReadTimeout(10000);*/
 
-        final List<C_CircolareDto> xx = UpdateCircolariServlet.downloadListaCircolari();
+        final List<C_CircolareDto> xx = GAE_DownloadCircolari.downloadListaCircolari();
         for (C_CircolareDto f : xx) {
             System.out.println(f.getUrl());
             if (true) {

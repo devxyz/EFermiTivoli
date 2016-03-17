@@ -1,4 +1,4 @@
-package it.gov.fermitivoli.server.servlet.v2;
+package it.gov.fermitivoli.server.servlet;
 
 import it.gov.fermitivoli.model.C_CircolareDto;
 import it.gov.fermitivoli.model.C_NewsDto;

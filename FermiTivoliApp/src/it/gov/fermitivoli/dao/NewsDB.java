@@ -18,9 +18,12 @@ public class NewsDB {
     private String contenuto;
     private String fullimageLink;
     private String thumbimageLink;
+    /** Not-null value. */
+    private String key;
     private boolean flagContenutoLetto;
     /** Not-null value. */
     private java.util.Date dataInserimento;
+    private long token;
 
     public NewsDB() {
     }
@@ -29,7 +32,7 @@ public class NewsDB {
         this.id = id;
     }
 
-    public NewsDB(Long id, String titolo, String link, java.util.Date pubDate, String testo, String contenuto, String fullimageLink, String thumbimageLink, boolean flagContenutoLetto, java.util.Date dataInserimento) {
+    public NewsDB(Long id, String titolo, String link, java.util.Date pubDate, String testo, String contenuto, String fullimageLink, String thumbimageLink, String key, boolean flagContenutoLetto, java.util.Date dataInserimento, long token) {
         this.id = id;
         this.titolo = titolo;
         this.link = link;
@@ -38,8 +41,10 @@ public class NewsDB {
         this.contenuto = contenuto;
         this.fullimageLink = fullimageLink;
         this.thumbimageLink = thumbimageLink;
+        this.key = key;
         this.flagContenutoLetto = flagContenutoLetto;
         this.dataInserimento = dataInserimento;
+        this.token = token;
     }
 
     public Long getId() {
@@ -114,6 +119,16 @@ public class NewsDB {
         this.thumbimageLink = thumbimageLink;
     }
 
+    /** Not-null value. */
+    public String getKey() {
+        return key;
+    }
+
+    /** Not-null value; ensure this value is available before it is saved to the database. */
+    public void setKey(String key) {
+        this.key = key;
+    }
+
     public boolean getFlagContenutoLetto() {
         return flagContenutoLetto;
     }
@@ -130,6 +145,14 @@ public class NewsDB {
     /** Not-null value; ensure this value is available before it is saved to the database. */
     public void setDataInserimento(java.util.Date dataInserimento) {
         this.dataInserimento = dataInserimento;
+    }
+
+    public long getToken() {
+        return token;
+    }
+
+    public void setToken(long token) {
+        this.token = token;
     }
 
 }

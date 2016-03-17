@@ -14,14 +14,13 @@ import it.gov.fermitivoli.db.ManagerCircolare;
 import it.gov.fermitivoli.db.ManagerNews;
 import it.gov.fermitivoli.model.C_JSonCircolariDeltaServletRequest;
 import it.gov.fermitivoli.model.C_JSonCircolariDeltaServletResponse;
-import it.gov.fermitivoli.model.rss.RssFeed;
-import it.gov.fermitivoli.rss.RssReader;
 import it.gov.fermitivoli.util.C_DateUtil;
 import it.gov.fermitivoli.util.DebugUtil;
 import it.gov.fermitivoli.util.StreamAndroid;
 
 import java.io.BufferedInputStream;
 import java.io.DataOutputStream;
+import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
@@ -56,14 +55,57 @@ public abstract class ExternalDataSync_AsyncTask extends AsyncTask<Void, Integer
         return true;
     }
 
-    private static List<CircolareDB> syncCircolari(AbstractActivity activity) throws Throwable {
-        if (!isNetworkAvailable(activity))
-            throw new IllegalArgumentException("Nessuna connessione dati disponibile");
+    private static List<CircolareDB> __syncCircolari(final C_JSonCircolariDeltaServletResponse response, AbstractActivity activity) throws Throwable {
 
+        FermiAppDbHelper db = new FermiAppDbHelper(activity);
+        final List<CircolareDB> ris;
+        try {
+
+            ris = db.runInTransaction(new FermiAppDbHelperCallable<List<CircolareDB>>() {
+                @Override
+                public List<CircolareDB> call(DaoSession session, Context ctx) throws Throwable {
+                    ManagerCircolare m = new ManagerCircolare(session);
+                    for (String key : response.keyCircolariDaRimuovere) {
+                        m.rimuoveCircolare(key);
+                    }
+                    m.salva(response.circolariDaAggiungereAggiornare);
+                    return m.listAllCircolari();
+
+                }
+            });
+
+
+        } finally {
+            db.close();
+        }
+        return ris;
+
+    }
+
+    private static C_JSonCircolariDeltaServletResponse requestData(AbstractActivity activity) throws IOException {
         //prepara request
         //-------------------------------------------
-        final C_JSonCircolariDeltaServletRequest req = getRequestData(activity);
+        final C_JSonCircolariDeltaServletRequest req1 = new C_JSonCircolariDeltaServletRequest();
+        final FermiAppDbHelper db = new FermiAppDbHelper(activity);
+        try {
+            db.runInTransaction(new FermiAppDBHelperRun() {
+                @Override
+                public void run(DaoSession session, Context ctx) throws Throwable {
+                    ManagerCircolare m = new ManagerCircolare(session);
+                    req1.responseInZipFormat = true;
+                    req1.maxToken = m.maxToken();
+                }
+            });
 
+        } catch (Throwable throwable) {
+            throwable.printStackTrace();
+        } finally {
+            db.close();
+        }
+        final C_JSonCircolariDeltaServletRequest req = req1;
+
+        //analizza la risposta
+        //-------------------------------------------
         final String json = new Gson().toJson(req);
         if (DebugUtil.DEBUG__SincronizzaCircolariAsync) {
             Log.d("SINCRONIZZA CIRCOLARI", "xxx");
@@ -75,7 +117,7 @@ public abstract class ExternalDataSync_AsyncTask extends AsyncTask<Void, Integer
 
         //effettua chiamata post
         //---------------------------------------------
-        String url = activity.getResources().getString(R.string.url_circolari_json);
+        String url = activity.getResources().getString(R.string.url_data_json);
         URL obj = new URL(url);
         HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 
@@ -108,60 +150,21 @@ public abstract class ExternalDataSync_AsyncTask extends AsyncTask<Void, Integer
 
         final String content = StreamAndroid.loadFileContent(in);
         in.close();
-        final C_JSonCircolariDeltaServletResponse response = g.fromJson(content, C_JSonCircolariDeltaServletResponse.class);
 
-        /*System.out.println("=========================================== RESPONSE ===============================");
-        System.out.println(response.circolariDaRimuovere);
-        for (C_CircolareDto x : response.circolariDaAggiungereAggiornare) {
-            System.out.println(x);
-        }*/
-
-        FermiAppDbHelper db = new FermiAppDbHelper(activity);
-        final List<CircolareDB> ris;
-        try {
-
-            ris = db.runInTransaction(new FermiAppDbHelperCallable<List<CircolareDB>>() {
-                @Override
-                public List<CircolareDB> call(DaoSession session, Context ctx) throws Throwable {
-                    ManagerCircolare m = new ManagerCircolare(session);
-                    for (String key : response.keyCircolariDaRimuovere) {
-                        m.rimuoveCircolare(key);
-                    }
-                    m.salva(response.circolariDaAggiungereAggiornare);
-                    return m.listAllCircolari();
-
-                }
-            });
-
-
-        } finally {
-            db.close();
-        }
-        return ris;
-
+        return g.fromJson(content, C_JSonCircolariDeltaServletResponse.class);
     }
 
-    private static List<NewsDB> syncNews(AbstractActivity activity) throws Throwable {
-        final List<NewsDB> res;
-        HttpURLConnection con = null;
+    private static List<NewsDB> __syncNews(final C_JSonCircolariDeltaServletResponse data, AbstractActivity activity) throws Throwable {
+
+
         try {
-            URL u = new URL(activity.getResources().getString(R.string.url_rss_notizie));
-            con = (HttpURLConnection) u.openConnection();
-            BufferedInputStream in = new BufferedInputStream(con.getInputStream());
-            final RssFeed feed;
-            feed = RssReader.read(u);
-            in.close();
-
-            RssReader.normalizeHtml(feed);
-            Log.d(ExternalDataSync_AsyncTask.class.getName(), "Rss-feed found:" + feed.getRssItems().size());
-
             final FermiAppDbHelper db = new FermiAppDbHelper(activity);
             try {
-                res = db.runInTransaction(new FermiAppDbHelperCallable<List<NewsDB>>() {
+                return db.runInTransaction(new FermiAppDbHelperCallable<List<NewsDB>>() {
                     @Override
                     public List<NewsDB> call(DaoSession session, Context ctx) throws Throwable {
                         ManagerNews m = new ManagerNews(session);
-                        m.sincronizzaLista(feed.getRssItems());
+                        m.sincronizzaLista(data.newsDaAggiungereAggiornare, data.keyNewsDaRimuovere);
                         return m.listAllNews();
                     }
                 });
@@ -169,59 +172,42 @@ public abstract class ExternalDataSync_AsyncTask extends AsyncTask<Void, Integer
                 db.close();
             }
 
-
         } catch (Throwable e) {
-            if (con != null)
-                con.disconnect();
-
             e.printStackTrace();
             throw new IllegalArgumentException(e);
         }
-        return res;
 
-    }
 
-    private static C_JSonCircolariDeltaServletRequest getRequestData(AbstractActivity activity) {
-        final C_JSonCircolariDeltaServletRequest req = new C_JSonCircolariDeltaServletRequest();
-        final FermiAppDbHelper db = new FermiAppDbHelper(activity);
-        try {
-            db.runInTransaction(new FermiAppDBHelperRun() {
-                @Override
-                public void run(DaoSession session, Context ctx) throws Throwable {
-                    ManagerCircolare m = new ManagerCircolare(session);
-                    req.responseInZipFormat = true;
-                    req.maxToken = m.maxToken();
-                }
-            });
-
-        } catch (Throwable throwable) {
-            throwable.printStackTrace();
-        } finally {
-            db.close();
-        }
-        return req;
     }
 
     public static ExternalDataSync_Container syncAll(AbstractActivity activity) {
         ExternalDataSync_Container ris = new ExternalDataSync_Container();
         boolean error = false;
+
+        C_JSonCircolariDeltaServletResponse data = null;
         try {
-            ris.setNotizie(syncNews(activity));
+            data = requestData(activity);
         } catch (Throwable throwable) {
             error = true;
-            ris.setErrorNotizie(throwable);
+            ris.setError(throwable);
+            return ris;
+        }
+        try {
+            ris.setNotizie(__syncNews(data, activity));
+        } catch (Throwable throwable) {
+            error = true;
+            ris.setError(throwable);
+            return ris;
         }
 
         try {
-            ris.setCircolari(syncCircolari(activity));
+            ris.setCircolari(__syncCircolari(data, activity));
         } catch (Throwable throwable) {
-            error = true;
-            ris.setErrorCircolari(throwable);
+            ris.setError(throwable);
+            return ris;
         }
 
-        if (!error) {
-            activity.getSharedPreferences().setDataUltimoDownloadDati(new Date());
-        }
+        activity.getSharedPreferences().setDataUltimoDownloadDati(new Date());
         return ris;
     }
 
@@ -234,22 +220,19 @@ public abstract class ExternalDataSync_AsyncTask extends AsyncTask<Void, Integer
     public static class ExternalDataSync_Container {
         private List<NewsDB> notizie;
         private List<CircolareDB> circolari;
-        private Throwable errorNotizie;
-        private Throwable errorCircolari;
+        private Throwable error;
+
 
         public ExternalDataSync_Container() {
         }
 
         public Throwable composeError() {
-            if (errorNotizie == null)
-                return errorCircolari;
-            if (errorCircolari == null)
-                return errorNotizie;
-            return new IllegalArgumentException(errorNotizie.getMessage() + " - " + errorCircolari.getMessage(), errorCircolari);
+            return error;
+
         }
 
         public boolean containsErrors() {
-            return errorCircolari != null || errorNotizie != null;
+            return error != null;
         }
 
         public List<NewsDB> getNotizie() {
@@ -268,20 +251,13 @@ public abstract class ExternalDataSync_AsyncTask extends AsyncTask<Void, Integer
             this.circolari = circolari;
         }
 
-        public Throwable getErrorNotizie() {
-            return errorNotizie;
+        public Throwable getError() {
+            return error;
         }
 
-        void setErrorNotizie(Throwable errorNotizie) {
-            this.errorNotizie = errorNotizie;
+        void setError(Throwable error) {
+            this.error = error;
         }
 
-        public Throwable getErrorCircolari() {
-            return errorCircolari;
-        }
-
-        void setErrorCircolari(Throwable errorCircolari) {
-            this.errorCircolari = errorCircolari;
-        }
     }
 }
