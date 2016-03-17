@@ -257,8 +257,6 @@ public class ManagerNews {
             DtoUtil.copy(x, news);
             dao.insert(news);
             inserisciTermini(news);
-            inserisciTermini(news);
-            inserisciTermini(news);
         }
     }
 
