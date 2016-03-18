@@ -1,9 +1,12 @@
 package it.gov.fermitivoli.server;
 
+import it.gov.fermitivoli.model.rss.RssFeed;
+import it.gov.fermitivoli.model.rss.RssItem;
+import it.gov.fermitivoli.rss.RssReader;
 import it.gov.fermitivoli.util.C_TextUtil;
+import org.xml.sax.SAXException;
 
 import java.io.*;
-import java.net.MalformedURLException;
 import java.net.URL;
 
 /**
@@ -20,7 +23,7 @@ public class GAE_MainTest {
 
     }
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException, SAXException {
         final byte[] xmlContent;
         {
             BufferedInputStream in = new BufferedInputStream(new URL(GAE_Settings.LISTA_NEWS_JOOMLA_URL).openConnection().getInputStream());
@@ -32,7 +35,14 @@ public class GAE_MainTest {
         }
         System.out.println("XML");
 
-        System.out.println(C_TextUtil.normalizeTextFromHtml(new String(xmlContent)));
-        System.out.println();
+        String xmlNormalized = C_TextUtil.normalizeTextFromHtml(new String(xmlContent));
+        System.out.println(xmlNormalized);
+
+
+        final RssFeed read = RssReader.read(new URL(GAE_Settings.LISTA_NEWS_JOOMLA_URL));
+        for (RssItem x : read.getRssItems()) {
+            System.out.println("======================================");
+            System.out.println(x.getDescription());
+        }
     }
 }

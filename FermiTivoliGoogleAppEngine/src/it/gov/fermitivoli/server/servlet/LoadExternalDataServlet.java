@@ -167,7 +167,7 @@ public class LoadExternalDataServlet extends HttpServlet {
             xmlContent = out.toByteArray();
         }
 
-        final String xmlNormalized = C_TextUtil.normalizeTextFromHtml(new String(xmlContent));
+        final String xmlNormalized = (new String(xmlContent));
 
         final InMemoryCacheLayerNewsDB loader = DataLayerBuilder.getLoaderNews();
         final RssFeed read = RssReader.read(xmlNormalized);
