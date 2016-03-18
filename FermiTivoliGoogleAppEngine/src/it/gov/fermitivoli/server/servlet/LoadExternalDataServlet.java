@@ -16,6 +16,7 @@ import it.gov.fermitivoli.server.util.GAE_DtoUtil;
 import it.gov.fermitivoli.server.util.GAE_PdfUtil;
 import it.gov.fermitivoli.server.util.MergeUtil;
 import it.gov.fermitivoli.util.C_CircolariUtil;
+import it.gov.fermitivoli.util.C_TextUtil;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.xml.sax.SAXException;
@@ -36,11 +37,7 @@ import java.util.TreeMap;
  * Created by stefano on 13/03/16.
  */
 public class LoadExternalDataServlet extends HttpServlet {
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        doPost(request, response);
-    }
-
-    private void copy(InputStream in, OutputStream out) throws IOException {
+    private static void copy(InputStream in, OutputStream out) throws IOException {
         byte[] buffer = new byte[1024];
         int len = in.read(buffer);
         while (len != -1) {
@@ -48,6 +45,10 @@ public class LoadExternalDataServlet extends HttpServlet {
             len = in.read(buffer);
         }
 
+    }
+
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        doPost(request, response);
     }
 
     @Override
@@ -165,12 +166,11 @@ public class LoadExternalDataServlet extends HttpServlet {
             out.close();
             xmlContent = out.toByteArray();
         }
-        System.out.println("XML");
-        System.out.println(new String(xmlContent));
-        System.out.println();
+
+        final String xmlNormalized = C_TextUtil.normalizeTextFromHtml(new String(xmlContent));
 
         final InMemoryCacheLayerNewsDB loader = DataLayerBuilder.getLoaderNews();
-        final RssFeed read = RssReader.read(new String(xmlContent));
+        final RssFeed read = RssReader.read(xmlNormalized);
 
         final Map<String, RssItem> n2 = new TreeMap<>();
         for (RssItem rssItem : read.getRssItems()) {
