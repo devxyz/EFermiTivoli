@@ -35,14 +35,17 @@
         <servlet-name>PrintCircolariServlet</servlet-name>
         <url-pattern>/PrintCircolariServlet</url-pattern>
     </servlet-mapping>
+
     <servlet-mapping>
         <servlet-name>LoadExternalDataServlet</servlet-name>
         <url-pattern>/LoadExternalDataServlet</url-pattern>
     </servlet-mapping>
+
     <servlet-mapping>
         <servlet-name>ClearAllServlet</servlet-name>
         <url-pattern>/ClearAllServlet</url-pattern>
     </servlet-mapping>
+
     <servlet-mapping>
         <servlet-name>StatServlet</servlet-name>
         <url-pattern>/StatServlet</url-pattern>

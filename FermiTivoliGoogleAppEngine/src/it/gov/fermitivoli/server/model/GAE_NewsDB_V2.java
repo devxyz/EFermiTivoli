@@ -2,7 +2,7 @@ package it.gov.fermitivoli.server.model;
 
 import com.googlecode.objectify.annotation.Entity;
 import com.googlecode.objectify.annotation.Id;
-import it.gov.fermitivoli.server.datalayer.impl.CacheItem;
+import it.gov.fermitivoli.server.datalayer.CacheItem;
 
 import java.io.Serializable;
 import java.util.Date;

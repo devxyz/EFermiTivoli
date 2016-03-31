@@ -1,7 +1,6 @@
 package it.gov.fermitivoli.server.datalayer;
 
 import com.googlecode.objectify.Objectify;
-import it.gov.fermitivoli.server.datalayer.impl.CacheItem;
 
 /**
  * Created by stefano on 03/03/16.

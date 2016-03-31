@@ -1,7 +1,5 @@
 package it.gov.fermitivoli.server.datalayer;
 
-import it.gov.fermitivoli.server.datalayer.impl.CacheItem;
-
 import java.util.HashMap;
 import java.util.List;
 

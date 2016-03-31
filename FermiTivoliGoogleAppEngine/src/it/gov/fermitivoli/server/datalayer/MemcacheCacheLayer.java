@@ -1,7 +1,6 @@
 package it.gov.fermitivoli.server.datalayer;
 
 import com.google.appengine.api.memcache.MemcacheService;
-import it.gov.fermitivoli.server.datalayer.impl.CacheItem;
 
 import java.util.List;
 

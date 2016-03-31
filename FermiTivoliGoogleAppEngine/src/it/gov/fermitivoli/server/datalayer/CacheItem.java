@@ -1,4 +1,4 @@
-package it.gov.fermitivoli.server.datalayer.impl;
+package it.gov.fermitivoli.server.datalayer;
 
 /**
  * Created by stefano on 16/03/16.
