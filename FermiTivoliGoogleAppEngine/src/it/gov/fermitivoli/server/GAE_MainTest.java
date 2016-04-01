@@ -35,7 +35,7 @@ public class GAE_MainTest {
         }
         System.out.println("XML");
 
-        String xmlNormalized = C_TextUtil.normalizeTextFromHtml(new String(xmlContent));
+        String xmlNormalized = C_TextUtil.normalizeTextFromHtml(new String(xmlContent,"UTF-8"));
         System.out.println(xmlNormalized);
 
 

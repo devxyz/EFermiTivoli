@@ -11,24 +11,13 @@
     <title></title>
 </head>
 <body>
-<a href="/JSonCircolariServlet" target="_blank">Elenco circolari (JSON)</a>
+<a href="/PrintCircolariServlet" target="_blank">Elenco circolari (HTML)</a>
 <br>
 <br>
-<a href="/PrintCircolariServlet" target="_blank">Elenco circolari (TABLE)</a>
+<a href="/StatServlet" target="_blank">Statistiche utilizzo</a>
 <br>
 <br>
-<a href="/UpdateCircolariServlet?secret-key=$123$&sync=true" target="_blank">Aggiornamento circolari</a>
-<br>
-<br>
-<a href="/InvalidateServlet?secret-key=$123$" target="_blank">Invalidate cache</a>
-<br>
-<br>
+<a href="/ClearAllServlet" target="_blank">Cancella Dati</a>
 
-<form method="get" target="_blank" action="/DownloadCircolareServlet">
-    url:
-    <input type="text" name="url" maxlength="1025" size="400">
-    <input type="hidden" name="secret-key" value="$123$">
-    <input type="submit">
-</form>
 </body>
 </html>

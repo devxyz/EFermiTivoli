@@ -4,7 +4,7 @@
 
     <string name="email_scuola">rmtd07000g@istruzione.it</string>
     <string name="tel_scuola">06121126985</string>
-    <string name="nome_scuola">ITCG "Enrico Fermi" Tivoli (RM)</string>
+    <string name="nome_scuola">Istituto Tecnico Commerciale per Geometri "Enrico Fermi" Tivoli (RM)</string>
     <string name="sito_web_scuola">http://www.fermitivoli.gov.it</string>
     <string name="contatto_scuola">
         #I#Via Acquaregna, 112 - 00019 Tivoli (RM).#I#\n
@@ -24,7 +24,7 @@
         email: rmtd07000g@istruzione.it\n
         CF. 86000020585</string>
 
-    <string name="intent_maps">geo:41.956178,12.806626?q=41.956178,12.806626(I.T.C.G. E.Fermi)</string>
+    <string name="intent_maps">geo:41.956178,12.806626?q=41.956178,12.806626(Istituto Tecnico Commerciale per Geometri Enrico Fermi)</string>
 
     <!--<string name="url_rss_notizie">http://xml.corriereobjects.it/rss/sport.xml</string>-->
     <string name="url_libri_testo">http://consultazione.adozioniaie.it/MappaClassi.cgi?ID0=RMTD07000G</string>

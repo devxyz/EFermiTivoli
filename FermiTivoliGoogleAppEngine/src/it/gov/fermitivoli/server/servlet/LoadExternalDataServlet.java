@@ -157,6 +157,7 @@ public class LoadExternalDataServlet extends HttpServlet {
     }
 
     private void aggiornaDbNews(PrintWriter pw, MyToken t) throws IOException, SAXException {
+
         final byte[] xmlContent;
         {
             BufferedInputStream in = new BufferedInputStream(new URL(GAE_Settings.LISTA_NEWS_JOOMLA_URL).openConnection().getInputStream());
@@ -167,10 +168,13 @@ public class LoadExternalDataServlet extends HttpServlet {
             xmlContent = out.toByteArray();
         }
 
-        final String xmlNormalized = (new String(xmlContent));
+        String xmlNormalized = C_TextUtil.normalizeTextFromHtml(new String(xmlContent,"UTF-8"));
 
+
+        //final URL url = new URL(GAE_Settings.LISTA_NEWS_JOOMLA_URL);
         final InMemoryCacheLayerNewsDB loader = DataLayerBuilder.getLoaderNews();
         final RssFeed read = RssReader.read(xmlNormalized);
+        //final RssFeed read = RssReader.read(url);
 
         final Map<String, RssItem> n2 = new TreeMap<>();
         for (RssItem rssItem : read.getRssItems()) {
