@@ -11,18 +11,18 @@
                 android:id="@+id/date"
                 android:layout_alignParentTop="true"
                 android:layout_alignBottom="@+id/imageButton3"
-                android:textColor="@color/color_blue_scurissimo"
+                android:textColor="@color/color_white"
                 android:paddingLeft="5dp" android:paddingRight="5dp" android:hint="Inserire i termini da cercare"
                 android:layout_toRightOf="@+id/imageButton_left" android:layout_toLeftOf="@+id/imageButton_right"
                 android:layout_toStartOf="@+id/imageButton_right" android:text="12/05/2014" android:gravity="center"
                 android:textAppearance="@android:style/TextAppearance.Medium"
-                />
+                android:background="@color/color_red_scuro" android:textSize="20dp" android:textStyle="bold"/>
         <ListView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/listView"
-                android:layout_above="@+id/textViewAvviso" android:layout_below="@+id/checkBox"
-                android:background="@color/color_white"/>
+                android:layout_above="@+id/textViewAvviso"
+                android:background="@color/color_white" android:layout_below="@+id/textView17"/>
         <ImageButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -37,7 +37,7 @@
                 android:id="@+id/textViewAvviso"
                 android:layout_alignParentLeft="true" android:layout_alignParentStart="true"
                 android:layout_alignEnd="@+id/imageButton3" android:layout_alignParentBottom="true"
-                android:textColor="@color/color_white" android:background="@color/color_blue_scurissimo"
+                android:textColor="@color/color_white" android:background="@color/color_red_scuro"
                 android:gravity="center_vertical|center_horizontal" android:paddingLeft="5dp"
                 android:paddingRight="5dp" android:layout_alignTop="@+id/progressBar5"/>
         <ImageButton
@@ -47,13 +47,14 @@
                 android:layout_alignParentLeft="true" android:layout_alignParentStart="true"
                 android:src="@drawable/left_arrow_30x30"
                 android:layout_above="@+id/checkBox" android:layout_marginLeft="10dp"
-                />
+                android:background="@color/color_red_scuro" android:padding="5dp"/>
         <ImageButton android:layout_width="wrap_content" android:layout_height="wrap_content"
                      android:id="@+id/imageButton_right"
                      android:src="@drawable/right_arrow_30x30"
                      android:layout_alignParentTop="true" android:layout_toLeftOf="@+id/imageButton3"
                      android:layout_toStartOf="@+id/imageButton3"
-                     android:layout_above="@+id/checkBox"/>
+                     android:layout_above="@+id/checkBox" android:background="@color/color_red_scuro"
+                     android:padding="5dp"/>
         <CheckBox
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -61,8 +62,8 @@
                 android:id="@+id/checkBox"
                 android:checked="false"
                 android:layout_below="@+id/date" android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true" android:background="@color/color_blue_chiaro"
-                android:textColor="@color/color_white" android:textAppearance="?android:attr/textAppearanceSmall"/>
+                android:layout_alignParentStart="true"
+                android:textColor="@color/color_red_scuro" android:textAppearance="?android:attr/textAppearanceSmall"/>
         <ProgressBar
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -73,9 +74,20 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:textAppearance="?android:attr/textAppearanceLarge"
-                android:text="Nessuna circolare trovata per il giorno specificato"
-                android:id="@+id/textViewListaVuota" android:layout_below="@+id/checkBox"
-                android:gravity="center_horizontal" android:layout_alignBottom="@+id/listView"
-                android:paddingTop="10dp"/>
+                android:text="Nessuna circolare disponibile per il giorno specificato"
+                android:id="@+id/textViewListaVuota"
+                android:gravity="center_horizontal"
+                android:paddingTop="10dp"
+                android:layout_below="@+id/textView17" android:textColor="@color/color_red"
+                android:layout_marginLeft="50dp" android:layout_marginRight="50dp" android:layout_marginTop="50dp"
+                android:layout_marginBottom="50dp"/>
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/label_long_click"
+                android:id="@+id/textView17"
+                android:layout_below="@+id/checkBox" android:layout_alignRight="@+id/imageButton3"
+                android:layout_alignEnd="@+id/imageButton3" android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true" android:gravity="right" android:paddingRight="10dp"/>
 </RelativeLayout>
 

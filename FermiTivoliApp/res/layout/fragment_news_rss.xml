@@ -19,8 +19,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/listView"
-            android:layout_centerHorizontal="true" android:layout_below="@+id/multiAutoCompleteTextView"
-            android:layout_above="@+id/progressBar4" android:layout_marginLeft="5dp" android:layout_marginRight="5dp"/>
+            android:layout_centerHorizontal="true"
+            android:layout_above="@+id/progressBar4" android:layout_marginLeft="5dp" android:layout_marginRight="5dp"
+            android:layout_below="@+id/textView18"/>
     <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -36,7 +37,7 @@
             android:id="@+id/textViewAvviso"
             android:layout_alignParentLeft="true" android:layout_alignParentStart="true"
             android:layout_alignParentBottom="true"
-            android:textColor="@color/color_white" android:background="@color/color_blue_scurissimo"
+            android:textColor="@color/color_white" android:background="@color/color_red_scuro"
             android:gravity="center_vertical|center_horizontal" android:paddingLeft="5dp"
             android:paddingRight="5dp" android:layout_alignTop="@+id/progressBar4"
             android:layout_alignParentRight="true" android:layout_alignParentEnd="true"
@@ -52,9 +53,18 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Nessuna notizia trovata"
-            android:id="@+id/textViewListaVuota" android:layout_below="@+id/multiAutoCompleteTextView"
-            android:layout_above="@+id/progressBar4"
-            android:gravity="center_horizontal" android:longClickable="true" android:paddingTop="10dp"/>
+            android:text="Nessuna news disponibile"
+            android:id="@+id/textViewListaVuota"
+            android:gravity="center_horizontal" android:longClickable="true" android:paddingTop="10dp"
+            android:layout_below="@+id/textView18" android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" android:textColor="@color/color_red" android:layout_margin="50dp"/>
+    <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/label_long_click"
+            android:id="@+id/textView18"
+            android:layout_below="@+id/multiAutoCompleteTextView"
+            android:layout_alignLeft="@+id/multiAutoCompleteTextView"
+            android:layout_alignStart="@+id/multiAutoCompleteTextView" android:gravity="right"/>
 </RelativeLayout>
 

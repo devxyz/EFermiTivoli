@@ -16,7 +16,7 @@
             android:layout_toStartOf="@+id/date"
             android:textIsSelectable="false" android:textStyle="bold"
             android:layout_toLeftOf="@+id/date" android:textAppearance="?android:attr/textAppearanceMedium"
-            android:textColor="@color/color_blue_scurissimo"/>
+            android:textColor="@color/color_red_scuro"/>
 
     <ImageView
             android:id="@+id/image"
@@ -43,6 +43,6 @@
             android:id="@+id/descrizione" android:layout_below="@+id/title"
             android:layout_toLeftOf="@+id/image" android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true" android:layout_marginLeft="10dp" android:gravity="fill_horizontal"
-            />
+            android:textColor="@color/color_blue_scurissimo"/>
 
 </RelativeLayout>

@@ -9,7 +9,7 @@
                android:id="@+id/imageView"
                android:padding="5dp" android:layout_alignParentTop="true" android:layout_alignParentLeft="true"
                android:layout_alignParentStart="false"
-               android:layout_alignParentBottom="false"/>
+               android:layout_alignParentBottom="false" android:background="@color/color_blue_chiaro"/>
     <ListView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -20,17 +20,19 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="I.T.C.G.\n&quot;Enrico Fermi&quot;\nTivoli (RM)"
-            android:id="@+id/textView5" android:layout_alignParentTop="true"
+            android:text="@string/nome_scuola_denominazione"
+            android:id="@+id/textView5"
             android:layout_alignParentRight="true" android:layout_alignParentEnd="false"
             android:gravity="center_vertical|center_horizontal|clip_vertical"
             android:textStyle="bold" android:textSize="22dp"
             android:textIsSelectable="false" android:paddingLeft="10dp"
             android:layout_toRightOf="@+id/imageView" android:layout_toEndOf="@+id/imageView"
-            android:layout_above="@+id/textViewTipoUtente" android:textColor="@color/color_blue_scurissimo"/>
+            android:textColor="@color/color_blue_scurissimo"
+            android:background="@color/color_blue_chiaro" android:layout_below="@+id/textView14"
+            android:layout_above="@+id/textView15"/>
     <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
               android:text="XX notizie non lette" android:id="@+id/txtInfo"
-              android:background="@color/color_blue_scurissimo"
+              android:background="@color/color_red_scuro"
               android:textColor="@color/color_white" android:paddingLeft="20dp" android:paddingTop="10dp"
               android:paddingBottom="10dp"
               android:layout_alignParentBottom="true" android:layout_alignParentLeft="true"
@@ -44,7 +46,25 @@
             android:layout_alignRight="@+id/textView5" android:layout_alignEnd="@+id/textView5"
             android:layout_toRightOf="@+id/imageView" android:layout_toEndOf="@+id/imageView"
             android:paddingLeft="10dp" android:gravity="right"
-            android:paddingRight="10dp" android:textColor="@color/color_blue_scurissimo" android:textStyle="bold"/>
+            android:paddingRight="10dp" android:textColor="@color/color_blue_scurissimo" android:textStyle="bold"
+            android:background="@color/color_blue_chiaro"/>
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/nome_scuola_tipologia"
+            android:id="@+id/textView14" android:layout_alignParentTop="true" android:layout_toRightOf="@+id/imageView"
+            android:layout_alignRight="@+id/textView5" android:layout_alignEnd="@+id/textView5"
+            android:background="@color/color_blue_chiaro" android:textColor="@color/color_blue_scurissimo"
+            android:textStyle="bold" android:textSize="16dp" android:gravity="center_horizontal"/>
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/nome_scuola_comune"
+            android:id="@+id/textView15" android:layout_above="@+id/textViewTipoUtente"
+            android:layout_toRightOf="@+id/imageView" android:layout_alignRight="@+id/textView5"
+            android:layout_alignEnd="@+id/textView5" android:background="@color/color_blue_chiaro"
+            android:textColor="@color/color_blue_scurissimo" android:textStyle="bold" android:textSize="16dp"
+            android:gravity="center_horizontal"/>
 
 
 </RelativeLayout>

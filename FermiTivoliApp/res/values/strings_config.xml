@@ -5,6 +5,9 @@
     <string name="email_scuola">rmtd07000g@istruzione.it</string>
     <string name="tel_scuola">06121126985</string>
     <string name="nome_scuola">Istituto Tecnico Commerciale per Geometri "Enrico Fermi" Tivoli (RM)</string>
+    <string name="nome_scuola_tipologia">Istituto Tecnico Commerciale per Geometri</string>
+    <string name="nome_scuola_denominazione">"Enrico Fermi"</string>
+    <string name="nome_scuola_comune">"Tivoli (RM)"</string>
     <string name="sito_web_scuola">http://www.fermitivoli.gov.it</string>
     <string name="contatto_scuola">
         #I#Via Acquaregna, 112 - 00019 Tivoli (RM).#I#\n
@@ -45,6 +48,7 @@
     -->
 
     <string name="url_data_json">http://efermi-tivoli.appspot.com/JSonDataServlet</string>
+    <string name="label_long_click">Click lungo per accedere alle opzioni</string>
     <!--<string name="url_circolari_json">http://stefanomillozzi.altervista.org/circolari.dto.zip</string>-->
 
 
