@@ -246,7 +246,8 @@ public class ManagerNews {
         //rimuove le news non presenti
         for (String x : listaDaRimuovere) {
             final NewsDB it = cercaNewsDB(lisdb, x);
-            dao.delete(it);
+            if (it != null)
+                dao.delete(it);
         }
 
         //aggiunge quelli nuovi
