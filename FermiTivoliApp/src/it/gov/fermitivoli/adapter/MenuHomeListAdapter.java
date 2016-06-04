@@ -25,11 +25,15 @@ import java.util.List;
 public class MenuHomeListAdapter extends BaseAdapter implements IMenuListAdapter {
 
     private final List<DataMenuInfo> items;
+    private final int circolariNonLette;
+    private final int newsNonLette;
 
     private MainMenuActivity activity;
     private LayoutInflater layoutInflater;
 
-    public MenuHomeListAdapter(MainMenuActivity f) {
+    public MenuHomeListAdapter(MainMenuActivity f, int circolariNonLette, int newsNonLette) {
+        this.circolariNonLette = circolariNonLette;
+        this.newsNonLette = newsNonLette;
         items = new ArrayList<>();
         activity = f;
         layoutInflater = (LayoutInflater) activity.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -38,16 +42,6 @@ public class MenuHomeListAdapter extends BaseAdapter implements IMenuListAdapter
 
     private void _populate() {
         items.clear();
-
-
-        /*final List<DataMenuInfo> filter = activity.getLastUsedMenu().filter(activity.getMenuMainAdapter().getOriginal());
-        int i = 0;
-        for (DataMenuInfo x : filter) {
-            items.add(x);
-            i++;
-            if (i > 10) break;
-        }*/
-
 
         final TypedArray navMenuInfo;
         AppUserType userType = activity.getSharedPreferences().getUserType();
@@ -132,8 +126,23 @@ public class MenuHomeListAdapter extends BaseAdapter implements IMenuListAdapter
         ImageView iv = LAYOUT_OBJs.thumb;
         TextView tvTitle = LAYOUT_OBJs.title;
 
-        tvTitle.setText(items.get(pos).getMenuLabel());
-        iv.setImageResource(items.get(pos).getImageId());
+        String menuLabel = items.get(pos).getMenuLabel();
+        if (circolariNonLette > 0)
+            menuLabel = menuLabel.replace("#c#", " (" + circolariNonLette + ")");
+        else
+            menuLabel = menuLabel.replace("#c#", "");
+
+        if (newsNonLette > 0)
+            menuLabel = menuLabel.replace("#n#", " (" + newsNonLette + ")");
+        else
+            menuLabel = menuLabel.replace("#n#", "");
+
+
+        final Integer imageId = items.get(pos).getImageId();
+
+
+        tvTitle.setText(menuLabel);
+        iv.setImageResource(imageId);
         return listItem;
     }
 

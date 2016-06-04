@@ -11,6 +11,7 @@ public class LayoutObjs_fragment_news_rss_xml{
   public final TextView textViewAvviso;
   public final ProgressBar progressBar4;
   public final TextView textViewListaVuota;
+  public final TextView textView18;
 
 public LayoutObjs_fragment_news_rss_xml(Fragment f){
   View view=f.getView();
@@ -20,6 +21,7 @@ public LayoutObjs_fragment_news_rss_xml(Fragment f){
   textViewAvviso= (TextView)view.findViewById(R.id.textViewAvviso);
   progressBar4= (ProgressBar)view.findViewById(R.id.progressBar4);
   textViewListaVuota= (TextView)view.findViewById(R.id.textViewListaVuota);
+  textView18= (TextView)view.findViewById(R.id.textView18);
 }
 public LayoutObjs_fragment_news_rss_xml(Activity view){
     multiAutoCompleteTextView= (MultiAutoCompleteTextView)view.findViewById(R.id.multiAutoCompleteTextView);
@@ -28,6 +30,7 @@ public LayoutObjs_fragment_news_rss_xml(Activity view){
   textViewAvviso= (TextView)view.findViewById(R.id.textViewAvviso);
   progressBar4= (ProgressBar)view.findViewById(R.id.progressBar4);
   textViewListaVuota= (TextView)view.findViewById(R.id.textViewListaVuota);
+  textView18= (TextView)view.findViewById(R.id.textView18);
 
 }
 public LayoutObjs_fragment_news_rss_xml(View view){
@@ -37,6 +40,7 @@ public LayoutObjs_fragment_news_rss_xml(View view){
   textViewAvviso= (TextView)view.findViewById(R.id.textViewAvviso);
   progressBar4= (ProgressBar)view.findViewById(R.id.progressBar4);
   textViewListaVuota= (TextView)view.findViewById(R.id.textViewListaVuota);
+  textView18= (TextView)view.findViewById(R.id.textView18);
 
 }
 public LayoutObjs_fragment_news_rss_xml(Dialog view){
@@ -46,6 +50,7 @@ public LayoutObjs_fragment_news_rss_xml(Dialog view){
   textViewAvviso= (TextView)view.findViewById(R.id.textViewAvviso);
   progressBar4= (ProgressBar)view.findViewById(R.id.progressBar4);
   textViewListaVuota= (TextView)view.findViewById(R.id.textViewListaVuota);
+  textView18= (TextView)view.findViewById(R.id.textView18);
 
 }
 }

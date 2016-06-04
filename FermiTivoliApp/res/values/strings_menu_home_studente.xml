@@ -4,15 +4,15 @@
     <!-- per ogni menu, l'icona -->
     <array name="menu_home_studente">
         <item>2</item>
-        <item>News</item>
+        <item>News#n#</item>
         <item>Ultime Notizie dalla scuola</item>
         <item>it.gov.fermitivoli.fragment.NewsFragmentRss</item>
         <item>@drawable/id_tab_news</item>
         <item></item>
         <item>END-ITEM</item>
 
-        <item>6</item>
-        <item>Circolari</item>
+        <item>3</item>
+        <item>Circolari#c#</item>
         <item>Circolari scolastiche</item>
         <item>it.gov.fermitivoli.fragment.CircolariSearchFragment</item>
         <item>@drawable/file_search</item>

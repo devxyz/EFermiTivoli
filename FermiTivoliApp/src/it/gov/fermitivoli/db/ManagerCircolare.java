@@ -139,15 +139,31 @@ public class ManagerCircolare {
     }
 
     public long maxToken() {
-        final Cursor c = session.getDatabase().rawQuery("SELECT MAX(" + CircolareDBDao.Properties.Token.columnName + ") FROM " + CircolareDBDao.TABLENAME, null);
-        final long result;
-        if (c.moveToFirst()) {
-            result = c.getLong(0);
-        } else {
-            result = 0;
+        final long result1;
+        {
+            final Cursor c = session.getDatabase().rawQuery("SELECT MAX(" + CircolareDBDao.Properties.Token.columnName + ") FROM " + CircolareDBDao.TABLENAME, null);
+
+            if (c.moveToFirst()) {
+                result1 = c.getLong(0);
+            } else {
+                result1 = 0;
+            }
+            c.close();
         }
-        c.close();
-        return result;
+
+        final long result2;
+        {
+            final Cursor c = session.getDatabase().rawQuery("SELECT MAX(" + NewsDBDao.Properties.Token.columnName + ") FROM " + NewsDBDao.TABLENAME, null);
+
+            if (c.moveToFirst()) {
+                result2 = c.getLong(0);
+            } else {
+                result2 = 0;
+            }
+            c.close();
+        }
+
+        return Math.max(result1, result2);
     }
 
     public List<CircolareDB> listAllCircolariComplete() {
@@ -486,7 +502,7 @@ public class ManagerCircolare {
         return circolariDbByKey;
     }
 
-    private TermineDB __aggiungiTermine(String termine)  {
+    private TermineDB __aggiungiTermine(String termine) {
         //cerca il termine
         TermineDBDao TermineDBDao = session.getTermineDBDao();
 

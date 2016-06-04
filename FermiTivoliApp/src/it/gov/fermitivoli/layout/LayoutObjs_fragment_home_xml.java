@@ -10,6 +10,8 @@ public class LayoutObjs_fragment_home_xml{
   public final TextView textView5;
   public final TextView txtInfo;
   public final TextView textViewTipoUtente;
+  public final TextView textView14;
+  public final TextView textView15;
 
 public LayoutObjs_fragment_home_xml(Fragment f){
   View view=f.getView();
@@ -18,6 +20,8 @@ public LayoutObjs_fragment_home_xml(Fragment f){
   textView5= (TextView)view.findViewById(R.id.textView5);
   txtInfo= (TextView)view.findViewById(R.id.txtInfo);
   textViewTipoUtente= (TextView)view.findViewById(R.id.textViewTipoUtente);
+  textView14= (TextView)view.findViewById(R.id.textView14);
+  textView15= (TextView)view.findViewById(R.id.textView15);
 }
 public LayoutObjs_fragment_home_xml(Activity view){
     imageView= (ImageView)view.findViewById(R.id.imageView);
@@ -25,6 +29,8 @@ public LayoutObjs_fragment_home_xml(Activity view){
   textView5= (TextView)view.findViewById(R.id.textView5);
   txtInfo= (TextView)view.findViewById(R.id.txtInfo);
   textViewTipoUtente= (TextView)view.findViewById(R.id.textViewTipoUtente);
+  textView14= (TextView)view.findViewById(R.id.textView14);
+  textView15= (TextView)view.findViewById(R.id.textView15);
 
 }
 public LayoutObjs_fragment_home_xml(View view){
@@ -33,6 +39,8 @@ public LayoutObjs_fragment_home_xml(View view){
   textView5= (TextView)view.findViewById(R.id.textView5);
   txtInfo= (TextView)view.findViewById(R.id.txtInfo);
   textViewTipoUtente= (TextView)view.findViewById(R.id.textViewTipoUtente);
+  textView14= (TextView)view.findViewById(R.id.textView14);
+  textView15= (TextView)view.findViewById(R.id.textView15);
 
 }
 public LayoutObjs_fragment_home_xml(Dialog view){
@@ -41,6 +49,8 @@ public LayoutObjs_fragment_home_xml(Dialog view){
   textView5= (TextView)view.findViewById(R.id.textView5);
   txtInfo= (TextView)view.findViewById(R.id.txtInfo);
   textViewTipoUtente= (TextView)view.findViewById(R.id.textViewTipoUtente);
+  textView14= (TextView)view.findViewById(R.id.textView14);
+  textView15= (TextView)view.findViewById(R.id.textView15);
 
 }
 }

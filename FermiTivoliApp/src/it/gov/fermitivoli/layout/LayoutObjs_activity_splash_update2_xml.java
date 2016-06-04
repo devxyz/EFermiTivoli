@@ -11,6 +11,8 @@ public class LayoutObjs_activity_splash_update2_xml{
   public final ProgressBar progressBar9;
   public final TextView txtfoto;
   public final TextView textViewMsgUpdate;
+  public final TextView textView9;
+  public final TextView textView10;
 
 public LayoutObjs_activity_splash_update2_xml(Fragment f){
   View view=f.getView();
@@ -20,6 +22,8 @@ public LayoutObjs_activity_splash_update2_xml(Fragment f){
   progressBar9= (ProgressBar)view.findViewById(R.id.progressBar9);
   txtfoto= (TextView)view.findViewById(R.id.txtfoto);
   textViewMsgUpdate= (TextView)view.findViewById(R.id.textViewMsgUpdate);
+  textView9= (TextView)view.findViewById(R.id.textView9);
+  textView10= (TextView)view.findViewById(R.id.textView10);
 }
 public LayoutObjs_activity_splash_update2_xml(Activity view){
     imageView= (ImageView)view.findViewById(R.id.imageView);
@@ -28,6 +32,8 @@ public LayoutObjs_activity_splash_update2_xml(Activity view){
   progressBar9= (ProgressBar)view.findViewById(R.id.progressBar9);
   txtfoto= (TextView)view.findViewById(R.id.txtfoto);
   textViewMsgUpdate= (TextView)view.findViewById(R.id.textViewMsgUpdate);
+  textView9= (TextView)view.findViewById(R.id.textView9);
+  textView10= (TextView)view.findViewById(R.id.textView10);
 
 }
 public LayoutObjs_activity_splash_update2_xml(View view){
@@ -37,6 +43,8 @@ public LayoutObjs_activity_splash_update2_xml(View view){
   progressBar9= (ProgressBar)view.findViewById(R.id.progressBar9);
   txtfoto= (TextView)view.findViewById(R.id.txtfoto);
   textViewMsgUpdate= (TextView)view.findViewById(R.id.textViewMsgUpdate);
+  textView9= (TextView)view.findViewById(R.id.textView9);
+  textView10= (TextView)view.findViewById(R.id.textView10);
 
 }
 public LayoutObjs_activity_splash_update2_xml(Dialog view){
@@ -46,6 +54,8 @@ public LayoutObjs_activity_splash_update2_xml(Dialog view){
   progressBar9= (ProgressBar)view.findViewById(R.id.progressBar9);
   txtfoto= (TextView)view.findViewById(R.id.txtfoto);
   textViewMsgUpdate= (TextView)view.findViewById(R.id.textViewMsgUpdate);
+  textView9= (TextView)view.findViewById(R.id.textView9);
+  textView10= (TextView)view.findViewById(R.id.textView10);
 
 }
 }

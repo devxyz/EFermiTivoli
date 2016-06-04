@@ -13,7 +13,7 @@ import it.gov.fermitivoli.model.menu.DataMenuInfo;
 public class ReStudentiAction implements ActivityAction {
     @Override
     public void doTask(MainMenuActivity activity, DataMenuInfo item) {
-        Intent i = new Intent(Intent.ACTION_VIEW, Uri.parse(activity.getString(R.string.url_re_docenti)));
+        Intent i = new Intent(Intent.ACTION_VIEW, Uri.parse(activity.getString(R.string.url_re_studenti)));
         activity.startActivity(i);
     }
 }

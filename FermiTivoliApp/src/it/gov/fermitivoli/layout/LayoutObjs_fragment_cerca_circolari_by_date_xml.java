@@ -14,6 +14,7 @@ public class LayoutObjs_fragment_cerca_circolari_by_date_xml{
   public final CheckBox checkBox;
   public final ProgressBar progressBar5;
   public final TextView textViewListaVuota;
+  public final TextView textView17;
 
 public LayoutObjs_fragment_cerca_circolari_by_date_xml(Fragment f){
   View view=f.getView();
@@ -26,6 +27,7 @@ public LayoutObjs_fragment_cerca_circolari_by_date_xml(Fragment f){
   checkBox= (CheckBox)view.findViewById(R.id.checkBox);
   progressBar5= (ProgressBar)view.findViewById(R.id.progressBar5);
   textViewListaVuota= (TextView)view.findViewById(R.id.textViewListaVuota);
+  textView17= (TextView)view.findViewById(R.id.textView17);
 }
 public LayoutObjs_fragment_cerca_circolari_by_date_xml(Activity view){
     date= (TextView)view.findViewById(R.id.date);
@@ -37,6 +39,7 @@ public LayoutObjs_fragment_cerca_circolari_by_date_xml(Activity view){
   checkBox= (CheckBox)view.findViewById(R.id.checkBox);
   progressBar5= (ProgressBar)view.findViewById(R.id.progressBar5);
   textViewListaVuota= (TextView)view.findViewById(R.id.textViewListaVuota);
+  textView17= (TextView)view.findViewById(R.id.textView17);
 
 }
 public LayoutObjs_fragment_cerca_circolari_by_date_xml(View view){
@@ -49,6 +52,7 @@ public LayoutObjs_fragment_cerca_circolari_by_date_xml(View view){
   checkBox= (CheckBox)view.findViewById(R.id.checkBox);
   progressBar5= (ProgressBar)view.findViewById(R.id.progressBar5);
   textViewListaVuota= (TextView)view.findViewById(R.id.textViewListaVuota);
+  textView17= (TextView)view.findViewById(R.id.textView17);
 
 }
 public LayoutObjs_fragment_cerca_circolari_by_date_xml(Dialog view){
@@ -61,6 +65,7 @@ public LayoutObjs_fragment_cerca_circolari_by_date_xml(Dialog view){
   checkBox= (CheckBox)view.findViewById(R.id.checkBox);
   progressBar5= (ProgressBar)view.findViewById(R.id.progressBar5);
   textViewListaVuota= (TextView)view.findViewById(R.id.textViewListaVuota);
+  textView17= (TextView)view.findViewById(R.id.textView17);
 
 }
 }

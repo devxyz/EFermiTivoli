@@ -12,6 +12,7 @@ public class LayoutObjs_fragment_cerca_circolari_xml{
   public final ProgressBar progressBar4;
   public final TextView textViewListaVuota;
   public final ImageButton imageButtonPlus;
+  public final TextView textView16;
 
 public LayoutObjs_fragment_cerca_circolari_xml(Fragment f){
   View view=f.getView();
@@ -22,6 +23,7 @@ public LayoutObjs_fragment_cerca_circolari_xml(Fragment f){
   progressBar4= (ProgressBar)view.findViewById(R.id.progressBar4);
   textViewListaVuota= (TextView)view.findViewById(R.id.textViewListaVuota);
   imageButtonPlus= (ImageButton)view.findViewById(R.id.imageButtonPlus);
+  textView16= (TextView)view.findViewById(R.id.textView16);
 }
 public LayoutObjs_fragment_cerca_circolari_xml(Activity view){
     searchTextView= (MultiAutoCompleteTextView)view.findViewById(R.id.searchTextView);
@@ -31,6 +33,7 @@ public LayoutObjs_fragment_cerca_circolari_xml(Activity view){
   progressBar4= (ProgressBar)view.findViewById(R.id.progressBar4);
   textViewListaVuota= (TextView)view.findViewById(R.id.textViewListaVuota);
   imageButtonPlus= (ImageButton)view.findViewById(R.id.imageButtonPlus);
+  textView16= (TextView)view.findViewById(R.id.textView16);
 
 }
 public LayoutObjs_fragment_cerca_circolari_xml(View view){
@@ -41,6 +44,7 @@ public LayoutObjs_fragment_cerca_circolari_xml(View view){
   progressBar4= (ProgressBar)view.findViewById(R.id.progressBar4);
   textViewListaVuota= (TextView)view.findViewById(R.id.textViewListaVuota);
   imageButtonPlus= (ImageButton)view.findViewById(R.id.imageButtonPlus);
+  textView16= (TextView)view.findViewById(R.id.textView16);
 
 }
 public LayoutObjs_fragment_cerca_circolari_xml(Dialog view){
@@ -51,6 +55,7 @@ public LayoutObjs_fragment_cerca_circolari_xml(Dialog view){
   progressBar4= (ProgressBar)view.findViewById(R.id.progressBar4);
   textViewListaVuota= (TextView)view.findViewById(R.id.textViewListaVuota);
   imageButtonPlus= (ImageButton)view.findViewById(R.id.imageButtonPlus);
+  textView16= (TextView)view.findViewById(R.id.textView16);
 
 }
 }

@@ -97,7 +97,8 @@ public class HomeFragment extends AbstractFragment {
             if (numCircolariNonLette > 0) {
                 LAYOUT_OBJs.txtInfo.setText(numCircolariNonLette + " circolari non lette");
             } else {
-                LAYOUT_OBJs.txtInfo.setText(numCircolariTot + " circolari e " + numNotizieTot + " notizie totali");
+                //LAYOUT_OBJs.txtInfo.setText(numCircolariTot + " circolari e " + numNotizieTot + " notizie totali");
+                LAYOUT_OBJs.txtInfo.setText(" ");
             }
 
         }
@@ -128,7 +129,7 @@ public class HomeFragment extends AbstractFragment {
         });
 
 
-        final MenuHomeListAdapter adapter = new MenuHomeListAdapter(getMainActivity());
+        final MenuHomeListAdapter adapter = new MenuHomeListAdapter(getMainActivity(), numCircolariNonLette, numNotizieNonLette);
         LAYOUT_OBJs.listView4.setAdapter(adapter);
 
         LAYOUT_OBJs.listView4.setOnItemClickListener(new AdapterView.OnItemClickListener() {

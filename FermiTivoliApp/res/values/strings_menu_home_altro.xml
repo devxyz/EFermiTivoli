@@ -4,13 +4,12 @@
     <!-- per ogni menu, l'icona -->
     <array name="menu_home_altro">
         <item>2</item>
-        <item>News</item>
+        <item>News#n#</item>
         <item>Ultime Notizie dalla scuola</item>
         <item>it.gov.fermitivoli.fragment.NewsFragmentRss</item>
         <item>@drawable/id_tab_news</item>
         <item></item>
         <item>END-ITEM</item>
-
 
         <item>5</item>
         <item>Foto</item>
