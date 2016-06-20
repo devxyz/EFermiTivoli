@@ -28,7 +28,6 @@ import it.gov.fermitivoli.util.DebugUtil;
 import java.util.*;
 
 public class CircolariGiornaliereFragment extends AbstractFragment {
-    private static final int EXPIRE_TIME_DAYS = 15;
     private Date currentDate;
     private LayoutObjs_fragment_cerca_circolari_by_date_xml LAYOUT_OBJs;   //***************************
     private CircolariContainerByDate circolari;

@@ -83,6 +83,7 @@ public class C_CircolariUtil {
      *
      * @param text
      * @return
+     * todo: gestire linee a capo circolari
      */
     public static String normalizeTextAndLineFeed_forTextCircolari(String text, boolean skipStopLines) {
         final String[] split = text.split("[\n]");
@@ -105,6 +106,6 @@ public class C_CircolariUtil {
             sb.append(line);
         }
 
-        return C_TextUtil.normalize_lineFeed(sb.toString());
+        return sb.toString(); //C_TextUtil.normalize_lineFeed(sb.toString());
     }
 }

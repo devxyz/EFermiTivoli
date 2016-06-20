@@ -212,7 +212,27 @@ public class C_TextUtil {
                 "Si invitano coloro che ancora non avessero versato il primo acconto di Euro 100,00 a farlo entro la data del 12\n" +
                 "gennaio 2016.\n" +
                 "Si ricorda che la scelta definitiva della meta verrà fatta in funzione del numero delle preferenze.\n" +
-                "Per ulteriori chiarimenti si prega di rivolgersi alla Prof.ssa M.L Sansò";
+                "Per ulteriori chiarimenti si prega di rivolgersi alla Prof.ssa M.L Sansò\n"+
+                "Circolare n.250 del 25-05-2016\n" +
+                "OGGETTO: Rettifica calendario SCRUTINI e termine delle lezioni\n" +
+                "Si comunica che gli scrutini fissati per i giorni 6-7-8 giugno sono così rettificati:\n" +
+                "Mercoledì 8 giugno 2016:\n" +
+                "- 5G dalle 10.30 alle ore 11.30\n" +
+                "- 5H dalle 11.30 alle ore 12.30\n" +
+                "- 5F dalle 12.30 alle ore 13.30\n" +
+                "- 5A dalle 14.30 alle ore 15.30\n" +
+                "- 5B dalle 15.30 alle ore 16.30\n" +
+                "- 5C dalle 16.30 alle ore 17.30\n" +
+                "- 5D dalle 17.30 alle ore 18.30\n" +
+                "- 5E dalle 18.30 alle ore 19.30\n" +
+                "Sabato 11 giugno 2016:\n" +
+                "- 1A dalle 8.30 alle ore 9.30\n" +
+                "- 2A dalle 9.30 alle ore 10.30\n" +
+                "- 1D dalle 10.30 alle ore 11.30\n" +
+                "- 3D dalle 11.30 alle ore 12.30\n" +
+                "- 4D dalle 13.30 alle ore 14.30\n" +
+                "- 3E dalle 14.30 alle ore 15.30\n" +
+                "- 4E dalle 15.30 alle ore 16.30";
 
         final String x = C_CircolariUtil.normalizeTextAndLineFeed_forTextCircolari(testo, true);
         System.out.println(x);
