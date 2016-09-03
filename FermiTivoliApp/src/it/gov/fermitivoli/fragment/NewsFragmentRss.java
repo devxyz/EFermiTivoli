@@ -15,7 +15,7 @@ import android.widget.ListAdapter;
 import android.widget.MultiAutoCompleteTextView;
 import it.gov.fermitivoli.R;
 import it.gov.fermitivoli.activity.MainMenuActivity;
-import it.gov.fermitivoli.adapter.NewsRssListAdapter;
+import it.gov.fermitivoli.adapter.NewsListAdapter;
 import it.gov.fermitivoli.api.AbstractFragment;
 import it.gov.fermitivoli.dao.*;
 import it.gov.fermitivoli.db.ManagerNews;
@@ -30,7 +30,7 @@ import java.util.*;
 
 public class NewsFragmentRss extends AbstractFragment {
     private LayoutObjs_fragment_news_rss_xml LAYOUT_OBJs;   //***************************
-    private NewsRssListAdapter a;
+    private NewsListAdapter a;
     private volatile ExternalDataSync_AsyncTask updater;
     private ArrayAdapter<String> multiTextViewAdapter;
 
@@ -38,7 +38,7 @@ public class NewsFragmentRss extends AbstractFragment {
     public NewsFragmentRss() {
     }
 
-    public static void updateNews_impostaFlagLettura(MainMenuActivity m, final NewsRssListAdapter a, final boolean flagLettura) {
+    public static void updateNews_impostaFlagLettura(MainMenuActivity m, final NewsListAdapter a, final boolean flagLettura) {
         //aggiorna il database
         FermiAppDbHelper db = new FermiAppDbHelper(m);
         try {
@@ -63,7 +63,7 @@ public class NewsFragmentRss extends AbstractFragment {
         a.notifyDataSetChanged();
     }
 
-    public static void updateNews_impostaFlagLettura(MainMenuActivity m, NewsRssListAdapter a, final NewsDB c, boolean flagLettura) {
+    public static void updateNews_impostaFlagLettura(MainMenuActivity m, NewsListAdapter a, final NewsDB c, boolean flagLettura) {
         //controlla se segnare la lettura
         if (c.getFlagContenutoLetto() != flagLettura) {
             c.setFlagContenutoLetto(flagLettura);
@@ -185,7 +185,7 @@ public class NewsFragmentRss extends AbstractFragment {
         LAYOUT_OBJs = new LayoutObjs_fragment_news_rss_xml(rootView);
         //**************************
 
-        a = new NewsRssListAdapter(this);
+        a = new NewsListAdapter(this);
 
         LAYOUT_OBJs.listView.setAdapter(a);
         LAYOUT_OBJs.listView.setEmptyView(LAYOUT_OBJs.textViewListaVuota);
@@ -224,10 +224,10 @@ public class NewsFragmentRss extends AbstractFragment {
 
     public static class MyOnItemLongClickListener implements AdapterView.OnItemLongClickListener {
 
-        private final NewsRssListAdapter a;
+        private final NewsListAdapter a;
         private final AbstractFragment fragment;
 
-        public MyOnItemLongClickListener(NewsRssListAdapter a, AbstractFragment fragment) {
+        public MyOnItemLongClickListener(NewsListAdapter a, AbstractFragment fragment) {
             this.a = a;
             this.fragment = fragment;
         }
@@ -280,10 +280,10 @@ public class NewsFragmentRss extends AbstractFragment {
     }
 
     private static class __ApriNewsOnItemClickListener implements AdapterView.OnItemClickListener {
-        private NewsRssListAdapter a;
+        private NewsListAdapter a;
         private AbstractFragment fragment;
 
-        public __ApriNewsOnItemClickListener(NewsRssListAdapter a, AbstractFragment fragment) {
+        public __ApriNewsOnItemClickListener(NewsListAdapter a, AbstractFragment fragment) {
             this.a = a;
             this.fragment = fragment;
         }

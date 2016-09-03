@@ -32,7 +32,7 @@
             android:layout_above="@+id/textView15"/>
     <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
               android:text="XX notizie non lette" android:id="@+id/txtInfo"
-              android:background="@color/color_red_scuro"
+              android:background="@color/color_blue_scurissimo"
               android:textColor="@color/color_white" android:paddingLeft="20dp" android:paddingTop="10dp"
               android:paddingBottom="10dp"
               android:layout_alignParentBottom="true" android:layout_alignParentLeft="true"

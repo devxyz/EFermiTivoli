@@ -126,19 +126,15 @@ public class CircolariListAdapter extends BaseAdapter {
         instance.add(Calendar.DAY_OF_MONTH, -1);
         final Date ieri = instance.getTime();*/
 
-        //se non visualizzato
-        if ((dataPrecedenteVisualizzazione.compareTo(c.getDataInserimento()) <= 0) && !c.getFlagContenutoLetto()) {
-            iv.setImageResource(R.drawable.new_icon_50x50);
-        } else {
-            iv.setImageResource(R.drawable.pdf_40x40);
-        }
 
         if (c.getFlagContenutoLetto()) {
             tvTitle.setTypeface(Typeface.DEFAULT);
             tvTitle.setText(c.getNumero() + " - " + c.getTitolo());
+            iv.setImageResource(R.drawable.arrow_next);
         } else {
             tvTitle.setTypeface(Typeface.DEFAULT_BOLD);
-            tvTitle.setText("(*) "+c.getNumero() + " - " + c.getTitolo()+"");
+            tvTitle.setText(c.getNumero() + " - " + c.getTitolo() + "");
+            iv.setImageResource(R.drawable.new_icon_50x50);
         }
 
         return listItem;

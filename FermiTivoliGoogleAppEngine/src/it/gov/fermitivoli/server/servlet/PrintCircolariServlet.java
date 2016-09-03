@@ -28,9 +28,9 @@ public class PrintCircolariServlet extends HttpServlet {
         final InMemoryCacheLayerCircolareDB cl = DataLayerBuilder.getLoaderCircolari();
         int i = 1;
         for (GAE_CircolareDB_V2 c : cl.allEntities()) {
-
+            if (c.isFlagDelete()) continue;
             out.println("<tr><td rowspan=6>" + i + "</td><td><b>URL</b></td>  <td><a href='" + c.getUrl() + "'>" + c.getUrl() + "</a></td></tr>");
-            out.println("<tr><td><b>Data</b></td>  <td>" + c.getData() + "</td></tr>");
+            out.println("<tr><td><b>Data</b></td>  <td>" + c.getData() + "(delete:" + c.isFlagDelete() + ")" + "</td></tr>");
             out.println("<tr><td><b>Titolo</b></td>  <td>" + c.getNumero() + " - " + c.getTitolo() + "</td></tr>");
             out.println("<tr><td><b>Token</b></td>  <td>" + c.getToken() + "</td></tr>");
             if (c.getTesto() != null)
@@ -50,6 +50,7 @@ public class PrintCircolariServlet extends HttpServlet {
         final InMemoryCacheLayerNewsDB cl2 = DataLayerBuilder.getLoaderNews();
         i = 1;
         for (GAE_NewsDB_V2 c : cl2.allEntities()) {
+            if (c.isFlagDelete()) continue;
             out.println("<tr><td rowspan=6>" + i + "</td><td><b>LINK</b></td>  <td><a href='" + c.getLink() + "'>" + c.getLink() + "</a></td></tr>");
             out.println("<tr><td><b>Data</b></td>  <td>" + c.getPubDate() + "</td></tr>");
             out.println("<tr><td><b>Titolo</b></td>  <td>" + c.getTitolo() + "</td></tr>");

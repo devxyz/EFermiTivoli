@@ -23,7 +23,7 @@ import java.util.List;
 /**
  * Created by stefano on 04/03/15.
  */
-public class NewsRssListAdapter extends BaseAdapter {
+public class NewsListAdapter extends BaseAdapter {
 
     public UrlImageLoader imageLoader;
     private List<NewsDB> feed;
@@ -31,7 +31,7 @@ public class NewsRssListAdapter extends BaseAdapter {
     private Activity activity;
     private LayoutInflater layoutInflater;
 
-    public NewsRssListAdapter(AbstractFragment e, List<NewsDB> feed) {
+    public NewsListAdapter(AbstractFragment e, List<NewsDB> feed) {
         this.feed = feed;
         activity = e.getActivity();
         layoutInflater = (LayoutInflater) activity.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -39,7 +39,7 @@ public class NewsRssListAdapter extends BaseAdapter {
         imageLoader = new UrlImageLoader(e, size.x / 3, size.y / 3, R.drawable.clessidra_30x30);
     }
 
-    public NewsRssListAdapter(AbstractFragment e) {
+    public NewsListAdapter(AbstractFragment e) {
         this(e, new ArrayList<NewsDB>());
     }
 
@@ -85,8 +85,8 @@ public class NewsRssListAdapter extends BaseAdapter {
 
 
         String text = C_TextUtil.extractContentFromHTML(c.getTesto());
-        if (text.length() > 1000) {
-            text = text.substring(1000) + "...";
+        if (text.length() > 500) {
+            text = text.substring(500) + " [...]";
         }
 
 
@@ -96,10 +96,13 @@ public class NewsRssListAdapter extends BaseAdapter {
             LAYOUT_OBJs.title.setTypeface(Typeface.DEFAULT);
             LAYOUT_OBJs.title.setText(c.getTitolo() + "");
             LAYOUT_OBJs.descrizione.setText(text);
+            LAYOUT_OBJs.image.setImageResource(R.drawable.arrow_next);
         } else {
             LAYOUT_OBJs.title.setTypeface(Typeface.DEFAULT_BOLD);
-            LAYOUT_OBJs.title.setText(c.getTitolo() + " (da leggere)");
+            LAYOUT_OBJs.title.setText(c.getTitolo());
             LAYOUT_OBJs.descrizione.setText(text);
+            LAYOUT_OBJs.image.setImageResource(R.drawable.new_icon_50x50);
+
         }
 
 
