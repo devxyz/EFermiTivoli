@@ -37,7 +37,7 @@
             android:id="@+id/textViewAvviso"
             android:layout_alignParentLeft="true" android:layout_alignParentStart="true"
             android:layout_alignParentBottom="true"
-            android:textColor="@color/color_white" android:background="@color/color_red_scuro"
+            android:textColor="@color/color_white" android:background="@color/color_blue_scurissimo"
             android:gravity="center_vertical|center_horizontal" android:paddingLeft="5dp"
             android:paddingRight="5dp" android:layout_alignTop="@+id/progressBar4"
             android:layout_alignParentRight="true" android:layout_alignParentEnd="true"
@@ -57,7 +57,7 @@
             android:id="@+id/textViewListaVuota"
             android:gravity="center_horizontal" android:longClickable="true" android:paddingTop="10dp"
             android:layout_below="@+id/textView18" android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" android:textColor="@color/color_red" android:layout_margin="50dp"/>
+            android:layout_alignParentStart="true" android:textColor="@color/color_blue_scurissimo" android:layout_margin="50dp"/>
     <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

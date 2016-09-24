@@ -26,6 +26,7 @@ public class MenuAndroidGenerator {
         File f3 = new File("/Users/stefano/DATA/scuola/insegnamento/scuola-AS-2014-15/Fermi-TIVOLI-14-15/development/EFermiTivoli/FermiTivoliApp/res/values/strings_menu_home_studente.xml");
         File f4 = new File("/Users/stefano/DATA/scuola/insegnamento/scuola-AS-2014-15/Fermi-TIVOLI-14-15/development/EFermiTivoli/FermiTivoliApp/res/values/strings_menu_home_famiglie.xml");
         File f5 = new File("/Users/stefano/DATA/scuola/insegnamento/scuola-AS-2014-15/Fermi-TIVOLI-14-15/development/EFermiTivoli/FermiTivoliApp/res/values/strings_menu_home_altro.xml");
+
         genera(f1, destFolder);
         genera(f2, destFolder);
         genera(f3, destFolder);

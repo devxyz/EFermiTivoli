@@ -104,7 +104,7 @@ public class CotralFragment extends AbstractFragment {
                     }
                 };
                 final TreeSet<DataMenuInfoFlag> flags = new TreeSet<>(Arrays.asList(DataMenuInfoFlag.DONT_SHOW_IN_HOME));
-                DataMenuInfo d = new DataMenuInfo(1, "Partenze per casa", "Partenze per casa", R.drawable.bus, dd, flags);
+                DataMenuInfo d = new DataMenuInfo(1, "Partenze per casa", "Partenze per casa", R.drawable.bus_stop_48x48, dd, flags);
 
                 getMainActivity().doAction(d);
 
@@ -147,7 +147,7 @@ public class CotralFragment extends AbstractFragment {
                     }
                 };
                 final TreeSet<DataMenuInfoFlag> flags = new TreeSet<>(Arrays.asList(DataMenuInfoFlag.DONT_SHOW_IN_HOME));
-                DataMenuInfo d = new DataMenuInfo(1, "Partenze per casa", "Partenze per casa", R.drawable.bus, dd, flags);
+                DataMenuInfo d = new DataMenuInfo(1, "Partenze per casa", "Partenze per casa", R.drawable.bus_stop_48x48, dd, flags);
 
                 getMainActivity().doAction(d);
 

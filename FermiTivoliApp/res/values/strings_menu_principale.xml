@@ -149,7 +149,7 @@
         <item>Come raggiungerci</item>
         <item></item>
         <item></item>
-        <item>@drawable/bus</item>
+        <item>@drawable/bus_stop_48x48</item>
         <item>DONT_SHOW_IN_HOME</item>
         <item>END-ITEM</item>
 
@@ -157,7 +157,7 @@
             <item>Fermate e tragitti Autobus</item>
             <item>Informazioni autobus Cotral</item>
             <item>it.gov.fermitivoli.fragment.CotralFragment</item>
-            <item>@drawable/bus</item>
+            <item>@drawable/bus_stop_48x48</item>
             <item>SUB_ITEM</item>
             <item>END-ITEM</item>
 
@@ -173,7 +173,7 @@
             <item>Orari Cotral</item>
             <item>Orari Cotral</item>
             <item>it.gov.fermitivoli.action.CotralAction</item>
-            <item>@drawable/bus</item>
+            <item>@drawable/bus_stop_48x48</item>
             <item>SUB_ITEM</item>
             <item>END-ITEM</item>
 

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" android:background="@color/color_blue_scurissimo">
+                android:layout_height="match_parent" android:background="@color/color_dialog_background">
 
     <TextView
             android:layout_width="match_parent"
@@ -14,7 +14,7 @@
             android:layout_below="@+id/textView"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true" android:textStyle="bold" android:gravity="right"
-            android:background="@color/color_white" android:layout_marginLeft="5dp" android:layout_marginRight="5dp"
+            android:layout_marginLeft="5dp" android:layout_marginRight="5dp"
     />
 
     <ImageButton
@@ -24,7 +24,8 @@
             android:src="@drawable/close_40x40_red"
 
             android:layout_alignParentTop="true" android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true" android:background="@color/color_blue_scurissimo" android:padding="5dp"/>
+            android:layout_alignParentEnd="true" android:padding="5dp"
+            android:background="@color/color_dialog_title_background"/>
         <LinearLayout
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
@@ -38,14 +39,14 @@
                     android:layout_height="wrap_content"
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:text="Voce"
-                    android:id="@+id/textView3" android:textColor="@color/color_white"/>
+                    android:id="@+id/textView3" android:textStyle="bold"/>
             <ImageButton android:layout_width="wrap_content" android:layout_height="wrap_content"
                          android:id="@+id/buttonVoice" android:background="@color/color_transparent"
                          android:src="@drawable/text_to_speech_1" android:paddingRight="30dp"
                          android:paddingLeft="5dp"/>
             <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
                       android:textAppearance="?android:attr/textAppearanceMedium" android:text="PDF"
-                      android:id="@+id/textView6" android:textColor="@color/color_white"/>
+                      android:id="@+id/textView6" android:textStyle="bold"/>
             <ImageButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -59,14 +60,14 @@
               android:layout_alignParentTop="true" android:layout_alignParentLeft="true"
               android:layout_alignParentStart="true" android:layout_toLeftOf="@+id/buttonClose"
               android:layout_toStartOf="@+id/buttonClose" android:layout_alignBottom="@+id/buttonClose"
-              android:textStyle="bold" android:textColor="@color/color_white"/>
+              android:textStyle="bold" android:background="@color/color_dialog_title_background"/>
     <ScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/scrollView2" android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true" android:layout_above="@+id/linearLayout3" android:padding="5dp"
             android:layout_below="@+id/textDate" android:layout_marginLeft="5dp" android:layout_marginRight="5dp"
-            android:background="@color/color_white">
+    >
         <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"

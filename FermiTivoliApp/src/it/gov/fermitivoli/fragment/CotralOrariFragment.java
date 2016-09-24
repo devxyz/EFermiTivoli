@@ -102,7 +102,7 @@ public class CotralOrariFragment extends AbstractFragment {
                     }
                 };
                 final TreeSet<DataMenuInfoFlag> flags = new TreeSet<>(Arrays.asList(DataMenuInfoFlag.DONT_SHOW_IN_HOME));
-                DataMenuInfo d = new DataMenuInfo(1, "Fermate autobus", "Fermate bus a " + comunePartenza, R.drawable.bus, dd, flags);
+                DataMenuInfo d = new DataMenuInfo(1, "Fermate autobus", "Fermate bus a " + comunePartenza, R.drawable.bus_stop_48x48, dd, flags);
                 getMainActivity().doAction(d);
 
 

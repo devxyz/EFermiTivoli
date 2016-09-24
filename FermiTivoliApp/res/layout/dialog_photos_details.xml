@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@color/dialog_backgroud_content" >
+                android:background="@color/color_dialog_background" >
 
     <TextView
             android:layout_width="match_parent"
@@ -13,27 +13,28 @@
             android:textStyle="bold" android:paddingLeft="5dp"
             android:paddingRight="5dp"
             android:layout_alignParentTop="true"
-            android:background="@color/color_blue_scurissimo"
             android:gravity="center_vertical|center_horizontal"
             android:layout_alignParentLeft="true" android:layout_alignParentStart="true" android:height="50dp"
             android:layout_toLeftOf="@+id/buttonChiud" android:layout_toStartOf="@+id/buttonChiud"
-            android:textColor="@color/color_white" android:layout_alignBottom="@+id/buttonChiud"/>
+            android:layout_alignBottom="@+id/buttonChiud"
+            android:background="@color/color_dialog_title_background"/>
     <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:text="Descrizione"
-            android:textColor="@color/dialog_foreground_content"
+
             android:id="@+id/textViewDescrizione" android:paddingTop="5dp" android:paddingLeft="5dp"
             android:paddingRight="5dp"
             android:layout_below="@+id/scrollView" android:layout_alignRight="@+id/buttonChiud"
-            android:layout_alignEnd="@+id/buttonChiud"/>
+            android:layout_alignEnd="@+id/buttonChiud" android:layout_marginRight="5dp"
+            android:layout_marginLeft="5dp"/>
     <ScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/scrollView"
             android:paddingBottom="10dp" android:layout_below="@+id/buttonChiud"
-            android:fillViewport="false">
+            android:fillViewport="false" android:layout_marginLeft="5dp" android:layout_marginRight="5dp">
         <LinearLayout
                 android:orientation="vertical"
                 android:layout_width="fill_parent"
@@ -55,7 +56,7 @@
             android:id="@+id/buttonChiud"
             android:layout_gravity="right"
             android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true" android:src="@drawable/close_48x48_white"
-            android:background="@color/color_blue_scurissimo" android:layout_alignParentTop="true"
-            android:padding="5dp"/>
+            android:layout_alignParentEnd="true" android:src="@drawable/close_40x40_red"
+            android:layout_alignParentTop="true"
+            android:padding="5dp" android:background="@color/color_dialog_title_background"/>
 </RelativeLayout>

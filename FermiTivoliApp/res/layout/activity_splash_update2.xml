@@ -20,9 +20,9 @@
             android:gravity="center_vertical|center_horizontal"
             android:textStyle="bold" android:textColor="@color/color_blue_scurissimo" android:textSize="26dp"
             android:layout_below="@+id/textView9" android:layout_above="@+id/textView10"
-            android:background="@color/color_blue_chiaro"/>
+    />
     <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
-              android:text="Annulla >>" android:id="@+id/txtInfo"
+              android:text="Salta Aggiornamento >>" android:id="@+id/txtInfo"
               android:background="@color/color_red_scuro" android:textSize="22dp"
               android:textColor="@color/color_white" android:paddingLeft="10dp" android:paddingTop="10dp"
               android:paddingBottom="10dp"
@@ -36,7 +36,7 @@
                  android:layout_alignParentStart="true" android:layout_toLeftOf="@+id/textView5"
                  android:layout_toStartOf="@+id/textView5" android:layout_alignBottom="@+id/imageView"
                  android:layout_alignParentTop="true" android:layout_alignParentEnd="false"
-                 android:background="@color/color_blue_chiaro"/>
+    />
     <TextView
 
             android:text="   "
@@ -55,11 +55,11 @@
             android:text="Aggiornamento dati..."
             android:id="@+id/textViewMsgUpdate"
             android:gravity="center_horizontal"
-            android:textSize="20dp" android:layout_below="@+id/imageView"
+            android:textSize="26dp" android:layout_below="@+id/imageView"
             android:layout_alignParentLeft="true" android:layout_alignParentStart="true"
-            android:textColor="#ffffff00" android:textStyle="bold"
-            android:background="@color/color_blue_scurissimo" android:padding="5dp"
-            />
+            android:textStyle="bold"
+            android:padding="5dp"
+            android:textColor="@color/color_red_scuro"/>
     <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -67,7 +67,7 @@
             android:id="@+id/textView9" android:layout_alignParentTop="true" android:layout_toRightOf="@+id/imageView"
             android:layout_alignRight="@+id/textView5" android:layout_alignEnd="@+id/textView5"
             android:textSize="16dp" android:gravity="center_horizontal" android:textStyle="bold"
-            android:textColor="@color/color_blue_scurissimo" android:background="@color/color_blue_chiaro"/>
+            android:textColor="@color/color_blue_scurissimo"/>
     <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -76,7 +76,7 @@
             android:layout_toRightOf="@+id/imageView" android:layout_alignRight="@+id/textView5"
             android:layout_alignEnd="@+id/textView5" android:gravity="center_horizontal" android:textStyle="bold"
             android:textSize="16dp" android:textColor="@color/color_blue_scurissimo"
-            android:background="@color/color_blue_chiaro"/>
+    />
 
 
 </RelativeLayout>
