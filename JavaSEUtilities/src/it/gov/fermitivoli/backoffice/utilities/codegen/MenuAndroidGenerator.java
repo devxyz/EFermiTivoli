@@ -18,6 +18,7 @@ import java.util.ArrayList;
  * Created by stefano on 18/09/15.
  */
 public class MenuAndroidGenerator {
+
     public static void main(String[] args) throws Exception {
         File destFolder = new File("/Users/stefano/DATA/scuola/insegnamento/scuola-AS-2014-15/Fermi-TIVOLI-14-15/development/EFermiTivoli/FermiTivoliApp/src/it/gov/fermitivoli/model/menu/impl");
 
