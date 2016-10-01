@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent" android:orientation="vertical"
-        >
+                android:background="@color/color_white">
 
         <TextView
                 android:layout_width="340dp"
@@ -20,7 +20,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/listView"
-                android:layout_above="@+id/textViewAvviso"
                 android:background="@color/color_white" android:layout_below="@+id/textView17"/>
         <ImageButton
                 android:layout_width="wrap_content"
@@ -28,17 +27,6 @@
                 android:id="@+id/imageButton3" android:layout_alignParentTop="true" android:layout_alignParentRight="true"
                 android:layout_alignParentEnd="true" android:src="@drawable/calendar_preferences_50x50"
                 android:background="@color/color_white" android:layout_marginLeft="10dp"/>
-        <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceSmall"
-                android:text="Small Text"
-                android:id="@+id/textViewAvviso"
-                android:layout_alignParentLeft="true" android:layout_alignParentStart="true"
-                android:layout_alignEnd="@+id/imageButton3" android:layout_alignParentBottom="true"
-                android:textColor="@color/color_white" android:background="@color/color_blue_scurissimo"
-                android:gravity="center_vertical|center_horizontal" android:paddingLeft="5dp"
-                android:paddingRight="5dp" android:layout_alignTop="@+id/progressBar5"/>
         <ImageButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -64,11 +52,6 @@
                 android:layout_alignParentStart="true"
                 android:textColor="@color/color_blue_scurissimo" android:textAppearance="?android:attr/textAppearanceSmall"
                 android:textStyle="bold"/>
-        <ProgressBar
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/progressBar5" android:layout_alignParentBottom="true"
-                android:layout_alignParentLeft="true" android:layout_alignParentStart="true"/>
 
         <TextView
                 android:layout_width="wrap_content"

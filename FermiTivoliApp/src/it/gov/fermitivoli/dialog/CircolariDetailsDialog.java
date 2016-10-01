@@ -58,7 +58,7 @@ public class CircolariDetailsDialog extends AbstractDialog {
 
             LAYOUT_OBJs.textDate.setText(C_DateUtil.toDDMMYYY(pp.getData()));
             final String t = C_TextUtil.normalize_UTF8__to__ASCII(pp.getTesto());
-            final String normalizedText = C_TextUtil.normalize_forTextToSpeech(C_CircolariUtil.normalizeTextAndLineFeed_forTextCircolari(t, true));
+            final String normalizedText = C_TextUtil.normalize_forTextToSpeech(C_TextUtil.normalizeTextAndLineFeed_forTextCircolari(t, true));
             final String text = "<h2>" + title + "</h2><hr>" +
                     normalizedText.replace("\n", "<br>");
             LAYOUT_OBJs.testoCircolare.setText(Html.fromHtml(text));

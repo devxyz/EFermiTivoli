@@ -20,7 +20,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/listView"
             android:layout_centerHorizontal="true"
-            android:layout_above="@+id/progressBar4" android:layout_marginLeft="5dp" android:layout_marginRight="5dp"
+            android:layout_marginLeft="5dp" android:layout_marginRight="5dp"
             android:layout_below="@+id/textView18"/>
     <ImageButton
             android:layout_width="wrap_content"
@@ -29,26 +29,6 @@
             android:layout_alignParentEnd="true" android:src="@drawable/search_button_50x50"
             android:background="@color/color_transparent"
             android:layout_marginTop="5dp" android:layout_marginRight="5dp"/>
-    <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:text="Small Text"
-            android:id="@+id/textViewAvviso"
-            android:layout_alignParentLeft="true" android:layout_alignParentStart="true"
-            android:layout_alignParentBottom="true"
-            android:textColor="@color/color_white" android:background="@color/color_blue_scurissimo"
-            android:gravity="center_vertical|center_horizontal" android:paddingLeft="5dp"
-            android:paddingRight="5dp" android:layout_alignTop="@+id/progressBar4"
-            android:layout_alignParentRight="true" android:layout_alignParentEnd="true"
-            />
-    <ProgressBar
-
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/progressBar4" android:layout_alignParentBottom="true"
-            android:layout_alignParentLeft="true" android:layout_alignParentStart="true"
-            android:indeterminate="true"/>
     <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

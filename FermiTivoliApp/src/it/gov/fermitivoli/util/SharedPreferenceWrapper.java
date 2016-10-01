@@ -5,7 +5,6 @@ import it.gov.fermitivoli.api.AbstractFragment;
 import it.gov.fermitivoli.model.AppUserType;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 /**
@@ -14,8 +13,6 @@ import java.util.List;
 public class SharedPreferenceWrapper {
     private static final String PREFIX_FRAGMENT_HELP = "PREFIX_FRAGMENT_HELP";
     private static final String KEY_NOME_LOCALITA = "KEY_NOME_LOCALITA";
-    private static final String KEY_DATA_LETTURA_CIRCOLARI = "KEY_DATA_LETTURA_CIRCOLARI";
-    private static final String KEY_DATA_ULTIMO_UPDATE_DATI_ESTERNI = "KEY_DATA_ULTIMO_UPDATE_DATI_ESTERNI";
     private static final String KEY_LAST_USED_MENU = "KEY_LAST_USED_MENU";
     private static final String KEY_USER_TYPE = "KEY_USER_TYPE";
     private final SharedPreferences preferences;
@@ -67,26 +64,6 @@ public class SharedPreferenceWrapper {
         final String s = ll.toString().replace("[", "").replace("]", "");
         SharedPreferences.Editor e = preferences.edit();
         e.putString(KEY_LAST_USED_MENU, s);
-        e.apply();
-    }
-
-    public Date getDataUltimoDownloadDati() {
-        return new Date(preferences.getLong(KEY_DATA_ULTIMO_UPDATE_DATI_ESTERNI, 0));
-    }
-
-    public void setDataUltimoDownloadDati(Date d) {
-        SharedPreferences.Editor e = preferences.edit();
-        e.putLong(KEY_DATA_ULTIMO_UPDATE_DATI_ESTERNI, d.getTime());
-        e.apply();
-    }
-
-    public Date getDataLetturaCircolare() {
-        return new Date(preferences.getLong(KEY_DATA_LETTURA_CIRCOLARI, 0));
-    }
-
-    public void setDataLetturaCircolare(Date d) {
-        SharedPreferences.Editor e = preferences.edit();
-        e.putLong(KEY_DATA_LETTURA_CIRCOLARI, d.getTime());
         e.apply();
     }
 

@@ -17,15 +17,6 @@ import java.util.List;
  * Created by stefano on 31/07/15.
  */
 public class C_CircolariUtil {
-    private static final ArrayList<String[]> stopWordsCircolai = new ArrayList<>(Arrays.asList(
-            "Powered by TCPDF www.tcpdf.org".split("[ ]+"),
-            "ISTITUTO TECNICO COMMERCIALE E PER GEOMETRI".split("[ ]+"),
-            "UFFICIO SCOLASTICO REGIONALE PER IL LAZIO".split("[ ]+"),
-            "MINISTERO ISTRUZIONE UNIVERSIT RICERCA".split("[ ]+"),
-            "WEB www.fermitivoli.gov.it EMAIL rmtd07000g@istruzione.it PEC rmtd07000g@pec.istruzione.it".split("[ ]+"),
-            "C.F. 86000020585  Cod. Ist RMTD07000G Distretto scol. 34".split("[ ]+"),
-            "Via Acquaregna, 112 00019 TIVOLI Tel. 06/121126986 06/121126985 Fax 0774/334373".split("[ ]+")
-    ));
 
     public static List<C_CircolareDto> parseFromHtmlFromJoomla(Document d, String prefixUrlCircolari) {
         List<C_CircolareDto> ris = new ArrayList<C_CircolareDto>();
@@ -69,43 +60,6 @@ public class C_CircolariUtil {
     }
 
 
-    private static boolean containsAll(String s, String[] values) {
-        for (String value : values) {
-            if (!s.contains(value)) return false;
-        }
-        return true;
-    }
 
 
-
-    /**
-     * normalizza un testo eliminando gli \n non necessari in funzione dellle maiuscole
-     *
-     * @param text
-     * @return
-     * todo: gestire linee a capo circolari
-     */
-    public static String normalizeTextAndLineFeed_forTextCircolari(String text, boolean skipStopLines) {
-        final String[] split = text.split("[\n]");
-        StringBuilder sb = new StringBuilder(text.length());
-        for (String line : split) {
-            String trim = line.trim();
-            //controlla se cancellare
-            if (skipStopLines) {
-                boolean skip = false;
-                for (String[] s : stopWordsCircolai) {
-                    if (containsAll(trim, s)) {
-                        skip = true;
-                        break;
-                    }
-                }
-                if (skip) continue;
-            }
-
-            sb.append("\n");
-            sb.append(line);
-        }
-
-        return sb.toString(); //C_TextUtil.normalize_lineFeed(sb.toString());
-    }
 }

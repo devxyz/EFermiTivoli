@@ -2,11 +2,24 @@ package it.gov.fermitivoli.util;
 
 import org.jsoup.Jsoup;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 /**
  * Created by stefano on 11/03/15.
  */
 public class C_TextUtil {
 
+
+    private static final ArrayList<String[]> stopWordsCircolai = new ArrayList<>(Arrays.asList(
+            "Powered by TCPDF www.tcpdf.org".split("[ ]+"),
+            "ISTITUTO TECNICO COMMERCIALE E PER GEOMETRI".split("[ ]+"),
+            "UFFICIO SCOLASTICO REGIONALE PER IL LAZIO".split("[ ]+"),
+            "MINISTERO ISTRUZIONE UNIVERSIT RICERCA".split("[ ]+"),
+            "WEB www.fermitivoli.gov.it EMAIL rmtd07000g@istruzione.it PEC rmtd07000g@pec.istruzione.it".split("[ ]+"),
+            "C.F. 86000020585  Cod. Ist RMTD07000G Distretto scol. 34".split("[ ]+"),
+            "Via Acquaregna, 112 00019 TIVOLI Tel. 06/121126986 06/121126985 Fax 0774/334373".split("[ ]+")
+    ));
 
     public static String normalizeTextFromHtml(String testo) {
         //if (true)return testo;
@@ -142,6 +155,59 @@ public class C_TextUtil {
         return Character.isUpperCase(s.charAt(0)) && !Character.isUpperCase(s.charAt(1)) || Character.isDigit(s.charAt(0));
     }
 
+    private static boolean containsAll(String s, String[] values) {
+        for (String value : values) {
+            if (!s.contains(value)) return false;
+        }
+        return true;
+    }
+
+    private static boolean startWithLowercase(String s) {
+        return s.length() > 0 && Character.isLowerCase(s.charAt(0));
+    }
+
+
+    /**
+     * normalizza un testo eliminando gli \n non necessari in funzione dellle maiuscole
+     *
+     * @param text
+     * @return todo: gestire linee a capo circolari
+     */
+    public static String normalizeTextAndLineFeed_forTextCircolari(String text, boolean skipStopLines) {
+        //righe reali (con almeno 2 \n)
+        final String[] split = text.split("[\n][\n]+");
+
+
+        StringBuilder sb = new StringBuilder(text.length());
+
+        for (String multiline : split) {
+            final String[] line = multiline.split("[\n]");
+            for (String l : line) {
+
+                String trim = l.trim();
+                //controlla se cancellare
+                if (skipStopLines) {
+                    boolean skip = false;
+                    for (String[] s : stopWordsCircolai) {
+                        if (containsAll(trim, s)) {
+                            skip = true;
+                            break;
+                        }
+                    }
+                    if (skip) continue;
+                }
+                if (startWithLowercase(trim) || (sb.length() == 0) || (sb.charAt(sb.length() - 1) == '\n')) {
+                    sb.append(" ").append(l);
+                } else {
+                    sb.append("\n").append(l);
+                }
+            }
+
+            sb.append("\n");
+        }
+
+        return sb.toString().trim(); //C_TextUtil.normalize_lineFeed(sb.toString());
+    }
 
 
     /**
@@ -150,6 +216,7 @@ public class C_TextUtil {
      * @param text
      * @return
      */
+    @Deprecated
     public static String normalize_lineFeed(String text) {
         text = text.trim();
         final String[] split = text.split("[\n]");
@@ -203,7 +270,7 @@ public class C_TextUtil {
                 "\n  \n\nCircolare n.82 del 21-12-2015\n" +
                 "OGGETTO: stage linguistico in Francia\n" +
                 "Si comunica che le due mete prescelte sono Parigi e Montpellier, quest’ultima città nel sud della Francia. Lo stage\n" +
-                "avrà la durata di 6 giorni e 5 notti in residence (Parigi mezza pensione, Montpellier pensione completa).\n" +
+                "avrà la durata di 6 giorni e 5 notti in residence (Parigi mezza pensione, Montpellier pensione completa).\n\n\n" +
                 "Il costo è di Euro 615,00 circa per Montpellier e di Euro 600,00 circa per Parigi. La quota comprende: corso di 16\n" +
                 "ore - sistemazione in camera tripla con bagno privato - test di livello e attestato di fine corso - materiale didattico -\n" +
                 "volo A/R - trasferimento in pullman GT dall’aeroporto alla sistemazione e viceversa\n" +
@@ -212,12 +279,12 @@ public class C_TextUtil {
                 "Si invitano coloro che ancora non avessero versato il primo acconto di Euro 100,00 a farlo entro la data del 12\n" +
                 "gennaio 2016.\n" +
                 "Si ricorda che la scelta definitiva della meta verrà fatta in funzione del numero delle preferenze.\n" +
-                "Per ulteriori chiarimenti si prega di rivolgersi alla Prof.ssa M.L Sansò\n"+
+                "Per ulteriori chiarimenti si prega di rivolgersi alla Prof.ssa M.L Sansò\n" +
                 "Circolare n.250 del 25-05-2016\n" +
                 "OGGETTO: Rettifica calendario SCRUTINI e termine delle lezioni\n" +
                 "Si comunica che gli scrutini fissati per i giorni 6-7-8 giugno sono così rettificati:\n" +
                 "Mercoledì 8 giugno 2016:\n" +
-                "- 5G dalle 10.30 alle ore 11.30\n" +
+                "- 5G dalle 10.30 alle ore 11.30\n\n" +
                 "- 5H dalle 11.30 alle ore 12.30\n" +
                 "- 5F dalle 12.30 alle ore 13.30\n" +
                 "- 5A dalle 14.30 alle ore 15.30\n" +
@@ -234,10 +301,10 @@ public class C_TextUtil {
                 "- 3E dalle 14.30 alle ore 15.30\n" +
                 "- 4E dalle 15.30 alle ore 16.30";
 
-        final String x = C_CircolariUtil.normalizeTextAndLineFeed_forTextCircolari(testo, true);
+        final String x = normalizeTextAndLineFeed_forTextCircolari(testo, true);
         System.out.println(x);
         System.out.println("=================");
-        System.out.println(C_TextUtil.normalize_forTextToSpeech(testo));
+        //System.out.println(C_TextUtil.normalize_forTextToSpeech(testo));
     }
 
 

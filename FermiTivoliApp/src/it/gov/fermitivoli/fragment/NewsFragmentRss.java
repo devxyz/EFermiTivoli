@@ -20,7 +20,6 @@ import it.gov.fermitivoli.api.AbstractFragment;
 import it.gov.fermitivoli.dao.*;
 import it.gov.fermitivoli.db.ManagerNews;
 import it.gov.fermitivoli.dialog.NewsDetailsDialog;
-import it.gov.fermitivoli.fragment.utils.ExternalDataSync_AsyncTask;
 import it.gov.fermitivoli.layout.LayoutObjs_fragment_news_rss_xml;
 import it.gov.fermitivoli.listener.OnClickListenerViewErrorCheck;
 import it.gov.fermitivoli.util.DebugUtil;
@@ -31,7 +30,6 @@ import java.util.*;
 public class NewsFragmentRss extends AbstractFragment {
     private LayoutObjs_fragment_news_rss_xml LAYOUT_OBJs;   //***************************
     private NewsListAdapter a;
-    private volatile ExternalDataSync_AsyncTask updater;
     private ArrayAdapter<String> multiTextViewAdapter;
 
 
@@ -91,45 +89,6 @@ public class NewsFragmentRss extends AbstractFragment {
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-    }
-
-    private void runUpdaterAsyncTask() {
-        if (updater == null && ExternalDataSync_AsyncTask.shouldUpdate(getMainActivity())) {
-
-            LAYOUT_OBJs.progressBar4.setVisibility(View.VISIBLE);
-            LAYOUT_OBJs.progressBar4.setIndeterminate(true);
-
-            LAYOUT_OBJs.textViewAvviso.setVisibility(View.VISIBLE);
-            LAYOUT_OBJs.textViewAvviso.setText("Aggiornamento dati");
-            if (!ExternalDataSync_AsyncTask.isNetworkAvailable(getMainActivity())) {
-                LAYOUT_OBJs.textViewAvviso.setText("Connessione non disponibile.");
-                return;
-            }
-
-
-            updater = new ExternalDataSync_AsyncTask(getMainActivity()) {
-                @Override
-                protected void onPostExecute(ExternalDataSync_Container e) {
-                    super.onPostExecute(e);
-                    if (e.containsErrors()) {
-                        LAYOUT_OBJs.progressBar4.setVisibility(View.VISIBLE);
-                        LAYOUT_OBJs.progressBar4.setIndeterminate(false);
-                        LAYOUT_OBJs.progressBar4.setProgress(0);
-                        LAYOUT_OBJs.textViewAvviso.setVisibility(View.VISIBLE);
-                        LAYOUT_OBJs.textViewAvviso.setText("Errore nel caricamento dati.\n Fare click per riprovare.");
-                        aggiornaViewNewsAndTerminiDalDB();
-                        //DialogUtil.openErrorDialog(getMainActivity(), "Errore", "Errore nel caricamento dei dati", e.composeError());
-                    } else {
-                        LAYOUT_OBJs.progressBar4.setVisibility(View.GONE);
-                        LAYOUT_OBJs.textViewAvviso.setVisibility(View.GONE);
-                        aggiornaViewNewsAndTerminiDalDB();
-                    }
-                    updater = null;
-                }
-            };
-            updater.execute();
-            addTask(updater);
-        }
     }
 
     /**
@@ -206,18 +165,6 @@ public class NewsFragmentRss extends AbstractFragment {
 
         //new LoadRss(getMainActivity()).execute();
         aggiornaViewNewsAndTerminiDalDB();
-        runUpdaterAsyncTask();
-
-        LAYOUT_OBJs.progressBar4.setVisibility(View.GONE);
-        LAYOUT_OBJs.textViewAvviso.setVisibility(View.GONE);
-
-
-        LAYOUT_OBJs.textViewAvviso.setOnClickListener(new OnClickListenerViewErrorCheck(getMainActivity()) {
-            @Override
-            protected void onClickImpl(View v) throws Throwable {
-                runUpdaterAsyncTask();
-            }
-        });
 
         return rootView;
     }

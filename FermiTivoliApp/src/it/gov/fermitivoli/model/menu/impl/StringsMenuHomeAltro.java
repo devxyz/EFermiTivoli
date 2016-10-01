@@ -3,7 +3,6 @@ import it.gov.fermitivoli.R;
 
 import it.gov.fermitivoli.model.menu.*;
 public class StringsMenuHomeAltro{
-     public static final DataMenuInfo NEWS#N#_2= new DataMenuInfo(2,"News#n#","Ultime Notizie dalla scuola",it.gov.fermitivoli.fragment.NewsFragmentRss.class,R.drawable.id_tab_news,DataMenuInfoType.search(it.gov.fermitivoli.fragment.NewsFragmentRss.class),null     );
      public static final DataMenuInfo FOTO_5= new DataMenuInfo(5,"Foto","Foto Gallery strutture scolastiche",it.gov.fermitivoli.fragment.PhotosExpandibleFragment.class,R.drawable.ic_photos,DataMenuInfoType.search(it.gov.fermitivoli.fragment.PhotosExpandibleFragment.class),null     );
      public static final DataMenuInfo INDIRIZZI_DI_STUDIO_3= new DataMenuInfo(3,"Indirizzi di studio","Indirizzi di studio",it.gov.fermitivoli.fragment.IndirizziStudioFragment.class,R.drawable.ic_address_48,DataMenuInfoType.search(it.gov.fermitivoli.fragment.IndirizziStudioFragment.class),null     );
      public static final DataMenuInfo LIBRI_DI_TESTO_102= new DataMenuInfo(102,"Libri di testo","Libri di testo",it.gov.fermitivoli.action.LibriTestoAction.class,R.drawable.library_icon,DataMenuInfoType.search(it.gov.fermitivoli.action.LibriTestoAction.class),null     );

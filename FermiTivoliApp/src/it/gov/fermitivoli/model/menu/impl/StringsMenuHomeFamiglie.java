@@ -3,8 +3,6 @@ import it.gov.fermitivoli.R;
 
 import it.gov.fermitivoli.model.menu.*;
 public class StringsMenuHomeFamiglie{
-     public static final DataMenuInfo NEWS#N#_2= new DataMenuInfo(2,"News#n#","Ultime Notizie dalla scuola",it.gov.fermitivoli.fragment.NewsFragmentRss.class,R.drawable.id_tab_news,DataMenuInfoType.search(it.gov.fermitivoli.fragment.NewsFragmentRss.class),null     );
-     public static final DataMenuInfo CIRCOLARI#C#_3= new DataMenuInfo(3,"Circolari#c#","Circolari scolastiche",it.gov.fermitivoli.fragment.CircolariSearchFragment.class,R.drawable.file_search,DataMenuInfoType.search(it.gov.fermitivoli.fragment.CircolariSearchFragment.class),null     );
      public static final DataMenuInfo R_E_FAMIGLIE_101= new DataMenuInfo(101,"R.E. Famiglie","Registro elettronico studenti",it.gov.fermitivoli.action.ReStudentiAction.class,R.drawable.logo_re_famiglie,DataMenuInfoType.search(it.gov.fermitivoli.action.ReStudentiAction.class),null     );
      public static final DataMenuInfo ORARIO_SCOLASTICO_4= new DataMenuInfo(4,"Orario Scolastico","Orario Scolastico",it.gov.fermitivoli.action.OrarioScolasticoAction.class,R.drawable.orario_scolastico,DataMenuInfoType.search(it.gov.fermitivoli.action.OrarioScolasticoAction.class),null     );
      public static final DataMenuInfo FOTO_5= new DataMenuInfo(5,"Foto","Foto Gallery strutture scolastiche",it.gov.fermitivoli.fragment.PhotosExpandibleFragment.class,R.drawable.ic_photos,DataMenuInfoType.search(it.gov.fermitivoli.fragment.PhotosExpandibleFragment.class),null     );

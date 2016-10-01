@@ -109,7 +109,7 @@ public class NewsDetailsDialog extends AbstractDialog {
                 protected void onClickImpl(View v) throws Throwable {
                     try {
 
-                        String normalizedText = C_TextUtil.normalize_forTextToSpeech(C_CircolariUtil.normalizeTextAndLineFeed_forTextCircolari(C_TextUtil.extractContentFromHTML(pp.getTesto()), false));
+                        String normalizedText = C_TextUtil.normalize_forTextToSpeech(C_TextUtil.normalizeTextAndLineFeed_forTextCircolari(C_TextUtil.extractContentFromHTML(pp.getTesto()), false));
                         final String msg = "Lettura notizia " + pp.getTitolo() + " del " + C_DateUtil.toDDMMYYY(pp.getPubDate());
 
                         dialog = DialogUtil.openProgressDialog(getMainActivity(), "Sintesi vocale in corso", pp.getTitolo(), "Ok", new OnClickListenerDialogErrorCheck(getMainActivity()) {

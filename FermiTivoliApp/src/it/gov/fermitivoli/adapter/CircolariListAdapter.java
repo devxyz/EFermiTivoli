@@ -12,12 +12,11 @@ import android.widget.TextView;
 import it.gov.fermitivoli.R;
 import it.gov.fermitivoli.dao.CircolareDB;
 import it.gov.fermitivoli.layout.LayoutObjs_listview_circolari_and_notizie_xml;
-import it.gov.fermitivoli.util.C_CircolariUtil;
 import it.gov.fermitivoli.util.C_DateUtil;
+import it.gov.fermitivoli.util.C_TextUtil;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Date;
 import java.util.List;
 
 /**
@@ -26,19 +25,27 @@ import java.util.List;
 public class CircolariListAdapter extends BaseAdapter {
 
     private final List<CircolareDB> circolari;
+    private final boolean showTesto;
     private Activity activity;
-    private Date dataPrecedenteVisualizzazione;
     private LayoutInflater layoutInflater;
 
-    public CircolariListAdapter(Activity f, Date dataPrecedenteVisualizzazione) {
-        this(f, new ArrayList<CircolareDB>(), dataPrecedenteVisualizzazione);
+    public CircolariListAdapter(Activity f) {
+        this(f, false);
+    }
+
+    public CircolariListAdapter(Activity f, boolean showTesto) {
+        this(f, new ArrayList<CircolareDB>(), showTesto);
 
     }
 
-    public CircolariListAdapter(Activity f, List<CircolareDB> circolari, Date dataPrecedenteVisualizzazione) {
+    public CircolariListAdapter(Activity f, List<CircolareDB> circolari) {
+        this(f, circolari, false);
+    }
+
+    public CircolariListAdapter(Activity f, List<CircolareDB> circolari, boolean showTesto) {
+        this.showTesto = showTesto;
         this.circolari = new ArrayList<CircolareDB>(circolari == null ? Collections.EMPTY_LIST : circolari);
         activity = f;
-        this.dataPrecedenteVisualizzazione = dataPrecedenteVisualizzazione;
         layoutInflater = (LayoutInflater) activity.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     }
 
@@ -74,8 +81,10 @@ public class CircolariListAdapter extends BaseAdapter {
 
 
     private String extractText(String testo) {
+
         if (testo == null)
             return null;
+        testo = C_TextUtil.normalizeTextAndLineFeed_forTextCircolari(testo, true);
 
         final StringBuilder sb = new StringBuilder();
         for (int j = 0; j < testo.length(); j++) {
@@ -111,12 +120,16 @@ public class CircolariListAdapter extends BaseAdapter {
 
 
         CircolareDB c = this.circolari.get(pos);
+        if (showTesto) {
+            desc.setVisibility(View.VISIBLE);
+            if (c.getTesto() != null)
+                desc.setText(extractText(C_TextUtil.normalizeTextAndLineFeed_forTextCircolari(c.getTesto(), true)));
 
-        if (c.getTesto() != null)
-            desc.setText(extractText(C_CircolariUtil.normalizeTextAndLineFeed_forTextCircolari(c.getTesto(), true)));
-
-        else
-            desc.setText("(Testo non disponibile)");
+            else
+                desc.setText("(Testo non disponibile)");
+        } else {
+            desc.setVisibility(View.GONE);
+        }
 
         tvDate.setText(C_DateUtil.toDDMMYYY(c.getData()));
 

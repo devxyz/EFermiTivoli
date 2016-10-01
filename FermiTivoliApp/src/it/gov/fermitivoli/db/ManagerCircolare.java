@@ -319,6 +319,33 @@ public class ManagerCircolare {
 
     }
 
+    public List<CircolareDB> circolariByDate(Date date) {
+
+        final SimpleDateFormat f = new SimpleDateFormat("dd/MM/yyyy");
+        String termine = f.format(date) + "(#DATA)";
+
+
+        final TreeSet<String> termini = new TreeSet<>();
+        termini.add(termine);
+        return selectCircolariByTerms(termini);
+
+    }
+
+    public List<CircolareDB> circolariByPubDate(Date date) {
+        final Calendar c = Calendar.getInstance();
+        c.setTime(date);
+        c.set(Calendar.HOUR, 0);
+        c.set(Calendar.MINUTE, 0);
+        c.set(Calendar.SECOND, 0);
+        Date startDay = c.getTime();
+
+        c.set(Calendar.HOUR, 23);
+        c.set(Calendar.MINUTE, 59);
+        c.set(Calendar.SECOND, 59);
+        Date endDay = c.getTime();
+        return session.getCircolareDBDao().queryBuilder().where(CircolareDBDao.Properties.Data.between(startDay, endDay)).list();
+    }
+
 
     private void inserisciTermini(CircolareDB circolare) {
 

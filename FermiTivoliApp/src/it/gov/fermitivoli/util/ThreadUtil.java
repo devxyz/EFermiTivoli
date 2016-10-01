@@ -13,6 +13,13 @@ import java.util.concurrent.FutureTask;
  * Created by stefano on 12/06/15.
  */
 public class ThreadUtil {
+    public static void sleep(long l){
+        try {
+            Thread.sleep(l);
+        } catch (InterruptedException e) {
+
+        }
+    }
     public static boolean isUIThread() {
         if (Looper.getMainLooper().getThread() == Thread.currentThread()) {
             // On UI thread.

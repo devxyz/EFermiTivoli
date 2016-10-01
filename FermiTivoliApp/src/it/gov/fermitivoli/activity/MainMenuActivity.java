@@ -1,5 +1,6 @@
 package it.gov.fermitivoli.activity;
 
+import android.app.ActivityManager;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.Context;
@@ -36,6 +37,7 @@ import it.gov.fermitivoli.model.menu.DataMenuInfoStack;
 import it.gov.fermitivoli.util.DialogUtil;
 
 import java.io.File;
+import java.util.List;
 import java.util.Map;
 
 public class MainMenuActivity extends AbstractActivity {
@@ -115,8 +117,13 @@ public class MainMenuActivity extends AbstractActivity {
 
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
-
         super.onCreate(savedInstanceState);
+
+        if (howManyRunningInstances(this) > 1) {
+            finish();
+            return;
+        }
+
         setContentView(R.layout.activity_main);
 
 
@@ -250,9 +257,9 @@ public class MainMenuActivity extends AbstractActivity {
 
 
                 DialogUtil.openInfoDialog(getActivity(), "Enrico-Fermi App Tivoli", nome_scuola + "\n" + indirizzo +
-                                "\n------------------------------\n" +
-                                "Versione: " + version + "\n" +
-                                "Realizzato da: Stefano Millozzi"
+                        "\n------------------------------\n" +
+                        "Versione: " + version + "\n" +
+                        "Realizzato da: Stefano Millozzi"
                 );
                 return true;
             case R.id.action_menu:
@@ -365,6 +372,19 @@ public class MainMenuActivity extends AbstractActivity {
 
     }
 
+    public int howManyRunningInstances(Context ctx) {
+        ActivityManager activityManager = (ActivityManager) ctx.getSystemService(Context.ACTIVITY_SERVICE);
+        List<ActivityManager.RunningTaskInfo> tasks = activityManager.getRunningTasks(Integer.MAX_VALUE);
+
+        int count = 0;
+        for (ActivityManager.RunningTaskInfo task : tasks) {
+            if (ctx.getPackageName().equalsIgnoreCase(task.baseActivity.getPackageName()))
+                count++;
+        }
+
+        return count;
+    }
+
     @Override
     public void onBackPressed() {
         final DataMenuInfo last = stack.back();
@@ -398,8 +418,14 @@ public class MainMenuActivity extends AbstractActivity {
         //cancella
         //cache.clear(DateUtil.sottraiGiorni(new Date(), 2));
 
+/*        //stop service
+        Intent serviceIntent = new Intent(this, UpdateService.class);
+        stopService(serviceIntent);
+*/
+
         getCache().closeAsync();
         getDatabase().close();
+
     }
 
     public void doAction(int position) {

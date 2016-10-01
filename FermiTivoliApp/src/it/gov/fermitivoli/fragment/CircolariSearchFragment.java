@@ -1,9 +1,8 @@
 package it.gov.fermitivoli.fragment;
 
+import android.app.NotificationManager;
 import android.content.Context;
 import android.content.DialogInterface;
-import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -17,24 +16,19 @@ import android.widget.ListAdapter;
 import android.widget.MultiAutoCompleteTextView;
 import it.gov.fermitivoli.R;
 import it.gov.fermitivoli.activity.MainMenuActivity;
-import it.gov.fermitivoli.activity.ViewTextActivity;
 import it.gov.fermitivoli.adapter.CircolariListAdapter;
 import it.gov.fermitivoli.api.AbstractFragment;
-import it.gov.fermitivoli.cache.AsyncUrlLoaderCallbackDialogDB;
 import it.gov.fermitivoli.cache.UrlFileCache;
 import it.gov.fermitivoli.dao.*;
 import it.gov.fermitivoli.db.ManagerCircolare;
 import it.gov.fermitivoli.dialog.CircolariDetailsDialog;
-import it.gov.fermitivoli.fragment.utils.ExternalDataSync_AsyncTask;
 import it.gov.fermitivoli.layout.LayoutObjs_fragment_cerca_circolari_xml;
 import it.gov.fermitivoli.listener.OnClickListenerViewErrorCheck;
-import it.gov.fermitivoli.model.C_NormalizedURL;
+import it.gov.fermitivoli.services.UpdateService;
 import it.gov.fermitivoli.util.DebugUtil;
 import it.gov.fermitivoli.util.DialogUtil;
 
-import java.io.File;
 import java.util.*;
-import java.util.concurrent.TimeUnit;
 
 public class CircolariSearchFragment extends AbstractFragment {
 
@@ -44,7 +38,6 @@ public class CircolariSearchFragment extends AbstractFragment {
     private UrlFileCache cache = null;
     private CircolariListAdapter a;
     private ArrayAdapter<String> multiTextViewAdapter;
-    private volatile ExternalDataSync_AsyncTask updater;
     private List<String> classi = new ArrayList<>();
 
     public CircolariSearchFragment() {
@@ -106,7 +99,6 @@ public class CircolariSearchFragment extends AbstractFragment {
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-        getMainActivity().getSharedPreferences().setDataLetturaCircolare(new Date());
         if (cache != null) {
             cache.cancelAll();
             cache = null;
@@ -124,31 +116,15 @@ public class CircolariSearchFragment extends AbstractFragment {
 
 
         cache = (getMainActivity()).getCache();
-        LAYOUT_OBJs.textViewAvviso.setText("Controllo aggiornamenti");
-        LAYOUT_OBJs.textViewAvviso.setVisibility(View.GONE);
-
         LAYOUT_OBJs.searchTextView.addTextChangedListener(new ListenerModificaTestoMultiText());
-
-        //click per ricaricare le circolari
-        LAYOUT_OBJs.textViewAvviso.setOnClickListener(new OnClickListenerViewErrorCheck(CircolariSearchFragment.this.getMainActivity()) {
-            @Override
-            protected void onClickImpl(View v) throws Throwable {
-                runUpdaterAsyncTask();
-            }
-        });
-
         LAYOUT_OBJs.imageButtonSearch.setOnClickListener(new __ClickButtonCerca());
-
-        final Date dataLetturaCircolare = getMainActivity().getSharedPreferences().getDataLetturaCircolare();
-        a = new CircolariListAdapter(getMainActivity(), new ArrayList<CircolareDB>(), dataLetturaCircolare);
+        a = new CircolariListAdapter(getMainActivity(), new ArrayList<CircolareDB>());
         LAYOUT_OBJs.listView.setAdapter(a);
         LAYOUT_OBJs.listView.setEmptyView(LAYOUT_OBJs.textViewListaVuota);
 
         LAYOUT_OBJs.listView.setLongClickable(true);
         LAYOUT_OBJs.listView.setOnItemClickListener(new __ClickApriDialogCircolare(a, this));
         LAYOUT_OBJs.listView.setOnItemLongClickListener(new MyOnItemLongClickListener(a, this));
-
-        LAYOUT_OBJs.progressBar4.setVisibility(View.GONE);
 
         LAYOUT_OBJs.imageButtonPlus.setOnClickListener(new OnClickListenerViewErrorCheck(getMainActivity()) {
             @Override
@@ -175,51 +151,16 @@ public class CircolariSearchFragment extends AbstractFragment {
 
         //visualizza le circolari iniziali, prima del download (legge dal DB)
         aggiornaViewCircolariAndTerminiDalDB();
-        runUpdaterAsyncTask();
+
+
+        NotificationManager notificationManager =
+                (NotificationManager) getMainActivity().getSystemService(Context.NOTIFICATION_SERVICE);
+        notificationManager.cancel(UpdateService.ID_NOTIFICA_UPDATE);
+
 
         return rootView;
     }
 
-
-    private void runUpdaterAsyncTask() {
-        if (updater == null && ExternalDataSync_AsyncTask.shouldUpdate(getMainActivity())) {
-
-            LAYOUT_OBJs.progressBar4.setVisibility(View.VISIBLE);
-            LAYOUT_OBJs.progressBar4.setIndeterminate(true);
-
-            LAYOUT_OBJs.textViewAvviso.setVisibility(View.VISIBLE);
-            LAYOUT_OBJs.textViewAvviso.setText("Aggiornamento dati");
-
-            if (!ExternalDataSync_AsyncTask.isNetworkAvailable(getMainActivity())) {
-                LAYOUT_OBJs.textViewAvviso.setText("Connessione non disponibile.");
-                return;
-            }
-
-
-            updater = new ExternalDataSync_AsyncTask(getMainActivity()) {
-                @Override
-                protected void onPostExecute(ExternalDataSync_Container e) {
-                    super.onPostExecute(e);
-                    aggiornaViewCircolariAndTerminiDalDB();
-                    if (e.containsErrors()) {
-                        LAYOUT_OBJs.progressBar4.setVisibility(View.VISIBLE);
-                        LAYOUT_OBJs.progressBar4.setIndeterminate(false);
-                        LAYOUT_OBJs.progressBar4.setProgress(0);
-
-                        LAYOUT_OBJs.textViewAvviso.setVisibility(View.VISIBLE);
-                        LAYOUT_OBJs.textViewAvviso.setText("Errore di caricamento dati.\nFai click per riprovare.");
-                        //DialogUtil.openErrorDialog(getMainActivity(), "Errore", "Errore nel caricamento dei dati", e.composeError());
-                    } else {
-                        LAYOUT_OBJs.progressBar4.setVisibility(View.GONE);
-                        LAYOUT_OBJs.textViewAvviso.setVisibility(View.GONE);
-                    }
-                    updater = null;
-                }
-            };
-            updater.execute();
-            addTask(updater);
-        }
-    }
 
     /**
      * aggiorna la lista degli elementi della autocomplete list
@@ -241,7 +182,7 @@ public class CircolariSearchFragment extends AbstractFragment {
                         multiTextViewAdapter.addAll(termini);
                         classi.clear();
                         for (String t : termini) {
-                            if (t.contains("(#CLASSE)")){
+                            if (t.contains("(#CLASSE)")) {
                                 classi.add(t);
                             }
                         }
@@ -281,7 +222,6 @@ public class CircolariSearchFragment extends AbstractFragment {
     public void onStop() {
         super.onStop();
     }
-
 
 
     public static class __ClickApriDialogCircolare implements AdapterView.OnItemClickListener {
@@ -356,35 +296,35 @@ public class CircolariSearchFragment extends AbstractFragment {
             final CircolareDB c = a.getCircolari().get(position);
 
             DialogUtil.openChooseDialog(fragment.getActivity(), "Quale azione vuoi svolgere?", new CharSequence[]{
-                    "Segna tutte da leggere",
-                    "Segna tutte lette",
-                    "Segna circolare corrente da leggere",
-                    "Segna circolare corrente letta"
-            }, new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialog, int which) {
+                            "Segna tutte da leggere",
+                            "Segna tutte lette",
+                            "Segna circolare corrente da leggere",
+                            "Segna circolare corrente letta"
+                    }, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
 
-                    switch (which) {
-                        case 0:
-                            updateCircolare_impostaFlagLettura(getMainActivity(), a, false);
-                            break;
-                        case 1:
-                            updateCircolare_impostaFlagLettura(getMainActivity(), a, true);
-                            break;
-                        case 2:
-                            updateCircolare_impostaFlagLettura(getMainActivity(), a, c, false);
-                            break;
-                        case 3:
-                            updateCircolare_impostaFlagLettura(getMainActivity(), a, c, true);
-                            break;
-                        default:
-                            throw new IllegalArgumentException("code:" + which + "");
+                            switch (which) {
+                                case 0:
+                                    updateCircolare_impostaFlagLettura(getMainActivity(), a, false);
+                                    break;
+                                case 1:
+                                    updateCircolare_impostaFlagLettura(getMainActivity(), a, true);
+                                    break;
+                                case 2:
+                                    updateCircolare_impostaFlagLettura(getMainActivity(), a, c, false);
+                                    break;
+                                case 3:
+                                    updateCircolare_impostaFlagLettura(getMainActivity(), a, c, true);
+                                    break;
+                                default:
+                                    throw new IllegalArgumentException("code:" + which + "");
 
+                            }
+
+
+                        }
                     }
-
-
-                }
-            }
                     , null);
 
             return true;

@@ -11,14 +11,13 @@ import android.widget.CompoundButton;
 import android.widget.DatePicker;
 import it.gov.fermitivoli.R;
 import it.gov.fermitivoli.adapter.CircolariListAdapter;
+import it.gov.fermitivoli.api.AbstractFragment;
 import it.gov.fermitivoli.cache.UrlFileCache;
 import it.gov.fermitivoli.dao.CircolareDB;
 import it.gov.fermitivoli.dao.DaoSession;
 import it.gov.fermitivoli.dao.FermiAppDBHelperRun;
 import it.gov.fermitivoli.dao.FermiAppDbHelper;
 import it.gov.fermitivoli.db.ManagerCircolare;
-import it.gov.fermitivoli.api.AbstractFragment;
-import it.gov.fermitivoli.fragment.utils.ExternalDataSync_AsyncTask;
 import it.gov.fermitivoli.layout.LayoutObjs_fragment_cerca_circolari_by_date_xml;
 import it.gov.fermitivoli.listener.OnClickListenerViewErrorCheck;
 import it.gov.fermitivoli.model.C_MyDate;
@@ -33,7 +32,6 @@ public class CircolariGiornaliereFragment extends AbstractFragment {
     private CircolariContainerByDate circolari;
     private UrlFileCache cache = null;
     private CircolariListAdapter a;
-    private volatile ExternalDataSync_AsyncTask updater;
 
     public CircolariGiornaliereFragment() {
     }
@@ -46,7 +44,6 @@ public class CircolariGiornaliereFragment extends AbstractFragment {
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-        getMainActivity().getSharedPreferences().setDataLetturaCircolare(new Date());
         if (cache != null) {
             cache.cancelAll();
             cache = null;
@@ -71,41 +68,6 @@ public class CircolariGiornaliereFragment extends AbstractFragment {
         __aggiornaVistaCircolariDelGiorno();
     }
 
-    private void runUpdaterAsyncTask() {
-        if (updater == null && ExternalDataSync_AsyncTask.shouldUpdate(getMainActivity())) {
-
-            LAYOUT_OBJs.progressBar5.setVisibility(View.VISIBLE);
-            LAYOUT_OBJs.progressBar5.setIndeterminate(true);
-            LAYOUT_OBJs.textViewAvviso.setVisibility(View.VISIBLE);
-            LAYOUT_OBJs.textViewAvviso.setText("Aggiornamento dati");
-            if (!ExternalDataSync_AsyncTask.isNetworkAvailable(getMainActivity())) {
-                LAYOUT_OBJs.textViewAvviso.setText("Connessione non disponibile.");
-                return;
-            }
-
-            updater = new ExternalDataSync_AsyncTask(getMainActivity()) {
-                @Override
-                protected void onPostExecute(ExternalDataSync_Container e) {
-                    super.onPostExecute(e);
-                    __aggiornaMappaCircolariDalDB();
-                    if (e.containsErrors()) {
-                        LAYOUT_OBJs.progressBar5.setVisibility(View.VISIBLE);
-                        LAYOUT_OBJs.progressBar5.setIndeterminate(false);
-                        LAYOUT_OBJs.progressBar5.setProgress(0);
-                        LAYOUT_OBJs.textViewAvviso.setVisibility(View.VISIBLE);
-                        LAYOUT_OBJs.textViewAvviso.setText("Errore nel caricamento dati.\nFare click per riprovare.");
-                        //DialogUtil.openErrorDialog(getMainActivity(), "Errore", "Errore nel caricamento dei dati", e.composeError());
-                    } else {
-                        LAYOUT_OBJs.progressBar5.setVisibility(View.GONE);
-                        LAYOUT_OBJs.textViewAvviso.setVisibility(View.GONE);
-                    }
-                    updater = null;
-                }
-            };
-            updater.execute();
-            addTask(updater);
-        }
-    }
 
     private void __assegnaData(Date d) {
         currentDate = d;
@@ -127,23 +89,9 @@ public class CircolariGiornaliereFragment extends AbstractFragment {
 
         cache = (getMainActivity()).getCache();
         //LAYOUT_OBJs.textViewAvviso.setText("Controllo aggiornamenti");
-        LAYOUT_OBJs.textViewAvviso.setVisibility(View.GONE);
-        a = new CircolariListAdapter(getMainActivity(), new ArrayList<CircolareDB>(), new Date());
+        a = new CircolariListAdapter(getMainActivity(), new ArrayList<CircolareDB>());
         LAYOUT_OBJs.listView.setAdapter(a);
         LAYOUT_OBJs.listView.setEmptyView(LAYOUT_OBJs.textViewListaVuota);
-
-        //LAYOUT_OBJs.multiAutoCompleteTextView.addTextChangedListener(new ListenerModificaTestoMultiText());
-        LAYOUT_OBJs.progressBar5.setVisibility(View.GONE);
-        LAYOUT_OBJs.textViewAvviso.setVisibility(View.GONE);
-
-
-        LAYOUT_OBJs.textViewAvviso.setOnClickListener(new OnClickListenerViewErrorCheck(CircolariGiornaliereFragment.this.getMainActivity()) {
-            @Override
-            protected void onClickImpl(View v) throws Throwable {
-
-                runUpdaterAsyncTask();
-            }
-        });
 
         LAYOUT_OBJs.imageButton3.setOnClickListener(new __ClickButtonCalendario());
         LAYOUT_OBJs.date.setOnClickListener(new __ClickButtonCalendarioOggi());
@@ -179,9 +127,6 @@ public class CircolariGiornaliereFragment extends AbstractFragment {
 
         //visualizza le circolari iniziali, prima del download
         __aggiornaMappaCircolariDalDB();
-        runUpdaterAsyncTask();
-
-
         return rootView;
     }
 
