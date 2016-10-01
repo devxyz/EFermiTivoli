@@ -30,7 +30,7 @@ public class CircolariListAdapter extends BaseAdapter {
     private LayoutInflater layoutInflater;
 
     public CircolariListAdapter(Activity f) {
-        this(f, false);
+        this(f, true);
     }
 
     public CircolariListAdapter(Activity f, boolean showTesto) {
@@ -39,7 +39,7 @@ public class CircolariListAdapter extends BaseAdapter {
     }
 
     public CircolariListAdapter(Activity f, List<CircolareDB> circolari) {
-        this(f, circolari, false);
+        this(f, circolari, true);
     }
 
     public CircolariListAdapter(Activity f, List<CircolareDB> circolari, boolean showTesto) {

@@ -2,11 +2,12 @@ package it.gov.fermitivoli.activity;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import it.gov.fermitivoli.R;
-import it.gov.fermitivoli.adapter.CircolariListAdapter;
+import it.gov.fermitivoli.adapter.CircolariListAdapterShort;
 import it.gov.fermitivoli.api.AbstractActivity;
 import it.gov.fermitivoli.dao.CircolareDB;
 import it.gov.fermitivoli.dao.DaoSession;
@@ -41,12 +42,11 @@ public class SplashUpdateActivity extends AbstractActivity {
 
                     Calendar c = Calendar.getInstance();
                     c.setTime(new Date());
-                    c.add(Calendar.DAY_OF_MONTH, -1);
+                    c.add(Calendar.DAY_OF_MONTH, -2);
                     Date d = c.getTime();
 
                     circolari = managerCircolare.circolariByDate(d);
                     obj.textViewMsgUpdate.setText("Oggi " + C_DateUtil.toDDMMYYY(d) + " in evidenza:");
-
 
                     ris.addAll(circolari);
 
@@ -83,6 +83,16 @@ public class SplashUpdateActivity extends AbstractActivity {
         setContentView(R.layout.activity_splash_update2);
         obj = new LayoutObjs_activity_splash_update2_xml(this);
 
+        Drawable rightArrow = getResources().getDrawable(R.drawable.fermi_tivoli_foto);
+
+        // setting the opacity (alpha)
+        if (rightArrow != null) {
+            rightArrow.setAlpha(80);
+
+            // setting the images on the ImageViews
+            obj.listViewCircolariDelGiorno.setBackground(rightArrow);
+        }
+
 
         obj.txtInfo.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -99,10 +109,14 @@ public class SplashUpdateActivity extends AbstractActivity {
             @Override
             public void run() {
                 final List<CircolareDB> circolari = getCircolariDataCorrente();
-                CircolariListAdapter a = new CircolariListAdapter(getActivity(), circolari);
-                obj.listViewCircolariDelGiorno.setAdapter(a);
-                ThreadUtil.sleep(20000);
-                startApplication();
+                if (circolari.size() == 0) {
+                    startApplication();
+                } else {
+                    CircolariListAdapterShort a = new CircolariListAdapterShort(getActivity(), circolari);
+                    obj.listViewCircolariDelGiorno.setAdapter(a);
+                    ThreadUtil.sleep(10000);
+                    startApplication();
+                }
             }
         };
 

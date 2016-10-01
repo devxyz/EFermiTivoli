@@ -13,10 +13,10 @@
             android:textStyle="bold" android:textColor="@color/color_blue_scurissimo" android:textSize="26dp"
             android:layout_below="@+id/textView9"/>
     <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
-              android:text="Accedi" android:id="@+id/txtInfo"
+              android:text=">> Menu >>" android:id="@+id/txtInfo"
               android:background="@color/color_blue_scurissimo" android:textSize="22dp"
-              android:textColor="@color/color_white" android:paddingLeft="5dp" android:paddingTop="5dp"
-              android:paddingBottom="5dp"
+              android:textColor="@color/color_white" android:paddingLeft="5dp" android:paddingTop="10dp"
+              android:paddingBottom="10dp"
               android:gravity="center_horizontal"
               android:layout_alignParentBottom="true"
               android:paddingRight="5dp"
@@ -27,9 +27,12 @@
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="Oggi in evidenza"
             android:id="@+id/textViewMsgUpdate"
-            android:padding="5dp"
             android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" android:layout_below="@+id/textView10"/>
+            android:layout_alignParentStart="true" android:layout_below="@+id/textView10"
+            android:layout_marginRight="15dp" android:layout_marginLeft="15dp"
+            android:background="@color/color_blue_scurissimo" android:textColor="@color/color_white"
+            android:textStyle="bold" android:paddingLeft="20dp" android:paddingTop="5dp" android:paddingBottom="5dp"
+            android:layout_marginTop="10dp"/>
     <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -51,8 +54,14 @@
             android:layout_height="wrap_content"
             android:id="@+id/listViewCircolariDelGiorno" android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true" android:layout_below="@+id/textViewMsgUpdate"
-            android:layout_above="@+id/txtInfo" android:background="@drawable/fermi_tivoli_foto"
-            android:choiceMode="singleChoice"/>
+            android:layout_above="@+id/txtInfo"
+            android:choiceMode="singleChoice" android:layout_marginLeft="15dp" android:layout_marginRight="15dp"
+            android:layout_marginBottom="10dp"/>
+    <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/progressBar2" android:layout_alignParentBottom="true" android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" android:indeterminate="true"/>
 
 
 </RelativeLayout>
