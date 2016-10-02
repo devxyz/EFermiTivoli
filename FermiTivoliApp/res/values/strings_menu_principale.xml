@@ -23,12 +23,6 @@
         <item>END-ITEM</item>
 
 
-
-
-
-
-
-
         <!-- xxxxxxxx xxxxxxxx xxxxxxxx xxxxxxxx xxxxxxxx xxxxxxxx xxxxxxxx xxxxxxxx xxxxxxxx xxxxxxxx xxxxxxxx -->
         <item>7</item>
         <item>La scuola</item>
@@ -38,49 +32,48 @@
         <item>DONT_SHOW_IN_HOME</item>
         <item>END-ITEM</item>
 
-            <item>9</item>
-            <item>Indirizzi di studio</item>
-            <item>Indirizzi di studio</item>
-            <item>it.gov.fermitivoli.fragment.IndirizziStudioFragment</item>
-            <item>@drawable/ic_address_48</item>
-            <item>SUB_ITEM</item>
-            <item>END-ITEM</item>
+        <item>9</item>
+        <item>Indirizzi di studio</item>
+        <item>Indirizzi di studio</item>
+        <item>it.gov.fermitivoli.fragment.IndirizziStudioFragment</item>
+        <item>@drawable/ic_address_48</item>
+        <item>SUB_ITEM</item>
+        <item>END-ITEM</item>
 
 
         <!-- xxxxxxxx xxxxxxxx xxxxxxxx xxxxxxxx xxxxxxxx xxxxxxxx xxxxxxxx xxxxxxxx xxxxxxxx xxxxxxxx xxxxxxxx -->
-            <item>8</item>
-            <item>Le strutture</item>
-            <item>Foto Gallery strutture scolastiche</item>
-            <item>it.gov.fermitivoli.fragment.PhotosExpandibleFragment</item>
-            <item>@drawable/ic_photos</item>
-            <item>SUB_ITEM</item>
-            <item>END-ITEM</item>
+        <item>8</item>
+        <item>Le strutture</item>
+        <item>Foto Gallery strutture scolastiche</item>
+        <item>it.gov.fermitivoli.fragment.PhotosExpandibleFragment</item>
+        <item>@drawable/ic_photos</item>
+        <item>SUB_ITEM</item>
+        <item>END-ITEM</item>
 
-            <item>15</item>
-            <item>Libri di testo</item>
-            <item>Libri di testo</item>
-            <item>it.gov.fermitivoli.action.LibriTestoAction</item>
-            <item>@drawable/library_icon</item>
-            <item>SUB_ITEM</item>
-            <item>END-ITEM</item>
+        <item>15</item>
+        <item>Libri di testo</item>
+        <item>Libri di testo</item>
+        <item>it.gov.fermitivoli.action.LibriTestoAction</item>
+        <item>@drawable/library_icon</item>
+        <item>SUB_ITEM</item>
+        <item>END-ITEM</item>
 
-            <item>10</item>
-            <item>Orario Scolastico</item>
-            <item>Orario Scolastico</item>
-            <item>it.gov.fermitivoli.action.OrarioScolasticoAction</item>
-            <item>@drawable/orario_scolastico</item>
-            <item>SUB_ITEM</item>
-            <item>END-ITEM</item>
+        <item>10</item>
+        <item>Orario Scolastico</item>
+        <item>Orario Scolastico</item>
+        <item>it.gov.fermitivoli.action.OrarioScolasticoAction</item>
+        <item>@drawable/orario_scolastico</item>
+        <item>SUB_ITEM</item>
+        <item>END-ITEM</item>
 
 
-            <item>17</item>
-            <item>Iscrizione Online</item>
-            <item>Iscrizione Online</item>
-            <item>it.gov.fermitivoli.action.IscrizioneOnlineAction</item>
-            <item>@drawable/logo_iscrizioni_online_50x50</item>
-            <item>SUB_ITEM</item>
-            <item>END-ITEM</item>
-
+        <item>17</item>
+        <item>Iscrizione Online</item>
+        <item>Iscrizione Online</item>
+        <item>it.gov.fermitivoli.action.IscrizioneOnlineAction</item>
+        <item>@drawable/logo_iscrizioni_online_50x50</item>
+        <item>SUB_ITEM</item>
+        <item>END-ITEM</item>
 
 
         <!-- xxxxxxxx xxxxxxxx xxxxxxxx xxxxxxxx xxxxxxxx xxxxxxxx xxxxxxxx xxxxxxxx xxxxxxxx xxxxxxxx xxxxxxxx -->
@@ -92,30 +85,31 @@
         <item>DONT_SHOW_IN_HOME</item>
         <item>END-ITEM</item>
 
-            <!-- .................................. -->
-            <item>4</item>
-            <item>News</item>
-            <item>Ultime Notizie dalla scuola</item>
-            <item>it.gov.fermitivoli.fragment.NewsFragmentRss</item>
-            <item>@drawable/id_tab_news</item>
-            <item>SUB_ITEM</item>
-            <item>END-ITEM</item>
-            <!-- .................................. -->
-            <item>5</item>
-            <item>Circolari</item>
-            <item>Circolari scolastiche</item>
-            <item>it.gov.fermitivoli.fragment.CircolariSearchFragment</item>
-            <item>@drawable/file_search</item>
-            <item>SUB_ITEM</item>
-            <item>END-ITEM</item>
-            <!-- .................................. -->
-            <item>6</item>
-            <item>Circolari di Oggi</item>
-            <item>Circolari del Giorno</item>
-            <item>it.gov.fermitivoli.fragment.CircolariGiornaliereFragment</item>
-            <item>@drawable/calendar_preferences_50x50</item>
-            <item>SUB_ITEM</item>
-            <item>END-ITEM</item>
+        <!-- .................................. -->
+        <item>6</item>
+        <item>In evidenza oggi</item>
+        <item>Circolari del Giorno</item>
+        <item>it.gov.fermitivoli.fragment.CircolariGiornaliereFragment</item>
+        <item>@drawable/calendar_preferences_50x50</item>
+        <item>SUB_ITEM</item>
+        <item>END-ITEM</item>
+
+        <!-- .................................. -->
+        <item>4</item>
+        <item>News</item>
+        <item>Ultime Notizie dalla scuola</item>
+        <item>it.gov.fermitivoli.fragment.NewsFragmentRss</item>
+        <item>@drawable/id_tab_news</item>
+        <item>SUB_ITEM</item>
+        <item>END-ITEM</item>
+        <!-- .................................. -->
+        <item>5</item>
+        <item>Circolari</item>
+        <item>Circolari scolastiche</item>
+        <item>it.gov.fermitivoli.fragment.CircolariSearchFragment</item>
+        <item>@drawable/file_search</item>
+        <item>SUB_ITEM</item>
+        <item>END-ITEM</item>
 
 
         <!-- xxxxxxxx xxxxxxxx xxxxxxxx xxxxxxxx xxxxxxxx xxxxxxxx xxxxxxxx xxxxxxxx xxxxxxxx xxxxxxxx xxxxxxxx -->
@@ -126,23 +120,21 @@
         <item>@drawable/logo_re_docente</item>
         <item>DONT_SHOW_IN_HOME</item>
         <item>END-ITEM</item>
-            <item>12</item>
-            <item>R.E. Docenti</item>
-            <item>Registro elettronico docenti</item>
-            <item>it.gov.fermitivoli.action.ReDocentiAction</item>
-            <item>@drawable/logo_re_docente</item>
-            <item>SUB_ITEM</item>
-            <item>END-ITEM</item>
+        <item>12</item>
+        <item>R.E. Docenti</item>
+        <item>Registro elettronico docenti</item>
+        <item>it.gov.fermitivoli.action.ReDocentiAction</item>
+        <item>@drawable/logo_re_docente</item>
+        <item>SUB_ITEM</item>
+        <item>END-ITEM</item>
 
-            <item>13</item>
-            <item>R.E. Famiglie</item>
-            <item>Registro elettronico famiglie</item>
-            <item>it.gov.fermitivoli.action.ReStudentiAction</item>
-            <item>@drawable/logo_re_famiglie</item>
-            <item>SUB_ITEM</item>
-            <item>END-ITEM</item>
-
-
+        <item>13</item>
+        <item>R.E. Famiglie</item>
+        <item>Registro elettronico famiglie</item>
+        <item>it.gov.fermitivoli.action.ReStudentiAction</item>
+        <item>@drawable/logo_re_famiglie</item>
+        <item>SUB_ITEM</item>
+        <item>END-ITEM</item>
 
 
         <item>18</item>
@@ -153,29 +145,29 @@
         <item>DONT_SHOW_IN_HOME</item>
         <item>END-ITEM</item>
 
-            <item>19</item>
-            <item>Fermate e tragitti Autobus</item>
-            <item>Informazioni autobus Cotral</item>
-            <item>it.gov.fermitivoli.fragment.CotralFragment</item>
-            <item>@drawable/bus_stop_48x48</item>
-            <item>SUB_ITEM</item>
-            <item>END-ITEM</item>
+        <item>19</item>
+        <item>Fermate e tragitti Autobus</item>
+        <item>Informazioni autobus Cotral</item>
+        <item>it.gov.fermitivoli.fragment.CotralFragment</item>
+        <item>@drawable/bus_stop_48x48</item>
+        <item>SUB_ITEM</item>
+        <item>END-ITEM</item>
 
-            <item>20</item>
-            <item>Orari Trenitalia</item>
-            <item>Orari Trenitalia</item>
-            <item>it.gov.fermitivoli.action.TrenitaliaAction</item>
-            <item>@drawable/train</item>
-            <item>SUB_ITEM</item>
-            <item>END-ITEM</item>
+        <item>20</item>
+        <item>Orari Trenitalia</item>
+        <item>Orari Trenitalia</item>
+        <item>it.gov.fermitivoli.action.TrenitaliaAction</item>
+        <item>@drawable/train</item>
+        <item>SUB_ITEM</item>
+        <item>END-ITEM</item>
 
-            <item>21</item>
-            <item>Orari Cotral</item>
-            <item>Orari Cotral</item>
-            <item>it.gov.fermitivoli.action.CotralAction</item>
-            <item>@drawable/bus_stop_48x48</item>
-            <item>SUB_ITEM</item>
-            <item>END-ITEM</item>
+        <item>21</item>
+        <item>Orari Cotral</item>
+        <item>Orari Cotral</item>
+        <item>it.gov.fermitivoli.action.CotralAction</item>
+        <item>@drawable/bus_stop_48x48</item>
+        <item>SUB_ITEM</item>
+        <item>END-ITEM</item>
 
 
         <item>22</item>

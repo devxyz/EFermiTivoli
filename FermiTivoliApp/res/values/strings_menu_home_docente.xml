@@ -3,6 +3,15 @@
 
     <!-- per ogni menu, l'icona -->
     <array name="menu_home_docente">
+        <!-- .................................. -->
+        <item>6</item>
+        <item>In evidenza oggi</item>
+        <item>Circolari del Giorno</item>
+        <item>it.gov.fermitivoli.fragment.CircolariGiornaliereFragment</item>
+        <item>@drawable/calendar_preferences_50x50</item>
+        <item>SUB_ITEM</item>
+        <item>END-ITEM</item>
+
         <item>2</item>
         <item>News#n#</item>
         <item>Ultime Notizie dalla scuola</item>
@@ -19,13 +28,6 @@
         <item></item>
         <item>END-ITEM</item>
 
-        <item>4</item>
-        <item>Circolari di Oggi</item>
-        <item>Circolari del Giorno</item>
-        <item>it.gov.fermitivoli.fragment.CircolariGiornaliereFragment</item>
-        <item>@drawable/calendar_preferences_50x50</item>
-        <item></item>
-        <item>END-ITEM</item>
 
 
         <item>532</item>

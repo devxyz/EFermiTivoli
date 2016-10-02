@@ -29,7 +29,6 @@ import it.gov.fermitivoli.dao.FermiAppDBHelperRunAsync;
 import it.gov.fermitivoli.dao.FermiAppDbHelper;
 import it.gov.fermitivoli.dao.FermiAppDbHelperCallable;
 import it.gov.fermitivoli.listener.OnClickListenerDialogErrorCheck;
-import it.gov.fermitivoli.model.AppUserType;
 import it.gov.fermitivoli.model.menu.DataMenuInfo;
 import it.gov.fermitivoli.model.menu.DataMenuInfoFlag;
 import it.gov.fermitivoli.model.menu.DataMenuInfoLatestUsed;
@@ -40,8 +39,9 @@ import java.io.File;
 import java.util.List;
 import java.util.Map;
 
-public class MainMenuActivity extends AbstractActivity {
 
+public class MainMenuActivity extends AbstractActivity {
+    private static final String KEY_MENU_ID_INTENT = "KEY_MENU_ID_INTENT";
     private final DataMenuInfoStack stack = new DataMenuInfoStack();
     public ListView mDrawerList;
     private DrawerLayout mDrawerLayout;
@@ -50,49 +50,24 @@ public class MainMenuActivity extends AbstractActivity {
     private CharSequence mDrawerTitle;
     // used to store app title
     private CharSequence currentFragmentTitle;
-
     private MainMenuExpandibleListAdapter menuMainAdapter;
     private DataMenuInfoLatestUsed lastUsedMenu;
     private Drawable currentFragmentIcon;
     private AbstractFragment currentFragment;
-
-
     private int currentSelectionIndex = -1;
 
-    public static void chooseUserType(final AbstractActivity e, final DialogInterface.OnClickListener onClickListener) {
-        DialogUtil.openChooseDialog(e, "Scegli il profilo piu' adatto a te.", new CharSequence[]
-                        {"Sono uno studente", "Sono un docente", "Sono un genitore", "Altro"},
-                new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int which) {
-                        // The 'which' argument contains the index position
-                        // of the selected item
-                        switch (which) {
-                            case 0:
-                                e.getSharedPreferences().setUserType(AppUserType.STUDENTE);
-                                break;
-                            case 1:
-                                e.getSharedPreferences().setUserType(AppUserType.DOCENTE);
-                                break;
-                            case 2:
-                                e.getSharedPreferences().setUserType(AppUserType.FAMIGLIA);
-                                break;
-                            case 3:
-                                e.getSharedPreferences().setUserType(AppUserType.ALTRO);
-                                break;
-                        }
 
-                        onClickListener.onClick(dialog, which);
-                    }
-                }, new DialogInterface.OnKeyListener() {
-                    @Override
-                    public boolean onKey(DialogInterface dialog, int keyCode, KeyEvent event) {
-                        if (keyCode == KeyEvent.KEYCODE_BACK) {
-                        }
-                        return true;
-                    }
-                });
+    public static void startMainActivity(Context ctx, DataMenuInfo m) {
+        Intent i = new Intent(ctx, MainMenuActivity.class);
+        if (m != null) {
+            final int menuID = m.getMenuID();
+            i.putExtra(KEY_MENU_ID_INTENT, menuID);
+        }
+        ctx.startActivity(i);
+    }
 
-
+    public static void startMainActivity(Context ctx) {
+        startMainActivity(ctx, null);
     }
 
     public DataMenuInfoLatestUsed getLastUsedMenu() {
@@ -119,11 +94,18 @@ public class MainMenuActivity extends AbstractActivity {
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        if (howManyRunningInstances(this) > 1) {
-            finish();
-            return;
+        // Possible work around for market launches. See http://code.google.com/p/android/issues/detail?id=2373
+        // for more details. Essentially, the market launches the main activity on top of other activities.
+        // we never want this to happen. Instead, we check if we are the root and if not, we finish.
+        final Intent intent1 = getIntent();
+        if (!isTaskRoot()) {
+            final Intent intent = intent1;
+            if (intent.hasCategory(Intent.CATEGORY_LAUNCHER) && Intent.ACTION_MAIN.equals(intent.getAction())) {
+                Log.w("MULTIPLE INSTANCE", "Main Activity is not the root.  Finishing Main Activity instead of launching.");
+                finish();
+                return;
+            }
         }
-
         setContentView(R.layout.activity_main);
 
 
@@ -184,27 +166,19 @@ public class MainMenuActivity extends AbstractActivity {
         };
         mDrawerLayout.setDrawerListener(mDrawerToggle);
 
-
-        final AppUserType userType = getSharedPreferences().getUserType();
-        if (userType == null) {
-            MainMenuActivity.chooseUserType(this, new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialog, int which) {
-                    if (savedInstanceState == null) {
-                        doAction(0);
-                    }
-
-                }
-            });
-        } else {
-            if (savedInstanceState == null) {
+        if (savedInstanceState == null) {
+            //controlla se è stato specificato un menu particolare
+            if (intent1 != null && intent1.getExtras() != null && intent1.getExtras().getInt(KEY_MENU_ID_INTENT, -1) > 0) {
+                final DataMenuInfo m = menuMainAdapter.getDataMenuInfoByMenuID(intent1.getExtras().getInt(KEY_MENU_ID_INTENT, -1));
+                if (m != null)
+                    doAction(m);
+                else
+                    doAction(0);
+            } else {
                 doAction(0);
+                //openMenu();
             }
-
         }
-
-
-        //openMenu();
 
 
     }
@@ -273,7 +247,7 @@ public class MainMenuActivity extends AbstractActivity {
                 finish();
                 return true;
             case R.id.action_usertype:
-                chooseUserType(this, new OnClickListenerDialogErrorCheck(this) {
+                SplashUpdateActivity.chooseUserType(this, new OnClickListenerDialogErrorCheck(this) {
                     @Override
                     protected void onClickImpl(DialogInterface dialog, int which) throws Throwable {
                         MainMenuActivity.this.doAction(0);
@@ -406,13 +380,15 @@ public class MainMenuActivity extends AbstractActivity {
         return super.onPrepareOptionsMenu(menu);
     }
 
-    @Override
+
     protected void onPause() {
         super.onPause();
         getSharedPreferences().setLastUsedMenuId(lastUsedMenu.getMenuIdSortByUse());
     }
 
+
     @Override
+
     protected void onDestroy() {
         super.onDestroy();
         //cancella

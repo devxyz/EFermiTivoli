@@ -7,7 +7,7 @@
     <TextView
             android:id="@+id/title"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:ellipsize="end"
             android:maxLines="2"
             android:text="titolo"
@@ -15,6 +15,6 @@
             android:layout_alignParentStart="true"
             android:textIsSelectable="false" android:textStyle="bold"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:textColor="@color/color_blue_scurissimo"/>
+            android:textColor="@color/color_blue_scurissimo" android:paddingLeft="10dp"/>
 
 </RelativeLayout>

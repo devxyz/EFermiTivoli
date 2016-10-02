@@ -108,13 +108,14 @@ public class DialogUtil {
     }
 
 
-    public static void openChooseDialog(final Activity coontext, final String title, final CharSequence[] values,
+    public static void openChooseDialog(final Activity coontext, final String title, boolean cancelable, final CharSequence[] values,
                                         final DialogInterface.OnClickListener onClickListener,
                                         final Dialog.OnKeyListener keyListener) {
         AlertDialog.Builder builder = new AlertDialog.Builder(coontext);
         builder.setTitle(title);
         //builder.setMessage("L'applicazione impostera' le viste in modo adeguato alla scelta fatta. Potrai sempre cambiare modalita' dal menu.");
 
+        builder.setCancelable(cancelable);
         builder.setItems(values, onClickListener);
         final AlertDialog dialog = builder.create();
         if (keyListener != null)

@@ -1,11 +1,14 @@
 package it.gov.fermitivoli.activity;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
+import android.widget.AdapterView;
 import it.gov.fermitivoli.R;
 import it.gov.fermitivoli.adapter.CircolariListAdapterShort;
 import it.gov.fermitivoli.api.AbstractActivity;
@@ -15,9 +18,12 @@ import it.gov.fermitivoli.dao.FermiAppDBHelperRun;
 import it.gov.fermitivoli.dao.FermiAppDbHelper;
 import it.gov.fermitivoli.db.ManagerCircolare;
 import it.gov.fermitivoli.layout.LayoutObjs_activity_splash_update2_xml;
+import it.gov.fermitivoli.model.AppUserType;
+import it.gov.fermitivoli.model.menu.impl.StringsMenuPrincipale;
 import it.gov.fermitivoli.services.UpdateService;
 import it.gov.fermitivoli.util.C_DateUtil;
 import it.gov.fermitivoli.util.DebugUtil;
+import it.gov.fermitivoli.util.DialogUtil;
 import it.gov.fermitivoli.util.ThreadUtil;
 
 import java.util.*;
@@ -27,6 +33,45 @@ import java.util.*;
  */
 public class SplashUpdateActivity extends AbstractActivity {
     private LayoutObjs_activity_splash_update2_xml obj;
+    private boolean closed = false;
+
+    public static void chooseUserType(final AbstractActivity e, final DialogInterface.OnClickListener onClickListener) {
+
+
+        DialogUtil.openChooseDialog(e, "Scegli il profilo piu' adatto a te.", false, new CharSequence[]
+                        {"Sono uno studente", "Sono un docente", "Sono un genitore", "Altro"},
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        // The 'which' argument contains the index position
+                        // of the selected item
+                        switch (which) {
+                            case 0:
+                                e.getSharedPreferences().setUserType(AppUserType.STUDENTE);
+                                break;
+                            case 1:
+                                e.getSharedPreferences().setUserType(AppUserType.DOCENTE);
+                                break;
+                            case 2:
+                                e.getSharedPreferences().setUserType(AppUserType.FAMIGLIA);
+                                break;
+                            case 3:
+                                e.getSharedPreferences().setUserType(AppUserType.ALTRO);
+                                break;
+                        }
+
+                        onClickListener.onClick(dialog, which);
+                    }
+                }, new DialogInterface.OnKeyListener() {
+                    @Override
+                    public boolean onKey(DialogInterface dialog, int keyCode, KeyEvent event) {
+                        if (keyCode == KeyEvent.KEYCODE_BACK) {
+                        }
+                        return true;
+                    }
+                });
+
+
+    }
 
     private List<CircolareDB> getCircolariDataCorrente() {
 
@@ -78,7 +123,7 @@ public class SplashUpdateActivity extends AbstractActivity {
     }
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
+    public void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash_update2);
         obj = new LayoutObjs_activity_splash_update2_xml(this);
@@ -87,7 +132,7 @@ public class SplashUpdateActivity extends AbstractActivity {
 
         // setting the opacity (alpha)
         if (rightArrow != null) {
-            rightArrow.setAlpha(80);
+            rightArrow.setAlpha(100);
 
             // setting the images on the ImageViews
             obj.listViewCircolariDelGiorno.setBackground(rightArrow);
@@ -97,7 +142,17 @@ public class SplashUpdateActivity extends AbstractActivity {
         obj.txtInfo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startApplication();
+                MainMenuActivity.startMainActivity(SplashUpdateActivity.this);
+            }
+        });
+
+        obj.listViewCircolariDelGiorno.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                MainMenuActivity.startMainActivity(SplashUpdateActivity.this, StringsMenuPrincipale.CIRCOLARI_DI_OGGI_6);
+                closed = true;
+                finish();
+
             }
         });
 
@@ -105,29 +160,56 @@ public class SplashUpdateActivity extends AbstractActivity {
         Intent serviceIntent = new Intent(this, UpdateService.class);
         startService(serviceIntent);
 
-        Thread t = new Thread() {
-            @Override
-            public void run() {
-                final List<CircolareDB> circolari = getCircolariDataCorrente();
-                if (circolari.size() == 0) {
-                    startApplication();
-                } else {
-                    CircolariListAdapterShort a = new CircolariListAdapterShort(getActivity(), circolari);
-                    obj.listViewCircolariDelGiorno.setAdapter(a);
-                    ThreadUtil.sleep(10000);
-                    startApplication();
+        final AppUserType userType = getSharedPreferences().getUserType();
+        if (userType == null) {
+            chooseUserType(this, new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    if (savedInstanceState == null) {
+                        MainMenuActivity.startMainActivity(SplashUpdateActivity.this);
+                        closed = true;
+                        finish();
+                    }
                 }
-            }
-        };
+            });
+        } else {
+            //attende 15 secondi
+            final int SECONDS = 15;
+            obj.progressBar2.setIndeterminate(false);
+            obj.progressBar2.setMax(SECONDS);
 
 
-        t.start();
-    }
+            Thread t = new Thread() {
+                @Override
+                public void run() {
+                    final List<CircolareDB> circolari = getCircolariDataCorrente();
+                    if (circolari.size() == 0) {
+                        MainMenuActivity.startMainActivity(SplashUpdateActivity.this);
+                    } else {
+                        CircolariListAdapterShort a = new CircolariListAdapterShort(getActivity(), circolari);
+                        obj.listViewCircolariDelGiorno.setAdapter(a);
 
-    private void startApplication() {
+                        for (int i = SECONDS; i >= 0 && !closed; i = i - 1) {
+                            final int finalI = i;
+                            ThreadUtil.runOnUiThreadAndWait(SplashUpdateActivity.this, new Runnable() {
+                                @Override
+                                public void run() {
+                                    obj.txtInfo.setText("Continua ("+ finalI +") >>");
+                                    obj.progressBar2.setProgress(finalI);
+                                }
+                            });
+                            ThreadUtil.sleep(1000);
+                        }
+                        if (closed) return;
+                        MainMenuActivity.startMainActivity(SplashUpdateActivity.this);
+                        closed = true;
+                        finish();
+                    }
+                }
+            };
 
-        Intent i = new Intent(SplashUpdateActivity.this, MainMenuActivity.class);
-        startActivity(i);
-        finish();
+
+            t.start();
+        }
     }
 }

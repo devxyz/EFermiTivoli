@@ -188,7 +188,7 @@ public class NewsFragmentRss extends AbstractFragment {
 
             final NewsDB c = a.getRssItems().get(position);
 
-            DialogUtil.openChooseDialog(fragment.getActivity(), "Quale azione vuoi svolgere?", new CharSequence[]{
+            DialogUtil.openChooseDialog(fragment.getActivity(), "Quale azione vuoi svolgere?", false, new CharSequence[]{
                             "Segna tutte da leggere",
                             "Segna tutte lette",
                             "Segna notizia corrente da leggere",
@@ -220,7 +220,7 @@ public class NewsFragmentRss extends AbstractFragment {
 
                         }
                     }
-           ,null );
+                    , null);
 
             return true;
         }

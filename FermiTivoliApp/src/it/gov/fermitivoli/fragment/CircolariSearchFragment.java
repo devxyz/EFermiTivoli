@@ -132,7 +132,7 @@ public class CircolariSearchFragment extends AbstractFragment {
                 String[] valori = classi.toArray(new String[classi.size()]);
 
 
-                DialogUtil.openChooseDialog(activity, "Scegli la classe", valori, new DialogInterface.OnClickListener() {
+                DialogUtil.openChooseDialog(activity, "Scegli la classe", false,valori, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
 
@@ -295,7 +295,7 @@ public class CircolariSearchFragment extends AbstractFragment {
 
             final CircolareDB c = a.getCircolari().get(position);
 
-            DialogUtil.openChooseDialog(fragment.getActivity(), "Quale azione vuoi svolgere?", new CharSequence[]{
+            DialogUtil.openChooseDialog(fragment.getActivity(), "Quale azione vuoi svolgere?", true,new CharSequence[]{
                             "Segna tutte da leggere",
                             "Segna tutte lette",
                             "Segna circolare corrente da leggere",
