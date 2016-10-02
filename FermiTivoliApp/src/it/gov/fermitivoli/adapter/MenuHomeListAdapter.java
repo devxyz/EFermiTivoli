@@ -27,13 +27,15 @@ public class MenuHomeListAdapter extends BaseAdapter implements IMenuListAdapter
     private final List<DataMenuInfo> items;
     private final int circolariNonLette;
     private final int newsNonLette;
+    private final int numCircolariInEvidenzaOggi;
 
     private MainMenuActivity activity;
     private LayoutInflater layoutInflater;
 
-    public MenuHomeListAdapter(MainMenuActivity f, int circolariNonLette, int newsNonLette) {
+    public MenuHomeListAdapter(MainMenuActivity f, int circolariNonLette, int newsNonLette,int numCircolariInEvidenzaOggi) {
         this.circolariNonLette = circolariNonLette;
         this.newsNonLette = newsNonLette;
+        this.numCircolariInEvidenzaOggi = numCircolariInEvidenzaOggi;
         items = new ArrayList<>();
         activity = f;
         layoutInflater = (LayoutInflater) activity.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -136,6 +138,11 @@ public class MenuHomeListAdapter extends BaseAdapter implements IMenuListAdapter
             menuLabel = menuLabel.replace("#n#", " (" + newsNonLette + ")");
         else
             menuLabel = menuLabel.replace("#n#", "");
+
+        if (numCircolariInEvidenzaOggi > 0)
+            menuLabel = menuLabel.replace("#e#", " (" + numCircolariInEvidenzaOggi + ")");
+        else
+            menuLabel = menuLabel.replace("#e#", "");
 
 
         final Integer imageId = items.get(pos).getImageId();

@@ -143,6 +143,8 @@ public class SplashUpdateActivity extends AbstractActivity {
             @Override
             public void onClick(View v) {
                 MainMenuActivity.startMainActivity(SplashUpdateActivity.this);
+                closed = true;
+                finish();
             }
         });
 
@@ -189,12 +191,12 @@ public class SplashUpdateActivity extends AbstractActivity {
                         CircolariListAdapterShort a = new CircolariListAdapterShort(getActivity(), circolari);
                         obj.listViewCircolariDelGiorno.setAdapter(a);
 
-                        for (int i = SECONDS; i >= 0 && !closed; i = i - 1) {
+                        for (int i = 0; i <= SECONDS && !closed; i = i + 1) {
                             final int finalI = i;
                             ThreadUtil.runOnUiThreadAndWait(SplashUpdateActivity.this, new Runnable() {
                                 @Override
                                 public void run() {
-                                    obj.txtInfo.setText("Continua ("+ finalI +") >>");
+                                    obj.txtInfo.setText("Continua (" + (SECONDS - finalI) + ") >>");
                                     obj.progressBar2.setProgress(finalI);
                                 }
                             });

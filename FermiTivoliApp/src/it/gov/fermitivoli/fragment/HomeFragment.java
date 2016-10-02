@@ -11,18 +11,21 @@ import it.gov.fermitivoli.R;
 import it.gov.fermitivoli.adapter.MenuHomeListAdapter;
 import it.gov.fermitivoli.api.AbstractFragment;
 import it.gov.fermitivoli.dao.*;
+import it.gov.fermitivoli.db.ManagerCircolare;
 import it.gov.fermitivoli.layout.LayoutObjs_fragment_home_xml;
 import it.gov.fermitivoli.listener.OnClickListenerViewErrorCheck;
 import it.gov.fermitivoli.model.menu.DataMenuInfo;
 import it.gov.fermitivoli.model.menu.impl.StringsMenuPrincipale;
 
+import java.util.Date;
+import java.util.List;
+
 public class HomeFragment extends AbstractFragment {
 
     private LayoutObjs_fragment_home_xml LAYOUT_OBJs;   //***************************
     private int numNotizieNonLette = 0;
-    private int numNotizieTot = 0;
     private int numCircolariNonLette = 0;
-    private int numCircolariTot = 0;
+    private int numCircolariInEvidenzaOggi = 0;
 
     public HomeFragment() {
     }
@@ -68,15 +71,12 @@ public class HomeFragment extends AbstractFragment {
                 public void run(DaoSession session, Context ctx) throws Throwable {
                     QueryBuilder<NewsDB> q1 = session.getNewsDBDao().queryBuilder().where(NewsDBDao.Properties.FlagContenutoLetto.eq(false));
                     QueryBuilder<CircolareDB> q2 = session.getCircolareDBDao().queryBuilder().where(CircolareDBDao.Properties.FlagContenutoLetto.eq(false));
+                    ManagerCircolare c = new ManagerCircolare(session);
+                    final List<CircolareDB> circolariDiOggi = c.circolariByDate(new Date());
+
                     numNotizieNonLette = q1.list().size();
                     numCircolariNonLette = q2.list().size();
-                    if (numCircolariNonLette + numCircolariNonLette == 0) {
-                        q1 = session.getNewsDBDao().queryBuilder();
-                        q2 = session.getCircolareDBDao().queryBuilder();
-                        numNotizieTot = q1.list().size();
-                        numCircolariTot = q2.list().size();
-
-                    }
+                    numCircolariInEvidenzaOggi = circolariDiOggi.size();
                 }
             });
         } catch (Throwable e) {
@@ -86,50 +86,10 @@ public class HomeFragment extends AbstractFragment {
         }
 
 
-        if (numNotizieNonLette > 0) {
-
-            if (numCircolariNonLette > 0) {
-                LAYOUT_OBJs.txtInfo.setText(numNotizieNonLette + " news e " + numCircolariNonLette + " circolari non lette");
-            } else {
-                LAYOUT_OBJs.txtInfo.setText(numNotizieNonLette + " news non lette");
-            }
-        } else {
-            if (numCircolariNonLette > 0) {
-                LAYOUT_OBJs.txtInfo.setText(numCircolariNonLette + " circolari non lette");
-            } else {
-                //LAYOUT_OBJs.txtInfo.setText(numCircolariTot + " circolari e " + numNotizieTot + " notizie totali");
-                LAYOUT_OBJs.txtInfo.setText(" ");
-            }
-
-        }
-
         LAYOUT_OBJs.textViewTipoUtente.setText(getMainActivity().getSharedPreferences().getUserType().getDescrizione());
 
-        LAYOUT_OBJs.txtInfo.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (numNotizieNonLette > 0) {
 
-                    if (numCircolariNonLette == 0) {
-                        getMainActivity().doAction(StringsMenuPrincipale.NEWS_4);
-                    } else {
-                        getMainActivity().doAction(StringsMenuPrincipale.CIRCOLARI_5);
-                    }
-                } else {
-                    if (numCircolariNonLette > 0) {
-                        getMainActivity().doAction(StringsMenuPrincipale.CIRCOLARI_5);
-                    } else {
-
-                    }
-
-                }
-
-
-            }
-        });
-
-
-        final MenuHomeListAdapter adapter = new MenuHomeListAdapter(getMainActivity(), numCircolariNonLette, numNotizieNonLette);
+        final MenuHomeListAdapter adapter = new MenuHomeListAdapter(getMainActivity(), numCircolariNonLette, numNotizieNonLette, numCircolariInEvidenzaOggi);
         LAYOUT_OBJs.listView4.setAdapter(adapter);
 
         LAYOUT_OBJs.listView4.setOnItemClickListener(new AdapterView.OnItemClickListener() {

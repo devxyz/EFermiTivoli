@@ -5,7 +5,7 @@
     <array name="menu_home_docente">
         <!-- .................................. -->
         <item>6</item>
-        <item>In evidenza oggi</item>
+        <item>In evidenza oggi#e#</item>
         <item>Circolari del Giorno</item>
         <item>it.gov.fermitivoli.fragment.CircolariGiornaliereFragment</item>
         <item>@drawable/calendar_preferences_50x50</item>

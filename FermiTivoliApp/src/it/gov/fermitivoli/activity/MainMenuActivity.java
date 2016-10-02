@@ -42,6 +42,7 @@ import java.util.Map;
 
 public class MainMenuActivity extends AbstractActivity {
     private static final String KEY_MENU_ID_INTENT = "KEY_MENU_ID_INTENT";
+    private static boolean IS_RUNNING = false;
     private final DataMenuInfoStack stack = new DataMenuInfoStack();
     public ListView mDrawerList;
     private DrawerLayout mDrawerLayout;
@@ -94,18 +95,16 @@ public class MainMenuActivity extends AbstractActivity {
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+
         // Possible work around for market launches. See http://code.google.com/p/android/issues/detail?id=2373
         // for more details. Essentially, the market launches the main activity on top of other activities.
         // we never want this to happen. Instead, we check if we are the root and if not, we finish.
-        final Intent intent1 = getIntent();
-        if (!isTaskRoot()) {
-            final Intent intent = intent1;
-            if (intent.hasCategory(Intent.CATEGORY_LAUNCHER) && Intent.ACTION_MAIN.equals(intent.getAction())) {
-                Log.w("MULTIPLE INSTANCE", "Main Activity is not the root.  Finishing Main Activity instead of launching.");
-                finish();
-                return;
-            }
+
+        if (IS_RUNNING) {
+            finish();
+            return;
         }
+        IS_RUNNING = true;
         setContentView(R.layout.activity_main);
 
 
@@ -168,11 +167,13 @@ public class MainMenuActivity extends AbstractActivity {
 
         if (savedInstanceState == null) {
             //controlla se è stato specificato un menu particolare
+            final Intent intent1 = getIntent();
             if (intent1 != null && intent1.getExtras() != null && intent1.getExtras().getInt(KEY_MENU_ID_INTENT, -1) > 0) {
                 final DataMenuInfo m = menuMainAdapter.getDataMenuInfoByMenuID(intent1.getExtras().getInt(KEY_MENU_ID_INTENT, -1));
-                if (m != null)
+                if (m != null) {
+                    doAction(0);
                     doAction(m);
-                else
+                } else
                     doAction(0);
             } else {
                 doAction(0);
@@ -398,6 +399,7 @@ public class MainMenuActivity extends AbstractActivity {
         Intent serviceIntent = new Intent(this, UpdateService.class);
         stopService(serviceIntent);
 */
+        IS_RUNNING = false;
 
         getCache().closeAsync();
         getDatabase().close();
