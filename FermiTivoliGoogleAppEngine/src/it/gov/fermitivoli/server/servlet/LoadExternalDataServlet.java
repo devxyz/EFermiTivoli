@@ -169,6 +169,8 @@ public class LoadExternalDataServlet extends HttpServlet {
         }
 
         String xmlNormalized = C_TextUtil.normalizeTextFromHtml(new String(xmlContent,"UTF-8"));
+        //cerca l'inizio degli rss
+        xmlNormalized=xmlNormalized.substring(xmlNormalized.indexOf("<rss"));
 
 
         //final URL url = new URL(GAE_Settings.LISTA_NEWS_JOOMLA_URL);
