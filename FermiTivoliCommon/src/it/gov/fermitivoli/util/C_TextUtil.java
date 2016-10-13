@@ -175,7 +175,7 @@ public class C_TextUtil {
      */
     public static String normalizeTextAndLineFeed_forTextCircolari(String text, boolean skipStopLines) {
         //righe reali (con almeno 2 \n)
-        final String[] split = text.split("[\n][\n]+");
+        final String[] split = text.split("[\n][\n \t]*[\n]");
 
 
         StringBuilder sb = new StringBuilder(text.length());
@@ -196,9 +196,12 @@ public class C_TextUtil {
                     }
                     if (skip) continue;
                 }
-                if (startWithLowercase(trim) || (sb.length() == 0) || (sb.charAt(sb.length() - 1) == '\n')) {
+                if (((sb.length() == 0) || sb.charAt(sb.length() - 1) == '\n')) {
+                    sb.append(l);
+                }else
+                if (startWithLowercase(trim) ) {
                     sb.append(" ").append(l);
-                } else {
+                }else {
                     sb.append("\n").append(l);
                 }
             }
@@ -270,7 +273,7 @@ public class C_TextUtil {
                 "\n  \n\nCircolare n.82 del 21-12-2015\n" +
                 "OGGETTO: stage linguistico in Francia\n" +
                 "Si comunica che le due mete prescelte sono Parigi e Montpellier, quest’ultima città nel sud della Francia. Lo stage\n" +
-                "avrà la durata di 6 giorni e 5 notti in residence (Parigi mezza pensione, Montpellier pensione completa).\n\n\n" +
+                "avrà la durata di 6 giorni e 5 notti in residence (Parigi mezza pensione, Montpellier pensione completa).\n   \n\n" +
                 "Il costo è di Euro 615,00 circa per Montpellier e di Euro 600,00 circa per Parigi. La quota comprende: corso di 16\n" +
                 "ore - sistemazione in camera tripla con bagno privato - test di livello e attestato di fine corso - materiale didattico -\n" +
                 "volo A/R - trasferimento in pullman GT dall’aeroporto alla sistemazione e viceversa\n" +

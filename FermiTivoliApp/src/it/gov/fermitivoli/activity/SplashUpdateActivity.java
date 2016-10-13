@@ -87,7 +87,7 @@ public class SplashUpdateActivity extends AbstractActivity {
 
                     Calendar c = Calendar.getInstance();
                     c.setTime(new Date());
-                    c.add(Calendar.DAY_OF_MONTH, -2);
+                    //c.add(Calendar.DAY_OF_MONTH, -2);
                     Date d = c.getTime();
 
                     circolari = managerCircolare.circolariByDate(d);
@@ -142,18 +142,14 @@ public class SplashUpdateActivity extends AbstractActivity {
         obj.txtInfo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                MainMenuActivity.startMainActivity(SplashUpdateActivity.this);
-                closed = true;
-                finish();
+                startMainMenuActivity();
             }
         });
 
         obj.listViewCircolariDelGiorno.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                MainMenuActivity.startMainActivity(SplashUpdateActivity.this, StringsMenuPrincipale.CIRCOLARI_DI_OGGI_6);
-                closed = true;
-                finish();
+                startMainMenuActivity_MenuCircolari();
 
             }
         });
@@ -168,9 +164,7 @@ public class SplashUpdateActivity extends AbstractActivity {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
                     if (savedInstanceState == null) {
-                        MainMenuActivity.startMainActivity(SplashUpdateActivity.this);
-                        closed = true;
-                        finish();
+                        startMainMenuActivity();
                     }
                 }
             });
@@ -186,7 +180,7 @@ public class SplashUpdateActivity extends AbstractActivity {
                 public void run() {
                     final List<CircolareDB> circolari = getCircolariDataCorrente();
                     if (circolari.size() == 0) {
-                        MainMenuActivity.startMainActivity(SplashUpdateActivity.this);
+                        startMainMenuActivity();
                     } else {
                         CircolariListAdapterShort a = new CircolariListAdapterShort(getActivity(), circolari);
                         obj.listViewCircolariDelGiorno.setAdapter(a);
@@ -203,9 +197,7 @@ public class SplashUpdateActivity extends AbstractActivity {
                             ThreadUtil.sleep(1000);
                         }
                         if (closed) return;
-                        MainMenuActivity.startMainActivity(SplashUpdateActivity.this);
-                        closed = true;
-                        finish();
+                        startMainMenuActivity();
                     }
                 }
             };
@@ -213,5 +205,17 @@ public class SplashUpdateActivity extends AbstractActivity {
 
             t.start();
         }
+    }
+
+    private void startMainMenuActivity_MenuCircolari() {
+        MainMenuActivity.startMainActivity(SplashUpdateActivity.this, StringsMenuPrincipale.CIRCOLARI_DI_OGGI_6);
+        closed = true;
+        finish();
+    }
+
+    private void startMainMenuActivity() {
+        MainMenuActivity.startMainActivity(SplashUpdateActivity.this);
+        closed = true;
+        finish();
     }
 }
