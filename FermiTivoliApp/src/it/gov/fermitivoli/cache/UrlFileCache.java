@@ -296,7 +296,7 @@ public class UrlFileCache {
                         if (urlTask != null) {
                             //aggiunge il task alla coda
                             urlTask.addTask(callback);
-                            //notifica accodamento
+                            //notifica_nuove_notizie accodamento
                             if (DebugUtil.DEBUG__UrlFileCache) {
                                 Log.d("URL-FILE-CACHE", "QUEUED EXISTING TASK " + url);
                             }

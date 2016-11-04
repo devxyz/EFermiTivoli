@@ -25,11 +25,19 @@
         <servlet-name>StatServlet</servlet-name>
         <servlet-class>it.gov.fermitivoli.server.servlet.StatServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>UpdateDebugServlet</servlet-name>
+        <servlet-class>it.gov.fermitivoli.server.servlet.UpdateDebugServlet</servlet-class>
+    </servlet>
 
 
     <servlet-mapping>
         <servlet-name>JSonDataServlet</servlet-name>
         <url-pattern>/JSonDataServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UpdateDebugServlet</servlet-name>
+        <url-pattern>/UpdateDebugServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>PrintCircolariServlet</servlet-name>

@@ -34,12 +34,14 @@ public class PrintCircolariServlet extends HttpServlet {
         Collections.sort(xx, new Comparator<GAE_CircolareDB_V2>() {
             @Override
             public int compare(GAE_CircolareDB_V2 o1, GAE_CircolareDB_V2 o2) {
-                return -new Integer(o1.getNumero()).compareTo(o2.getNumero());
+                return -Integer.valueOf(o1.getNumero()).compareTo(o2.getNumero());
             }
         });
         for (GAE_CircolareDB_V2 c : xx) {
-            if (c.isFlagDelete()) continue;
-            out.println("<tr><td rowspan=6>" + i + "</td><td><b>URL</b></td>  <td><a href='" + c.getUrl() + "'>" + c.getUrl() + "</a></td></tr>");
+            if (c.isFlagDelete())
+                out.println("<tr><td rowspan=6> ##D## " + i + "</td><td><b>URL</b></td>  <td><a href='" + c.getUrl() + "'>" + c.getUrl() + "</a></td></tr>");
+            else
+                out.println("<tr><td rowspan=6>" + i + "</td><td><b>URL</b></td>  <td><a href='" + c.getUrl() + "'>" + c.getUrl() + "</a></td></tr>");
             out.println("<tr><td><b>Data</b></td>  <td>" + c.getData() + "(delete:" + c.isFlagDelete() + ")" + "</td></tr>");
             out.println("<tr><td><b>Titolo</b></td>  <td>" + c.getNumero() + " - " + c.getTitolo() + "</td></tr>");
             out.println("<tr><td><b>Token</b></td>  <td>" + c.getToken() + "</td></tr>");
@@ -47,7 +49,21 @@ public class PrintCircolariServlet extends HttpServlet {
                 out.println("<tr><td><b>Testo</b></td>  <td>" + c.getTesto().replaceAll("[\n]+", "<br>") + "</td></tr>");
             else
                 out.println("<tr><td><b>Testo</b></td>  <td> NULL </td></tr>");
-            out.println("<tr><td> ------- </td>  <td> ----------------------------- </td></tr>");
+            final String form_token = "<form action='UpdateDebugServlet' method='get' target='_blank'> " +
+                    "<input type='submit' value='Token'>" +
+                    "<input type='hidden' name='ID' value='" + c.getKey() + "'>" +
+                    "<input type='hidden' name='TYPE' value='CIRCOLARI'>" +
+                    "<input type='hidden' name='OPERATION' value='TOKEN'>" +
+                    "</form>";
+            final String form_flagdelete = "<form action='UpdateDebugServlet' method='get' target='_blank'> " +
+                    "<input type='submit' value='Flag Delete'>" +
+                    "<input type='hidden' name='ID' value='" + c.getKey() + "'>" +
+                    "<input type='hidden' name='TYPE' value='CIRCOLARI'>" +
+                    "<input type='hidden' name='OPERATION' value='FLAG_DELETE'>" +
+                    "</form>";
+
+            out.println("<tr><td>-</td><td> " +
+                    form_token + form_flagdelete + " </td></tr>");
             i++;
         }
         out.print("</table></body>");
@@ -60,8 +76,10 @@ public class PrintCircolariServlet extends HttpServlet {
         final InMemoryCacheLayerNewsDB cl2 = DataLayerBuilder.getLoaderNews();
         i = 1;
         for (GAE_NewsDB_V2 c : cl2.allEntities()) {
-            if (c.isFlagDelete()) continue;
-            out.println("<tr><td rowspan=6>" + i + "</td><td><b>LINK</b></td>  <td><a href='" + c.getLink() + "'>" + c.getLink() + "</a></td></tr>");
+            if (c.isFlagDelete())
+                out.println("<tr><td rowspan=6>##D## " + i + "</td><td><b>LINK</b></td>  <td><a href='" + c.getLink() + "'>" + c.getLink() + "</a></td></tr>");
+            else
+                out.println("<tr><td rowspan=6>" + i + "</td><td><b>LINK</b></td>  <td><a href='" + c.getLink() + "'>" + c.getLink() + "</a></td></tr>");
             out.println("<tr><td><b>Data</b></td>  <td>" + c.getPubDate() + "</td></tr>");
             out.println("<tr><td><b>Titolo</b></td>  <td>" + c.getTitolo() + "</td></tr>");
             out.println("<tr><td><b>Token</b></td>  <td>" + c.getToken() + "</td></tr>");
