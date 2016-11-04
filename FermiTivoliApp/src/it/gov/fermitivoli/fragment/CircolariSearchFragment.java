@@ -91,6 +91,32 @@ public class CircolariSearchFragment extends AbstractFragment {
         }
     }
 
+    public static TreeSet<String> listaParole_Circolare(MainMenuActivity m, CircolariListAdapter a, final CircolareDB c) {
+        final TreeSet<String> ris = new TreeSet<>();
+
+        //aggiorna il database
+        FermiAppDbHelper db = new FermiAppDbHelper(m);
+        try {
+            db.runInTransaction(new FermiAppDBHelperRun() {
+                @Override
+                public void run(DaoSession session, Context ctx) throws Throwable {
+
+                    final CircolareContieneTermineDBDao x = session.getCircolareContieneTermineDBDao();
+                    final List<CircolareContieneTermineDB> list = x.queryBuilder().where(CircolareContieneTermineDBDao.Properties._id_circolare.eq(c.getId())).list();
+                    for (CircolareContieneTermineDB xy : list) {
+                        ris.add(xy.getTermineDB().getTermine());
+                    }
+
+                }
+            });
+        } catch (Throwable throwable) {
+
+        } finally {
+            db.close();
+        }
+        return ris;
+    }
+
     @Override
     protected Integer getHelpScreen() {
         return R.drawable.help_cerca_circolari;
@@ -132,7 +158,7 @@ public class CircolariSearchFragment extends AbstractFragment {
                 String[] valori = classi.toArray(new String[classi.size()]);
 
 
-                DialogUtil.openChooseDialog(activity, "Scegli la classe", false,valori, new DialogInterface.OnClickListener() {
+                DialogUtil.openChooseDialog(activity, "Scegli la classe", false, valori, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
 
@@ -296,11 +322,12 @@ public class CircolariSearchFragment extends AbstractFragment {
 
             final CircolareDB c = a.getCircolari().get(position);
 
-            DialogUtil.openChooseDialog(fragment.getActivity(), "Quale azione vuoi svolgere?", true,new CharSequence[]{
+            DialogUtil.openChooseDialog(fragment.getActivity(), "Quale azione vuoi svolgere?", true, new CharSequence[]{
                             "Segna tutte da leggere",
                             "Segna tutte lette",
                             "Segna circolare corrente da leggere",
-                            "Segna circolare corrente letta"
+                            "Segna circolare corrente letta",
+                            "Informazioni"
                     }, new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
@@ -317,6 +344,12 @@ public class CircolariSearchFragment extends AbstractFragment {
                                     break;
                                 case 3:
                                     updateCircolare_impostaFlagLettura(getMainActivity(), a, c, true);
+                                    break;
+                                case 4:
+                                    final TreeSet<String> strings = listaParole_Circolare(getMainActivity(), a, c);
+
+                                    DialogUtil.openAlertDialog(getMainActivity(), "Info", strings.toString());
+
                                     break;
                                 default:
                                     throw new IllegalArgumentException("code:" + which + "");
