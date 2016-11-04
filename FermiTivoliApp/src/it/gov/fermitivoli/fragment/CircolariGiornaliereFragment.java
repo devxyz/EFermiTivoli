@@ -1,6 +1,7 @@
 package it.gov.fermitivoli.fragment;
 
 import android.app.DatePickerDialog;
+import android.app.NotificationManager;
 import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
@@ -22,6 +23,7 @@ import it.gov.fermitivoli.layout.LayoutObjs_fragment_cerca_circolari_by_date_xml
 import it.gov.fermitivoli.listener.OnClickListenerViewErrorCheck;
 import it.gov.fermitivoli.model.C_MyDate;
 import it.gov.fermitivoli.model.CircolariContainerByDate;
+import it.gov.fermitivoli.services.UpdateService;
 import it.gov.fermitivoli.util.DebugUtil;
 
 import java.util.*;
@@ -127,6 +129,12 @@ public class CircolariGiornaliereFragment extends AbstractFragment {
 
         //visualizza le circolari iniziali, prima del download
         __aggiornaMappaCircolariDalDB();
+
+        NotificationManager notificationManager =
+                (NotificationManager) getMainActivity().getSystemService(Context.NOTIFICATION_SERVICE);
+        notificationManager.cancel(UpdateService.ID_NOTIFICA_START_UPDATE);
+        notificationManager.cancel(UpdateService.ID_NOTIFICA_UPDATE);
+
         return rootView;
     }
 

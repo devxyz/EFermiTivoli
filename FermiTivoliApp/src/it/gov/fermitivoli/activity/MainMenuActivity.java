@@ -33,6 +33,7 @@ import it.gov.fermitivoli.model.menu.DataMenuInfo;
 import it.gov.fermitivoli.model.menu.DataMenuInfoFlag;
 import it.gov.fermitivoli.model.menu.DataMenuInfoLatestUsed;
 import it.gov.fermitivoli.model.menu.DataMenuInfoStack;
+import it.gov.fermitivoli.services.UpdateService;
 import it.gov.fermitivoli.util.DialogUtil;
 
 import java.io.File;
@@ -239,6 +240,11 @@ public class MainMenuActivity extends AbstractActivity {
                 return true;
             case R.id.action_menu:
                 openMenu();
+                return true;
+            case R.id.action_update:
+                //start service
+                Intent serviceIntent = new Intent(this, UpdateService.class);
+                startService(serviceIntent);
                 return true;
             case R.id.action_test_speech:
                 Intent i = new Intent(MainMenuActivity.this, Text2SpeechActivity.class);

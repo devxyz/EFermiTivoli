@@ -1,5 +1,6 @@
 package it.gov.fermitivoli.fragment;
 
+import android.app.NotificationManager;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
@@ -22,6 +23,7 @@ import it.gov.fermitivoli.db.ManagerNews;
 import it.gov.fermitivoli.dialog.NewsDetailsDialog;
 import it.gov.fermitivoli.layout.LayoutObjs_fragment_news_rss_xml;
 import it.gov.fermitivoli.listener.OnClickListenerViewErrorCheck;
+import it.gov.fermitivoli.services.UpdateService;
 import it.gov.fermitivoli.util.DebugUtil;
 import it.gov.fermitivoli.util.DialogUtil;
 
@@ -165,6 +167,11 @@ public class NewsFragmentRss extends AbstractFragment {
 
         //new LoadRss(getMainActivity()).execute();
         aggiornaViewNewsAndTerminiDalDB();
+
+        NotificationManager notificationManager =
+                (NotificationManager) getMainActivity().getSystemService(Context.NOTIFICATION_SERVICE);
+        notificationManager.cancel(UpdateService.ID_NOTIFICA_START_UPDATE);
+        notificationManager.cancel(UpdateService.ID_NOTIFICA_UPDATE);
 
         return rootView;
     }

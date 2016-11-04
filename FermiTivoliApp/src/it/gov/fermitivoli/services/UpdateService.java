@@ -42,6 +42,7 @@ import java.util.zip.ZipInputStream;
  */
 public class UpdateService extends Service {
     public static final int ID_NOTIFICA_UPDATE = 0;
+    public static final int ID_NOTIFICA_START_UPDATE = 1;
     final ScheduledExecutorService scheduledExecutorService;
     private int initCount = 0;
 
@@ -49,7 +50,6 @@ public class UpdateService extends Service {
         super();
         scheduledExecutorService = Executors.newScheduledThreadPool(1);
         scheduledExecutorService.scheduleAtFixedRate(new UpdateThread(), 0, 5, TimeUnit.MINUTES);
-        System.out.println("AVVIO SERVIZIO");
     }
 
     public static boolean isNetworkAvailable(Context a) {
@@ -81,7 +81,11 @@ public class UpdateService extends Service {
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-        if (initCount > 0) return START_STICKY;
+        System.out.println("AVVIO SERVIZIO");
+        notifica_avvio();
+
+        if (initCount > 0)
+            return START_STICKY;
         initCount = 1;
 
         //invocato ogni volta che qualcuno richiede l'avvio del servizio
@@ -229,6 +233,31 @@ public class UpdateService extends Service {
                 (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
 
         notificationManager.notify(ID_NOTIFICA_UPDATE, n);
+    }
+
+    private void notifica_avvio() {
+        // prepare intent which is triggered if the
+        // notification is selected
+
+        Intent intent = new Intent(this, MainMenuActivity.class);
+        PendingIntent pIntent = PendingIntent.getActivity(this, 0, intent, 0);
+
+
+        // build notification
+        // the addAction re-use the same intent to keep the example short
+        final Notification.Builder subject = new Notification.Builder(this)
+                .setContentTitle("ITCG E FERMI di Tivoli")
+                .setContentText("Avvio servizio di aggiornamento dati...")
+                .setSmallIcon(R.drawable.logo_fermi_150x150_bordato)
+                .setContentIntent(pIntent)
+                .setAutoCancel(true);
+        Notification n = subject.getNotification();
+
+
+        NotificationManager notificationManager =
+                (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+
+        notificationManager.notify(ID_NOTIFICA_START_UPDATE, n);
     }
 
     private class UpdateThread implements Runnable {

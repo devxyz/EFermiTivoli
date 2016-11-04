@@ -155,6 +155,7 @@ public class CircolariSearchFragment extends AbstractFragment {
 
         NotificationManager notificationManager =
                 (NotificationManager) getMainActivity().getSystemService(Context.NOTIFICATION_SERVICE);
+        notificationManager.cancel(UpdateService.ID_NOTIFICA_START_UPDATE);
         notificationManager.cancel(UpdateService.ID_NOTIFICA_UPDATE);
 
 

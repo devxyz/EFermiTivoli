@@ -1,5 +1,6 @@
 package it.gov.fermitivoli.fragment;
 
+import android.app.NotificationManager;
 import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -16,6 +17,7 @@ import it.gov.fermitivoli.layout.LayoutObjs_fragment_home_xml;
 import it.gov.fermitivoli.listener.OnClickListenerViewErrorCheck;
 import it.gov.fermitivoli.model.menu.DataMenuInfo;
 import it.gov.fermitivoli.model.menu.impl.StringsMenuPrincipale;
+import it.gov.fermitivoli.services.UpdateService;
 
 import java.util.Date;
 import java.util.List;
@@ -101,6 +103,13 @@ public class HomeFragment extends AbstractFragment {
 
             }
         });
+
+
+        NotificationManager notificationManager =
+                (NotificationManager) getMainActivity().getSystemService(Context.NOTIFICATION_SERVICE);
+        notificationManager.cancel(UpdateService.ID_NOTIFICA_START_UPDATE);
+        notificationManager.cancel(UpdateService.ID_NOTIFICA_UPDATE);
+
 
 
         //Ist.+Tec.+Stat.+E.+Fermi/@41.956178,12.806626

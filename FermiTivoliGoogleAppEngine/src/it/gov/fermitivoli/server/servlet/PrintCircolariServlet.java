@@ -13,6 +13,9 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.BufferedOutputStream;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
 
 /**
  * Created by stefano on 01/08/15.
@@ -27,7 +30,14 @@ public class PrintCircolariServlet extends HttpServlet {
         out.print("<tr><td>Progressivo</td><td>Tipo</td><td>Contenuto</td></tr>");
         final InMemoryCacheLayerCircolareDB cl = DataLayerBuilder.getLoaderCircolari();
         int i = 1;
-        for (GAE_CircolareDB_V2 c : cl.allEntities()) {
+        final List<GAE_CircolareDB_V2> xx = cl.allEntities();
+        Collections.sort(xx, new Comparator<GAE_CircolareDB_V2>() {
+            @Override
+            public int compare(GAE_CircolareDB_V2 o1, GAE_CircolareDB_V2 o2) {
+                return -new Integer(o1.getNumero()).compareTo(o2.getNumero());
+            }
+        });
+        for (GAE_CircolareDB_V2 c : xx) {
             if (c.isFlagDelete()) continue;
             out.println("<tr><td rowspan=6>" + i + "</td><td><b>URL</b></td>  <td><a href='" + c.getUrl() + "'>" + c.getUrl() + "</a></td></tr>");
             out.println("<tr><td><b>Data</b></td>  <td>" + c.getData() + "(delete:" + c.isFlagDelete() + ")" + "</td></tr>");

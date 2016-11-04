@@ -35,6 +35,13 @@
                 android:title="Informazioni"/>
 
         <item
+                android:id="@+id/action_update"
+                android:orderInCategory="100"
+                android:showAsAction="never"
+                android:icon="@drawable/arrow_next"
+                android:title="Aggiorna Dati"/>
+
+        <item
                 android:visible="false"
                   android:id="@+id/action_test_speech"
                 android:orderInCategory="100"
