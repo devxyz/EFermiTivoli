@@ -3,6 +3,23 @@
 
     <!-- per ogni menu, l'icona -->
     <array name="menu_home_docente">
+        <!-- xxxxxxxx xxxxxxxx xxxxxxxx xxxxxxxx xxxxxxxx xxxxxxxx xxxxxxxx xxxxxxxx xxxxxxxx xxxxxxxx xxxxxxxx -->
+        <item>912</item>
+        <item>Sito WEB</item>
+        <item>I.T.C.G Enrico Fermi - Tivoli</item>
+        <item>it.gov.fermitivoli.action.SitoWebScuolaAction</item>
+        <item>@drawable/www_48x48</item>
+        <item></item>
+        <item>END-ITEM</item>
+
+        <item>222</item>
+        <item>Contatti</item>
+        <item>Contatta la scuola</item>
+        <item>it.gov.fermitivoli.fragment.ContattiFragment</item>
+        <item>@drawable/icon_info_48x48</item>
+        <item></item>
+        <item>END-ITEM</item>
+
         <!-- .................................. -->
         <item>6</item>
         <item>In evidenza oggi#e#</item>
@@ -27,6 +44,7 @@
         <item>@drawable/file_search</item>
         <item></item>
         <item>END-ITEM</item>
+
 
 
 
@@ -56,6 +74,7 @@
         <item>@drawable/library_icon</item>
         <item></item>
         <item>END-ITEM</item>
+
 
     </array>
 

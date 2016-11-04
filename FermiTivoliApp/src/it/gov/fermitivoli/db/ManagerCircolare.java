@@ -62,10 +62,10 @@ public class ManagerCircolare {
 
         protected QueryBuilder<TermineDB> queryBuilder(DaoSession session) {
             String subQuery =
-                    " select * from " + TermineDBDao.TABLENAME + " WHERE " + TermineDBDao.Properties.Id + " not in " +
-                            "( select " + CircolareContieneTermineDBDao.Properties._id_termine + " from " + CircolareContieneTermineDBDao.TABLENAME + ")";
+                    " select " + TermineDBDao.Properties.Id.columnName + " from " + TermineDBDao.TABLENAME + " WHERE " + TermineDBDao.Properties.Id.columnName + "  not in " +
+                            "( select " + CircolareContieneTermineDBDao.Properties._id_termine.columnName + " from " + CircolareContieneTermineDBDao.TABLENAME + ")";
             TermineDBDao dd = session.getTermineDBDao();
-            QueryBuilder<TermineDB> b = dd.queryBuilder().where(new WhereCondition.StringCondition(TermineDBDao.Properties.Id + "not in " +
+            QueryBuilder<TermineDB> b = dd.queryBuilder().where(new WhereCondition.StringCondition(TermineDBDao.Properties.Id.columnName + " not in " +
                     "(" + subQuery + ")"));
             return b;
         }

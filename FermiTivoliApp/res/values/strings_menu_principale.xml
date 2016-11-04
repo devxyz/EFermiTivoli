@@ -12,13 +12,21 @@
         <item>DONT_SHOW_IN_HOME</item>
         <item>END-ITEM</item>
 
+        <item>912</item>
+        <item>Sito WEB</item>
+        <item>I.T.C.G Enrico Fermi - Tivoli</item>
+        <item>it.gov.fermitivoli.action.SitoWebScuolaAction</item>
+        <item>@drawable/www_48x48</item>
+        <item></item>
+        <item>END-ITEM</item>
+
 
         <!-- xxxxxxxx xxxxxxxx xxxxxxxx xxxxxxxx xxxxxxxx xxxxxxxx xxxxxxxx xxxxxxxx xxxxxxxx xxxxxxxx xxxxxxxx -->
         <item>2</item>
-        <item>Contattaci</item>
+        <item>Contatti</item>
         <item>Contatta la scuola</item>
         <item>it.gov.fermitivoli.fragment.ContattiFragment</item>
-        <item>@drawable/icon_info</item>
+        <item>@drawable/icon_info_48x48</item>
         <item></item>
         <item>END-ITEM</item>
 

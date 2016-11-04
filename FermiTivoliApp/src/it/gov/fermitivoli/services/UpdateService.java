@@ -21,15 +21,17 @@ import java.util.concurrent.TimeUnit;
  * Created by stefano on 23/09/16.
  */
 public class UpdateService extends Service {
-    public static final int ID_NOTIFICA_UPDATE = 0;
-    public static final int ID_NOTIFICA_START_UPDATE = 1;
+    public static final int ID_NOTIFICA_NUOVE_NOTIZIE_CIRCOLARI = 0;
+    public static final int ID_NOTIFICA_AVVIA_AGGIORNAMENTO = 1;
     final ScheduledExecutorService scheduledExecutorService;
     private int initCount = 0;
+    private boolean scheduled = false;
 
     public UpdateService() {
         super();
         scheduledExecutorService = Executors.newScheduledThreadPool(1);
-        scheduledExecutorService.scheduleAtFixedRate(new UpdateThreadService(this), 0, 5, TimeUnit.MINUTES);
+
+
     }
 
     public static boolean isNetworkAvailable(Context a) {
@@ -37,6 +39,10 @@ public class UpdateService extends Service {
                 = (ConnectivityManager) a.getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
         return activeNetworkInfo != null && activeNetworkInfo.isConnected();
+    }
+
+    public void runOnce() {
+        scheduledExecutorService.schedule(new UpdateThreadService(this), 0, TimeUnit.MILLISECONDS);
     }
 
     @Override
@@ -62,7 +68,13 @@ public class UpdateService extends Service {
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
         System.out.println("AVVIO SERVIZIO");
-        notifica_avvio();
+        runOnce();
+
+        if (!scheduled)
+            scheduledExecutorService.scheduleAtFixedRate(new UpdateThreadService(this), 0, 5, TimeUnit.MINUTES);
+
+        scheduled = true;
+
 
         if (initCount > 0)
             return START_STICKY;
@@ -72,6 +84,31 @@ public class UpdateService extends Service {
         return super.onStartCommand(intent, flags, startId);
     }
 
+
+    public void notifica_errore(Throwable e) {
+        // prepare intent which is triggered if the
+        // notification is selected
+
+        Intent intent = new Intent(this, MainMenuActivity.class);
+        PendingIntent pIntent = PendingIntent.getActivity(this, 0, intent, 0);
+
+
+        // build notification
+        // the addAction re-use the same intent to keep the example short
+        final Notification.Builder subject = new Notification.Builder(this)
+                .setContentTitle("ITCG E FERMI di Tivoli")
+                .setContentText("Errore durante l'aggiornamento:" + e.getMessage() + ". Click per aprire l'applicazione.")
+                .setSmallIcon(R.drawable.logo_fermi_150x150_bordato)
+                .setContentIntent(pIntent)
+                .setAutoCancel(true);
+        Notification n = subject.getNotification();
+
+
+        NotificationManager notificationManager =
+                (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+
+        notificationManager.notify(ID_NOTIFICA_NUOVE_NOTIZIE_CIRCOLARI, n);
+    }
 
     public void notifica_nuove_notizie(C_JSonCircolariDeltaServletResponse data) {
         // prepare intent which is triggered if the
@@ -95,7 +132,22 @@ public class UpdateService extends Service {
         NotificationManager notificationManager =
                 (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
 
-        notificationManager.notify(ID_NOTIFICA_UPDATE, n);
+        notificationManager.notify(ID_NOTIFICA_NUOVE_NOTIZIE_CIRCOLARI, n);
+    }
+
+    public void rimuovi_notifica_nuove_notizie() {
+        NotificationManager notificationManager =
+                (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+
+        notificationManager.cancel(ID_NOTIFICA_NUOVE_NOTIZIE_CIRCOLARI);
+
+    }
+
+    public void rimuovi_notifica_avvio() {
+        NotificationManager notificationManager =
+                (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+
+        notificationManager.cancel(ID_NOTIFICA_AVVIA_AGGIORNAMENTO);
     }
 
     public void notifica_avvio() {
@@ -120,7 +172,7 @@ public class UpdateService extends Service {
         NotificationManager notificationManager =
                 (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
 
-        notificationManager.notify(ID_NOTIFICA_START_UPDATE, n);
+        notificationManager.notify(ID_NOTIFICA_AVVIA_AGGIORNAMENTO, n);
     }
 
 

@@ -3,6 +3,23 @@
 
     <!-- per ogni menu, l'icona -->
     <array name="menu_home_studente">
+        <!-- xxxxxxxx xxxxxxxx xxxxxxxx xxxxxxxx xxxxxxxx xxxxxxxx xxxxxxxx xxxxxxxx xxxxxxxx xxxxxxxx xxxxxxxx -->
+        <item>912</item>
+        <item>Sito WEB</item>
+        <item>I.T.C.G Enrico Fermi - Tivoli</item>
+        <item>it.gov.fermitivoli.action.SitoWebScuolaAction</item>
+        <item>@drawable/www_48x48</item>
+        <item></item>
+        <item>END-ITEM</item>
+
+        <item>222</item>
+        <item>Contatti</item>
+        <item>Contatta la scuola</item>
+        <item>it.gov.fermitivoli.fragment.ContattiFragment</item>
+        <item>@drawable/icon_info_48x48</item>
+        <item></item>
+        <item>END-ITEM</item>
+
         <item>2</item>
         <item>News#n#</item>
         <item>Ultime Notizie dalla scuola</item>

@@ -22,6 +22,7 @@ import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
+import java.util.IllegalFormatCodePointException;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
@@ -166,8 +167,10 @@ class UpdateThreadService implements Runnable {
                 i++;
             }
 
+            updateService.notifica_avvio();
             final C_JSonCircolariDeltaServletResponse data = requestData();
             final int num = syncLocalDB(data);
+            updateService.rimuovi_notifica_avvio();
 
             if (num > 0) {
                 //notifica_nuove_notizie nuove circolari aggiunte
@@ -176,6 +179,8 @@ class UpdateThreadService implements Runnable {
             }
 
         } catch (Throwable throwable) {
+            updateService.notifica_errore(throwable);
+            updateService.rimuovi_notifica_avvio();
             throwable.printStackTrace();
         }
 
