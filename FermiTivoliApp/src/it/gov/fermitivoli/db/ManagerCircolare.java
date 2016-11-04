@@ -476,10 +476,11 @@ public class ManagerCircolare {
     private void rimuoveCircolare(CircolareDB c) {
         //elenca i termini della circolare da rimuovere
         queryRicercaTerminiCircolareByIdCircolare.delete(session, c.getId()).executeDeleteWithoutDetachingEntities();
-        session.getCircolareDBDao().delete(c);
 
         //rimuove eventuali termini non piu' usati
         queryRicercaTerminiNonCollegati.delete(session).executeDeleteWithoutDetachingEntities();
+
+        session.getCircolareDBDao().delete(c);
     }
 
 

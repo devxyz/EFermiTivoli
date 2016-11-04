@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" hash="3601053997">
+    <data-source source="LOCAL" name="Android SQLite" uuid="75a3cea8-8137-4832-84f9-9c6e16b2413e">
+      <driver-ref>sqlite.xerial</driver-ref>
+      <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
+      <jdbc-url>jdbc:sqlite:$USER_HOME$/Library/Caches/IntelliJIdea15/android/databases/SERIAL_NUMBER_G5AZCY01Z3523FH/it.gov.fermitivoli/internal/fermi_tivoli_db</jdbc-url>
+    </data-source>
+  </component>
+</project>
