@@ -407,12 +407,15 @@ public class ManagerCircolare {
      * @param cc
      */
     public void salva(List<C_CircolareDto> cc) {
+
+
         final CircolareDBDao circolareDBDao = session.getCircolareDBDao();
         final List<CircolareDB> list = circolareDBDao.queryBuilder().list();
         final ArrayList<C_Pair<CircolareDB, C_CircolareDto>> pairs = raccordaCircolari(cc, list);
 
         //aggiorna le coppie comuni
         for (C_Pair<CircolareDB, C_CircolareDto> p : pairs) {
+
             CircolareDB cDB = p.a;
             C_CircolareDto cDTO = p.b;
 

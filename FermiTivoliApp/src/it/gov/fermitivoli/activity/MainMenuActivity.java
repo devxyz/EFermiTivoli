@@ -105,6 +105,11 @@ public class MainMenuActivity extends AbstractActivity {
             finish();
             return;
         }
+
+        //start service
+        Intent serviceIntent = new Intent(this, UpdateService.class);
+        startService(serviceIntent);
+
         IS_RUNNING = true;
         setContentView(R.layout.activity_main);
 
