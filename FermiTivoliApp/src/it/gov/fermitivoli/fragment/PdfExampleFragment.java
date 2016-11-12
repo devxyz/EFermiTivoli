@@ -28,7 +28,7 @@ public class PdfExampleFragment extends AbstractFragment {
                              Bundle savedInstanceState) {
 
         View rootView = inflater.inflate(R.layout.fragment_pdf_example, container, false);
-        LAYOUT_OBJs = new LayoutObjs_fragment_pdf_example_xml(  rootView);
+        LAYOUT_OBJs = new LayoutObjs_fragment_pdf_example_xml(rootView);
 
         LAYOUT_OBJs.button.setOnClickListener(new OnClickListenerViewErrorCheck(getMainActivity()) {
             @Override
@@ -52,7 +52,6 @@ public class PdfExampleFragment extends AbstractFragment {
 
         return rootView;
     }
-
 
 
 }

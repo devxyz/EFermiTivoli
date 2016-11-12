@@ -8,8 +8,8 @@ import android.view.ViewGroup;
 import android.widget.ExpandableListView;
 import it.gov.fermitivoli.R;
 import it.gov.fermitivoli.adapter.StructureSchoolPhotoExpandableListAdapter;
-import it.gov.fermitivoli.dialog.PhotoFermiDetailsDialog;
 import it.gov.fermitivoli.api.AbstractFragment;
+import it.gov.fermitivoli.dialog.PhotoFermiDetailsDialog;
 import it.gov.fermitivoli.layout.LayoutObjs_fragment_photos_expandable_xml;
 import it.gov.fermitivoli.model.PhotoFermiDescription;
 

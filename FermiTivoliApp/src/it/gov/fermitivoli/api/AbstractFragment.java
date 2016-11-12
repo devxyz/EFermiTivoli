@@ -4,6 +4,7 @@ import android.app.Fragment;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.widget.Toast;
 import it.gov.fermitivoli.activity.HelpActivity;
 import it.gov.fermitivoli.activity.MainMenuActivity;
 import it.gov.fermitivoli.cache.AsyncUrlLoaderCallback;
@@ -19,6 +20,14 @@ public abstract class AbstractFragment extends Fragment {
     private final ArrayList<AsyncUrlLoaderCallback> task2 = new ArrayList<AsyncUrlLoaderCallback>();
 
     protected AbstractFragment() {
+    }
+
+    /**
+     * chiamato quando è opportuno aggiornare l'interfaccia grafica per nuovi dati disponibili
+     */
+    public void updateUI() {
+        //DialogUtil.openInfoDialog(getMainActivity(), "Aggiornamento", "Test di aggiornamento");
+        Toast.makeText(getMainActivity(), "Aggiornamento dati", Toast.LENGTH_LONG).show();
     }
 
     @Override
@@ -47,7 +56,6 @@ public abstract class AbstractFragment extends Fragment {
             sp.setHelpShownForFragment(this, true);
             return true;
         }
-
 
 
     }

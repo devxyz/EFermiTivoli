@@ -133,5 +133,4 @@ public class ContattiFragment extends AbstractFragment {
     }
 
 
-
 }

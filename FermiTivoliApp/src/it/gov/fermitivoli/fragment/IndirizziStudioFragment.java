@@ -10,8 +10,8 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import it.gov.fermitivoli.R;
 import it.gov.fermitivoli.adapter.IndirizziStudioListAdapter;
-import it.gov.fermitivoli.dialog.HtmlPageDialog;
 import it.gov.fermitivoli.api.AbstractFragment;
+import it.gov.fermitivoli.dialog.HtmlPageDialog;
 import it.gov.fermitivoli.layout.LayoutObjs_fragment_indirizzi_studio_xml;
 import it.gov.fermitivoli.listener.OnClickListenerViewErrorCheck;
 import it.gov.fermitivoli.model.IndirizziStudioDescription;
@@ -38,13 +38,13 @@ public class IndirizziStudioFragment extends AbstractFragment {
         final ArrayList<IndirizziStudioDescription> items = new ArrayList<IndirizziStudioDescription>();
         items.add(new IndirizziStudioDescription.IndirizziStudioDescription_CategoriaLivello1("Presentazione"));
         items.add(new IndirizziStudioDescription.IndirizziStudioDescription_RisorsaCorsoLivello3(
-                        "Struttura degli istituti tecnici", "Struttura degli istituti tecnici",
-                        R.raw.indirizzi_studio_riforma)
+                "Struttura degli istituti tecnici", "Struttura degli istituti tecnici",
+                R.raw.indirizzi_studio_riforma)
         );
 
         items.add(new IndirizziStudioDescription.IndirizziStudioDescription_RisorsaCorsoLivello3(
-                        "Obiettivi comuni ai corsi", "Obiettivi comuni trasversali",
-                        R.raw.indirizzi_studio_obiettivi_trasversali)
+                "Obiettivi comuni ai corsi", "Obiettivi comuni trasversali",
+                R.raw.indirizzi_studio_obiettivi_trasversali)
         );
 
 
@@ -52,68 +52,68 @@ public class IndirizziStudioFragment extends AbstractFragment {
 
         //AFM
         items.add(new IndirizziStudioDescription.IndirizziStudioDescription_CorsoLivello2(getResources().getString(
-                        R.string.indirizzi_studio_AFM_nome),
-                        R.raw.indirizzi_studio_afm_descrizione, R.drawable.logo_indirizzo_afm)
+                R.string.indirizzi_studio_AFM_nome),
+                R.raw.indirizzi_studio_afm_descrizione, R.drawable.logo_indirizzo_afm)
         );
         items.add(new IndirizziStudioDescription.IndirizziStudioDescription_RisorsaCorsoLivello3(
-                        getResources().getString(
-                                R.string.indirizzi_studio_AFM_nome), "Descrizione",
-                        R.raw.indirizzi_studio_afm_descrizione)
+                getResources().getString(
+                        R.string.indirizzi_studio_AFM_nome), "Descrizione",
+                R.raw.indirizzi_studio_afm_descrizione)
         );
         items.add(new IndirizziStudioDescription.IndirizziStudioDescription_RisorsaCorsoLivello3(
-                        getResources().getString(
-                                R.string.indirizzi_studio_AFM_nome), "Quadro orario discipline",
-                        R.raw.indirizzi_studio_afm_orario)
+                getResources().getString(
+                        R.string.indirizzi_studio_AFM_nome), "Quadro orario discipline",
+                R.raw.indirizzi_studio_afm_orario)
         );
 
         //SIA
         items.add(new IndirizziStudioDescription.IndirizziStudioDescription_CorsoLivello2(getResources().getString(
-                        R.string.indirizzi_studio_SIA_nome),
-                        R.raw.indirizzi_studio_sia_descrizione, R.drawable.logo_indirizzo_sia)
+                R.string.indirizzi_studio_SIA_nome),
+                R.raw.indirizzi_studio_sia_descrizione, R.drawable.logo_indirizzo_sia)
         );
         items.add(new IndirizziStudioDescription.IndirizziStudioDescription_RisorsaCorsoLivello3(
-                        getResources().getString(
-                                R.string.indirizzi_studio_SIA_nome), "Descrizione",
-                        R.raw.indirizzi_studio_sia_descrizione)
+                getResources().getString(
+                        R.string.indirizzi_studio_SIA_nome), "Descrizione",
+                R.raw.indirizzi_studio_sia_descrizione)
         );
         items.add(new IndirizziStudioDescription.IndirizziStudioDescription_RisorsaCorsoLivello3(
-                        getResources().getString(
-                                R.string.indirizzi_studio_SIA_nome), "Quadro orario discipline",
-                        R.raw.indirizzi_studio_sia_orario)
+                getResources().getString(
+                        R.string.indirizzi_studio_SIA_nome), "Quadro orario discipline",
+                R.raw.indirizzi_studio_sia_orario)
         );
 
 
         items.add(new IndirizziStudioDescription.IndirizziStudioDescription_CategoriaLivello1("Settore Tecnologico"));
         //GEOM
         items.add(new IndirizziStudioDescription.IndirizziStudioDescription_CorsoLivello2(getResources().getString(
-                        R.string.indirizzi_studio_GEOM_nome),
-                        R.raw.indirizzi_studio_geom_descrizione, R.drawable.logo_indirizzo_geom)
+                R.string.indirizzi_studio_GEOM_nome),
+                R.raw.indirizzi_studio_geom_descrizione, R.drawable.logo_indirizzo_geom)
         );
         items.add(new IndirizziStudioDescription.IndirizziStudioDescription_RisorsaCorsoLivello3(
-                        getResources().getString(
-                                R.string.indirizzi_studio_GEOM_nome), "Descrizione",
-                        R.raw.indirizzi_studio_geom_descrizione)
+                getResources().getString(
+                        R.string.indirizzi_studio_GEOM_nome), "Descrizione",
+                R.raw.indirizzi_studio_geom_descrizione)
         );
         items.add(new IndirizziStudioDescription.IndirizziStudioDescription_RisorsaCorsoLivello3(
-                        getResources().getString(
-                                R.string.indirizzi_studio_GEOM_nome), "Quadro orario discipline",
-                        R.raw.indirizzi_studio_geom_orario)
+                getResources().getString(
+                        R.string.indirizzi_studio_GEOM_nome), "Quadro orario discipline",
+                R.raw.indirizzi_studio_geom_orario)
         );
 
         //GRAFICA
         items.add(new IndirizziStudioDescription.IndirizziStudioDescription_CorsoLivello2(getResources().getString(
-                        R.string.indirizzi_studio_GRAFICA_nome),
-                        R.raw.indirizzi_studio_grafica_descrizione, R.drawable.logo_indirizzo_grafica)
+                R.string.indirizzi_studio_GRAFICA_nome),
+                R.raw.indirizzi_studio_grafica_descrizione, R.drawable.logo_indirizzo_grafica)
         );
         items.add(new IndirizziStudioDescription.IndirizziStudioDescription_RisorsaCorsoLivello3(
-                        getResources().getString(
-                                R.string.indirizzi_studio_GRAFICA_nome), "Descrizione",
-                        R.raw.indirizzi_studio_grafica_descrizione)
+                getResources().getString(
+                        R.string.indirizzi_studio_GRAFICA_nome), "Descrizione",
+                R.raw.indirizzi_studio_grafica_descrizione)
         );
         items.add(new IndirizziStudioDescription.IndirizziStudioDescription_RisorsaCorsoLivello3(
-                        getResources().getString(
-                                R.string.indirizzi_studio_GRAFICA_nome), "Quadro orario discipline",
-                        R.raw.indirizzi_studio_grafica_orario)
+                getResources().getString(
+                        R.string.indirizzi_studio_GRAFICA_nome), "Quadro orario discipline",
+                R.raw.indirizzi_studio_grafica_orario)
         );
 
 
@@ -146,7 +146,7 @@ public class IndirizziStudioFragment extends AbstractFragment {
 
                     System.out.println("==========================");
                     System.out.println(htmlStream);
-                    HtmlPageDialog d = new HtmlPageDialog(getMainActivity(), x.nomeIndirizzo, (s),null);
+                    HtmlPageDialog d = new HtmlPageDialog(getMainActivity(), x.nomeIndirizzo, (s), null);
                     d.show();
                 } else
                     throw new IllegalArgumentException("invalid type");
@@ -163,8 +163,6 @@ public class IndirizziStudioFragment extends AbstractFragment {
 
         return rootView;
     }
-
-
 
 
 }

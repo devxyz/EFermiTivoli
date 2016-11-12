@@ -423,6 +423,7 @@ public class ManagerCircolare {
                 //solo aggiornamento del testo
                 if (cDB.getTesto() == null && cDTO.getTesto() != null) {
                     DtoUtil.copy(cDTO, cDB);
+                    cDB.setFlagContenutoLetto(false);
                     circolareDBDao.update(cDB);
 
                     //aggiornamento dei termini
@@ -434,6 +435,7 @@ public class ManagerCircolare {
                     //solo aggiornamento del testo
                     cDB = new CircolareDB();
                     cDB.setDataInserimento(new Date());
+                    cDB.setFlagContenutoLetto(false);
                     DtoUtil.copy(cDTO, cDB);
                     circolareDBDao.insert(cDB);
 

@@ -1,7 +1,6 @@
 package it.gov.fermitivoli.fragment;
 
 import android.app.DatePickerDialog;
-import android.app.NotificationManager;
 import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
@@ -10,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CompoundButton;
 import android.widget.DatePicker;
+import android.widget.Toast;
 import it.gov.fermitivoli.R;
 import it.gov.fermitivoli.adapter.CircolariListAdapter;
 import it.gov.fermitivoli.api.AbstractFragment;
@@ -23,7 +23,6 @@ import it.gov.fermitivoli.layout.LayoutObjs_fragment_cerca_circolari_by_date_xml
 import it.gov.fermitivoli.listener.OnClickListenerViewErrorCheck;
 import it.gov.fermitivoli.model.C_MyDate;
 import it.gov.fermitivoli.model.CircolariContainerByDate;
-import it.gov.fermitivoli.services.UpdateService;
 import it.gov.fermitivoli.util.DebugUtil;
 
 import java.util.*;
@@ -36,6 +35,12 @@ public class CircolariGiornaliereFragment extends AbstractFragment {
     private CircolariListAdapter a;
 
     public CircolariGiornaliereFragment() {
+    }
+
+    @Override
+    public void updateUI() {
+        Toast.makeText(getMainActivity(), "Aggiornamento dati avvenuto con successo (circolari)", Toast.LENGTH_SHORT).show();
+        __aggiornaMappaCircolariDalDB();
     }
 
     @Override
@@ -129,12 +134,6 @@ public class CircolariGiornaliereFragment extends AbstractFragment {
 
         //visualizza le circolari iniziali, prima del download
         __aggiornaMappaCircolariDalDB();
-
-        NotificationManager notificationManager =
-                (NotificationManager) getMainActivity().getSystemService(Context.NOTIFICATION_SERVICE);
-        notificationManager.cancel(UpdateService.ID_NOTIFICA_AVVIA_AGGIORNAMENTO);
-        notificationManager.cancel(UpdateService.ID_NOTIFICA_NUOVE_NOTIZIE_CIRCOLARI);
-
         return rootView;
     }
 
@@ -155,6 +154,8 @@ public class CircolariGiornaliereFragment extends AbstractFragment {
      * @throws Throwable
      */
     private void __aggiornaMappaCircolariDalDB() {
+
+
         final FermiAppDbHelper db = new FermiAppDbHelper(getMainActivity());
         try {
             db.runInTransaction(new FermiAppDBHelperRun() {

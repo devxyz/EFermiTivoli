@@ -1,6 +1,5 @@
 package it.gov.fermitivoli.fragment;
 
-import android.app.NotificationManager;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
@@ -10,10 +9,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.ListAdapter;
-import android.widget.MultiAutoCompleteTextView;
+import android.widget.*;
 import it.gov.fermitivoli.R;
 import it.gov.fermitivoli.activity.MainMenuActivity;
 import it.gov.fermitivoli.adapter.NewsListAdapter;
@@ -23,7 +19,6 @@ import it.gov.fermitivoli.db.ManagerNews;
 import it.gov.fermitivoli.dialog.NewsDetailsDialog;
 import it.gov.fermitivoli.layout.LayoutObjs_fragment_news_rss_xml;
 import it.gov.fermitivoli.listener.OnClickListenerViewErrorCheck;
-import it.gov.fermitivoli.services.UpdateService;
 import it.gov.fermitivoli.util.DebugUtil;
 import it.gov.fermitivoli.util.DialogUtil;
 
@@ -86,6 +81,12 @@ public class NewsFragmentRss extends AbstractFragment {
             }
             a.notifyDataSetChanged();
         }
+    }
+
+    @Override
+    public void updateUI() {
+        Toast.makeText(getMainActivity(), "Aggiornamento dati avvenuto con successo (notizie)", Toast.LENGTH_SHORT).show();
+        aggiornaViewNewsAndTerminiDalDB();
     }
 
     @Override
@@ -167,11 +168,6 @@ public class NewsFragmentRss extends AbstractFragment {
 
         //new LoadRss(getMainActivity()).execute();
         aggiornaViewNewsAndTerminiDalDB();
-
-        NotificationManager notificationManager =
-                (NotificationManager) getMainActivity().getSystemService(Context.NOTIFICATION_SERVICE);
-        notificationManager.cancel(UpdateService.ID_NOTIFICA_AVVIA_AGGIORNAMENTO);
-        notificationManager.cancel(UpdateService.ID_NOTIFICA_NUOVE_NOTIZIE_CIRCOLARI);
 
         return rootView;
     }

@@ -105,11 +105,6 @@ public class HomeFragment extends AbstractFragment {
         });
 
 
-        NotificationManager notificationManager =
-                (NotificationManager) getMainActivity().getSystemService(Context.NOTIFICATION_SERVICE);
-        notificationManager.cancel(UpdateService.ID_NOTIFICA_AVVIA_AGGIORNAMENTO);
-        notificationManager.cancel(UpdateService.ID_NOTIFICA_NUOVE_NOTIZIE_CIRCOLARI);
-
 
 
         //Ist.+Tec.+Stat.+E.+Fermi/@41.956178,12.806626

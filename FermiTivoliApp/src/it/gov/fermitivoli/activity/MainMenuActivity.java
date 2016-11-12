@@ -3,9 +3,7 @@ package it.gov.fermitivoli.activity;
 import android.app.ActivityManager;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
-import android.content.Context;
-import android.content.DialogInterface;
-import android.content.Intent;
+import android.content.*;
 import android.content.res.Configuration;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
@@ -33,8 +31,10 @@ import it.gov.fermitivoli.model.menu.DataMenuInfo;
 import it.gov.fermitivoli.model.menu.DataMenuInfoFlag;
 import it.gov.fermitivoli.model.menu.DataMenuInfoLatestUsed;
 import it.gov.fermitivoli.model.menu.DataMenuInfoStack;
+import it.gov.fermitivoli.notification.NotificationUtil;
 import it.gov.fermitivoli.services.UpdateService;
 import it.gov.fermitivoli.util.DialogUtil;
+import it.gov.fermitivoli.util.ThreadUtil;
 
 import java.io.File;
 import java.util.List;
@@ -42,8 +42,8 @@ import java.util.Map;
 
 
 public class MainMenuActivity extends AbstractActivity {
+    public static final String RECEIVER_ACTION_UPDATE = "it.gov.fermitivoli.DATA_UPDATE";
     private static final String KEY_MENU_ID_INTENT = "KEY_MENU_ID_INTENT";
-    private static boolean IS_RUNNING = false;
     private final DataMenuInfoStack stack = new DataMenuInfoStack();
     public ListView mDrawerList;
     private DrawerLayout mDrawerLayout;
@@ -57,6 +57,7 @@ public class MainMenuActivity extends AbstractActivity {
     private Drawable currentFragmentIcon;
     private AbstractFragment currentFragment;
     private int currentSelectionIndex = -1;
+    private BroadcastReceiver receiver;
 
 
     public static void startMainActivity(Context ctx, DataMenuInfo m) {
@@ -96,21 +97,38 @@ public class MainMenuActivity extends AbstractActivity {
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        receiver = new BroadcastReceiver() {
+            @Override
+            public void onReceive(Context context, Intent intent) {
+
+
+                //elimina eventuali notifiche appese...
+                //NotificationUtil.errorMessage(null).cancel(getActivity());
+                NotificationUtil.newDataAvailableMessage(0).cancel(getActivity());
+
+
+                ThreadUtil.runOnUiThreadAsync(MainMenuActivity.this, new Runnable() {
+                    @Override
+                    public void run() {
+                        if (currentFragment != null) {
+                            currentFragment.updateUI();
+                        }
+                    }
+                });
+            }
+        };
+        registerReceiver(receiver, new IntentFilter(RECEIVER_ACTION_UPDATE));
+
 
         // Possible work around for market launches. See http://code.google.com/p/android/issues/detail?id=2373
         // for more details. Essentially, the market launches the main activity on top of other activities.
         // we never want this to happen. Instead, we check if we are the root and if not, we finish.
 
-        if (IS_RUNNING) {
-            finish();
-            return;
-        }
 
         //start service
         Intent serviceIntent = new Intent(this, UpdateService.class);
         startService(serviceIntent);
 
-        IS_RUNNING = true;
         setContentView(R.layout.activity_main);
 
 
@@ -410,10 +428,12 @@ public class MainMenuActivity extends AbstractActivity {
         Intent serviceIntent = new Intent(this, UpdateService.class);
         stopService(serviceIntent);
 */
-        IS_RUNNING = false;
-
         getCache().closeAsync();
         getDatabase().close();
+
+        if (receiver != null)
+            unregisterReceiver(receiver);
+        receiver = null;
 
     }
 

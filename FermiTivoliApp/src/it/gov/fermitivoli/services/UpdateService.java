@@ -21,17 +21,12 @@ import java.util.concurrent.TimeUnit;
  * Created by stefano on 23/09/16.
  */
 public class UpdateService extends Service {
-    public static final int ID_NOTIFICA_NUOVE_NOTIZIE_CIRCOLARI = 0;
-    public static final int ID_NOTIFICA_AVVIA_AGGIORNAMENTO = 1;
     final ScheduledExecutorService scheduledExecutorService;
-    private int initCount = 0;
     private boolean scheduled = false;
 
     public UpdateService() {
         super();
         scheduledExecutorService = Executors.newScheduledThreadPool(1);
-
-
     }
 
     public static boolean isNetworkAvailable(Context a) {
@@ -39,10 +34,6 @@ public class UpdateService extends Service {
                 = (ConnectivityManager) a.getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
         return activeNetworkInfo != null && activeNetworkInfo.isConnected();
-    }
-
-    public void runOnce() {
-        scheduledExecutorService.schedule(new UpdateThreadService(this), 0, TimeUnit.MILLISECONDS);
     }
 
     @Override
@@ -68,24 +59,25 @@ public class UpdateService extends Service {
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
         System.out.println("AVVIO SERVIZIO");
-        runOnce();
 
+        //avvia il task
+        scheduledExecutorService.schedule(new UpdateThreadService(this), 0, TimeUnit.MILLISECONDS);
+
+        //se necessario effettua uno scheduling fisso
         if (!scheduled)
-            scheduledExecutorService.scheduleAtFixedRate(new UpdateThreadService(this), 0, 5, TimeUnit.MINUTES);
+            scheduledExecutorService.scheduleAtFixedRate(new UpdateThreadService(this), 5, 5, TimeUnit.MINUTES);
+        else
+            return START_STICKY;
 
         scheduled = true;
 
-
-        if (initCount > 0)
-            return START_STICKY;
-        initCount = 1;
 
         //invocato ogni volta che qualcuno richiede l'avvio del servizio
         return super.onStartCommand(intent, flags, startId);
     }
 
 
-    public void notifica_errore(Throwable e) {
+    /*public void notifica_errore(Throwable e) {
         // prepare intent which is triggered if the
         // notification is selected
 
@@ -163,7 +155,7 @@ public class UpdateService extends Service {
         final Notification.Builder subject = new Notification.Builder(this)
                 .setContentTitle("ITCG E FERMI di Tivoli")
                 .setContentText("Avvio servizio di aggiornamento dati...")
-                .setSmallIcon(R.drawable.logo_fermi_150x150_bordato)
+                .setSmallIcon(R.drawable.update_128x128)
                 .setContentIntent(pIntent)
                 .setAutoCancel(true);
         Notification n = subject.getNotification();
@@ -173,7 +165,7 @@ public class UpdateService extends Service {
                 (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
 
         notificationManager.notify(ID_NOTIFICA_AVVIA_AGGIORNAMENTO, n);
-    }
+    }*/
 
 
 }

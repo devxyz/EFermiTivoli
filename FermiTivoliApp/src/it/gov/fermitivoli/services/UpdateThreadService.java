@@ -1,9 +1,11 @@
 package it.gov.fermitivoli.services;
 
 import android.content.Context;
+import android.content.Intent;
 import android.util.Log;
 import com.google.gson.Gson;
 import it.gov.fermitivoli.R;
+import it.gov.fermitivoli.activity.MainMenuActivity;
 import it.gov.fermitivoli.dao.DaoSession;
 import it.gov.fermitivoli.dao.FermiAppDBHelperRun;
 import it.gov.fermitivoli.dao.FermiAppDbHelper;
@@ -12,6 +14,8 @@ import it.gov.fermitivoli.db.ManagerCircolare;
 import it.gov.fermitivoli.db.ManagerNews;
 import it.gov.fermitivoli.model.C_JSonCircolariDeltaServletRequest;
 import it.gov.fermitivoli.model.C_JSonCircolariDeltaServletResponse;
+import it.gov.fermitivoli.notification.NotificationMessage;
+import it.gov.fermitivoli.notification.NotificationUtil;
 import it.gov.fermitivoli.util.DebugUtil;
 import it.gov.fermitivoli.util.StreamAndroid;
 import it.gov.fermitivoli.util.ThreadUtil;
@@ -22,7 +26,6 @@ import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
-import java.util.IllegalFormatCodePointException;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
@@ -167,20 +170,26 @@ class UpdateThreadService implements Runnable {
                 i++;
             }
 
-            updateService.notifica_avvio();
+            final NotificationMessage n = NotificationUtil.updateProcessMessage();
+            n.show(updateService);
             final C_JSonCircolariDeltaServletResponse data = requestData();
             final int num = syncLocalDB(data);
-            updateService.rimuovi_notifica_avvio();
+            n.cancel(updateService);
 
             if (num > 0) {
                 //notifica_nuove_notizie nuove circolari aggiunte
                 //notifica_nuove_notizie(data);
-                updateService.notifica_nuove_notizie(data);
+                NotificationUtil.newDataAvailableMessage(data.circolariDaAggiungereAggiornare.size() + data.newsDaAggiungereAggiornare.size());
+
+                //aggiorna l'interfaccia grafica, se possibile
+                Intent x = new Intent(MainMenuActivity.RECEIVER_ACTION_UPDATE);
+                updateService.sendBroadcast(x);
             }
 
         } catch (Throwable throwable) {
-            updateService.notifica_errore(throwable);
-            updateService.rimuovi_notifica_avvio();
+            //notifica errore
+            NotificationUtil.updateProcessMessage().cancel(updateService);
+            //NotificationUtil.errorMessage(throwable).cancel(updateService);
             throwable.printStackTrace();
         }
 

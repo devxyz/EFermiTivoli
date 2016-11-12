@@ -1,10 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="DataSourceManagerImpl" format="xml" hash="2623955735">
-    <data-source source="LOCAL" name="Android SQLite" uuid="75a3cea8-8137-4832-84f9-9c6e16b2413e">
+  <component name="DataSourceManagerImpl" format="xml" hash="2614105039">
+    <data-source source="LOCAL" name="Android SQLite" uuid="55a44a3e-de13-4c96-9e1f-339df7f09a14">
       <driver-ref>sqlite.xerial</driver-ref>
       <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
       <jdbc-url>jdbc:sqlite:$USER_HOME$/Library/Caches/IntelliJIdea15/android/databases/SERIAL_NUMBER_G5AZCY01Z3523FH/it.gov.fermitivoli/internal/fermi_tivoli_db</jdbc-url>
+      <libraries>
+        <library>
+          <url>file://$APPLICATION_CONFIG_DIR$/jdbc-drivers/xerial-sqlite-license.txt</url>
+        </library>
+        <library>
+          <url>file://$APPLICATION_CONFIG_DIR$/jdbc-drivers/sqlite-jdbc-3.8.9.jar</url>
+        </library>
+      </libraries>
     </data-source>
   </component>
 </project>
