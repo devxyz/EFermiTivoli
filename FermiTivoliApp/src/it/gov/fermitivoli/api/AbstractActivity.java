@@ -1,7 +1,6 @@
 package it.gov.fermitivoli.api;
 
 import android.app.Activity;
-import android.content.Context;
 import android.os.Bundle;
 import it.gov.fermitivoli.cache.UrlFileCache;
 import it.gov.fermitivoli.dao.FermiAppDbHelper;
@@ -43,7 +42,7 @@ public abstract class AbstractActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         cache = new UrlFileCache(this);
-        sharedpreferences = new SharedPreferenceWrapper(getSharedPreferences("fermi-tivoli", Context.MODE_PRIVATE));
+        sharedpreferences = SharedPreferenceWrapper.getCommonInstance(getActivity());
         database = new FermiAppDbHelper(getActivity());
 
     }

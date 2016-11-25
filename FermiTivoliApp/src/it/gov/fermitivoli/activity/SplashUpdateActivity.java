@@ -21,10 +21,7 @@ import it.gov.fermitivoli.layout.LayoutObjs_activity_splash_update2_xml;
 import it.gov.fermitivoli.model.AppUserType;
 import it.gov.fermitivoli.model.menu.impl.StringsMenuPrincipale;
 import it.gov.fermitivoli.services.UpdateService;
-import it.gov.fermitivoli.util.C_DateUtil;
-import it.gov.fermitivoli.util.DebugUtil;
-import it.gov.fermitivoli.util.DialogUtil;
-import it.gov.fermitivoli.util.ThreadUtil;
+import it.gov.fermitivoli.util.*;
 
 import java.util.*;
 
@@ -150,13 +147,16 @@ public class SplashUpdateActivity extends AbstractActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 startMainMenuActivity_MenuCircolari();
-
             }
         });
 
         //start service
         Intent serviceIntent = new Intent(this, UpdateService.class);
         startService(serviceIntent);
+
+        final SharedPreferenceWrapper e = SharedPreferenceWrapper.getCommonInstance(getApplication());
+        obj.textView10.setText("Ultimo aggiornamento: " + C_DateUtil.toDDMMYYY_HHMMSS(e.getLastDataUpdate()));
+        obj.textView10.setVisibility(View.INVISIBLE);
 
         final AppUserType userType = getSharedPreferences().getUserType();
         if (userType == null) {

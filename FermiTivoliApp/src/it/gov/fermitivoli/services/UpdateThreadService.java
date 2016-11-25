@@ -161,6 +161,11 @@ class UpdateThreadService implements Runnable {
     @Override
     public void run() {
         try {
+            //se non richiesto l'update, skip
+            if (!updateService.shouldUpdate())
+                return;
+
+
             System.out.println("UPDATE");
 
             //attende che la rete dati sia disponibile
@@ -170,11 +175,11 @@ class UpdateThreadService implements Runnable {
                 i++;
             }
 
-            final NotificationMessage n = NotificationUtil.updateProcessMessage();
-            n.show(updateService);
+            //final NotificationMessage n = NotificationUtil.updateProcessMessage();
+            //n.show(updateService);
             final C_JSonCircolariDeltaServletResponse data = requestData();
             final int num = syncLocalDB(data);
-            n.cancel(updateService);
+            //n.cancel(updateService);
 
             if (num > 0) {
                 //notifica_nuove_notizie nuove circolari aggiunte
@@ -188,7 +193,7 @@ class UpdateThreadService implements Runnable {
 
         } catch (Throwable throwable) {
             //notifica errore
-            NotificationUtil.updateProcessMessage().cancel(updateService);
+            //NotificationUtil.updateProcessMessage().cancel(updateService);
             //NotificationUtil.errorMessage(throwable).cancel(updateService);
             throwable.printStackTrace();
         }

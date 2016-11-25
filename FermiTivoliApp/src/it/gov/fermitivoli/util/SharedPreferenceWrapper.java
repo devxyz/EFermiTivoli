@@ -1,10 +1,12 @@
 package it.gov.fermitivoli.util;
 
+import android.content.Context;
 import android.content.SharedPreferences;
 import it.gov.fermitivoli.api.AbstractFragment;
 import it.gov.fermitivoli.model.AppUserType;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -15,10 +17,15 @@ public class SharedPreferenceWrapper {
     private static final String KEY_NOME_LOCALITA = "KEY_NOME_LOCALITA";
     private static final String KEY_LAST_USED_MENU = "KEY_LAST_USED_MENU";
     private static final String KEY_USER_TYPE = "KEY_USER_TYPE";
+    private static final String KEY_DATA_UPDATE = "KEY_DATA_UPDATE";
     private final SharedPreferences preferences;
 
-    public SharedPreferenceWrapper(SharedPreferences preferences) {
+    private SharedPreferenceWrapper(SharedPreferences preferences) {
         this.preferences = preferences;
+    }
+
+    public static SharedPreferenceWrapper getCommonInstance(Context ctx) {
+        return new SharedPreferenceWrapper(ctx.getSharedPreferences("fermi-tivoli", Context.MODE_PRIVATE));
     }
 
     public AppUserType getUserType() {
@@ -31,7 +38,17 @@ public class SharedPreferenceWrapper {
         SharedPreferences.Editor edit = preferences.edit();
         edit.putString(KEY_USER_TYPE, t.name());
         edit.apply();
+    }
 
+    public Date getLastDataUpdate() {
+        final long aLong = preferences.getLong(KEY_DATA_UPDATE, 0);
+        return new Date(aLong);
+    }
+
+    public void setLastDataUpdate(Date d) {
+        SharedPreferences.Editor e = preferences.edit();
+        e.putLong(KEY_LAST_USED_MENU, d.getTime());
+        e.apply();
     }
 
     public SharedPreferences getPreferences() {
