@@ -3,11 +3,14 @@
     <properties maven-id="com.google.code.gson:gson:2.3.1" />
     <CLASSES>
       <root url="jar://$PROJECT_DIR$/FermiTivoliGoogleAppEngine/libs/gson-2.3.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/FermiTivoliGoogleAppEngine/libs/gson-2.3.1.jar!/" />
     </CLASSES>
     <JAVADOC>
       <root url="jar://$PROJECT_DIR$/FermiTivoliGoogleAppEngine/libs/gson-2.3.1-javadoc.jar!/" />
+      <root url="jar://$PROJECT_DIR$/FermiTivoliGoogleAppEngine/libs/gson-2.3.1-javadoc.jar!/" />
     </JAVADOC>
     <SOURCES>
+      <root url="jar://$PROJECT_DIR$/FermiTivoliGoogleAppEngine/libs/gson-2.3.1-sources.jar!/" />
       <root url="jar://$PROJECT_DIR$/FermiTivoliGoogleAppEngine/libs/gson-2.3.1-sources.jar!/" />
     </SOURCES>
   </library>
