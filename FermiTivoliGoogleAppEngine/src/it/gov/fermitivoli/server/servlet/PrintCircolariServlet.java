@@ -26,6 +26,16 @@ public class PrintCircolariServlet extends HttpServlet {
         out.print("<html><body>");
 
         out.print("<h1>CIRCOLARI</h1>");
+
+        {
+            final String form_flagdelete = "<form action='UpdateDebugServlet' method='get' target='_blank'> " +
+                    "<input type='submit' value='Flag Delete False'>" +
+                    "<input type='hidden' name='TYPE' value='CIRCOLARI'>" +
+                    "<input type='hidden' name='OPERATION' value='FLAG_DELETE_FALSE'>" +
+                    "</form>";
+            out.print(form_flagdelete);
+        }
+
         out.print("<table border=1>");
         out.print("<tr><td>Progressivo</td><td>Tipo</td><td>Contenuto</td></tr>");
         final InMemoryCacheLayerCircolareDB cl = DataLayerBuilder.getLoaderCircolari();
@@ -59,7 +69,7 @@ public class PrintCircolariServlet extends HttpServlet {
                     "<input type='submit' value='Flag Delete'>" +
                     "<input type='hidden' name='ID' value='" + c.getKey() + "'>" +
                     "<input type='hidden' name='TYPE' value='CIRCOLARI'>" +
-                    "<input type='hidden' name='OPERATION' value='FLAG_DELETE'>" +
+                    "<input type='hidden' name='OPERATION' value='FLAG_DELETE_TOGGLE'>" +
                     "</form>";
 
             out.println("<tr><td>-</td><td> " +
