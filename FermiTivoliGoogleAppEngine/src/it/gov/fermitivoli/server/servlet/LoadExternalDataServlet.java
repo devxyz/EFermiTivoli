@@ -2,6 +2,7 @@ package it.gov.fermitivoli.server.servlet;
 
 import it.gov.fermitivoli.model.C_CircolareDto;
 import it.gov.fermitivoli.model.C_NewsDto;
+import it.gov.fermitivoli.model.C_Pair;
 import it.gov.fermitivoli.model.rss.RssFeed;
 import it.gov.fermitivoli.model.rss.RssItem;
 import it.gov.fermitivoli.rss.RssReader;
@@ -111,6 +112,21 @@ public class LoadExternalDataServlet extends HttpServlet {
                 }
             }
 
+            //aggiorna quelle comuni ma che sono con flag cancellato
+            //==================================================================================
+            int aggiornate=0;
+            final List<C_Pair<GAE_CircolareDB_V2, C_CircolareDto>> circolariDBRimaste = merge.common;
+            for (C_Pair<GAE_CircolareDB_V2, C_CircolareDto> v : circolariDBRimaste) {
+                final GAE_CircolareDB_V2 x = v.a;
+                if (x.isFlagDelete()) {
+                    x.setFlagDelete(false);
+                    t.token++;
+                    x.setToken(t.token);
+                    manager.update(x);
+                    aggiornate++;
+                }
+            }
+
             //aggiunge le nuove
             //==================================================================================
             final List<C_CircolareDto> circolariNuoveDaInserire = merge.onlyT2;
@@ -139,6 +155,7 @@ public class LoadExternalDataServlet extends HttpServlet {
                 final PrintWriter out = resp;
                 out.println("AGGIUNTE " + rimosse + " circolari");
                 out.println("RIMOSSE " + aggiunte + " circolari");
+                out.println("RIPRISTINATE DA FLAG DELETE " + aggiornate + " circolari");
                 out.println("CONFERMATE " + merge.common.size() + " circolari");
             }
 
@@ -173,7 +190,7 @@ public class LoadExternalDataServlet extends HttpServlet {
 
         //se non c'e' il file xml salta
         final int beginIndex = xmlNormalized.indexOf("<rss");
-        if (beginIndex< 0) return;
+        if (beginIndex < 0) return;
         xmlNormalized = xmlNormalized.substring(beginIndex);
 
 
