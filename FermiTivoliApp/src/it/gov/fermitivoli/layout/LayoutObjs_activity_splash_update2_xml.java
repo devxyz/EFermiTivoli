@@ -12,6 +12,7 @@ public class LayoutObjs_activity_splash_update2_xml{
   public final TextView textView10;
   public final ListView listViewCircolariDelGiorno;
   public final ProgressBar progressBar2;
+  public final TextView txtNuoveCircolari;
 
 public LayoutObjs_activity_splash_update2_xml(Fragment f){
   View view=f.getView();
@@ -22,6 +23,7 @@ public LayoutObjs_activity_splash_update2_xml(Fragment f){
   textView10= (TextView)view.findViewById(R.id.textView10);
   listViewCircolariDelGiorno= (ListView)view.findViewById(R.id.listViewCircolariDelGiorno);
   progressBar2= (ProgressBar)view.findViewById(R.id.progressBar2);
+  txtNuoveCircolari= (TextView)view.findViewById(R.id.txtNuoveCircolari);
 }
 public LayoutObjs_activity_splash_update2_xml(Activity view){
     textView5= (TextView)view.findViewById(R.id.textView5);
@@ -31,6 +33,7 @@ public LayoutObjs_activity_splash_update2_xml(Activity view){
   textView10= (TextView)view.findViewById(R.id.textView10);
   listViewCircolariDelGiorno= (ListView)view.findViewById(R.id.listViewCircolariDelGiorno);
   progressBar2= (ProgressBar)view.findViewById(R.id.progressBar2);
+  txtNuoveCircolari= (TextView)view.findViewById(R.id.txtNuoveCircolari);
 
 }
 public LayoutObjs_activity_splash_update2_xml(View view){
@@ -41,6 +44,7 @@ public LayoutObjs_activity_splash_update2_xml(View view){
   textView10= (TextView)view.findViewById(R.id.textView10);
   listViewCircolariDelGiorno= (ListView)view.findViewById(R.id.listViewCircolariDelGiorno);
   progressBar2= (ProgressBar)view.findViewById(R.id.progressBar2);
+  txtNuoveCircolari= (TextView)view.findViewById(R.id.txtNuoveCircolari);
 
 }
 public LayoutObjs_activity_splash_update2_xml(Dialog view){
@@ -51,6 +55,7 @@ public LayoutObjs_activity_splash_update2_xml(Dialog view){
   textView10= (TextView)view.findViewById(R.id.textView10);
   listViewCircolariDelGiorno= (ListView)view.findViewById(R.id.listViewCircolariDelGiorno);
   progressBar2= (ProgressBar)view.findViewById(R.id.progressBar2);
+  txtNuoveCircolari= (TextView)view.findViewById(R.id.txtNuoveCircolari);
 
 }
 }

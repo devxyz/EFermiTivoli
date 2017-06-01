@@ -9,13 +9,11 @@ import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.AdapterView;
+import de.greenrobot.dao.query.QueryBuilder;
 import it.gov.fermitivoli.R;
 import it.gov.fermitivoli.adapter.CircolariListAdapterShort;
 import it.gov.fermitivoli.api.AbstractActivity;
-import it.gov.fermitivoli.dao.CircolareDB;
-import it.gov.fermitivoli.dao.DaoSession;
-import it.gov.fermitivoli.dao.FermiAppDBHelperRun;
-import it.gov.fermitivoli.dao.FermiAppDbHelper;
+import it.gov.fermitivoli.dao.*;
 import it.gov.fermitivoli.db.ManagerCircolare;
 import it.gov.fermitivoli.layout.LayoutObjs_activity_splash_update2_xml;
 import it.gov.fermitivoli.model.AppUserType;
@@ -88,9 +86,13 @@ public class SplashUpdateActivity extends AbstractActivity {
                     Date d = c.getTime();
 
                     circolari = managerCircolare.circolariByDate(d);
+                    ris.addAll(circolari);
+
                     obj.textViewMsgUpdate.setText("Oggi " + C_DateUtil.toDDMMYYY(d) + " in evidenza:");
 
-                    ris.addAll(circolari);
+                    QueryBuilder<CircolareDB> q2 = session.getCircolareDBDao().queryBuilder().where(CircolareDBDao.Properties.FlagContenutoLetto.eq(false));
+                    obj.txtNuoveCircolari.setText("Circolari da leggere: " + q2.list().size());
+
 
                     if (true) {
                         if (DebugUtil.DEBUG__CircolariGiornaliereFragment) {
@@ -146,6 +148,13 @@ public class SplashUpdateActivity extends AbstractActivity {
         obj.listViewCircolariDelGiorno.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                startMainMenuActivity_MenuCircolariOdierne();
+            }
+        });
+
+        obj.txtNuoveCircolari.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
                 startMainMenuActivity_MenuCircolari();
             }
         });
@@ -182,8 +191,13 @@ public class SplashUpdateActivity extends AbstractActivity {
                     if (circolari.size() == 0) {
                         startMainMenuActivity();
                     } else {
-                        CircolariListAdapterShort a = new CircolariListAdapterShort(getActivity(), circolari);
-                        obj.listViewCircolariDelGiorno.setAdapter(a);
+                        final CircolariListAdapterShort a = new CircolariListAdapterShort(getActivity(), circolari);
+                        ThreadUtil.runOnUiThreadAsync(SplashUpdateActivity.this, new Runnable() {
+                            @Override
+                            public void run() {
+                                obj.listViewCircolariDelGiorno.setAdapter(a);
+                            }
+                        });
 
                         for (int i = 0; i <= SECONDS && !closed; i = i + 1) {
                             final int finalI = i;
@@ -207,8 +221,14 @@ public class SplashUpdateActivity extends AbstractActivity {
         }
     }
 
-    private void startMainMenuActivity_MenuCircolari() {
+    private void startMainMenuActivity_MenuCircolariOdierne() {
         MainMenuActivity.startMainActivity(SplashUpdateActivity.this, StringsMenuPrincipale.CIRCOLARI_DI_OGGI_6);
+        closed = true;
+        finish();
+    }
+
+    private void startMainMenuActivity_MenuCircolari() {
+        MainMenuActivity.startMainActivity(SplashUpdateActivity.this, StringsMenuPrincipale.CIRCOLARI_5);
         closed = true;
         finish();
     }
